@@ -1,0 +1,17 @@
+# Tạm/system
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Node
+node_modules/
+package-lock.json
+
+# Build output
+dist/
+build/
+*.docx
+!**/templates/*.docx
+!**/mau/*.docx
+!**/bieu-mau/*.docx
