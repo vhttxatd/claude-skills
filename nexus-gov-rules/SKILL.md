@@ -19,8 +19,8 @@
 | File | Nội dung | Đọc khi nào |
 |---|---|---|
 | `01_QUY_TAC_LIEN_KET_CHITIEU_NHIEMVU_SOLIEU.md` | Nguyên tắc nền tảng: liên kết CT↔NV↔SL, trục số liệu 5 cấp, ma trận kiểm tra, 7 nhóm NV, quy tắc viết | **Luôn đọc trước** khi bắt đầu |
-| `02_WORKFLOW_BOCTACH_VB_v2.md` | Quy trình 7 bước bóc tách VB thành dữ liệu Airtable | Khi **nạp văn bản** vào hệ thống |
-| `03_SCHEMA_REFERENCE.md` | Schema 11 bảng Airtable: field, type, table ID, quy tắc kỹ thuật | Khi cần **tra cứu** bảng, field, ID |
+| `02_WORKFLOW_BOCTACH_VB_v2.1.md` | Quy trình 7 bước: bóc CT+SL đồng thời, ma trận 3 chiều CT↔NV↔SL, rà soát SL phân cấp | Khi **nạp văn bản** vào hệ thống |
+| `03_SCHEMA_REFERENCE.md` | Schema V5: 11 bảng, SL phân cấp (Thành phần/Tổng hợp/Công thức), NV↔CT linked | Khi cần **tra cứu** bảng, field, ID |
 
 ## Nguyên tắc tóm tắt
 

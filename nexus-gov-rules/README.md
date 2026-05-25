@@ -2,7 +2,7 @@
 
 > **Xã An Thới Đông, huyện Cần Giờ, TP.HCM**
 > **Tác giả:** Phan Trung Hiếu — Chuyên viên KHCN-CĐS
-> **Phiên bản:** 1.0 — 24/05/2026
+> **Phiên bản:** 1.1 — 25/05/2026
 
 ---
 
@@ -12,8 +12,9 @@ NEXUS Gov là hệ thống quản lý thông tin số cấp xã, sử dụng Air
 
 ### Mục tiêu
 
-- Quản lý từ **văn bản chỉ đạo** → bóc tách **nhiệm vụ** → theo dõi **tiến độ** → cập nhật **số liệu** → đánh giá **kết quả**
+- Quản lý từ **văn bản chỉ đạo** → bóc tách **chỉ tiêu + nhiệm vụ + số liệu** đồng thời → theo dõi **tiến độ** → cập nhật **kết quả** → đánh giá
 - Bảo đảm logic liên kết: chỉ tiêu ↔ nhiệm vụ ↔ số liệu ↔ minh chứng
+- Số liệu phân cấp: thành phần → tổng hợp → công thức (tự tính)
 - AI không được viết kế hoạch rời rạc, không tự bịa số liệu, đơn vị, kết quả
 
 ---
@@ -23,9 +24,10 @@ NEXUS Gov là hệ thống quản lý thông tin số cấp xã, sử dụng Air
 ```
 nexus-gov-rules/
 ├── README.md                                          ← File này
+├── SKILL.md                                           ← Claude skill descriptor
 ├── 01_QUY_TAC_LIEN_KET_CHITIEU_NHIEMVU_SOLIEU.md     ← Quy tắc nền tảng
-├── 02_WORKFLOW_BOCTACH_VB_v2.md                       ← Quy trình 7 bước bóc tách VB
-└── 03_SCHEMA_REFERENCE.md                             ← Schema Airtable
+├── 02_WORKFLOW_BOCTACH_VB_v2.1.md                     ← Quy trình 7 bước (v2.1)
+└── 03_SCHEMA_REFERENCE.md                             ← Schema Airtable V5
 ```
 
 ### Mô tả từng file
@@ -33,8 +35,8 @@ nexus-gov-rules/
 | File | Nội dung | AI đọc khi nào |
 |---|---|---|
 | `01_QUY_TAC_...` | Nguyên tắc liên kết CT↔NV↔SL, trục số liệu 5 cấp, ma trận kiểm tra, quy tắc viết | **Luôn đọc trước** khi xây dựng, chỉnh sửa, rà soát kế hoạch |
-| `02_WORKFLOW_...` | Quy trình 7 bước bóc tách VB thành dữ liệu Airtable | Khi được yêu cầu **nạp văn bản** vào hệ thống |
-| `03_SCHEMA_...` | Cấu trúc 11 bảng Airtable, field types, quy tắc kỹ thuật | Khi cần **tra cứu** tên bảng, field, table ID |
+| `02_WORKFLOW_...` | Quy trình 7 bước: bóc VB, bóc CT+SL, bóc NV+CT+SL, ma trận 3 chiều, rà soát SL, cập nhật định kỳ | Khi được yêu cầu **nạp văn bản** vào hệ thống |
+| `03_SCHEMA_...` | Schema V5: 11 bảng, SL phân cấp, NV↔CT linked, hướng dẫn migrate | Khi cần **tra cứu** bảng, field, table ID |
 
 ---
 
@@ -42,13 +44,13 @@ nexus-gov-rules/
 
 ### Với ChatGPT (Custom GPT hoặc chat thường)
 
-1. Upload cả 3 file markdown vào cuộc trò chuyện
+1. Upload cả 3 file markdown (01, 02, 03) vào cuộc trò chuyện
 2. Prompt: *"Đọc 3 file quy tắc NEXUS Gov. Tôi sẽ gửi văn bản cần bóc tách."*
 3. Gửi nội dung văn bản → ChatGPT sẽ theo workflow 7 bước
 
 ### Với Claude (Project hoặc chat thường)
 
-1. Tạo Project, upload 3 file vào Project Knowledge
+1. Tạo Project, upload các file vào Project Knowledge
 2. Hoặc đính kèm file khi bắt đầu chat
 3. Claude sẽ tự đọc và áp dụng quy tắc
 
@@ -71,29 +73,28 @@ nexus-gov-rules/
 Người dùng cung cấp văn bản
         │
         ▼
-  Bước 0: Phân tích sơ bộ        ← Đánh giá VB, kiểm tra trùng lặp
-  Bước 1: Nhập văn bản           ← Tạo record VanBan
-  Bước 2: Bóc tách chỉ tiêu     ← Từng CT, 6 câu hỏi kiểm tra
-  Bước 3: Bóc tách nhiệm vụ     ← Từng NV, phân 7 nhóm
-  Bước 4: Kiểm tra liên kết     ← Ma trận CT↔NV
-  Bước 5: Gán số liệu           ← Đúng cấp, đúng nguồn
-  Bước 6: Cập nhật định kỳ      ← Theo kỳ báo cáo
+  Bước 0: Phân tích sơ bộ          ← Đánh giá VB, kiểm tra trùng lặp
+  Bước 1: Nhập văn bản             ← Tạo record VanBan
+  Bước 2: Bóc CT + gán SL          ← Bóc đến đâu, gán SL đến đó
+  Bước 3: Bóc NV + gán CT + gán SL ← NV gắn CT phục vụ + SL theo dõi
+  Bước 4: Ma trận CT↔NV↔SL         ← Kiểm tra 3 chiều
+  Bước 5: Rà soát tổng hợp SL      ← Trùng, phân cấp, phân nhóm
+  Bước 6: Cập nhật định kỳ         ← Nhập SL Thành phần → tự tính SL Công thức
 ```
 
 ---
 
-## Nguyên tắc cốt lõi (tóm tắt)
+## Thay đổi chính so với v1.0
 
-| Nguyên tắc | Mô tả |
-|---|---|
-| Chỉ tiêu = đích đến | Kết quả cần đạt, đo lường được |
-| Nhiệm vụ = cách làm | Đầu việc lớn để đạt chỉ tiêu |
-| Mỗi CT phải có NV | Không có CT mồ côi |
-| Mỗi NV phải gắn CT | Không có NV lạc |
-| Trục SL đúng cấp | QG → TP → Xã → ĐV → Địa bàn |
-| Không tự bịa | SL, VB, đơn vị, kết quả — thiếu thì hỏi |
-| Đề xuất trước | Hiển thị dự kiến → chờ OK → mới ghi |
-| Sửa 1 = rà soát tất cả | Sửa CT → kiểm tra NV, SL, PL tương ứng |
+| Hạng mục | v1.0 | v1.1 |
+|---|---|---|
+| Workflow | 7 bước, gán SL tách riêng (Bước 5) | 7 bước, gán SL ngay khi bóc CT/NV |
+| Ma trận | CT↔NV (2 chiều) | CT↔NV↔SL (3 chiều) |
+| SoLieu | Flat, không phân cấp | Phân cấp: Thành phần / Tổng hợp / Công thức |
+| NhiemVu↔ChiTieu | Không link trực tiếp | ChiTieu_LK (linked) |
+| CongViecCon↔NhiemVu | Text field | Linked field |
+| Bước 5 | Gán SL | Rà soát tổng hợp SL (trùng, phân cấp, phân nhóm) |
+| Cập nhật định kỳ | Nhập thủ công | Nhập SL Thành phần → đề xuất tự tính SL Công thức |
 
 ---
 
@@ -101,7 +102,8 @@ Người dùng cung cấp văn bản
 
 | Ngày | Phiên bản | Thay đổi |
 |---|---|---|
-| 24/05/2026 | 1.0 | Khởi tạo: tách quy tắc nền tảng + workflow v2 (7 bước) + schema ref |
+| 24/05/2026 | 1.0 | Khởi tạo: quy tắc nền tảng + workflow v2 (7 bước) + schema V4 |
+| 25/05/2026 | 1.1 | Schema V5 (SL phân cấp, NV↔CT linked, CVC linked), workflow v2.1 (gán SL inline, ma trận 3 chiều, rà soát SL) |
 
 ---
 
