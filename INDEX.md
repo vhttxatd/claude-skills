@@ -27,10 +27,10 @@ Khi nhận yêu cầu, AI nên:
 - **`workboard/`** — Theo dõi tiến độ tổng hợp.
 
 ### 4. Quản lý kế hoạch và dữ liệu NEXUS Gov
-- **`nexus-gov-rules/`** — Quy tắc bóc tách văn bản hành chính, liên kết chỉ tiêu ↔ nhiệm vụ ↔ số liệu, workflow 7 bước nạp dữ liệu vào Airtable. **Bắt buộc đọc khi:** bóc tách VB, xây dựng/chỉnh sửa/rà soát kế hoạch, nạp chỉ tiêu/nhiệm vụ/số liệu, cập nhật kết quả thực hiện, kiểm tra trùng lặp dữ liệu. Gồm 3 file tham chiếu:
+- **`nexus-gov-rules/`** — Quy tắc bóc tách văn bản hành chính, liên kết chỉ tiêu ↔ nhiệm vụ ↔ số liệu (phân cấp: thành phần / tổng hợp / công thức), workflow 7 bước nạp dữ liệu vào Airtable (bóc CT+SL đồng thời, ma trận kiểm tra 3 chiều CT↔NV↔SL). **Bắt buộc đọc khi:** bóc tách VB, xây dựng/chỉnh sửa/rà soát kế hoạch, nạp chỉ tiêu/nhiệm vụ/số liệu, cập nhật kết quả thực hiện, kiểm tra trùng lặp dữ liệu. Gồm 3 file tham chiếu:
   - `01_QUY_TAC_LIEN_KET_CHITIEU_NHIEMVU_SOLIEU.md` — Nguyên tắc nền tảng (luôn đọc trước)
-  - `02_WORKFLOW_BOCTACH_VB_v2.md` — Quy trình 7 bước bóc tách
-  - `03_SCHEMA_REFERENCE.md` — Schema 11 bảng Airtable (tra cứu field, table ID)
+  - `02_WORKFLOW_BOCTACH_VB_v2.1.md` — Quy trình 7 bước bóc tách (v2.1)
+  - `03_SCHEMA_REFERENCE.md` — Schema V5: 11 bảng Airtable, SL phân cấp, field IDs
 
 ### 5. Meta
 - **`tao-skill/`** — Hướng dẫn tạo/cải tiến skill mới.
