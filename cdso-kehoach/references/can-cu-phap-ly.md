@@ -34,5 +34,5 @@ Tuyệt đối không đưa văn bản cấp huyện vào phần căn cứ.
 
 1. Luôn kiểm tra lại số hiệu văn bản với người dùng trước khi đưa vào kế hoạch chính thức
 2. Ưu tiên các văn bản gần nhất (cùng năm hoặc năm liền kề trước)
-3. Thứ tự trích dẫn: Nghị quyết/Chỉ thị TW → Quyết định Thủ tướng → Văn bản cấp TP → Văn bản cấp Huyện → Văn bản cấp Xã
+3. Thứ tự trích dẫn: Nghị quyết/Chỉ thị TW → Quyết định Thủ tướng → Văn bản cấp TP → Văn bản cấp Xã
 4. Không đưa vào căn cứ những văn bản đã hết hiệu lực hoặc không trực tiếp liên quan
