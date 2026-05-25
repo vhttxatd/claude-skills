@@ -218,7 +218,7 @@ Khi cần các thông tin sau, đọc từ skill tương ứng:
 - `data/can-bo-phan-cong.md` — Cán bộ, chức vụ, người ký
 - `data/van-ban-can-cu.md` — Số hiệu văn bản đã xác nhận
 - `data/chi-tieu-nhiem-vu.md` — Chỉ tiêu, nhiệm vụ trọng tâm
-- `data/to-cong-nghe-so.md` — Tổ CDS 12 ấp
+- `data/to-cong-nghe-so.md` — Tổ CNSCĐ 12 ấp
 - `data/chidan-viettathk.md` — Viết tắt, chỉ dẫn, phân công phòng ban
 
 **`the-thuc-van-ban` — Định dạng và thể thức:**
