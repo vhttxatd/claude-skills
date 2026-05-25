@@ -1,7 +1,7 @@
 # Chức năng, nhiệm vụ các đơn vị — Xã An Thới Đông
 
 > **Nguồn tham chiếu tập trung** — tất cả skill đọc file này khi cần phân công nhiệm vụ.
-> Cập nhật: 27/03/2026
+> Cập nhật: 25/05/2026
 
 > ⚠️ **QUY TẮC CẬP NHẬT BẮT BUỘC:**
 > Khi soạn thảo văn bản hoặc tương tác mà gặp thông tin chức năng/nhiệm vụ của một đơn vị:
@@ -28,13 +28,12 @@
 **Lĩnh vực phụ trách:** Tư pháp; đối ngoại; hành chính nội vụ; quản lý văn bản đi-đến; lưu trữ cơ quan.
 
 **Nhiệm vụ thường trực trong CĐS:**
-- Chủ trì triển khai chữ ký số nội bộ; vận hành nền tảng điều hành (quản lý văn bản điện tử)
-- Chủ trì thực hiện 100% văn bản, hồ sơ công việc toàn trình trên môi trường điện tử
-- Chủ trì hệ thống báo cáo điện tử; theo dõi, đôn đốc thực hiện nhiệm vụ UBND xã giao
-- Kết nối, chia sẻ cơ sở dữ liệu dùng chung của Thành phố; bảo đảm liên thông với hệ thống cấp trên
+- Chủ trì triển khai, vận hành hiệu quả hệ thống thông tin báo cáo và các nền tảng số phục vụ chỉ đạo, điều hành của Ủy ban nhân dân xã
+- Chủ trì theo dõi, đôn đốc việc thực hiện nhiệm vụ do Ủy ban nhân dân xã giao trên các nền tảng phục vụ chỉ đạo, điều hành
+- Kết nối, chia sẻ cơ sở dữ liệu dùng chung của Thành phố theo chức năng, nhiệm vụ được giao; bảo đảm liên thông với hệ thống cấp trên
 - Phối hợp Phòng VH-XH tổng hợp, báo cáo kết quả CĐS định kỳ
 
-**Chủ trì khi:** xử lý văn bản nội bộ, chữ ký số, nền tảng điều hành, hệ thống báo cáo.
+**Chủ trì khi:** hệ thống thông tin báo cáo; nền tảng số phục vụ chỉ đạo, điều hành của Ủy ban nhân dân xã; theo dõi, đôn đốc nhiệm vụ do Ủy ban nhân dân xã giao.
 
 ---
 
@@ -48,11 +47,12 @@
 - Chủ trì tham mưu xây dựng kế hoạch, văn bản chỉ đạo triển khai CĐS; phối hợp chuẩn bị nội dung họp Ban Chỉ đạo xã
 - Chủ trì tuyên truyền nội dung, kế hoạch về CĐS; phối hợp TT CUDVC tổ chức sự kiện
 - Chủ trì đào tạo, bồi dưỡng kỹ năng số cho cán bộ, công chức, viên chức
+- Chủ trì triển khai, hướng dẫn, theo dõi việc sử dụng chữ ký số chuyên dùng công vụ, thư điện tử công vụ, hệ thống quản lý văn bản và hồ sơ công việc trong các cơ quan, đơn vị thuộc Ủy ban nhân dân xã
 - Chủ trì triển khai hạ tầng phát thanh cơ sở; theo dõi mua sắm thiết bị CNTT
 - Ủy viên Thường trực Ban Chỉ đạo xã; Tổ phó Tổ giúp việc
 
-**Chủ trì khi:** tham mưu kế hoạch, theo dõi DTI, đào tạo nhân lực số, hạ tầng phát thanh.
-**Phối hợp khi:** tổ chức sự kiện, tuyên truyền trực tiếp đến người dân (→ TT CUDVC chủ trì).
+**Chủ trì khi:** tham mưu kế hoạch, theo dõi DTI, đào tạo nhân lực số, chữ ký số chuyên dùng công vụ, thư điện tử công vụ, hệ thống quản lý văn bản và hồ sơ công việc, hạ tầng phát thanh.
+**Phối hợp khi:** tổ chức sự kiện, tuyên truyền trực tiếp đến người dân (→ TT CUDVC chủ trì); hệ thống thông tin báo cáo, nền tảng phục vụ chỉ đạo điều hành (→ VP HĐND-UBND chủ trì).
 
 ---
 
@@ -240,7 +240,8 @@
 | Tổ chức sự kiện, tuyên truyền trực tiếp | TT CUDVC | Phòng VH-XH; UBMTTQ; Tổ CNSCĐ 12 ấp |
 | Dịch vụ công trực tuyến, số hóa TTHC | TT PVHCC | TT CUDVC; các đơn vị liên quan |
 | Đơn giản hóa thủ tục hành chính | TT PVHCC | Phòng VH-XH; VP HĐND-UBND |
-| Chữ ký số, văn bản điện tử nội bộ | VP HĐND-UBND | Các phòng chuyên môn; TT PVHCC |
+| Chữ ký số, thư điện tử công vụ, quản lý văn bản và hồ sơ công việc | Phòng VH-XH | VP HĐND-UBND; các phòng chuyên môn; TT PVHCC |
+| Hệ thống thông tin báo cáo, nền tảng số phục vụ chỉ đạo điều hành | VP HĐND-UBND | Phòng VH-XH; các đơn vị liên quan |
 | Hạ tầng viễn thông, kinh tế số | Phòng Kinh tế | Các DN viễn thông; TT CUDVC |
 | Thương mại điện tử, thương hiệu số | Phòng Kinh tế | Phòng VH-XH; TT CUDVC |
 | Đề án 06, VNeID, cơ sở dữ liệu dân cư | Công an xã | TT PVHCC; Tổ CNSCĐ 12 ấp |
