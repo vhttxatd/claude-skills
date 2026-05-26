@@ -110,43 +110,72 @@ const tableCell = (text, width, opts = {}) => new TableCell({
 
 ## 3. Cấu trúc cột chuẩn
 
-### 3.1. Phụ lục chỉ tiêu
+### 3.1. Quy tắc cột giải trình trong bản trình lãnh đạo và bản phát hành
 
-Khi lập phụ lục chỉ tiêu, bắt buộc có cột **Căn cứ/lý do đề xuất chỉ tiêu** để giải trình vì sao đưa chỉ tiêu vào kế hoạch.
+Khi lập phụ lục kế hoạch phục vụ **trình lãnh đạo xem xét, góp ý, cho chủ trương**, phải có cột giải trình để chứng minh vì sao đề xuất chỉ tiêu, nhiệm vụ hoặc phân công.
 
-| STT | Chỉ tiêu | Căn cứ/lý do đề xuất chỉ tiêu | Mức phấn đấu | ĐV chủ trì theo dõi | ĐV phối hợp | Nguồn SL/minh chứng | Thời hạn | Ghi chú |
+**Quy tắc bắt buộc về vị trí cột:**
+- Cột **Căn cứ/lý do đề xuất chỉ tiêu** luôn đặt **phía bên phải cùng của bảng**, không đặt ở giữa bảng.
+- Cột **Căn cứ/lý do đề xuất nhiệm vụ** hoặc các cột giải trình tương tự cũng ưu tiên đặt **phía bên phải cùng của bảng**.
+- Khi kế hoạch đã được thống nhất và chuyển sang bản phát hành chính thức, phải **xóa cột giải trình** này khỏi phụ lục, trừ khi người dùng yêu cầu giữ lại.
+
+Mục đích: bản trình lãnh đạo có đủ cơ sở giải trình; bản phát hành chính thức gọn, đúng tính chất văn bản ban hành.
+
+### 3.2. Phụ lục chỉ tiêu
+
+#### Bản trình lãnh đạo - có cột giải trình bên phải
+
+Khi lập phụ lục chỉ tiêu để trình lãnh đạo, bắt buộc có cột **Căn cứ/lý do đề xuất chỉ tiêu** và cột này đặt bên phải cùng.
+
+| STT | Chỉ tiêu | Mức phấn đấu | Đơn vị chủ trì theo dõi | Đơn vị phối hợp | Nguồn số liệu/minh chứng | Thời hạn | Ghi chú | Căn cứ/lý do đề xuất chỉ tiêu |
 |---|---|---|---|---|---|---|---|---|
 
 Có thể tách `Mức phấn đấu` thành nhiều cột theo mốc thời gian, ví dụ:
 
-| STT | Chỉ tiêu | Căn cứ/lý do đề xuất chỉ tiêu | Đến hết năm 2026 | Đến năm 2030 | Tầm nhìn đến năm 2045 | Đơn vị chủ trì | Đơn vị phối hợp, cung cấp số liệu |
+| STT | Chỉ tiêu | Đến hết năm 2026 | Đến năm 2030 | Tầm nhìn đến năm 2045 | Đơn vị chủ trì | Đơn vị phối hợp, cung cấp số liệu | Căn cứ/lý do đề xuất chỉ tiêu |
 |---|---|---|---|---|---|---|---|
 
-### 3.2. Phụ lục nhiệm vụ
+#### Bản phát hành chính thức - xóa cột giải trình
 
-Khi lập phụ lục nhiệm vụ, bắt buộc có cột **Căn cứ/lý do đề xuất nhiệm vụ**.
+Khi kế hoạch đã thống nhất và phát hành, bỏ cột **Căn cứ/lý do đề xuất chỉ tiêu**, trừ khi người dùng yêu cầu giữ lại.
 
-| STT | Nhóm nhiệm vụ | Nội dung nhiệm vụ | Căn cứ/lý do đề xuất nhiệm vụ | Đơn vị chủ trì | Đơn vị phối hợp | Lực lượng hỗ trợ | Thời gian thực hiện | Kết quả/sản phẩm | Chỉ tiêu liên quan | Ghi chú |
+| STT | Chỉ tiêu | Đến hết năm 2026 | Đến năm 2030 | Tầm nhìn đến năm 2045 | Đơn vị chủ trì | Đơn vị phối hợp, cung cấp số liệu |
+|---|---|---|---|---|---|---|
+
+### 3.3. Phụ lục nhiệm vụ
+
+#### Bản trình lãnh đạo - có cột giải trình bên phải
+
+Khi lập phụ lục nhiệm vụ để trình lãnh đạo, bắt buộc có cột **Căn cứ/lý do đề xuất nhiệm vụ** và cột này đặt bên phải cùng.
+
+| STT | Nhóm nhiệm vụ | Nội dung nhiệm vụ | Đơn vị chủ trì | Đơn vị phối hợp | Lực lượng hỗ trợ | Thời gian thực hiện | Kết quả/sản phẩm | Chỉ tiêu liên quan | Ghi chú | Căn cứ/lý do đề xuất nhiệm vụ |
 |---|---|---|---|---|---|---|---|---|---|---|
 
-### 3.3. Phụ lục phân công, tiến độ
+#### Bản phát hành chính thức - xóa cột giải trình
 
-Tùy ngữ cảnh, dùng một trong các cột sau:
+| STT | Nhóm nhiệm vụ | Nội dung nhiệm vụ | Đơn vị chủ trì | Đơn vị phối hợp | Lực lượng hỗ trợ | Thời gian thực hiện | Kết quả/sản phẩm | Chỉ tiêu liên quan | Ghi chú |
+|---|---|---|---|---|---|---|---|---|---|
 
-| Loại bảng | Cột giải trình cần có |
-|---|---|
-| Bảng chỉ tiêu | Căn cứ/lý do đề xuất chỉ tiêu |
-| Bảng nhiệm vụ | Căn cứ/lý do đề xuất nhiệm vụ |
-| Bảng phân công | Căn cứ/lý do phân công |
-| Bảng tiến độ | Căn cứ/lý do thực hiện |
+### 3.4. Phụ lục phân công, tiến độ
+
+Tùy ngữ cảnh, dùng một trong các cột sau và đặt phía bên phải cùng khi là bản trình lãnh đạo:
+
+| Loại bảng | Cột giải trình cần có trong bản trình lãnh đạo | Khi phát hành chính thức |
+|---|---|---|
+| Bảng chỉ tiêu | Căn cứ/lý do đề xuất chỉ tiêu | Xóa cột này, trừ khi có yêu cầu giữ lại |
+| Bảng nhiệm vụ | Căn cứ/lý do đề xuất nhiệm vụ | Xóa cột này, trừ khi có yêu cầu giữ lại |
+| Bảng phân công | Căn cứ/lý do phân công | Xóa cột này, trừ khi có yêu cầu giữ lại |
+| Bảng tiến độ | Căn cứ/lý do thực hiện | Xóa cột này, trừ khi có yêu cầu giữ lại |
 
 ---
 
 ## 4. Viết tắt tên cơ quan trong bảng
 
-**ĐƯỢC** viết tắt tên cơ quan; **KHÔNG ĐƯỢC** viết tắt các từ thông thường như cán bộ, công chức, thủ tục hành chính, cơ sở dữ liệu.
+**ĐƯỢC** viết tắt tên cơ quan trong bản nháp hoặc khi người dùng cho phép; **KHÔNG ĐƯỢC** viết tắt các từ thông thường như cán bộ, công chức, thủ tục hành chính, cơ sở dữ liệu.
 
-| Tên đầy đủ | Viết tắt dùng trong bảng |
+> Khi xuất file Word/văn bản chính thức, phải tuân thủ quy tắc bắt buộc về viết tắt tại `quy-tac-chung/data/quy-tac-viet-tat-bat-buoc.md`.
+
+| Tên đầy đủ | Viết tắt dùng trong bảng khi được phép |
 |---|---|
 | Văn phòng Hội đồng nhân dân và Ủy ban nhân dân xã | VP HĐND-UBND |
 | Phòng Văn hóa - Xã hội | Phòng VH-XH |
@@ -157,7 +186,7 @@ Tùy ngữ cảnh, dùng một trong các cột sau:
 | Trạm Y tế xã | Trạm Y tế |
 | Ủy ban Mặt trận Tổ quốc Việt Nam xã | UBMTTQ |
 | Tổ Công nghệ số cộng đồng 12 ấp | Tổ CNSCĐ 12 ấp |
-| Các đơn vị liên quan | **các đơn vị liên quan** (không viết tắt LQ) |
+| Các đơn vị liên quan | các đơn vị liên quan |
 | Các doanh nghiệp viễn thông | Các DN viễn thông |
 | Các trường học trên địa bàn | Các trường học |
 | Xã đoàn (Đoàn TNCS HCM xã) | Xã đoàn |
@@ -175,25 +204,25 @@ Tùy ngữ cảnh, dùng một trong các cột sau:
 
 | Nhóm nhiệm vụ | Chủ trì | Phối hợp chính |
 |---|---|---|
-| Tham mưu kế hoạch, văn bản chuyển đổi số | Phòng VH-XH | VP HĐND-UBND; TT PVHCC |
-| Theo dõi DTI, chấm điểm chuyển đổi số | Phòng VH-XH | VP HĐND-UBND; các đơn vị liên quan |
-| Tổ chức sự kiện, tuyên truyền trực tiếp | TT CUDVC | Phòng VH-XH; UBMTTQ; Tổ CNSCĐ 12 ấp |
-| Dịch vụ công trực tuyến, số hóa TTHC | TT PVHCC | TT CUDVC; các đơn vị liên quan |
-| Đơn giản hóa thủ tục hành chính | TT PVHCC | Phòng VH-XH; VP HĐND-UBND |
-| Chữ ký số, thư điện tử công vụ, quản lý văn bản và hồ sơ công việc | Phòng VH-XH | VP HĐND-UBND; các phòng chuyên môn; TT PVHCC |
-| Hệ thống thông tin báo cáo, nền tảng số phục vụ chỉ đạo điều hành | VP HĐND-UBND | Phòng VH-XH; các đơn vị liên quan |
-| Hạ tầng viễn thông, kinh tế số | Phòng Kinh tế | Các DN viễn thông; TT CUDVC |
-| Thương mại điện tử, thương hiệu số | Phòng Kinh tế | Phòng VH-XH; TT CUDVC |
-| Đề án 06, VNeID, cơ sở dữ liệu dân cư | Công an xã | TT PVHCC; Tổ CNSCĐ 12 ấp |
-| An toàn thông tin, an ninh mạng | Công an xã | VP HĐND-UBND; Phòng VH-XH |
-| Nhân lực số, bồi dưỡng cán bộ | Phòng VH-XH | VP HĐND-UBND; các đơn vị liên quan |
-| Phổ cập công nghệ số cho người dân | TT CUDVC | Phòng VH-XH; UBMTTQ; Tổ CNSCĐ 12 ấp |
-| Y tế số, hồ sơ sức khỏe điện tử | Trạm Y tế | Phòng VH-XH; Công an xã |
-| Giáo dục số, STEM/STEAM | Các trường học | Phòng VH-XH |
-| Nông nghiệp số, truy xuất nguồn gốc | Phòng Kinh tế | Phòng VH-XH; TT CUDVC |
-| An toàn thực phẩm số | Phòng Kinh tế | Phòng VH-XH; Công an xã |
-| Dữ liệu số, làm sạch dữ liệu | Công an xã | Phòng VH-XH; các đơn vị liên quan |
-| Mô hình thí điểm chuyển đổi số | UBND xã | Phòng VH-XH; Phòng Kinh tế |
+| Tham mưu kế hoạch, văn bản chuyển đổi số | Phòng Văn hóa - Xã hội | Văn phòng Hội đồng nhân dân và Ủy ban nhân dân xã; Trung tâm Phục vụ hành chính công |
+| Theo dõi chỉ số chuyển đổi số, chấm điểm chuyển đổi số | Phòng Văn hóa - Xã hội | Văn phòng Hội đồng nhân dân và Ủy ban nhân dân xã; các đơn vị liên quan |
+| Tổ chức sự kiện, tuyên truyền trực tiếp | Trung tâm Cung ứng dịch vụ công | Phòng Văn hóa - Xã hội; Ủy ban Mặt trận Tổ quốc Việt Nam xã; Tổ Công nghệ số cộng đồng 12 ấp |
+| Dịch vụ công trực tuyến, số hóa thủ tục hành chính | Trung tâm Phục vụ hành chính công | Trung tâm Cung ứng dịch vụ công; các đơn vị liên quan |
+| Đơn giản hóa thủ tục hành chính | Trung tâm Phục vụ hành chính công | Phòng Văn hóa - Xã hội; Văn phòng Hội đồng nhân dân và Ủy ban nhân dân xã |
+| Chữ ký số, thư điện tử công vụ, quản lý văn bản và hồ sơ công việc | Phòng Văn hóa - Xã hội | Văn phòng Hội đồng nhân dân và Ủy ban nhân dân xã; các phòng chuyên môn; Trung tâm Phục vụ hành chính công |
+| Hệ thống thông tin báo cáo, nền tảng số phục vụ chỉ đạo điều hành | Văn phòng Hội đồng nhân dân và Ủy ban nhân dân xã | Phòng Văn hóa - Xã hội; các đơn vị liên quan |
+| Hạ tầng viễn thông, kinh tế số | Phòng Kinh tế | Các doanh nghiệp viễn thông; Trung tâm Cung ứng dịch vụ công |
+| Thương mại điện tử, thương hiệu số | Phòng Kinh tế | Phòng Văn hóa - Xã hội; Trung tâm Cung ứng dịch vụ công |
+| Đề án 06, VNeID, cơ sở dữ liệu dân cư | Công an xã | Trung tâm Phục vụ hành chính công; Tổ Công nghệ số cộng đồng 12 ấp |
+| An toàn thông tin, an ninh mạng | Công an xã | Văn phòng Hội đồng nhân dân và Ủy ban nhân dân xã; Phòng Văn hóa - Xã hội |
+| Nhân lực số, bồi dưỡng cán bộ | Phòng Văn hóa - Xã hội | Văn phòng Hội đồng nhân dân và Ủy ban nhân dân xã; các đơn vị liên quan |
+| Phổ cập công nghệ số cho người dân | Trung tâm Cung ứng dịch vụ công | Phòng Văn hóa - Xã hội; Ủy ban Mặt trận Tổ quốc Việt Nam xã; Tổ Công nghệ số cộng đồng 12 ấp |
+| Y tế số, hồ sơ sức khỏe điện tử | Trạm Y tế xã | Phòng Văn hóa - Xã hội; Công an xã |
+| Giáo dục số, STEM/STEAM | Các trường học | Phòng Văn hóa - Xã hội |
+| Nông nghiệp số, truy xuất nguồn gốc | Phòng Kinh tế | Phòng Văn hóa - Xã hội; Trung tâm Cung ứng dịch vụ công |
+| An toàn thực phẩm số | Phòng Kinh tế | Phòng Văn hóa - Xã hội; Công an xã |
+| Dữ liệu số, làm sạch dữ liệu | Công an xã | Phòng Văn hóa - Xã hội; các đơn vị liên quan |
+| Mô hình thí điểm chuyển đổi số | Ủy ban nhân dân xã | Phòng Văn hóa - Xã hội; Phòng Kinh tế |
 
 ---
 
