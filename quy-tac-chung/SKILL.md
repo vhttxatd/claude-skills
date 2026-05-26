@@ -31,6 +31,11 @@ description: >
 
 **Dấu gạch ngang — CHỈ dùng dấu ngắn có cách ` - `**, KHÔNG dùng em dash (—) hay en dash (–).
 
+**Quy tắc viết tắt — BẮT BUỘC trong mọi trường hợp:**
+- Khi trao đổi trên màn hình chat: được sử dụng từ viết tắt để ngắn gọn, tiết kiệm token, nếu không làm sai nghĩa.
+- Khi xuất ra file Word hoặc văn bản chính thức: trước khi xuất phải hỏi người dùng xác nhận có cho phép dùng viết tắt hay không.
+- Nếu người dùng không trả lời hoặc không xác nhận rõ ràng việc được dùng viết tắt thì mặc định **KHÔNG ĐƯỢC viết tắt** trong file Word/văn bản chính thức; phải viết đầy đủ tên cơ quan, thuật ngữ, cụm từ.
+
 **Quy tắc xuất file:** Chỉ xuất đúng nội dung vừa sửa. Không tự xuất nhiều file. Hỏi trước khi xuất file lớn.
 
 ---
