@@ -90,21 +90,22 @@ const TEN_LOAI = {
 };
 
 // ==================== ĐỊNH DẠNG THEO LOẠI VĂN BẢN ====================
-// Tham chiếu bảng B (phân biệt theo loại) trong skill the-thuc-van-ban.
+// Nội dung văn bản hành chính: Times New Roman 14pt, line spacing Single,
+// spacing before=6pt, after=6pt. Riêng tiêu đề, chữ ký, bảng có quy tắc riêng.
 const DINH_DANG = {
   // Mặc định (KH/TTr/QĐ/TB/GM/CV)
   MAC_DINH: {
-    lineSpacing: 276,
+    lineSpacing: 240,
     marginTop: 1134,
     marginBottom: 1134,
     marginRight: 1080,
     marginLeft: 1800,
-    paraBefore: 0,
-    paraAfter: 100,
+    paraBefore: 120,
+    paraAfter: 120,
     pageNumberPosition: "header",  // header | footer
     noiNhanSize: 24,                // 12pt = 24 half-points
   },
-  // Báo cáo khác biệt
+  // Báo cáo khác biệt chủ yếu ở lề, số trang, nơi nhận; spacing nội dung vẫn Single 6pt/6pt
   BC: {
     lineSpacing: 240,
     marginTop: 1000,
