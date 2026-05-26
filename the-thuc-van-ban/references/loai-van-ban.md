@@ -16,6 +16,13 @@
 
 ## KẾ HOẠCH (KH)
 
+**Định dạng phần nội dung kế hoạch:**
+- Font Times New Roman, cỡ 14pt.
+- Line spacing: **Single** (`line: 240`).
+- Spacing Before = **6pt** (`before: 120`).
+- Spacing After = **6pt** (`after: 120`).
+- Heading trong phần nội dung: thụt đầu dòng, căn đều, dùng đúng Heading Level.
+
 **Cấu trúc chuẩn:**
 ```
 [Tiêu đề + Trích yếu]
@@ -168,12 +175,12 @@ QUYẾT ĐỊNH:
 
 | Thuộc tính | Kế hoạch (KH) | Báo cáo (BC) |
 |---|---|---|
-| Line spacing | 276 (~1.15) | **240 (dòng đơn)** |
+| Line spacing phần nội dung | **240 (Single)** | **240 (Single)** |
 | Lề phải | 1080 DXA | **900 DXA** |
 | Lề trên/dưới | 1134 DXA | **1000 DXA** |
-| Spacing before/after | 0/100 | **120/120** |
+| Spacing before/after phần nội dung | **120/120 (6pt/6pt)** | **120/120 (6pt/6pt)** |
 | Số trang | Header | **Footer** |
-| Heading spacing | Bất đối xứng (160/80...) | **Đều 120/120** |
+| Heading spacing | **120/120 đều** | **120/120 đều** |
 | Nơi nhận — dòng đơn vị | 12pt | **11pt (22hp)** |
 | Heading 3 | Bold + Italic | **Bold (không italic)** |
 | Heading 4 | — | **Bold + Italic** |
@@ -420,12 +427,12 @@ const noiDungTable = new Table({
           bp('(Đính kèm dự thảo...)', { italic: true, noIndent: true, indent: { left: 360 }, after: 60 }),
           bp('Kính trình Thường trực Ủy ban nhân dân xã xem xét, ban hành.', { after: 160 }),
           // Chữ ký chuyên viên
-          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:0, after:0, line:276 },
+          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:0, after:0, line:240 },
             children: [r('An Thới Đông, ngày ... tháng ... năm 2026', { italic: true })] }),
-          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:60, after:0, line:276 },
+          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:60, after:0, line:240 },
             children: [r('CHUYÊN VIÊN', { bold: true })] }),
           ...emp(3),
-          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:0, after:0, line:276 },
+          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:0, after:0, line:240 },
             children: [r('Phan Trung Hiếu', { bold: true })] }),
         ]
       })
@@ -438,7 +445,7 @@ const noiDungTable = new Table({
         children: [
           bp([r('Ý kiến của Trưởng Phòng', { bold: true })], { noIndent: true, after: 60 }),
           bp('Thống nhất', { noIndent: true, after: 120 }),
-          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:0, after:0, line:276 },
+          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:0, after:0, line:240 },
             children: [r('Nguyễn Văn Chính', { bold: true })] }),
         ]
       })
