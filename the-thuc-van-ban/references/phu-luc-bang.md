@@ -1,100 +1,150 @@
 # Phụ lục và bảng phân công
 
-## Tiêu đề phụ lục
+## 1. Tiêu đề phụ lục
 
+### 1.1. Quy tắc chung
+
+Tiêu đề phụ lục phải trình bày **trên một đoạn văn**, dùng dấu chấm để nối mã phụ lục với tên phụ lục, không tách `PHỤ LỤC I` và tên phụ lục thành 2 dòng riêng.
+
+```text
+PHỤ LỤC I. HỆ THỐNG CHỈ TIÊU TRIỂN KHAI THỰC HIỆN NGHỊ QUYẾT SỐ 57-NQ/TW TRÊN ĐỊA BÀN XÃ AN THỚI ĐÔNG GIAI ĐOẠN 2026 - 2030, TẦM NHÌN ĐẾN NĂM 2045
+(Kèm theo Kế hoạch số        /KH-UBND ngày      tháng      năm 2026 của Ủy ban nhân dân xã An Thới Đông)
 ```
-"PHỤ LỤC"                           ← đậm, 14pt, căn giữa
-"BẢNG PHÂN CÔNG CHI TIẾT..."        ← đậm, 13pt (26), căn giữa
-"(Ban hành kèm theo Kế hoạch số..." ← nghiêng, 12pt (24), căn giữa
-"của Ủy ban nhân dân xã An Thới Đông)" ← nghiêng, 12pt (24), căn giữa
+
+### 1.2. Định dạng tiêu đề phụ lục
+
+| Thành phần | Định dạng |
+|---|---|
+| Dòng tiêu đề phụ lục | Times New Roman, 14pt, đậm, căn giữa, line spacing single |
+| Cách nối | `PHỤ LỤC I. HỆ THỐNG...` dùng dấu chấm sau số phụ lục, không xuống dòng sau `PHỤ LỤC I` |
+| Dòng kèm theo | Times New Roman, 13pt, nghiêng, căn giữa, đặt trong cặp ngoặc đơn `(...)` |
+| Khoảng cách | Tiêu đề phụ lục after=0; dòng kèm theo after khoảng 120 DXA trước bảng |
+
+### 1.3. Code mẫu docx-js
+
+```javascript
+new Paragraph({
+  alignment: AlignmentType.CENTER,
+  spacing: { before: 0, after: 0, line: 240 },
+  children: [new TextRun({
+    text: 'PHỤ LỤC I. HỆ THỐNG CHỈ TIÊU...',
+    bold: true,
+    size: 28,
+    font: 'Times New Roman'
+  })]
+})
+
+new Paragraph({
+  alignment: AlignmentType.CENTER,
+  spacing: { before: 0, after: 120, line: 240 },
+  children: [new TextRun({
+    text: '(Kèm theo Kế hoạch số        /KH-UBND ngày      tháng      năm 2026 của Ủy ban nhân dân xã An Thới Đông)',
+    italics: true,
+    size: 26,
+    font: 'Times New Roman'
+  })]
+})
 ```
 
 ---
 
-## Bảng phân công — quy tắc định dạng
+## 2. Bảng phụ lục — quy tắc định dạng
 
-### Màu sắc và cỡ chữ
+### 2.1. Màu sắc và cỡ chữ
 
 | Hàng | Nền | Chữ | Cỡ | Ghi chú |
-|---|---|---|---|---|
-| Header (tiêu đề cột) | #1F4E79 (xanh đậm) | Trắng, đậm | 13pt (26) | Căn giữa |
-| Group row (nhóm nhiệm vụ) | #D9D9D9 (xám nhạt) | Đen, đậm | 13pt (26) | Căn trái |
+|---|---|---|---:|---|
+| Header (tiêu đề cột) | Không bắt buộc màu; nếu dùng màu thì ưu tiên #1F4E79 | Đậm, căn giữa | 13pt (26) | Căn giữa, line single |
+| Group row (nhóm nhiệm vụ) | #D9D9D9 nếu cần phân nhóm | Đen, đậm | 13pt (26) | Căn trái hoặc căn đều |
 | Dữ liệu — cột STT | Trắng | Đen thường | 13pt (26) | Căn giữa |
-| Dữ liệu — cột nội dung | Trắng | Đen thường | 13pt (26) | **Căn đều 2 bên (JUSTIFIED)** |
+| Dữ liệu — cột nội dung | Trắng | Đen thường | 13pt (26) | Căn đều 2 bên (JUSTIFIED) |
 
-### Spacing nội dung ô bảng
+### 2.2. Spacing nội dung ô bảng
 
 ```javascript
-// Tất cả ô dữ liệu: Before=0pt, After=0pt, Line=Single, KHÔNG indent
+// Tất cả ô bảng phụ lục: Before=0pt, After=0pt, Line=Single, KHÔNG indent
 spacing: { before: 0, after: 0, line: 240 }
-// Không dùng indent (Special: none)
 
-// Cột nội dung: căn đều 2 bên
+// Không dùng indent (Special: none)
+// Cột nội dung: căn đều hai bên
 alignment: AlignmentType.JUSTIFIED
 
 // Cột STT: căn giữa
 alignment: AlignmentType.CENTER
 ```
 
-> **Nguồn:** Paragraph settings — Before/After: 0pt, Line: Single, Special: (none).
+> **Quy tắc bắt buộc:** Bảng trong phụ lục dùng cỡ chữ 13pt, line spacing single. Không để line 1.15 trong ô bảng.
 
-### Border và margin
+### 2.3. Border và margin
 
 ```javascript
-const solidBorder = { style: BorderStyle.SINGLE, size: 4, color: "000000" };
-margins: { top: 60, bottom: 60, left: 100, right: 100 }
+const solidBorder = { style: BorderStyle.SINGLE, size: 4, color: '000000' };
+margins: { top: 50, bottom: 50, left: 60, right: 60 }
 ```
 
-### Code mẫu đầy đủ
+### 2.4. Code mẫu ô bảng
 
 ```javascript
-const thCell = text => new TableCell({
-  shading: { fill: '1F4E79', type: 'clear' },
-  borders: solidBorders, verticalAlign: VerticalAlign.CENTER,
-  margins: { top: 60, bottom: 60, left: 100, right: 100 },
-  children: [new Paragraph({
-    alignment: AlignmentType.CENTER,
-    spacing: { before: 120, after: 120, line: 240 },
-    children: [new TextRun({ text, bold: true, size: 26, font: 'Times New Roman', color: 'FFFFFF' })]
+const tablePara = (text, opts = {}) => new Paragraph({
+  alignment: opts.align || AlignmentType.JUSTIFIED,
+  spacing: { before: 0, after: 0, line: 240 },
+  children: [new TextRun({
+    text,
+    bold: opts.bold,
+    italics: opts.italics,
+    size: 26,
+    font: 'Times New Roman'
   })]
-});
+})
 
-const grpRow = text => new TableRow({ children: [new TableCell({
-  columnSpan: 7, borders: solidBorders,
-  shading: { fill: 'D9D9D9', type: 'clear' },
-  margins: { top: 60, bottom: 60, left: 100, right: 100 },
-  children: [new Paragraph({
-    alignment: AlignmentType.LEFT,
-    spacing: { before: 120, after: 120, line: 240 },
-    children: [new TextRun({ text, bold: true, size: 26, font: 'Times New Roman' })]
-  })]
-})] });
-
-const dRow = cols => new TableRow({ children: cols.map((c, i) => new TableCell({
-  borders: solidBorders, verticalAlign: VerticalAlign.CENTER,
-  margins: { top: 60, bottom: 60, left: 100, right: 100 },
-  width: { size: colW[i], type: WidthType.DXA },
-  children: [new Paragraph({
-    alignment: i === 0 ? AlignmentType.CENTER : AlignmentType.JUSTIFIED,
-    spacing: { before: 0, after: 0, line: 240 },
-    children: [new TextRun({ text: c, size: 26, font: 'Times New Roman' })]
-  })]
-})) });
-```
-
-### Cấu trúc cột chuẩn (Kế hoạch UBND xã)
-
-**Gợi ý columnWidths (DXA, tổng ~9026):**
-```javascript
-const colW = [360, 2400, 1200, 1700, 1500, 900, 966];
-// STT | Tên nhiệm vụ | Cơ quan chủ trì | Cơ quan phối hợp | Kết quả/Sản phẩm | Thời gian | Ghi chú
+const tableCell = (text, width, opts = {}) => new TableCell({
+  width: { size: width, type: WidthType.PERCENTAGE },
+  verticalAlign: VerticalAlign.CENTER,
+  borders: solidBorders,
+  margins: { top: 50, bottom: 50, left: 60, right: 60 },
+  children: [tablePara(text, opts)]
+})
 ```
 
 ---
 
-## Viết tắt tên cơ quan trong bảng
+## 3. Cấu trúc cột chuẩn
 
-**ĐƯỢC** viết tắt tên cơ quan; **KHÔNG ĐƯỢC** viết tắt các từ thông thường (cán bộ, công chức, thủ tục hành chính, cơ sở dữ liệu...).
+### 3.1. Phụ lục chỉ tiêu
+
+Khi lập phụ lục chỉ tiêu, bắt buộc có cột **Căn cứ/lý do đề xuất chỉ tiêu** để giải trình vì sao đưa chỉ tiêu vào kế hoạch.
+
+| STT | Chỉ tiêu | Căn cứ/lý do đề xuất chỉ tiêu | Mức phấn đấu | ĐV chủ trì theo dõi | ĐV phối hợp | Nguồn SL/minh chứng | Thời hạn | Ghi chú |
+|---|---|---|---|---|---|---|---|---|
+
+Có thể tách `Mức phấn đấu` thành nhiều cột theo mốc thời gian, ví dụ:
+
+| STT | Chỉ tiêu | Căn cứ/lý do đề xuất chỉ tiêu | Đến hết năm 2026 | Đến năm 2030 | Tầm nhìn đến năm 2045 | Đơn vị chủ trì | Đơn vị phối hợp, cung cấp số liệu |
+|---|---|---|---|---|---|---|---|
+
+### 3.2. Phụ lục nhiệm vụ
+
+Khi lập phụ lục nhiệm vụ, bắt buộc có cột **Căn cứ/lý do đề xuất nhiệm vụ**.
+
+| STT | Nhóm nhiệm vụ | Nội dung nhiệm vụ | Căn cứ/lý do đề xuất nhiệm vụ | Đơn vị chủ trì | Đơn vị phối hợp | Lực lượng hỗ trợ | Thời gian thực hiện | Kết quả/sản phẩm | Chỉ tiêu liên quan | Ghi chú |
+|---|---|---|---|---|---|---|---|---|---|---|
+
+### 3.3. Phụ lục phân công, tiến độ
+
+Tùy ngữ cảnh, dùng một trong các cột sau:
+
+| Loại bảng | Cột giải trình cần có |
+|---|---|
+| Bảng chỉ tiêu | Căn cứ/lý do đề xuất chỉ tiêu |
+| Bảng nhiệm vụ | Căn cứ/lý do đề xuất nhiệm vụ |
+| Bảng phân công | Căn cứ/lý do phân công |
+| Bảng tiến độ | Căn cứ/lý do thực hiện |
+
+---
+
+## 4. Viết tắt tên cơ quan trong bảng
+
+**ĐƯỢC** viết tắt tên cơ quan; **KHÔNG ĐƯỢC** viết tắt các từ thông thường như cán bộ, công chức, thủ tục hành chính, cơ sở dữ liệu.
 
 | Tên đầy đủ | Viết tắt dùng trong bảng |
 |---|---|
@@ -107,126 +157,52 @@ const colW = [360, 2400, 1200, 1700, 1500, 900, 966];
 | Trạm Y tế xã | Trạm Y tế |
 | Ủy ban Mặt trận Tổ quốc Việt Nam xã | UBMTTQ |
 | Tổ Công nghệ số cộng đồng 12 ấp | Tổ CNSCĐ 12 ấp |
-| Các đơn vị liên quan | **các đơn vị liên quan** (KHÔNG viết tắt LQ) |
-| Các trường học trên địa bàn | Các trường học |
-| Xã đoàn (Đoàn TNCS HCM xã) | Xã đoàn |
-
----
-
-## Quy tắc phân công cơ quan — Kế hoạch UBND xã
-
-> Xem chi tiết tại `quy-tac-chung/data/don-vi-chuc-nang.md`
-
-**KHÔNG** đưa "UBND xã" vào cột phối hợp.
-**Ngoại lệ:** "UBND xã" chủ trì khi nhiệm vụ mang tính chỉ đạo liên ngành.
-
-| Nhóm nhiệm vụ | Chủ trì | Phối hợp chính |
-|---|---|---|
-| Tuyên truyền, sự kiện đến người dân | TT CUDVC | Phòng VH-XH |
-| Xây dựng kế hoạch, tham mưu, chỉ số CĐS | Phòng VH-XH | TT CUDVC |
-| Dịch vụ công trực tuyến, số hóa hồ sơ, đơn giản hóa TTHC | TT PVHCC | TT CUDVC; các phòng |
-| Hạ tầng viễn thông, kinh tế số, nông nghiệp số | Phòng Kinh tế | các đơn vị liên quan |
-| Chữ ký số, nền tảng điều hành | VP HĐND-UBND | Các phòng; TT PVHCC |
-| Đề án 06, VNeID, cơ sở dữ liệu dân cư | Công an xã | TT PVHCC; Tổ CNSCĐ 12 ấp |
-| An toàn thông tin, an ninh mạng | Công an xã | Phòng VH-XH; VP HĐND-UBND |
-| STEM/STEAM, Maker Space | Các trường học | Phòng VH-XH |
-| Phổ cập công nghệ số cho người dân | TT CUDVC | Phòng VH-XH; UBMTTQ; Tổ CNSCĐ 12 ấp |
-| Y tế số, hồ sơ sức khỏe điện tử | Trạm Y tế | Phòng VH-XH |
-
-
----
-
-## Bảng phân công — quy tắc định dạng
-
-### Màu sắc và cỡ chữ
-
-| Hàng | Nền | Chữ | Cỡ | Ghi chú |
-|---|---|---|---|---|
-| Header (tiêu đề cột) | #1F4E79 (xanh đậm) | Trắng, đậm | 13pt (26) | Căn giữa |
-| Group row (nhóm nhiệm vụ) | #D9D9D9 (xám nhạt) | Đen, đậm | 13pt (26) | Căn trái |
-| Dữ liệu | Trắng | Đen thường | 13pt (26) | Căn trái |
-| Cột STT | Trắng | Đen thường | 13pt (26) | Căn giữa |
-
-### Border và margin
-
-```javascript
-// Border đơn màu đen
-const solidBorder = { style: BorderStyle.SINGLE, size: 4, color: "000000" };
-
-// Cell margins
-margins: { top: 60, bottom: 60, left: 100, right: 100 }
-```
-
-### Cấu trúc cột chuẩn (Kế hoạch UBND xã)
-
-| STT | Tên nhiệm vụ | Cơ quan chủ trì | Cơ quan phối hợp | Kết quả/Sản phẩm | Thời gian | Ghi chú |
-|---|---|---|---|---|---|---|
-| Rộng nhỏ | Rộng nhất | Trung bình | Rộng | Trung bình | Hẹp | Hẹp |
-
-**Gợi ý columnWidths (DXA, tổng ~9026):**
-```javascript
-const colW = [360, 2300, 1300, 1800, 1500, 950, 816];
-// Tổng: 9026 DXA
-```
-
----
-
-## Viết tắt tên cơ quan trong bảng
-
-| Tên đầy đủ | Viết tắt dùng trong bảng |
-|---|---|
-| Văn phòng Hội đồng nhân dân và Ủy ban nhân dân xã | VP HĐND-UBND |
-| Phòng Văn hóa - Xã hội | Phòng VH-XH |
-| Phòng Kinh tế | Phòng Kinh tế |
-| Trung tâm Phục vụ hành chính công | TT PVHCC |
-| Trung tâm Cung ứng dịch vụ công | TT CUDVC |
-| Công an xã | Công an xã |
-| Trạm Y tế xã | Trạm Y tế |
-| Ủy ban Mặt trận Tổ quốc Việt Nam xã | UBMTTQ |
-| Tổ Công nghệ số cộng đồng | Tổ CNSCĐ |
-| Tổ Công nghệ số cộng đồng 12 ấp | Tổ CNSCĐ 12 ấp |
-| Các đơn vị liên quan | các đơn vị LQ |
+| Các đơn vị liên quan | **các đơn vị liên quan** (không viết tắt LQ) |
 | Các doanh nghiệp viễn thông | Các DN viễn thông |
 | Các trường học trên địa bàn | Các trường học |
 | Xã đoàn (Đoàn TNCS HCM xã) | Xã đoàn |
 
 ---
 
-## Quy tắc phân công cơ quan — Kế hoạch UBND xã
+## 5. Quy tắc phân công cơ quan — Kế hoạch UBND xã
 
-Đây là kế hoạch do UBND xã ban hành → cơ quan chủ trì và phối hợp phải là **đơn vị trực thuộc UBND xã**.
+> Xem chi tiết tại `quy-tac-chung/data/don-vi-chuc-nang.md`.
 
-**KHÔNG** đưa "UBND xã" vào cột phối hợp.
-**Ngoại lệ:** "UBND xã" là chủ trì khi nhiệm vụ mang tính chỉ đạo liên ngành, không thuộc một đơn vị cụ thể.
+Đây là kế hoạch do UBND xã ban hành → cơ quan chủ trì và phối hợp phải là đơn vị trực thuộc UBND xã hoặc đơn vị được UBND xã giao/phối hợp theo đúng thẩm quyền.
 
-**Thứ tự ưu tiên — Cơ quan chủ trì:**
-1. Phòng chuyên môn (Phòng VH-XH, Phòng Kinh tế, VP HĐND-UBND)
-2. Đơn vị sự nghiệp (TT PVHCC, TT CUDVC, Trạm Y tế)
-3. Công an xã — chủ trì Đề án 06 và ATTT/an ninh mạng
-4. Các trường học — chủ trì STEM/STEAM
-
-**Phân công theo nhóm nhiệm vụ:**
+**Không** đưa "UBND xã" vào cột phối hợp.  
+**Ngoại lệ:** "UBND xã" chủ trì khi nhiệm vụ mang tính chỉ đạo liên ngành, không thuộc riêng một đơn vị cụ thể.
 
 | Nhóm nhiệm vụ | Chủ trì | Phối hợp chính |
 |---|---|---|
-| Tuyên truyền, sự kiện đến người dân | TT CUDVC | Phòng VH-XH |
-| Xây dựng kế hoạch, tham mưu, chỉ số CĐS | Phòng VH-XH | TT CUDVC |
-| DVCTT, số hóa hồ sơ TTHC | TT PVHCC | TT CUDVC; các phòng |
-| Hạ tầng viễn thông, kinh tế số, TMĐT | Phòng Kinh tế | UBND xã; DN viễn thông |
-| Chữ ký số, nền tảng điều hành | VP HĐND-UBND | Các phòng; TT PVHCC |
-| Đề án 06, VNeID, CSDL dân cư | Công an xã | TT PVHCC; Tổ CNSCĐ |
-| An toàn thông tin, an ninh mạng | Công an xã | Phòng VH-XH; VP HĐND-UBND |
-| STEM/STEAM, Maker Space | Các trường học | Phòng VH-XH |
-| Phổ cập công nghệ số cho dân | TT CUDVC | Phòng VH-XH; UBMTTQ; Tổ CNSCĐ |
-| Y tế số, hồ sơ sức khỏe | Trạm Y tế | Phòng VH-XH |
+| Tham mưu kế hoạch, văn bản chuyển đổi số | Phòng VH-XH | VP HĐND-UBND; TT PVHCC |
+| Theo dõi DTI, chấm điểm chuyển đổi số | Phòng VH-XH | VP HĐND-UBND; các đơn vị liên quan |
+| Tổ chức sự kiện, tuyên truyền trực tiếp | TT CUDVC | Phòng VH-XH; UBMTTQ; Tổ CNSCĐ 12 ấp |
+| Dịch vụ công trực tuyến, số hóa TTHC | TT PVHCC | TT CUDVC; các đơn vị liên quan |
+| Đơn giản hóa thủ tục hành chính | TT PVHCC | Phòng VH-XH; VP HĐND-UBND |
+| Chữ ký số, thư điện tử công vụ, quản lý văn bản và hồ sơ công việc | Phòng VH-XH | VP HĐND-UBND; các phòng chuyên môn; TT PVHCC |
+| Hệ thống thông tin báo cáo, nền tảng số phục vụ chỉ đạo điều hành | VP HĐND-UBND | Phòng VH-XH; các đơn vị liên quan |
+| Hạ tầng viễn thông, kinh tế số | Phòng Kinh tế | Các DN viễn thông; TT CUDVC |
+| Thương mại điện tử, thương hiệu số | Phòng Kinh tế | Phòng VH-XH; TT CUDVC |
+| Đề án 06, VNeID, cơ sở dữ liệu dân cư | Công an xã | TT PVHCC; Tổ CNSCĐ 12 ấp |
+| An toàn thông tin, an ninh mạng | Công an xã | VP HĐND-UBND; Phòng VH-XH |
+| Nhân lực số, bồi dưỡng cán bộ | Phòng VH-XH | VP HĐND-UBND; các đơn vị liên quan |
+| Phổ cập công nghệ số cho người dân | TT CUDVC | Phòng VH-XH; UBMTTQ; Tổ CNSCĐ 12 ấp |
+| Y tế số, hồ sơ sức khỏe điện tử | Trạm Y tế | Phòng VH-XH; Công an xã |
+| Giáo dục số, STEM/STEAM | Các trường học | Phòng VH-XH |
+| Nông nghiệp số, truy xuất nguồn gốc | Phòng Kinh tế | Phòng VH-XH; TT CUDVC |
+| An toàn thực phẩm số | Phòng Kinh tế | Phòng VH-XH; Công an xã |
+| Dữ liệu số, làm sạch dữ liệu | Công an xã | Phòng VH-XH; các đơn vị liên quan |
+| Mô hình thí điểm chuyển đổi số | UBND xã | Phòng VH-XH; Phòng Kinh tế |
 
+---
 
-### QUY TẮC BẢNG PHỤ LỤC — CỘT ĐÁNH GIÁ
+## 6. Quy tắc bảng phụ lục — cột đánh giá
 
-Trong cột "Đánh giá" của bảng phụ lục, TUYỆT ĐỐI KHÔNG dùng biểu tượng/emoji:
-❌ SAI: ✅ 🟡 ⏳ 🟢 🔄 ⚪ 🔴 ...
+Trong cột "Đánh giá" của bảng phụ lục, tuyệt đối không dùng biểu tượng/emoji.
 
-✔ ĐÚNG: Dùng chữ thuần túy, cụ thể:
+Sai: `✅`, `🟡`, `⏳`, `🟢`, `🔄`, `⚪`, `🔴`.  
+Đúng: dùng chữ thuần túy, cụ thể.
 
 | Thay vì | Dùng |
 |---|---|
@@ -238,5 +214,4 @@ Trong cột "Đánh giá" của bảng phụ lục, TUYỆT ĐỐI KHÔNG dùng 
 | ⚪ Đang xây dựng | Đang xây dựng |
 | 🔴 Chưa thực hiện | Chưa thực hiện |
 
-Quy tắc này áp dụng cho MỌI bảng phụ lục trong tất cả loại báo cáo.
-Trong phần thân văn bản (không phải bảng), không dùng emoji ở bất kỳ đâu.
+Quy tắc này áp dụng cho mọi bảng phụ lục trong tất cả loại báo cáo, kế hoạch. Trong phần thân văn bản cũng không dùng emoji.
