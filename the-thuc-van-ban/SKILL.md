@@ -40,17 +40,18 @@ description: >
 
 ## PHÂN BIỆT THEO LOẠI VĂN BẢN — ĐỌC TRƯỚC KHI CODE
 
-| Thuộc tính | Báo cáo (BC) | Kế hoạch / QĐ / CV (KH) |
+| Thuộc tính | Báo cáo (BC) | Kế hoạch / QĐ / CV / TTr |
 |---|---|---|
-| Line spacing | **240** (dòng đơn) | **276** (~1.15 lines) |
+| Line spacing phần nội dung | **240** (Single) | **240** (Single) |
 | Lề phải | **900 DXA** | **1080 DXA** |
 | Lề trên/dưới | **1000 DXA** | **1134 DXA** |
-| Para spacing | **before=120, after=120** | **before=0, after=100** |
-| Heading spacing | **120/120 đều** | **Bất đối xứng 160/80...** |
+| Para spacing phần nội dung | **before=120, after=120** (6pt/6pt) | **before=120, after=120** (6pt/6pt) |
+| Heading spacing | **120/120 đều** | **120/120 đều** |
 | Số trang | **FOOTER** | **HEADER** |
 | Nơi nhận dòng đơn vị | **11pt (22hp)** | **12pt (24hp)** |
 
-> Chi tiết đầy đủ từng loại: `references/cai-dat-trang.md` và `references/loai-van-ban.md`
+> Chi tiết đầy đủ từng loại: `references/cai-dat-trang.md` và `references/loai-van-ban.md`.
+> Riêng phụ lục và bảng phụ lục dùng quy tắc tại `references/phu-luc-bang.md`: bảng cỡ 13pt, line spacing Single, before=0, after=0 trong ô bảng.
 
 ---
 
