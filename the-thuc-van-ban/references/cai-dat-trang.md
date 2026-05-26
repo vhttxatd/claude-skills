@@ -38,7 +38,7 @@ contentW : 11906 - marginL - marginR = 9026 DXA
 ### Báo cáo hành chính (BC)
 ```javascript
 // Thân văn bản
-spacing: { line: 240, before: 120, after: 120 }  // dòng đơn, 6pt trên/dưới
+spacing: { line: 240, before: 120, after: 120 }  // Single, 6pt trên/dưới
 
 // Tiêu đề, chữ ký, nơi nhận
 spacing: { line: 240, before: 0, after: 0 }
@@ -49,21 +49,18 @@ spacing: { line: 240, before: 120, after: 120 }
 
 ### Kế hoạch, Quyết định, Công văn, Tờ trình (KH/QĐ/CV/TTr)
 ```javascript
-// Thân văn bản
-spacing: { before: 0, after: 100, line: 276 }  // ~1.15 lines
+// Thân nội dung văn bản
+spacing: { before: 120, after: 120, line: 240 }  // Single, Before=6pt, After=6pt
 
-// Tiêu đề, chữ ký — sp0
+// Heading 1, Heading 2, Heading 3 trong phần nội dung
+spacing: { before: 120, after: 120, line: 240 }  // Single, Before=6pt, After=6pt
+
+// Tiêu đề, chữ ký, nơi nhận — sp0
 const sp0 = { before: 0, after: 0, line: 240, lineRule: LineRuleType.EXACT }
 
-// Heading 1
-spacing: { before: 160, after: 80, line: 276 }
-// Heading 2
-spacing: { before: 120, after: 60, line: 276 }
-// Heading 3
-spacing: { before: 100, after: 60, line: 276 }
-
 // Phụ lục, bảng phụ lục
-spacing: { before: 0, after: 0, line: 240 }  // single
+// Xem thêm references/phu-luc-bang.md
+spacing: { before: 0, after: 0, line: 240 }  // Single trong ô bảng
 ```
 
 ## Thụt đầu dòng (dùng cho cả 2 loại)
@@ -79,6 +76,7 @@ indent: { firstLine: 720 }  // ~1.27cm — thân văn bản, căn cứ, heading,
 > - Phải dùng đúng **Heading Level** để Word/AI nhận diện cấu trúc văn bản.
 > - `alignment: AlignmentType.JUSTIFIED` — căn đều hai bên như đoạn văn thường, không căn giữa.
 > - `indent: { firstLine: 720 }` — thụt đầu dòng 720 DXA đồng bộ với thân văn bản.
+> - `spacing: { before: 120, after: 120, line: 240 }` — Single, Before=6pt, After=6pt.
 > - `bold: true` — đậm cho tất cả level.
 > - Heading 3, 4 của KH/QĐ/CV/TTr thêm `italics: true` nếu là mục con dạng a), b), c).
 >
@@ -106,17 +104,17 @@ paragraphStyles: [
 ]
 ```
 
-### Dùng cho Kế hoạch (line=276, spacing bất đối xứng)
+### Dùng cho Kế hoạch, Quyết định, Công văn, Tờ trình (Single, spacing đều 120/120)
 ```javascript
 paragraphStyles: [
   { id:'Heading1', run:{ bold:true, size:28, font:'Times New Roman', color:'000000' },
-    paragraph:{ spacing:{line:276,before:160,after:80}, indent:{firstLine:720},
+    paragraph:{ spacing:{line:240,before:120,after:120}, indent:{firstLine:720},
                 alignment: AlignmentType.JUSTIFIED, outlineLevel:0 }},
   { id:'Heading2', run:{ bold:true, size:28, font:'Times New Roman', color:'000000' },
-    paragraph:{ spacing:{line:276,before:120,after:60}, indent:{firstLine:720},
+    paragraph:{ spacing:{line:240,before:120,after:120}, indent:{firstLine:720},
                 alignment: AlignmentType.JUSTIFIED, outlineLevel:1 }},
   { id:'Heading3', run:{ bold:true, italics:true, size:28, font:'Times New Roman', color:'000000' },
-    paragraph:{ spacing:{line:276,before:100,after:60}, indent:{firstLine:720},
+    paragraph:{ spacing:{line:240,before:120,after:120}, indent:{firstLine:720},
                 alignment: AlignmentType.JUSTIFIED, outlineLevel:2 }},
 ]
 ```
@@ -128,7 +126,7 @@ new Paragraph({
   heading: HeadingLevel.HEADING_1,
   alignment: AlignmentType.JUSTIFIED,
   indent: { firstLine: 720 },
-  spacing: { before: 160, after: 80, line: 276 },
+  spacing: { before: 120, after: 120, line: 240 },
   children: [new TextRun({ text: 'I. MỤC ĐÍCH, YÊU CẦU', bold: true, size: 28, font: 'Times New Roman' })]
 })
 
@@ -136,7 +134,7 @@ new Paragraph({
   heading: HeadingLevel.HEADING_2,
   alignment: AlignmentType.JUSTIFIED,
   indent: { firstLine: 720 },
-  spacing: { before: 120, after: 60, line: 276 },
+  spacing: { before: 120, after: 120, line: 240 },
   children: [new TextRun({ text: '1. Mục đích', bold: true, size: 28, font: 'Times New Roman' })]
 })
 ```
