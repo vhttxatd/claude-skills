@@ -4,7 +4,7 @@
 
 ### 1.1. Quy tắc chung
 
-Tiêu đề phụ lục phải trình bày **trên một đoạn văn**, dùng dấu chấm để nối mã phụ lục với tên phụ lục, không tách `PHỤ LỤC I` và tên phụ lục thành 2 dòng riêng.
+Tiêu đề phụ lục phải trình bày trên một đoạn văn, dùng dấu chấm để nối mã phụ lục với tên phụ lục, không tách `PHỤ LỤC I` và tên phụ lục thành 2 dòng riêng.
 
 ```text
 PHỤ LỤC I. HỆ THỐNG CHỈ TIÊU TRIỂN KHAI THỰC HIỆN NGHỊ QUYẾT SỐ 57-NQ/TW TRÊN ĐỊA BÀN XÃ AN THỚI ĐÔNG GIAI ĐOẠN 2026 - 2030, TẦM NHÌN ĐẾN NĂM 2045
@@ -48,24 +48,24 @@ new Paragraph({
 
 ---
 
-## 2. Bảng phụ lục — quy tắc định dạng
+## 2. Bảng phụ lục - quy tắc định dạng
 
 ### 2.1. Màu sắc và cỡ chữ
 
-| Hàng | Nền | Chữ | Cỡ | Ghi chú |
+| Hàng/cột | Nền | Chữ | Cỡ | Ghi chú |
 |---|---|---|---:|---|
-| Header (tiêu đề cột) | Không bắt buộc màu; nếu dùng màu thì ưu tiên #1F4E79 | Đậm, căn giữa | 13pt (26) | Căn giữa, line single |
-| Group row (nhóm nhiệm vụ) | #D9D9D9 nếu cần phân nhóm | Đen, đậm | 13pt (26) | Căn trái hoặc căn đều |
-| Dữ liệu — cột STT | Trắng | Đen thường | 13pt (26) | Căn giữa |
-| Dữ liệu — cột nội dung | Trắng | Đen thường | 13pt (26) | Căn đều 2 bên (JUSTIFIED) |
+| Header (tiêu đề cột) | Có thể dùng xanh nhạt/xanh đậm theo mẫu | Đậm, căn giữa | 13pt (26) | Căn giữa, line single |
+| Dòng nhóm nhiệm vụ | Không nền hoặc xám nhạt | Đen, đậm | 13pt (26) | Gộp ngang toàn bảng, căn trái |
+| Dữ liệu - cột STT | Trắng | Đen thường | 13pt (26) | Căn giữa |
+| Dữ liệu - cột nội dung | Trắng | Đen thường | 13pt (26) | Căn đều hai bên |
+| Cột giải trình | Trắng | Đỏ, đậm ở tiêu đề; đỏ thường ở nội dung | 13pt (26) | Chỉ dùng ở bản trình, không phát hành |
 
 ### 2.2. Spacing nội dung ô bảng
 
 ```javascript
-// Tất cả ô bảng phụ lục: Before=0pt, After=0pt, Line=Single, KHÔNG indent
+// Tất cả ô bảng phụ lục: Before=0pt, After=0pt, Line=Single, không indent
 spacing: { before: 0, after: 0, line: 240 }
 
-// Không dùng indent (Special: none)
 // Cột nội dung: căn đều hai bên
 alignment: AlignmentType.JUSTIFIED
 
@@ -73,7 +73,7 @@ alignment: AlignmentType.JUSTIFIED
 alignment: AlignmentType.CENTER
 ```
 
-> **Quy tắc bắt buộc:** Bảng trong phụ lục dùng cỡ chữ 13pt, line spacing single. Không để line 1.15 trong ô bảng.
+Quy tắc bắt buộc: Bảng trong phụ lục dùng cỡ chữ 13pt, line spacing single. Không để line 1.15 trong ô bảng.
 
 ### 2.3. Border và margin
 
@@ -82,98 +82,137 @@ const solidBorder = { style: BorderStyle.SINGLE, size: 4, color: '000000' };
 margins: { top: 50, bottom: 50, left: 60, right: 60 }
 ```
 
-### 2.4. Code mẫu ô bảng
+---
+
+## 3. Quy tắc về cột giải trình trong phụ lục
+
+### 3.1. Nguyên tắc sử dụng
+
+Khi lập phụ lục kế hoạch để trình lãnh đạo xem xét, góp ý, cho chủ trương, phải có cột giải trình để chứng minh vì sao đề xuất chỉ tiêu, nhiệm vụ hoặc phân công.
+
+Cột giải trình chỉ dùng cho **bản trình lãnh đạo, bản xin ý kiến, bản rà soát nội bộ**. Khi kế hoạch đã thống nhất và phát hành chính thức, phải xóa cột này, trừ khi người dùng yêu cầu giữ lại.
+
+### 3.2. Tên cột chuẩn
+
+| Loại phụ lục/bảng | Tên cột giải trình trong bản trình lãnh đạo |
+|---|---|
+| Phụ lục chỉ tiêu | `Căn cứ/lý do đề xuất chỉ tiêu - Cột này để giải trình, không phát hành` |
+| Phụ lục nhiệm vụ | `Căn cứ/lý do đề xuất nhiệm vụ - Cột này để giải trình, không phát hành` |
+| Bảng phân công nhiệm vụ | `Căn cứ/lý do đề xuất nhiệm vụ - Cột này để giải trình, không phát hành` |
+| Bảng tiến độ hoặc bảng rà soát | `Căn cứ/lý do thực hiện - Cột này để giải trình, không phát hành` |
+
+### 3.3. Vị trí và màu sắc
+
+- Cột giải trình luôn đặt **phía bên phải cùng của bảng**.
+- Không đặt cột giải trình ở giữa các cột nghiệp vụ chính.
+- Tiêu đề cột và nội dung trong cột giải trình dùng **màu đỏ** để nhận biết đây là cột nội bộ, không phát hành.
+- Khi xuất bản trình lãnh đạo, được sử dụng viết tắt riêng trong cột giải trình để nội dung ngắn gọn, dễ in, dễ đọc.
+- Các cột còn lại vẫn tuân thủ quy tắc văn bản chính thức: nếu người dùng chưa cho phép viết tắt thì viết đầy đủ.
+
+### 3.4. Quy tắc viết nội dung cột giải trình
+
+- Không mở đầu ô bằng chữ `Căn cứ...` lặp lại nhiều lần.
+- Viết ngắn, rõ điểm neo: chỉ tiêu số mấy, phụ lục nào, mục nào trong thân kế hoạch, hoặc nhiệm vụ cụ thể nào trong văn bản cấp trên/xã.
+- Không ghi căn cứ chung chung như: `Theo Kế hoạch 48, Chương trình 24, Kế hoạch 02...` nếu không chỉ rõ chỉ tiêu, nhiệm vụ, mục, phần hoặc nội dung liên quan.
+- Ưu tiên công thức ngắn: `CT số ... PL I; P.III, mục ... về ...; ...`
+- Có thể nêu thêm lý do thực tiễn địa phương nếu nhiệm vụ xuất phát từ đặc thù xã.
+
+Ví dụ đúng:
+
+```text
+CT số 1 PL I về DTI cấp xã; P.III, mục 9 về kiểm tra, giám sát, đánh giá.
+CT số 17 PL I về Tổ CNSCĐ 12 ấp; phù hợp thực tế xã có 12 ấp cần lực lượng hỗ trợ tại cơ sở.
+CT số 19 PL I về 5G, xóa lõm sóng; xuất phát từ nhu cầu kết nối vùng sản xuất, nuôi trồng thủy hải sản.
+```
+
+Ví dụ không dùng:
+
+```text
+Căn cứ Kế hoạch số 48/KH-UBND; Chương trình số 24-CTr/ĐU; Kế hoạch số 02-KH/BCĐ...
+```
+
+---
+
+## 4. Quy tắc gộp nhóm nội dung trong phụ lục nhiệm vụ
+
+### 4.1. Khi nào gộp nhóm
+
+Khi bảng phụ lục nhiệm vụ hoặc bảng phân công có nhiều nhiệm vụ thuộc các nhóm lớn, phải gộp nhóm để dễ đọc, dễ in và dễ trình lãnh đạo.
+
+### 4.2. Cách gộp nhóm
+
+- Bỏ cột `Nhóm nhiệm vụ` nếu bảng đã có dòng nhóm riêng.
+- Tạo dòng nhóm riêng, gộp ngang toàn bộ bảng bằng `columnSpan`.
+- Dòng nhóm đặt trước các nhiệm vụ thuộc nhóm đó.
+- Dòng nhóm dùng số La Mã và tên nhóm, ví dụ: `I. Chỉ đạo, điều hành`; `II. Tuyên truyền, nâng cao nhận thức`; `III. Hạ tầng số, dữ liệu số và nền tảng số`.
+- Dòng nhóm in đậm, cỡ 13pt, căn trái, line spacing single.
+- STT nhiệm vụ vẫn đánh số liên tục từ đầu đến cuối phụ lục, không đánh lại từ 1 trong từng nhóm, trừ khi người dùng yêu cầu.
+
+### 4.3. Mẫu bảng phụ lục nhiệm vụ đã gộp nhóm
+
+| STT | Nội dung nhiệm vụ | Đơn vị chủ trì | Đơn vị phối hợp | Sản phẩm/kết quả | Chỉ tiêu liên quan | Căn cứ/lý do đề xuất nhiệm vụ - Cột này để giải trình, không phát hành |
+|---|---|---|---|---|---|---|
+| I. Chỉ đạo, điều hành |||||||
+| 1 | ... | ... | ... | ... | ... | ... |
+| 2 | ... | ... | ... | ... | ... | ... |
+| II. Tuyên truyền, nâng cao nhận thức |||||||
+| 3 | ... | ... | ... | ... | ... | ... |
+
+### 4.4. Code mẫu dòng nhóm docx-js
 
 ```javascript
-const tablePara = (text, opts = {}) => new Paragraph({
-  alignment: opts.align || AlignmentType.JUSTIFIED,
-  spacing: { before: 0, after: 0, line: 240 },
-  children: [new TextRun({
-    text,
-    bold: opts.bold,
-    italics: opts.italics,
-    size: 26,
-    font: 'Times New Roman'
+const groupRow = (text, columnSpan) => new TableRow({
+  children: [new TableCell({
+    columnSpan,
+    borders: solidBorders,
+    margins: { top: 50, bottom: 50, left: 60, right: 60 },
+    children: [new Paragraph({
+      alignment: AlignmentType.LEFT,
+      spacing: { before: 0, after: 0, line: 240 },
+      children: [new TextRun({ text, bold: true, size: 26, font: 'Times New Roman' })]
+    })]
   })]
-})
-
-const tableCell = (text, width, opts = {}) => new TableCell({
-  width: { size: width, type: WidthType.PERCENTAGE },
-  verticalAlign: VerticalAlign.CENTER,
-  borders: solidBorders,
-  margins: { top: 50, bottom: 50, left: 60, right: 60 },
-  children: [tablePara(text, opts)]
 })
 ```
 
 ---
 
-## 3. Cấu trúc cột chuẩn
+## 5. Cấu trúc cột chuẩn
 
-### 3.1. Quy tắc cột giải trình trong bản trình lãnh đạo và bản phát hành
+### 5.1. Phụ lục chỉ tiêu - bản trình lãnh đạo
 
-Khi lập phụ lục kế hoạch phục vụ **trình lãnh đạo xem xét, góp ý, cho chủ trương**, phải có cột giải trình để chứng minh vì sao đề xuất chỉ tiêu, nhiệm vụ hoặc phân công.
-
-**Quy tắc bắt buộc về vị trí cột:**
-- Cột **Căn cứ/lý do đề xuất chỉ tiêu** luôn đặt **phía bên phải cùng của bảng**, không đặt ở giữa bảng.
-- Cột **Căn cứ/lý do đề xuất nhiệm vụ** hoặc các cột giải trình tương tự cũng ưu tiên đặt **phía bên phải cùng của bảng**.
-- Khi kế hoạch đã được thống nhất và chuyển sang bản phát hành chính thức, phải **xóa cột giải trình** này khỏi phụ lục, trừ khi người dùng yêu cầu giữ lại.
-
-Mục đích: bản trình lãnh đạo có đủ cơ sở giải trình; bản phát hành chính thức gọn, đúng tính chất văn bản ban hành.
-
-### 3.2. Phụ lục chỉ tiêu
-
-#### Bản trình lãnh đạo - có cột giải trình bên phải
-
-Khi lập phụ lục chỉ tiêu để trình lãnh đạo, bắt buộc có cột **Căn cứ/lý do đề xuất chỉ tiêu** và cột này đặt bên phải cùng.
-
-| STT | Chỉ tiêu | Mức phấn đấu | Đơn vị chủ trì theo dõi | Đơn vị phối hợp | Nguồn số liệu/minh chứng | Thời hạn | Ghi chú | Căn cứ/lý do đề xuất chỉ tiêu |
+| STT | Chỉ tiêu | Mức phấn đấu | Đơn vị chủ trì theo dõi | Đơn vị phối hợp | Nguồn số liệu/minh chứng | Thời hạn | Ghi chú | Căn cứ/lý do đề xuất chỉ tiêu - Cột này để giải trình, không phát hành |
 |---|---|---|---|---|---|---|---|---|
 
-Có thể tách `Mức phấn đấu` thành nhiều cột theo mốc thời gian, ví dụ:
+Có thể tách `Mức phấn đấu` thành nhiều cột theo mốc thời gian, nhưng cột giải trình vẫn đặt bên phải cùng:
 
-| STT | Chỉ tiêu | Đến hết năm 2026 | Đến năm 2030 | Tầm nhìn đến năm 2045 | Đơn vị chủ trì | Đơn vị phối hợp, cung cấp số liệu | Căn cứ/lý do đề xuất chỉ tiêu |
+| STT | Chỉ tiêu | Đến hết năm 2026 | Đến năm 2030 | Tầm nhìn đến năm 2045 | Đơn vị chủ trì | Đơn vị phối hợp, cung cấp số liệu | Căn cứ/lý do đề xuất chỉ tiêu - Cột này để giải trình, không phát hành |
 |---|---|---|---|---|---|---|---|
 
-#### Bản phát hành chính thức - xóa cột giải trình
-
-Khi kế hoạch đã thống nhất và phát hành, bỏ cột **Căn cứ/lý do đề xuất chỉ tiêu**, trừ khi người dùng yêu cầu giữ lại.
+### 5.2. Phụ lục chỉ tiêu - bản phát hành chính thức
 
 | STT | Chỉ tiêu | Đến hết năm 2026 | Đến năm 2030 | Tầm nhìn đến năm 2045 | Đơn vị chủ trì | Đơn vị phối hợp, cung cấp số liệu |
 |---|---|---|---|---|---|---|
 
-### 3.3. Phụ lục nhiệm vụ
+### 5.3. Phụ lục nhiệm vụ - bản trình lãnh đạo, có gộp nhóm
 
-#### Bản trình lãnh đạo - có cột giải trình bên phải
+| STT | Nội dung nhiệm vụ | Đơn vị chủ trì | Đơn vị phối hợp | Sản phẩm/kết quả | Chỉ tiêu liên quan | Căn cứ/lý do đề xuất nhiệm vụ - Cột này để giải trình, không phát hành |
+|---|---|---|---|---|---|---|
 
-Khi lập phụ lục nhiệm vụ để trình lãnh đạo, bắt buộc có cột **Căn cứ/lý do đề xuất nhiệm vụ** và cột này đặt bên phải cùng.
+### 5.4. Phụ lục nhiệm vụ - bản phát hành chính thức
 
-| STT | Nhóm nhiệm vụ | Nội dung nhiệm vụ | Đơn vị chủ trì | Đơn vị phối hợp | Lực lượng hỗ trợ | Thời gian thực hiện | Kết quả/sản phẩm | Chỉ tiêu liên quan | Ghi chú | Căn cứ/lý do đề xuất nhiệm vụ |
-|---|---|---|---|---|---|---|---|---|---|---|
-
-#### Bản phát hành chính thức - xóa cột giải trình
-
-| STT | Nhóm nhiệm vụ | Nội dung nhiệm vụ | Đơn vị chủ trì | Đơn vị phối hợp | Lực lượng hỗ trợ | Thời gian thực hiện | Kết quả/sản phẩm | Chỉ tiêu liên quan | Ghi chú |
-|---|---|---|---|---|---|---|---|---|---|
-
-### 3.4. Phụ lục phân công, tiến độ
-
-Tùy ngữ cảnh, dùng một trong các cột sau và đặt phía bên phải cùng khi là bản trình lãnh đạo:
-
-| Loại bảng | Cột giải trình cần có trong bản trình lãnh đạo | Khi phát hành chính thức |
-|---|---|---|
-| Bảng chỉ tiêu | Căn cứ/lý do đề xuất chỉ tiêu | Xóa cột này, trừ khi có yêu cầu giữ lại |
-| Bảng nhiệm vụ | Căn cứ/lý do đề xuất nhiệm vụ | Xóa cột này, trừ khi có yêu cầu giữ lại |
-| Bảng phân công | Căn cứ/lý do phân công | Xóa cột này, trừ khi có yêu cầu giữ lại |
-| Bảng tiến độ | Căn cứ/lý do thực hiện | Xóa cột này, trừ khi có yêu cầu giữ lại |
+| STT | Nội dung nhiệm vụ | Đơn vị chủ trì | Đơn vị phối hợp | Sản phẩm/kết quả | Chỉ tiêu liên quan |
+|---|---|---|---|---|---|
 
 ---
 
-## 4. Viết tắt tên cơ quan trong bảng
+## 6. Viết tắt tên cơ quan trong bảng
 
-**ĐƯỢC** viết tắt tên cơ quan trong bản nháp hoặc khi người dùng cho phép; **KHÔNG ĐƯỢC** viết tắt các từ thông thường như cán bộ, công chức, thủ tục hành chính, cơ sở dữ liệu.
+Được viết tắt tên cơ quan trong bản nháp hoặc khi người dùng cho phép; không được viết tắt các từ thông thường như cán bộ, công chức, thủ tục hành chính, cơ sở dữ liệu trong văn bản chính thức.
 
-> Khi xuất file Word/văn bản chính thức, phải tuân thủ quy tắc bắt buộc về viết tắt tại `quy-tac-chung/data/quy-tac-viet-tat-bat-buoc.md`.
+Khi xuất file Word/văn bản chính thức, phải tuân thủ quy tắc bắt buộc về viết tắt tại `quy-tac-chung/data/quy-tac-viet-tat-bat-buoc.md`.
+
+Riêng cột giải trình màu đỏ trong bản trình lãnh đạo được phép dùng viết tắt nếu người dùng yêu cầu để nội dung ngắn gọn.
 
 | Tên đầy đủ | Viết tắt dùng trong bảng khi được phép |
 |---|---|
@@ -189,18 +228,17 @@ Tùy ngữ cảnh, dùng một trong các cột sau và đặt phía bên phải
 | Các đơn vị liên quan | các đơn vị liên quan |
 | Các doanh nghiệp viễn thông | Các DN viễn thông |
 | Các trường học trên địa bàn | Các trường học |
-| Xã đoàn (Đoàn TNCS HCM xã) | Xã đoàn |
+| Xã đoàn | Xã đoàn |
 
 ---
 
-## 5. Quy tắc phân công cơ quan — Kế hoạch UBND xã
+## 7. Quy tắc phân công cơ quan - Kế hoạch UBND xã
 
-> Xem chi tiết tại `quy-tac-chung/data/don-vi-chuc-nang.md`.
+Xem chi tiết tại `quy-tac-chung/data/don-vi-chuc-nang.md`.
 
-Đây là kế hoạch do UBND xã ban hành → cơ quan chủ trì và phối hợp phải là đơn vị trực thuộc UBND xã hoặc đơn vị được UBND xã giao/phối hợp theo đúng thẩm quyền.
+Đây là kế hoạch do UBND xã ban hành nên cơ quan chủ trì và phối hợp phải là đơn vị trực thuộc UBND xã hoặc đơn vị được UBND xã giao/phối hợp theo đúng thẩm quyền.
 
-**Không** đưa "UBND xã" vào cột phối hợp.  
-**Ngoại lệ:** "UBND xã" chủ trì khi nhiệm vụ mang tính chỉ đạo liên ngành, không thuộc riêng một đơn vị cụ thể.
+Không đưa `UBND xã` vào cột phối hợp. Ngoại lệ: `UBND xã` chủ trì khi nhiệm vụ mang tính chỉ đạo liên ngành, không thuộc riêng một đơn vị cụ thể.
 
 | Nhóm nhiệm vụ | Chủ trì | Phối hợp chính |
 |---|---|---|
@@ -226,21 +264,20 @@ Tùy ngữ cảnh, dùng một trong các cột sau và đặt phía bên phải
 
 ---
 
-## 6. Quy tắc bảng phụ lục — cột đánh giá
+## 8. Quy tắc bảng phụ lục - cột đánh giá
 
-Trong cột "Đánh giá" của bảng phụ lục, tuyệt đối không dùng biểu tượng/emoji.
+Trong cột `Đánh giá` của bảng phụ lục, tuyệt đối không dùng biểu tượng/emoji.
 
-Sai: `✅`, `🟡`, `⏳`, `🟢`, `🔄`, `⚪`, `🔴`.  
-Đúng: dùng chữ thuần túy, cụ thể.
+Dùng chữ thuần túy, cụ thể:
 
-| Thay vì | Dùng |
+| Không dùng | Dùng |
 |---|---|
-| ✅ Hoàn thành | Hoàn thành |
-| 🟡 Đang thực hiện | Đang thực hiện |
-| ⏳ Tiếp tục duy trì | Tiếp tục duy trì |
-| 🟢 Đạt | Đạt |
-| 🔄 Tiếp tục thực hiện | Tiếp tục thực hiện |
-| ⚪ Đang xây dựng | Đang xây dựng |
-| 🔴 Chưa thực hiện | Chưa thực hiện |
+| biểu tượng hoàn thành | Hoàn thành |
+| biểu tượng đang thực hiện | Đang thực hiện |
+| biểu tượng tiếp tục duy trì | Tiếp tục duy trì |
+| biểu tượng đạt | Đạt |
+| biểu tượng tiếp tục thực hiện | Tiếp tục thực hiện |
+| biểu tượng đang xây dựng | Đang xây dựng |
+| biểu tượng chưa thực hiện | Chưa thực hiện |
 
 Quy tắc này áp dụng cho mọi bảng phụ lục trong tất cả loại báo cáo, kế hoạch. Trong phần thân văn bản cũng không dùng emoji.
