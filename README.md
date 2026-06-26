@@ -28,7 +28,6 @@ Xem [INDEX.md](./INDEX.md) để có mô tả chi tiết từng skill.
 | `quan-ly-du-an` | Quy trình mua sắm chi thường xuyên |
 | `nhan-su-danh-gia` | Hồ sơ và đánh giá quý cán bộ |
 | `cong-viec-giao-ban` | Danh sách công việc giao ban hàng tuần |
-| `workboard` | Bảng theo dõi tiến độ công việc |
 | `tao-skill` | Hướng dẫn tạo skill mới |
 
 ## Cách sử dụng với AI khác (ChatGPT/Gemini)
