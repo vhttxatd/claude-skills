@@ -212,8 +212,8 @@ Lọc:
 **Thành phần bắt buộc:**
 - 4 thẻ thống kê 2×2: Tổng / Đang làm / Chờ phản hồi / Quá hạn
 - Bộ lọc: input tìm kiếm full-width, Loại+Nhóm 2 cột, Trạng thái full-width
-- Dropdown Loại có **7 mục** (Tham mưu VB, Tham mưu KH, Báo cáo, Phối hợp Htr, Họp, Theo dõi VB, Khác)
-- Dropdown Nhóm có **4 mục** (CĐS, KHCN, Tổ CNSCĐ, Hạ tầng số) — đồng bộ với bảng hiện hành
+- Dropdown Loại có **8 mục** (Tham mưu VB, Tham mưu KH, Báo cáo, Phối hợp Htr, Họp, Theo dõi VB, Khác, Thực hiện CĐ)
+- Dropdown Nhóm có **8 mục** (CĐS, KHCN, Tổ CNSCĐ, Hạ tầng số, Bình dân học vụ số, Đề án 06, Liên thông VB, Mua sắm - Dự án) — đồng bộ với bảng hiện hành
 - **Khi thêm loại/nhóm mới qua chat → cập nhật dropdown trong HTML cùng lúc**
 - Biểu đồ thanh ngang trong `<details>` (ẩn mặc định): Theo Loại + Theo Nhóm
 - Danh sách card từng việc với badge trạng thái, Loại, Nhóm, deadline (đỏ nếu quá hạn ≤3 ngày), cập nhật gần nhất, ghi chú
