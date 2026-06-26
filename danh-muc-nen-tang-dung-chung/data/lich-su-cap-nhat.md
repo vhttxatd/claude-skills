@@ -9,7 +9,7 @@
 
 - **Văn bản căn cứ:** 1132/QĐ-TTg ngày 24/6/2026 (Thủ tướng Chính phủ)
 - **Nội dung:** Nhập mới toàn bộ 62 nền tảng số dùng chung quốc gia
-  (Nhóm A: 17, Nhóm B: 45) vào `data/quoc-gia.md`
+  (Nhóm A: 17, Nhóm B: 62) vào `data/quoc-gia.md`
 - **Văn bản bị bãi bỏ:** 2618/QĐ-BKHCN ngày 11/9/2025 (Bộ KH&CN)
 - **Ghi chú:** Văn bản gốc không nêu phạm vi triển khai chi tiết theo cấp
   hành chính cho từng nền tảng — giữ nguyên theo mô tả gốc, không suy đoán.

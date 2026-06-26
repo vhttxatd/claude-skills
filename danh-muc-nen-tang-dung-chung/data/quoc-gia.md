@@ -41,7 +41,7 @@ chung cho mọi cơ quan, doanh nghiệp, người dân.
 
 ---
 
-## NHÓM B — Nền tảng dùng chung theo ngành, lĩnh vực (45 nền tảng)
+## NHÓM B — Nền tảng dùng chung theo ngành, lĩnh vực (62 nền tảng)
 
 Tiêu chí Nhóm B: phạm vi toàn quốc nhưng gắn với quy trình nghiệp vụ
 chuyên ngành/CSDL chuyên ngành cụ thể; có thể kết nối, kế thừa dịch vụ từ
