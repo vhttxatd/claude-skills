@@ -25,6 +25,36 @@ giải thích lại mỗi lần.
 
 ---
 
+## 4 NGUYÊN TẮC VẬN HÀNH BẮT BUỘC (áp dụng cho mọi skill)
+
+Lấy cảm hứng từ ghi chú của Andrej Karpathy về vận hành AI agent. Đây là 4
+nguyên tắc nền mà **mọi skill** (đã có và sẽ tạo mới) phải tuân theo khi
+Claude thực thi:
+
+1. **Nghĩ trước khi làm (Think before doing)**
+   Trước khi soạn văn bản/báo cáo, nếu thiếu số liệu, căn cứ pháp lý, tên
+   người ký, ngày tháng... → Claude PHẢI hỏi lại, KHÔNG tự giả định rồi
+   chạy luôn. Sai giả định trong văn bản hành chính hậu quả nặng hơn code.
+
+2. **Đơn giản là ưu tiên (Simplicity first)**
+   Làm đúng-đủ theo yêu cầu, không thêm bớt nội dung/bước dư thừa. Văn bản
+   hành chính cần đúng khuôn mẫu, không "viết dài cho có vẻ đầy đủ".
+
+3. **Sửa như phẫu thuật (Surgical change)**
+   Khi người dùng yêu cầu sửa một phần (đoạn văn, mục, dòng), CHỈ sửa đúng
+   phần đó. Giữ nguyên toàn bộ phần còn lại, thể thức, font, cấu trúc. Không
+   viết lại nguyên văn bản trừ khi được yêu cầu rõ.
+
+4. **Thực thi theo mục tiêu (Goal-driven execution)**
+   Mỗi skill cần định nghĩa rõ "thế nào là đạt" (checklist/Definition of
+   Done) trước khi báo hoàn thành. Tự kiểm tra lại kết quả so với checklist
+   đó, không báo "xong" khi chưa thực sự đạt.
+
+> Khi soạn SKILL.md mới, không cần chép lại 4 nguyên tắc này — chỉ cần ghi
+> 1 dòng tham chiếu: *"Tuân theo 4 nguyên tắc vận hành trong tao-skill."*
+
+---
+
 ## QUY TRÌNH TẠO SKILL MỚI
 
 ### Bước 1 — Hiểu mục tiêu
@@ -68,6 +98,8 @@ description: >
 - Dùng ví dụ ĐÚNG và SAI để Claude học phong cách
 - Ghi rõ những điều TUYỆT ĐỐI KHÔNG làm
 - Phần `description` phải đủ rõ để Claude tự biết khi nào cần dùng
+- Thừa hưởng **4 nguyên tắc vận hành** ở trên (chỉ cần ghi 1 dòng tham chiếu,
+  không cần chép lại toàn bộ)
 
 ### Bước 4 — Thử nghiệm
 
