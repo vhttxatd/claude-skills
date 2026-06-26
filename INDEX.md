@@ -24,7 +24,6 @@ Khi nhận yêu cầu, AI nên:
 - **`quan-ly-du-an/`** — Quy trình mua sắm chi thường xuyên (nhánh A/B/C).
 - **`nhan-su-danh-gia/`** — Hồ sơ và đánh giá quý cán bộ.
 - **`cong-viec-giao-ban/`** — Công việc cho họp giao ban hàng tuần.
-- **`workboard/`** — Theo dõi tiến độ tổng hợp.
 
 ### 4. Quản lý kế hoạch và dữ liệu NEXUS Gov
 - **`nexus-gov-rules/`** — Quy tắc bóc tách văn bản hành chính, liên kết chỉ tiêu ↔ nhiệm vụ ↔ số liệu (phân cấp: thành phần / tổng hợp / công thức), workflow 7 bước nạp dữ liệu vào Airtable (bóc CT+SL đồng thời, ma trận kiểm tra 3 chiều CT↔NV↔SL). **Bắt buộc đọc khi:** bóc tách VB, xây dựng/chỉnh sửa/rà soát kế hoạch, nạp chỉ tiêu/nhiệm vụ/số liệu, cập nhật kết quả thực hiện, kiểm tra trùng lặp dữ liệu. Gồm 3 file tham chiếu:
