@@ -2,6 +2,10 @@
 
 Repo này lưu trữ toàn bộ tri thức nền và skill làm việc của tôi với AI assistants (Claude, ChatGPT, Gemini).
 
+## ⚠️ Đọc trước tiên
+
+**[`TRANG-THAI-HIEN-TAI.md`](./TRANG-THAI-HIEN-TAI.md)** — trạng thái công việc mới nhất, quy tắc vận hành AI bắt buộc (fable-mode + xác nhận trước khi ghi dữ liệu), việc đang dang dở. File này LUÔN được cập nhật đầu/cuối mỗi phiên làm việc — đọc trước khi làm bất cứ việc gì liên quan đến văn bản đến, NEXUS Gov, hoặc theo dõi công việc.
+
 ## Mục đích
 
 - **Backup**: Lưu giữ vĩnh viễn các quy trình, mẫu văn bản, dữ liệu nền.
@@ -29,6 +33,7 @@ Xem [INDEX.md](./INDEX.md) để có mô tả chi tiết từng skill.
 | `nhan-su-danh-gia` | Hồ sơ và đánh giá quý cán bộ |
 | `cong-viec-giao-ban` | Danh sách công việc giao ban hàng tuần |
 | `tao-skill` | Hướng dẫn tạo skill mới |
+| `nexus-gov-rules` | Quy tắc NEXUS Gov — **đã chuyển sang Supabase, đọc `nexus-gov-rules/MIGRATION-NOTICE.md`** |
 
 ## Cách sử dụng với AI khác (ChatGPT/Gemini)
 

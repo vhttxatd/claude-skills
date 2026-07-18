@@ -1,5 +1,8 @@
 # WORKFLOW BÓC TÁCH VĂN BẢN VÀ CẬP NHẬT DỮ LIỆU — NEXUS Gov v2
 
+> ⚠️ **File này đã được thay thế bởi `02_WORKFLOW_BOCTACH_VB_v2.1.md`.** Đồng thời đọc [`MIGRATION-NOTICE.md`](./MIGRATION-NOTICE.md) — hệ thống đã chuyển từ Airtable sang Supabase (19/07/2026). Giữ lại chỉ để tham khảo lịch sử.
+
+
 > **Phiên bản:** 2.0 — 24/05/2026
 > **Dùng cho:** Mọi AI assistant khi đọc văn bản hành chính, bóc tách thành dữ liệu có cấu trúc và cập nhật vào Airtable.
 > **Phụ thuộc:** Đọc `01_QUY_TAC_LIEN_KET_CHITIEU_NHIEMVU_SOLIEU.md` trước khi thực hiện workflow này.

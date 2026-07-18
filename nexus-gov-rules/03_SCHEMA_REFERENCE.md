@@ -1,5 +1,8 @@
 # NEXUS Gov — SCHEMA REFERENCE
 
+> ⚠️ **SCHEMA CŨ (AIRTABLE) — KHÔNG CÒN ĐÚNG.** Hệ thống đã chuyển sang Supabase (19/07/2026). Đọc [`MIGRATION-NOTICE.md`](./MIGRATION-NOTICE.md) để biết danh sách 39 bảng Supabase hiện tại. File này giữ lại chỉ để tham khảo khái niệm phân cấp (không dùng tên bảng/field bên dưới để thao tác thật).
+
+
 > **Phiên bản:** V5 — 25/05/2026
 > **Base ID:** `appJhjI3TCfnmkpeo`
 > **Thay đổi so với V4:** SoLieu phân cấp (thành phần/tổng hợp/công thức), NhiemVu thêm ChiTieu_LK, CongViecCon.MaNhiemVu chuyển linked, NhomSoLieu thêm LinhVuc+MoTa.

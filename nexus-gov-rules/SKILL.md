@@ -1,5 +1,8 @@
 # NEXUS Gov — Quy tắc bóc tách văn bản và quản lý kế hoạch
 
+> ⚠️ **ĐÃ CHUYỂN SANG SUPABASE (19/07/2026)** — Đọc [`MIGRATION-NOTICE.md`](./MIGRATION-NOTICE.md) TRƯỚC khi dùng file này. Chi tiết Airtable bên dưới chỉ còn giá trị lịch sử/khái niệm.
+
+
 > **Trigger:** Khi người dùng yêu cầu bóc tách văn bản hành chính, nạp dữ liệu kế hoạch, xây dựng/chỉnh sửa/rà soát kế hoạch, hoặc cập nhật chỉ tiêu/nhiệm vụ/số liệu vào hệ thống NEXUS Gov.
 > **Mục đích:** Bảo đảm AI tuân thủ nguyên tắc liên kết chỉ tiêu ↔ nhiệm vụ ↔ số liệu ↔ minh chứng, không bóc tách rời rạc, không tự bịa dữ liệu.
 
@@ -9,7 +12,7 @@
 
 - Nhận được văn bản hành chính cần bóc tách thành dữ liệu có cấu trúc
 - Xây dựng hoặc chỉnh sửa kế hoạch (KH, NQ, QĐ, CT...)
-- Nạp chỉ tiêu, nhiệm vụ, số liệu vào Airtable (NEXUS Gov)
+- Nạp chỉ tiêu, nhiệm vụ, số liệu vào Supabase (NEXUS Gov)
 - Rà soát liên kết giữa chỉ tiêu và nhiệm vụ trong kế hoạch
 - Cập nhật số liệu, kết quả thực hiện định kỳ
 - Kiểm tra trùng lặp dữ liệu trước khi tạo mới
@@ -34,7 +37,9 @@ Sửa 1 phần = rà soát các phần liên quan
 KHÔNG tự bịa số liệu, văn bản, đơn vị, kết quả
 ```
 
-## Kết nối Airtable
+## Kết nối Supabase (từ 19/07/2026)
 
-- **Base ID:** `appJhjI3TCfnmkpeo`
-- **MCP Server:** Airtable MCP (kết nối sẵn trong Claude.ai)
+- **Project ID:** `zkgtrdrvlppyxusgzjnz`
+- **MCP Server:** Supabase MCP
+- Xem [`MIGRATION-NOTICE.md`](./MIGRATION-NOTICE.md) cho danh sách đầy đủ 39 bảng và bảng nào đã xác minh cột.
+- *(Base ID Airtable cũ, không còn dùng: `appJhjI3TCfnmkpeo`)*

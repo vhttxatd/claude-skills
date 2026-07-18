@@ -1,5 +1,8 @@
 # WORKFLOW BÓC TÁCH VĂN BẢN VÀ CẬP NHẬT DỮ LIỆU — NEXUS Gov v2.1
 
+> ⚠️ **ĐÃ CHUYỂN SANG SUPABASE (19/07/2026)** — Đọc [`MIGRATION-NOTICE.md`](./MIGRATION-NOTICE.md) TRƯỚC khi dùng file này. Chi tiết Airtable bên dưới chỉ còn giá trị lịch sử/khái niệm.
+
+
 > **Phiên bản:** 2.1 — 25/05/2026
 > **Thay đổi so với v2.0:** Gộp gán SL vào Bước 2+3 (bóc đến đâu gán đến đó), Bước 4 mở rộng ma trận CT↔NV↔SL, Bước 5 thành rà soát tổng hợp SL.
 > **Phụ thuộc:** Đọc `01_QUY_TAC_LIEN_KET_CHITIEU_NHIEMVU_SOLIEU.md` trước khi thực hiện.
@@ -9,7 +12,7 @@
 ## NGUYÊN TẮC BẮT BUỘC
 
 1. **Tuần tự tuyệt đối** — Bước trước xong mới bước sau. Không nhảy, không gộp.
-2. **Đề xuất trước, cập nhật sau** — Hiển thị đầy đủ dự kiến → chờ "OK" → mới ghi Airtable.
+2. **Đề xuất trước, cập nhật sau** — Hiển thị đầy đủ dự kiến → chờ "OK" → mới ghi vào CSDL (trước đây Airtable, nay Supabase).
 3. **Từng cái một** — Mỗi lần chỉ tạo 1 record. Hiện kết quả rồi mới tiếp.
 4. **Không tự suy diễn** — Thiếu thông tin thì hỏi. Không tự điền DonViChuTri, MocThoiGian, GiaTriMucTieu...
 5. **Linked record = array** — Luôn truyền `["recordId"]`, không phải string.
@@ -23,8 +26,9 @@
 
 ## KẾT NỐI AIRTABLE
 
-- **Base ID**: `appJhjI3TCfnmkpeo`
-- **MCP Server**: Airtable MCP (kết nối sẵn)
+- **Project ID (Supabase):** `zkgtrdrvlppyxusgzjnz`
+- **MCP Server:** Supabase MCP
+- *(Base ID Airtable cũ, không còn dùng: `appJhjI3TCfnmkpeo`)*
 
 ---
 

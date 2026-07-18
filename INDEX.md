@@ -1,13 +1,17 @@
 # Mục lục Skill — Hướng dẫn nhanh cho AI
 > Tài liệu này giúp AI (ChatGPT, Gemini, hoặc các trợ lý khác) hiểu nhanh cấu trúc kho tri thức để chọn đúng skill cho mỗi yêu cầu.
 
+## ⚠️ Trạng thái hiện tại — đọc trước
+
+**[`TRANG-THAI-HIEN-TAI.md`](./TRANG-THAI-HIEN-TAI.md)** ở gốc repo là nguồn trạng thái công việc mới nhất — đọc trước khi bắt đầu bất kỳ việc gì. File đó cũng quy định: **áp dụng kỷ luật `fable-mode`** (xác định phạm vi → bằng chứng trước suy luận → tự phản biện → kiểm chứng → báo cáo 3 lớp Fact/Assumption/Risk) làm mặc định cho mọi model AI (Haiku, Sonnet, Opus, hay AI khác), không chỉ khi được yêu cầu rõ.
+
 ## Quy tắc chọn skill
 Khi nhận yêu cầu, AI nên:
 1. Xác định **loại công việc** (báo cáo / kế hoạch / công văn / dữ liệu nền / bóc tách VB / ...).
 2. Đọc `SKILL.md` của skill tương ứng để biết quy tắc và cấu trúc.
 3. Khi cần dữ liệu nền (cán bộ, viết tắt), luôn tra `quy-tac-chung` trước.
 4. Khi cần số liệu địa phương, tra `tri-thuc-dia-phuong`.
-5. Khi bóc tách văn bản, xây dựng/rà soát kế hoạch, nạp dữ liệu vào NEXUS Gov, **bắt buộc đọc `nexus-gov-rules`** trước khi thực hiện.
+5. Khi bóc tách văn bản, xây dựng/rà soát kế hoạch, nạp dữ liệu vào NEXUS Gov, **bắt buộc đọc `nexus-gov-rules/MIGRATION-NOTICE.md` trước** (hệ thống đã chuyển sang Supabase từ 19/07/2026), sau đó mới đọc các file `01_`/`02_`/`03_` còn lại.
 
 ## Phân loại theo nhóm
 

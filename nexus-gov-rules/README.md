@@ -1,5 +1,8 @@
 # NEXUS Gov — Bộ quy tắc AI cho hệ thống quản lý thông tin số
 
+> ⚠️ **ĐÃ CHUYỂN SANG SUPABASE (19/07/2026)** — Đọc [`MIGRATION-NOTICE.md`](./MIGRATION-NOTICE.md) TRƯỚC. Nội dung Airtable trong README này chỉ còn giá trị lịch sử.
+
+
 > **Xã An Thới Đông, huyện Cần Giờ, TP.HCM**
 > **Tác giả:** Phan Trung Hiếu — Chuyên viên KHCN-CĐS
 > **Phiên bản:** 1.1 — 25/05/2026
@@ -8,7 +11,7 @@
 
 ## Giới thiệu
 
-NEXUS Gov là hệ thống quản lý thông tin số cấp xã, sử dụng Airtable làm cơ sở dữ liệu nền. Repo này chứa bộ quy tắc và hướng dẫn để **mọi AI assistant** (Claude, ChatGPT, Gemini, Copilot...) có thể tham gia vận hành hệ thống một cách nhất quán.
+NEXUS Gov là hệ thống quản lý thông tin số cấp xã, hiện chạy trên **Supabase** (trước đây dùng Airtable, đã chuyển hẳn từ 19/07/2026). Repo này chứa bộ quy tắc và hướng dẫn để **mọi AI assistant** (Claude, ChatGPT, Gemini, Copilot...) có thể tham gia vận hành hệ thống một cách nhất quán.
 
 ### Mục tiêu
 
@@ -27,7 +30,8 @@ nexus-gov-rules/
 ├── SKILL.md                                           ← Claude skill descriptor
 ├── 01_QUY_TAC_LIEN_KET_CHITIEU_NHIEMVU_SOLIEU.md     ← Quy tắc nền tảng
 ├── 02_WORKFLOW_BOCTACH_VB_v2.1.md                     ← Quy trình 7 bước (v2.1)
-└── 03_SCHEMA_REFERENCE.md                             ← Schema Airtable V5
+├── MIGRATION-NOTICE.md                                ← Thông báo chuyển Airtable → Supabase (đọc trước)
+└── 03_SCHEMA_REFERENCE.md                             ← Schema Airtable V5 (CŨ, xem MIGRATION-NOTICE.md)
 ```
 
 ### Mô tả từng file
@@ -59,10 +63,11 @@ nexus-gov-rules/
 1. Upload 3 file vào cuộc trò chuyện
 2. Prompt: *"Đây là bộ quy tắc quản lý kế hoạch. Đọc và xác nhận hiểu."*
 
-### Với MCP (Airtable)
+### Với MCP (Supabase — hiện tại)
 
-- Các AI hỗ trợ MCP (Claude, ChatGPT Plus) có thể kết nối trực tiếp Airtable
-- Base ID: `appJhjI3TCfnmkpeo`
+- Các AI hỗ trợ MCP (Claude) có thể kết nối trực tiếp Supabase
+- Project ID: `zkgtrdrvlppyxusgzjnz`
+- *(Base ID Airtable cũ, không còn dùng: `appJhjI3TCfnmkpeo`)*
 - Xem `03_SCHEMA_REFERENCE.md` để biết Table ID từng bảng
 
 ---
@@ -110,5 +115,5 @@ Người dùng cung cấp văn bản
 ## Liên hệ
 
 - **Phan Trung Hiếu** — Chuyên viên KHCN-CĐS, UBND xã An Thới Đông
-- Hệ thống: NEXUS Gov trên Airtable
+- Hệ thống: NEXUS Gov trên Supabase (từ 19/07/2026; trước đó Airtable)
 - Dự án thuộc: Phòng Văn hóa - Xã hội, UBND xã An Thới Đông, huyện Cần Giờ, TP.HCM

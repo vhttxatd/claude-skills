@@ -1,5 +1,8 @@
 # QUY TẮC LIÊN KẾT CHỈ TIÊU, NHIỆM VỤ VÀ TRỤC SỐ LIỆU
 
+> ⚠️ **ĐÃ CHUYỂN SANG SUPABASE (19/07/2026)** — Đọc [`MIGRATION-NOTICE.md`](./MIGRATION-NOTICE.md) TRƯỚC khi dùng file này. Chi tiết Airtable bên dưới chỉ còn giá trị lịch sử/khái niệm.
+
+
 > **Phiên bản:** 1.2 — 27/05/2026
 > **Dùng cho:** Mọi AI assistant (Claude, ChatGPT, Gemini...) khi tham gia xây dựng, chỉnh sửa, rà soát hoặc theo dõi kế hoạch của xã An Thới Đông trong hệ thống NEXUS Gov.
 > **Tác giả:** Phan Trung Hiếu — Chuyên viên KHCN-CĐS, UBND xã An Thới Đông
