@@ -1,5 +1,5 @@
 # L1 — Tổng quan Xã An Thới Đông
-> Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
+> Cập nhật gần nhất: 2026-07-19 | Nguồn chính: KH 1583/KH-UBND
 
 Lớp vĩ mô — dùng cho mọi hội thoại cần thông tin chung về xã.
 Chi tiết từng lĩnh vực xem file L3 tương ứng.
@@ -14,8 +14,13 @@ Chi tiết từng lĩnh vực xem file L3 tương ứng.
 - Báo cáo trực tiếp lên Sở / UBND Thành phố ^[QTC]
 
 ### Địa bàn
-- **12 ấp:** Rạch Lá, Tắc Ráng, An Đông, Quảng Xuyên, An Bình, Doi Lầu, Cá Cháy, Vàm Sát, Lý Hòa Hiệp, Dương Văn Hạnh, Lý Thái Bửu, Lý Nhơn ^[QTC]
-- Tổ Công nghệ số cộng đồng: **43 thành viên** trải đều 12 ấp ^[QTC]
+- **8 ấp** (từ 01/7/2026, sáp nhập từ 12 ấp cũ theo Nghị quyết số 20/NQ-HĐND
+  ngày 22/6/2026): Quảng Xuyên, An Đông, An Bình, Rạch Lá, Doi Lầu, Lý Hòa
+  Hiệp, Lý Thái Bửu, Lý Nhơn ^[QTC]
+- Tổ Công nghệ số cộng đồng: **43 thành viên**, số liệu ghi nhận khi còn 12
+  ấp — CHƯA XÁC NHẬN lại số liệu/phân bổ theo 8 ấp mới ^[QTC]
+- Dân số: **20.731 người** (tháng 6/2026) ^[HIẾU-NOTE-202607]
+- Tổng số hộ dân: **5.802 hộ** (tháng 6/2026, theo số liệu thanh toán điện tử hóa đơn tiền điện) ^[HIẾU-NOTE-202607]
 
 ### Đặc điểm kinh tế — sinh thái
 - Thế mạnh: kinh tế nông nghiệp, nuôi trồng & chế biến thủy sản, nghề muối truyền thống, thương mại — dịch vụ, du lịch sinh thái gắn với rừng ngập mặn ^[KH1583]
@@ -97,3 +102,5 @@ Theo KH 1583, phân công giữa 2 phòng chuyên môn:
 [QD2435]: QĐ số 2435/QĐ-UBND của UBND TP.HCM — dẫn chiếu trong KH 1583 | Thiếu thông tin ngày ban hành & trích yếu đầy đủ | Cập nhật vào hệ thống: 2026-04-24 | **Cần bổ sung khi có thông tin**
 
 [QTC]: Dữ liệu nền trong skill `quy-tac-chung` — đã xác nhận trước đó | Cập nhật vào hệ thống: 2026-04-24
+
+[HIẾU-NOTE-202607]: Ghi chú nội bộ Hiếu — dân số 20.731 người và tổng số hộ dân 5.802 hộ, số liệu tháng 6/2026, hộ dân theo thống kê thanh toán điện tử hóa đơn tiền điện, dùng cho Báo cáo giám sát NQ57 (2025-6T2026) | Cập nhật vào hệ thống: 2026-07-19
