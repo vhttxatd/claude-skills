@@ -230,14 +230,42 @@ bẫy với "Vàm Sát" vừa là tên ấp đã bỏ vừa là địa danh còn
 | `ttso_noi_dung` | Nội dung bài đăng — trạng thái (nhap/da_dang/loi), mô hình AI dùng soạn, kênh đăng |
 | `ttso_noi_dung_phien_ban` | Lịch sử phiên bản nội dung 1 bài |
 
-### 2.8 Nhóm dự toán kinh phí (dt_*)
+### 2.8 Nhóm dự toán kinh phí (`dtkp_*`) — 15 bảng
 
-| Bảng | Nội dung |
-|---|---|
-| `dt_cau_hinh` | Cấu hình chung (mã phường/xã, tên đơn vị hành chính) — chỉ 1 dòng |
-| `dt_don_vi` | Đơn vị dự toán (hanh_chinh/su_nghiep/luc_luong_vu_trang/giao_duc), trạng thái thu thập dự toán |
-| `dt_khoan_muc_pl1` | Chi tiết khoản mục chi thường xuyên theo Phụ lục 1 (nhóm hoạt động I-VII, mã lục ngân sách...) — hiện 0 dòng |
-| `dt_nhiem_vu_pl2` | Nhiệm vụ đầu tư/chi theo Phụ lục 2 (chuyển tiếp/mở mới) — hiện 0 dòng |
+> **Bốn bảng `dt_*` mô tả ở bản trước (`dt_cau_hinh`, `dt_don_vi`,
+> `dt_khoan_muc_pl1`, `dt_nhiem_vu_pl2`) KHÔNG CÒN TỒN TẠI** — đã kiểm bằng
+> `information_schema` ngày 01/9/2026. Chúng được thay bằng nhóm `dtkp_*`.
+> Con trỏ cũ trỏ vào chỗ trống.
+
+Đang có dữ liệu: `dtkp_danh_muc` (21) · `dtkp_mau_ct` (10) · `dtkp_muc` (9) ·
+`dtkp_mau` (2) · `dtkp_nhom` (2) · `dtkp_du_toan` (1).
+Còn rỗng: `dtkp_du_toan_ct`, `dtkp_phan_cong`, `dtkp_ky_chinh_thuc`,
+`dtkp_ma_nguon`, `dtkp_von_giao_dich`, `dtkp_tong_hop_donvi`,
+`dtkp_danh_muc_minh_chung`, `dtkp_danh_muc_minh_chung_ngoai`.
+
+**Nội dung từng bảng CHƯA rà** — mới xác minh tên và số dòng, chưa mở cột.
+
+### 2.8b Nhóm DTI (`dti_*`) — 5 bảng, chưa từng ghi trong bản đồ này
+
+`dti_chi_tieu` (134) · `dti_mapping` (116) · `dti_tra_loi` (8) ·
+`dti_bo_chi_so` (1) · `dti_lich_su_ke_khai` (0).
+
+Đây là mô-đun **đang có dữ liệu thật** phục vụ Bộ chỉ số đánh giá chuyển đổi
+số. **Nội dung CHƯA rà.**
+
+### 2.8c Các nhóm khác chưa có trong bản đồ
+
+`form_*` (7 bảng — biểu mẫu thu thập) · `de_cuong_*` (4 — đề cương báo cáo) ·
+`ho_so_cong_viec*` (3) · `van_ban_file` (15) · `danh_muc_vb` (4) ·
+`so_lieu_theo_doi` (2) · `thong_bao_he_thong` (2) · `thong_bao_da_doc` (0) ·
+`cap_nhat_so_lieu_minh_chung_ngoai` (13) · `cap_nhat_so_lieu_minh_chung` (0) ·
+`ket_qua_minh_chung_so_lieu` (0) · `khoi_phuc_mat_khau` (0) ·
+`so_lieu_tan_suat_tam_thoi` (0). **Đều CHƯA rà.**
+
+> **Nexus hiện có 79 bảng** (đếm 01/9/2026). Bản đồ này mô tả chi tiết khoảng
+> một nửa. Trước khi khẳng định "Nexus không có dữ liệu X", **phải đếm lại**:
+> `SELECT relname, n_live_tup FROM pg_stat_user_tables WHERE schemaname='public'
+> ORDER BY n_live_tup DESC;` — đừng kết luận từ danh sách trong file này.
 
 ### 2.9 Khác
 
