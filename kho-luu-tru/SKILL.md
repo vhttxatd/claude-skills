@@ -77,6 +77,28 @@ bản đều cần vào Nexus.
 - Quy trình lưu chi tiết (tên file, trường thông tin, Ngày BH...): xem skill
   `xu-ly-van-ban-den`.
 
+**Không có trường "Số ký hiệu" riêng.** Số hiệu nằm trong tiêu đề `Nội dung VB`.
+Kiểm trùng vì vậy chỉ so được chuỗi tiêu đề — và **các trang tên `DuThao/...`
+nằm ở nhiều vị trí nên trùng tên là bình thường, không dùng để kiểm trùng.**
+
+**Đang dư, cần xử lý (Hiếu xác nhận 01/9/2026):** `2448/QĐ-UBND` (3 trang) và
+`1751/UBND` (3 trang) — trùng thật, giữ 1 xóa phần dư.
+
+**Trường `Lĩnh vực` thiếu mã 13** (có 1–12, rồi 14, 15). Hiếu xác nhận đây là
+thiếu sót, không phải cố ý.
+
+**9 trang không có tiêu đề** — Hiếu quyết định để nguyên, không cần xử lý.
+
+**Dữ liệu "Cấp huyện" (4 dòng) chỉ để THAM KHẢO** — có từ trước 01/02/2025.
+Không dùng làm căn cứ cho văn bản hiện hành, không sửa, không xóa.
+
+**Mức lấp đầy (01/9/2026, 1089 dòng):** trong đó **648 dòng là văn bản thật**
+(có `Loại VB`), phần còn lại là trang gộp nhóm "COT ..." nên trống số hiệu và
+ngày là đúng thiết kế. Trong 648 văn bản thật: thiếu Ngày BH **5**, thiếu CQBH
+**1**, **thiếu Link file 188 (29%)**. Đếm gộp cả 1089 dòng sẽ ra "thiếu 361 —
+581 dòng" và đó là con số sai — **luôn lọc `Loại VB IS NOT NULL` trước khi
+đánh giá độ đầy đủ của kho này.**
+
 ### 1.2 "Văn bản CPĐT" (kho cũ — CHỈ TRA CỨU)
 
 - Xuất hiện đôi khi trong kết quả `notion-search` cùng workspace.
