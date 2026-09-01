@@ -72,6 +72,19 @@ Kiểm theo đúng thứ tự này. Nhóm A và B là nhóm gây hậu quả n�
 - [ ] Số liệu lặp lại ở nhiều mục có **khớp nhau** không; tổng có bằng tổng
       các thành phần không.
 
+**Ba quy tắc riêng khi lấy số liệu từ Nexus** (rút ra từ lần chạy 01/9/2026):
+
+- [ ] **Lọc `trang_thai = 'da_duyet'`** trên `cap_nhat_so_lieu`. Tính đến
+      01/9/2026 có 56/326 bản ghi còn `cho_duyet` — lấy nhầm là báo cáo số
+      chưa ai duyệt.
+- [ ] **Nhóm theo `don_vi_id`** khi tìm bản ghi trùng. Một chỉ số có nhiều
+      dòng cùng kỳ thường là **phân theo đơn vị** (ví dụ số học sinh: 9 dòng
+      = 9 trường), không phải trùng lặp. Bỏ qua `don_vi_id` thì 25 nhóm bị
+      báo trùng trong khi chỉ 2 nhóm trùng thật — 92% báo động giả.
+- [ ] **Mẫu số phải kiểm riêng.** Chỉ số dùng làm mẫu số (tổng số cán bộ,
+      tổng số hộ, tổng số máy) sai thì mọi tỷ lệ tính từ nó đều sai, mà nhìn
+      vào tỷ lệ không thấy được. Đối chiếu mẫu số với một nguồn thứ hai.
+
 ### B. Căn cứ pháp lý
 
 - [ ] Mỗi căn cứ đủ **số hiệu + ngày ban hành + cơ quan ban hành + trích yếu**.
