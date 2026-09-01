@@ -1,5 +1,7 @@
 # Cấu trúc gốc 5 mẫu — Ban Cơ yếu Chính phủ (Nghị định 68/2024/NĐ-CP)
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: file mẫu Ban Cơ yếu Chính phủ theo NĐ 68/2024/NĐ-CP (bản 09/2024) · ra_soat_lai: 2026-12-01 · rui_ro: cao (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Trích nguyên văn từ file mẫu do Hiếu cung cấp (LE THANH HOAN soạn,
 > 09/2024). Dùng file này làm nguồn field/cột chính thức — không tự đặt
 > tên cột khác khi soạn công văn.

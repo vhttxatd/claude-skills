@@ -88,6 +88,8 @@ description: >
   Liệt kê các từ khóa kích hoạt.
 ---
 
+> **META** · cap_nhat: YYYY-MM-DD · nguon_su_that: <nguồn> · ra_soat_lai: YYYY-MM-DD · rui_ro: cao|trung|thap
+
 # Tên Skill
 
 ## BỐI CẢNH (nếu cần)
@@ -95,6 +97,28 @@ description: >
 ## BƯỚC 2 — ...
 ## LƯU Ý ĐẶC BIỆT
 ```
+
+### Dòng META — BẮT BUỘC, không có ngoại lệ
+
+Mọi file `.md` trong skill (kể cả `data/`, `references/`, `bieu-mau/`,
+`mau/`, `templates/`) phải có dòng META đặt **ngay sau tiêu đề H1**, trong
+1.500 ký tự đầu file — nếu đặt sâu hơn thì script quét sẽ không thấy.
+
+| Trường | Ghi gì |
+|---|---|
+| `cap_nhat` | Ngày **nội dung** được cập nhật lần cuối, KHÔNG phải ngày sửa chính tả |
+| `nguon_su_that` | Số hiệu văn bản, tên file gốc, hoặc "quyết định của Hiếu". **Không bịa căn cứ pháp lý** |
+| `ra_soat_lai` | `cap_nhat` + chu kỳ theo rủi ro |
+| `rui_ro` | `cao` = số liệu/căn cứ pháp lý · `trung` = quy trình, biểu mẫu · `thap` = quy ước định dạng |
+
+Chu kỳ rà soát: **cao = 3 tháng · trung = 6 tháng · thấp = 12 tháng.**
+
+Khi chỉ thêm META mà chưa đọc lại nội dung, ghi thêm đuôi
+`(bổ sung META <ngày>, nội dung CHƯA rà)` để người sau biết dòng này chưa
+được kiểm chứng.
+
+**Kiểm tra:** chạy `python3 tao-skill/scripts/kiem-tra-meta.py`. Skill chưa
+đạt nếu script còn báo thiếu META hoặc file rủi ro cao quá hạn.
 
 **Nguyên tắc viết skill tốt:**
 - Mỗi bước phải cụ thể, có thể làm được ngay
@@ -115,12 +139,35 @@ Sau khi soạn xong:
 ### Bước 5 — Đóng gói và cài đặt
 
 ```bash
-# Đóng gói skill thành file .skill
-zip -r ten-skill.skill ten-skill/
+# Đóng gói NGUYÊN thư mục skill, từ thư mục cha
+zip -rq ten-skill.zip ten-skill/
 
-# Cài vào Claude.ai:
-# Vào Customize → Skills → + → Upload file .skill
+# Cài vào Claude.ai: Settings → Skills → Upload
 ```
+
+**Ba lỗi đóng gói đã từng xảy ra — đừng lặp lại:**
+
+1. **Xuất gói chỉ có `SKILL.md`.** Upload lên là **xóa sạch** `data/`,
+   `references/`, `bieu-mau/` của bản đang chạy. Luôn đóng gói cả thư mục.
+2. **Gộp nhiều skill vào 1 file nén.** Nhiều `SKILL.md` trùng tên trong các
+   thư mục lồng nhau làm trình tải về lỗi. **Mỗi skill một file nén riêng.**
+3. **Copy-paste thủ công qua web GitHub.** Đã làm hỏng mã hóa UTF-8 của
+   `bao-cao-hanh-chinh/mau/mau-khcn-cds.md` (mất 1 byte, chữ "Mốc" thành ký
+   tự hỏng). Sửa xong phải kiểm tra đọc lại được bằng UTF-8.
+
+**Ba bản sao — quy tắc chống lệch:**
+
+| Bản | Vai trò |
+|---|---|
+| Settings Claude.ai | **bản đang chạy** |
+| GitHub `vhttxatd/claude-skills` | **bản gốc có lịch sử** |
+| `D:\claude-skills` | bản sao, **không có thẩm quyền** |
+
+Sửa skill là phải cập nhật **cả Settings và GitHub trong cùng ngày**.
+
+> **Skill nạp trong phiên là bản chụp lúc phiên bắt đầu.** Upload giữa chừng
+> KHÔNG làm mới phiên đang chạy. Muốn kiểm tra kết quả upload phải **mở
+> phiên mới**.
 
 ---
 
@@ -131,8 +178,29 @@ Khi người dùng muốn cập nhật skill:
 1. **Đọc skill hiện tại** — xác định phần nào cần sửa
 2. **Hỏi vấn đề cụ thể** — kết quả nào chưa đúng ý?
 3. **Chỉnh sửa có mục tiêu** — không sửa những phần đang hoạt động tốt
-4. **Kiểm tra lại** — đảm bảo chỉnh sửa không gây lỗi ở phần khác
-5. **Đóng gói lại** — xuất file `.skill` mới để cài đặt
+4. **Cập nhật dòng META** — sửa `cap_nhat`, tính lại `ra_soat_lai`. Sửa nội
+   dung mà không sửa META coi như **chưa sửa xong**
+5. **Tìm nơi dẫn chiếu chéo** — một con số thường nằm ở nhiều file. Trước khi
+   báo xong, `grep` lại toàn bộ skill để không sót bản sao
+6. **Kiểm tra lại** — chạy `kiem-tra-meta.py`; đọc lại được bằng UTF-8
+7. **Đóng gói lại** — xem Bước 5
+
+### TUYỆT ĐỐI KHÔNG find-replace hàng loạt
+
+Tên cũ thường vẫn là tên thật ở nơi khác. Ví dụ có thật: `Vàm Sát` và
+`Dương Văn Hạnh` vừa là **tên ấp đã bỏ**, vừa là **địa danh còn tồn tại**
+(sông Vàm Sát – Lò Rèn – Dinh Bà, Khu du lịch sinh thái Vàm Sát, Đình Dương
+Văn Hạnh — di tích cấp thành phố). Thay hàng loạt là phá hỏng dữ liệu du
+lịch và hạ tầng. **Đọc ngữ cảnh từng chỗ rồi sửa từng chỗ.**
+
+### Dữ liệu nào KHÔNG được để trong skill
+
+Theo `quy-tac-chung/data/quy-tac-tri-nho.md`: dữ liệu do Nexus/Notion sở hữu
+(nhân sự, số điện thoại, đơn vị, nhiệm vụ) thì skill **chỉ giữ con trỏ**,
+không giữ bản sao. Lý do có thật: bản sao danh sách trưởng ấp trong skill đã
+sai 4/8 người và tồn tại suốt tháng 7–8/2026 mà không ai phát hiện.
+
+Thứ tự ưu tiên khi mâu thuẫn: **Nexus = Notion > skill > memory Claude.**
 
 ---
 

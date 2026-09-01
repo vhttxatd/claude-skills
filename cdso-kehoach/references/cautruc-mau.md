@@ -1,5 +1,7 @@
 # Cấu trúc mẫu kế hoạch chuyển đổi số cấp xã
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: mẫu cấu trúc kế hoạch CĐS do Hiếu chốt · ra_soat_lai: 2027-03-01 · rui_ro: trung (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 ## MẪU 1 — Kế hoạch CĐS của Đảng ủy xã (thường niên)
 
 ```

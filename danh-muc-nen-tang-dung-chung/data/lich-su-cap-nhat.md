@@ -1,5 +1,7 @@
 # Lịch sử cập nhật danh mục nền tảng/CSDL dùng chung
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: nhật ký thay đổi danh mục (chỉ ghi thêm, không sửa lịch sử) · ra_soat_lai: 2027-09-01 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Ghi lại mỗi lần có văn bản mới làm thay đổi danh mục (thêm/sửa/bãi bỏ).
 > Mục đích: truy vết được vì sao 1 entry có nội dung như hiện tại.
 

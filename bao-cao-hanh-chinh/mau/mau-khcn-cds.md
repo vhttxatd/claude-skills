@@ -1,5 +1,7 @@
 # Mẫu báo cáo KHCN-CĐS (Khoa học công nghệ - Đổi mới sáng tạo và Chuyển đổi số)
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: cấu trúc báo cáo theo yêu cầu của Sở/UBND Thành phố, Hiếu chốt · ra_soat_lai: 2027-03-01 · rui_ro: trung (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 ---
 
 ## THÔNG TIN CĂN BẢN

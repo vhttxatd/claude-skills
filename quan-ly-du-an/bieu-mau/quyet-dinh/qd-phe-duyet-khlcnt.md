@@ -1,5 +1,7 @@
 # Biểu mẫu: QĐ Phê duyệt Dự toán mua sắm và KHLCNT
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: biểu mẫu nội bộ quy trình mua sắm — căn cứ xem `quan-ly-du-an/quy-trinh/duoi-500tr.md` · ra_soat_lai: 2027-03-01 · rui_ro: trung (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Căn cứ: Mẫu 02B — Thông tư 79/BTC
 > Giai đoạn: II.4
 > Cập nhật: 08/04/2026 — Áp dụng thống nhất cho MỌI trường hợp

@@ -1,5 +1,7 @@
 # Thông tin mặc định — dùng khi soạn công văn chứng thư chữ ký số
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: thông tin đơn vị do Hiếu xác nhận · ra_soat_lai: 2026-12-01 · rui_ro: cao (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Ưu tiên file này hơn tự suy đoán. Trường nào ghi `[cần bổ sung]` nghĩa là
 > CHƯA có dữ liệu xác nhận — phải hỏi Hiếu, không tự bịa hay tự tra cứu thay.
 

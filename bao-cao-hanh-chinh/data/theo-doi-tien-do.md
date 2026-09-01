@@ -1,4 +1,6 @@
 # Theo dõi tiến độ nộp báo cáo
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: ghi chép nộp báo cáo của Hiếu (cập nhật thủ công) · ra_soat_lai: 2027-03-01 · rui_ro: trung (bổ sung META 01/9/2026, nội dung CHƯA rà)
 > Cập nhật thủ công sau mỗi lần nộp BC
 > Giai đoạn hiện tại: lưu tại đây + Google Drive
 > Kế hoạch: chuyển sang Notion / Airtable / Supabase khi có kết nối

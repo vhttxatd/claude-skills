@@ -1,5 +1,7 @@
 # Schema & Quy tắc metadata
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy ước metadata do Hiếu chốt · ra_soat_lai: 2027-09-01 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 File này quy định cách ghi dữ liệu và nguồn trong tất cả file L1/L2/L3.
 **Luôn đọc file này trước khi thêm/sửa dữ liệu vào bất kỳ file nào khác.**
 
@@ -88,7 +90,7 @@ thủy sản (Geloina expansa, Magallana ariakensis) | Cập nhật: 2026-03-15
 - Động từ điển hình: "có", "gồm", "đang", "đã"
 
 Ví dụ đúng:
-- "Xã có 12 ấp" ✓
+- "Xã vận hành mô hình 2 cấp, không có cấp huyện" ✓
 - "100% hộ sản xuất muối kết tinh trên ruộng trải bạt" ✓ (là trạng thái hiện tại)
 
 Ví dụ SAI (phải chuyển sang [B]):

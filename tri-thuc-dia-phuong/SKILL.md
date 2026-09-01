@@ -68,7 +68,7 @@ Mỗi file L3 chia 3 phần cố định:
 
 | Nhãn | Ý nghĩa | Ví dụ |
 |---|---|---|
-| `[A] HIỆN TRẠNG` | Sự kiện, số liệu đã xảy ra — kiểm chứng được | "12 ấp, 43 thành viên Tổ CNSCĐ" |
+| `[A] HIỆN TRẠNG` | Sự kiện, số liệu đã xảy ra — kiểm chứng được | "Vận hành mô hình 2 cấp, không có cấp huyện" |
 | `[B] ĐỊNH HƯỚNG` | Chỉ tiêu đã văn bản hóa (NQ, KH) | "Tăng trưởng 8,4%/năm" |
 | `[C] TIỀM NĂNG` | Cơ hội, đề xuất chưa văn bản hóa | "Nuôi Geloina expansa" |
 

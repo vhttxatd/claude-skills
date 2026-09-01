@@ -1,5 +1,7 @@
 # Quy trình mua sắm thường xuyên — TỪ 500 TRIỆU ĐỒNG TRỞ LÊN
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: cùng căn cứ với `duoi-500tr.md` · ra_soat_lai: 2026-12-01 · rui_ro: cao (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Quy trình này kế thừa toàn bộ cấu trúc từ `duoi-500tr.md`.
 > Chỉ ghi các điểm KHÁC BIỆT so với quy trình dưới 500tr.
 

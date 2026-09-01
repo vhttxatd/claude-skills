@@ -1,5 +1,7 @@
 # Biểu mẫu: QĐ Phê duyệt Nhiệm vụ và Dự toán
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: cùng căn cứ với `quan-ly-du-an/quy-trinh/duoi-500tr.md` (NĐ 98/2025/NĐ-CP; NQ 25/2025/NQ-HĐND; NQ 63/2025/NQ-HĐND sđ bởi NQ 05/2026/NQ-HĐND) · ra_soat_lai: 2026-12-01 · rui_ro: cao (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Căn cứ: Mẫu số 2 — Nghị định 98/2025/NĐ-CP
 > Thẩm quyền: Theo Nghị quyết 25/2025/NQ-HĐND
 > Cập nhật: 18/03/2026 — từ thực tế CV 979/UBND (trang bị máy tính bầu cử)

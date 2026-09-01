@@ -1,5 +1,7 @@
 # Biểu mẫu: Tờ trình phê duyệt Nhiệm vụ và Dự toán — Phòng VH-XH trình UBND xã
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: cùng căn cứ với `quan-ly-du-an/quy-trinh/duoi-500tr.md` (NĐ 98/2025/NĐ-CP; NQ 25/2025/NQ-HĐND; NQ 63/2025/NQ-HĐND sđ bởi NQ 05/2026/NQ-HĐND) · ra_soat_lai: 2026-12-01 · rui_ro: cao (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Dùng cho: gói thầu từ 500 triệu trở lên
 > Đơn vị soạn: Phòng Văn hóa - Xã hội
 > Ký hiệu số: /TTr-VHXH

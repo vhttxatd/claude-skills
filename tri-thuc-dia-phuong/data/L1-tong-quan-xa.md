@@ -1,6 +1,6 @@
 # L1 — Tổng quan Xã An Thới Đông
 
-> **META** · cap_nhat: 2026-07-19 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-10-19 · rui_ro: cao
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: KH 1583/KH-UBND + NQ 20/NQ-HĐND ngày 22/6/2026 (8 ấp) · ra_soat_lai: 2026-12-01 · rui_ro: cao
 > Cập nhật gần nhất: 2026-07-19 | Nguồn chính: KH 1583/KH-UBND
 
 Lớp vĩ mô — dùng cho mọi hội thoại cần thông tin chung về xã.
@@ -16,8 +16,8 @@ Chi tiết từng lĩnh vực xem file L3 tương ứng.
 - Báo cáo trực tiếp lên Sở / UBND Thành phố ^[QTC]
 
 ### Địa bàn
-- **12 ấp:** Rạch Lá, Tắc Ráng, An Đông, Quảng Xuyên, An Bình, Doi Lầu, Cá Cháy, Vàm Sát, Lý Hòa Hiệp, Dương Văn Hạnh, Lý Thái Bửu, Lý Nhơn ^[QTC]
-- Tổ Công nghệ số cộng đồng: **43 thành viên** trải đều 12 ấp ^[QTC]
+- **8 ấp:** Quảng Xuyên, An Bình, An Đông, Rạch Lá, Doi Lầu, Lý Hòa Hiệp, Lý Thái Bửu, Lý Nhơn ^[NQ20] — chi tiết và trưởng ấp: `quy-tac-chung/data/don-vi-dia-ban.md` (chủ sở hữu dữ liệu: Nexus)
+- Tổ Công nghệ số cộng đồng: **43 thành viên**, **12 tổ** theo địa bàn ấp cũ — chưa kiện toàn theo 8 ấp (xác nhận 01/9/2026) ^[QTC]
 - Dân số: **20.731 người** (tháng 6/2026) ^[HIẾU-NOTE-202607]
 - Tổng số hộ dân: **5.802 hộ** (tháng 6/2026, theo số liệu thanh toán điện tử hóa đơn tiền điện) ^[HIẾU-NOTE-202607]
 

@@ -1,5 +1,7 @@
 # Kho thu thập hàng ngày — nền dùng chung cho mọi báo cáo NQ57
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: ghi chép hàng ngày của Hiếu về KHCN3/NQ57 · ra_soat_lai: 2026-12-01 · rui_ro: cao (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Đây KHÔNG phải một báo cáo. Đây là kho ghi nhận liên tục các nội dung,
 > số liệu, kết quả liên quan đến khoa học, công nghệ, đổi mới sáng tạo và
 > chuyển đổi số (KHCN3/NQ57) mà Hiếu làm việc hàng ngày. Khi tới kỳ cần

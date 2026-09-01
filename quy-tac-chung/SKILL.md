@@ -25,7 +25,9 @@ description: >
 - PCT UBND (Kinh tế, HC công): Phan Kim Anh
 - PCT UBND (VH-XH, KH&CN, CĐS): Nguyễn Minh Kha
 
-**12 ấp:** Rạch Lá, Tắc Ráng, An Đông, Quảng Xuyên, An Bình, Doi Lầu, Cá Cháy, Vàm Sát, Lý Hòa Hiệp, Dương Văn Hạnh, Lý Thái Bửu, Lý Nhơn
+**8 ấp** (NQ 20/NQ-HĐND, hiệu lực 01/7/2026)**:** Quảng Xuyên, An Bình, An Đông, Rạch Lá, Doi Lầu, Lý Hòa Hiệp, Lý Thái Bửu, Lý Nhơn
+> Tên trưởng ấp và số điện thoại: **chủ sở hữu là Nexus** — tra `don_vi` + `profiles`, KHÔNG lưu trong skill. Chi tiết: `data/don-vi-dia-ban.md`.
+> Lưu ý: **Tổ CNSCĐ vẫn là 12 tổ** theo địa bàn ấp cũ — chưa kiện toàn theo 8 ấp (tính đến 01/9/2026).
 
 **Ngầm định "giúp tôi soạn/viết/làm…"** (khi không nêu rõ đơn vị):
 - Đơn vị soạn thảo: **Phòng Văn hóa - Xã hội**

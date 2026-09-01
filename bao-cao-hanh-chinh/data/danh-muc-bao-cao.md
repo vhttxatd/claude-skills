@@ -1,4 +1,6 @@
 # Danh mục báo cáo định kỳ và đột xuất
+
+> **META** · cap_nhat: 2026-04-04 · nguon_su_that: danh mục BC do Hiếu tổng hợp từ văn bản yêu cầu báo cáo của Sở/TP · ra_soat_lai: 2026-10-04 · rui_ro: trung (bổ sung META 01/9/2026, nội dung CHƯA rà)
 > Cập nhật lần cuối: 04/04/2026
 > Khi phát sinh loại BC mới → hỏi người dùng → thêm vào đây
 

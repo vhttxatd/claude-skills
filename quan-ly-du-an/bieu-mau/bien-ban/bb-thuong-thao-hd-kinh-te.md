@@ -1,5 +1,7 @@
 # Biểu mẫu: Biên bản Thương thảo Hợp đồng kinh tế
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: biểu mẫu nội bộ quy trình mua sắm — căn cứ xem `quan-ly-du-an/quy-trinh/duoi-500tr.md` · ra_soat_lai: 2027-03-01 · rui_ro: trung (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > **Tên mẫu:** BBTT Hợp đồng kinh tế
 > **Tính chất:** Đơn giản — dùng chung cho mọi trường hợp thương thảo hợp đồng mua sắm
 > **Giai đoạn:** Bước III — Sau khi có QĐ phê duyệt KHLCNT, trước khi ký HĐ kinh tế

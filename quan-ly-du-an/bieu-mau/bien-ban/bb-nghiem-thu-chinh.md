@@ -1,5 +1,7 @@
 # Biểu mẫu: Biên bản nghiệm thu
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: biểu mẫu nội bộ quy trình mua sắm — căn cứ xem `quan-ly-du-an/quy-trinh/duoi-500tr.md` · ra_soat_lai: 2027-03-01 · rui_ro: trung (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Dùng cho cả nghiệm thu tư vấn TĐG (Giai đoạn II.3.2) và
 > nghiệm thu gói thầu chính (Giai đoạn IV)
 > Ghi rõ khi soạn: đây là nghiệm thu loại nào.

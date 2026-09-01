@@ -1,5 +1,7 @@
 # Hướng dẫn văn phong hành chính kế hoạch CĐS cấp xã
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: văn phong kế hoạch CĐS do Hiếu chốt · ra_soat_lai: 2027-03-01 · rui_ro: trung (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 ## NGUYÊN TẮC CHUNG
 
 - Câu văn ngắn gọn, rõ ràng, có chủ ngữ – vị ngữ đầy đủ

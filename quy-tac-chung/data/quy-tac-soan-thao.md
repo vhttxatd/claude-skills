@@ -1,5 +1,7 @@
 # Quy tắc soạn thảo — chi tiết
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy ước soạn thảo của Hiếu + thể thức trong skill `the-thuc-van-ban` · ra_soat_lai: 2027-03-01 · rui_ro: trung (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Đọc khi: soạn văn bản hành chính (kế hoạch, công văn, báo cáo, quyết định…).
 
 ---

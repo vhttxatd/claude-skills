@@ -1,5 +1,7 @@
 # <Tên tính năng> — Implementation Plan
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy ước nội bộ do Hiếu chốt · ra_soat_lai: 2027-09-01 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 Spec: docs/specs/YYYY-MM-DD-ten-tinh-nang-design.md
 
 ## Task 1: <việc nhỏ, tự đứng được>

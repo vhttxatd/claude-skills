@@ -1,4 +1,6 @@
 # HỒ SƠ CÁ NHÂN — VÕ THỊ ẤM
+
+> **META** · cap_nhat: 2026-03-30 · nguon_su_that: Sơ yếu lý lịch Viên chức (2022) · ra_soat_lai: 2026-06-30 · rui_ro: cao
 > Tạo lần đầu: 30/03/2026
 > Cập nhật lần cuối: 30/03/2026
 > Nguồn: Sơ yếu lý lịch Viên chức (2022) + Lý lịch CBCC Phan Trung Hiếu

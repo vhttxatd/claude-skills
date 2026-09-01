@@ -1,5 +1,7 @@
 # Biểu mẫu: Biên bản họp xét giá (Thẩm định nội bộ)
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: cùng căn cứ với `quan-ly-du-an/quy-trinh/duoi-500tr.md` (NĐ 98/2025/NĐ-CP; NQ 25/2025/NQ-HĐND; NQ 63/2025/NQ-HĐND sđ bởi NQ 05/2026/NQ-HĐND) · ra_soat_lai: 2026-12-01 · rui_ro: cao (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Dùng trong Nhánh A — Tự thẩm định giá nội bộ (Bước II.2.2)
 > Chỉ lập khi chưa có đủ cơ sở pháp lý về đối tượng chi, định mức,
 > tiêu chuẩn kỹ thuật, quy cách hàng hóa/dịch vụ.

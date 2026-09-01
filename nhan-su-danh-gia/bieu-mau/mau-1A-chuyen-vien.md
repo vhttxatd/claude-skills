@@ -1,4 +1,6 @@
 # Mẫu 1A — Báo cáo đánh giá kết quả công tác cá nhân
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: biểu mẫu đánh giá, xếp loại CBCCVC · ra_soat_lai: 2027-03-01 · rui_ro: trung (bổ sung META 01/9/2026, nội dung CHƯA rà)
 ## Dành cho: Công chức/Viên chức KHÔNG giữ chức vụ lãnh đạo (Phần B)
 
 > Mẫu chuẩn: Mẫu 1A ban hành kèm theo Quyết định của UBND xã An Thới Đông

@@ -1,5 +1,7 @@
 # Thông tin dự án / gói thầu
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: thông tin gói thầu đang thực hiện, Hiếu nhập từng lần · ra_soat_lai: 2027-03-01 · rui_ro: trung (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > File này lưu thông tin cụ thể của từng gói thầu đang thực hiện.
 > Cập nhật khi bắt đầu quy trình mới.
 > Tất cả biểu mẫu đều lấy dữ liệu từ file này.

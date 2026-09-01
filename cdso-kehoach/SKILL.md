@@ -217,7 +217,7 @@ Phần I. (La Mã)
 Khi cần các thông tin sau, đọc từ skill tương ứng:
 
 **`quy-tac-chung` — Dữ liệu thực tế xã An Thới Đông:**
-- `data/don-vi-dia-ban.md` — 12 ấp, 10 trường học
+- `data/don-vi-dia-ban.md` — 8 ấp (từ 01/7/2026), 6 trường học (từ 01/9/2026)
 - `data/can-bo-phan-cong.md` — Cán bộ, chức vụ, người ký
 - `data/van-ban-can-cu.md` — Số hiệu văn bản đã xác nhận
 - `data/chi-tieu-nhiem-vu.md` — Chỉ tiêu, nhiệm vụ trọng tâm

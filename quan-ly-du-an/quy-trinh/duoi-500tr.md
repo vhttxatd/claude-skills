@@ -1,5 +1,7 @@
 # Quy trình mua sắm thường xuyên — DƯỚI 500 TRIỆU ĐỒNG
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: NĐ 98/2025/NĐ-CP; NQ 25/2025/NQ-HĐND; NQ 63/2025/NQ-HĐND (sửa đổi bởi NQ 05/2026/NQ-HĐND) · ra_soat_lai: 2026-12-01 · rui_ro: cao (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Căn cứ: Nghị định 98/2025/NĐ-CP; Nghị quyết 25/2025/NQ-HĐND;
 > Nghị quyết 63/2025/NQ-HĐND (sửa đổi bổ sung bởi NQ 05/2026/NQ-HĐND)
 

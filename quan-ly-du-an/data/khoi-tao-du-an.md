@@ -1,5 +1,7 @@
 # Khởi tạo dự án mới — Bộ câu hỏi thu thập thông tin
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: bộ câu hỏi nội bộ do Hiếu chốt · ra_soat_lai: 2027-09-01 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
 > Đọc file này KHI BẮT ĐẦU hội thoại mới trong dự án "Mua sắm".
 > Mục tiêu: thu thập đủ thông tin để soạn thảo toàn bộ hồ sơ mua sắm.
 
