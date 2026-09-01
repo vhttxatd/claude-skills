@@ -165,6 +165,13 @@ zip -rq ten-skill.zip ten-skill/
 
 Sửa skill là phải cập nhật **cả Settings và GitHub trong cùng ngày**.
 
+**Kiểm lệch:** chạy `python3 tao-skill/scripts/kiem-tra-lech.py` để đối chiếu
+bản đang chạy với bản trên GitHub. Repo công khai, đọc được không cần token.
+Script báo 3 loại lệch: khác nội dung · có trên GitHub mà thiếu ở Settings
+(dấu hiệu của lỗi đóng gói số 1) · có ở Settings mà chưa đẩy lên GitHub.
+Nhớ là bản Settings trong phiên là **bản chụp lúc phiên bắt đầu** — vừa upload
+giữa phiên thì script báo lệch là bình thường, mở phiên mới rồi chạy lại.
+
 > **Skill nạp trong phiên là bản chụp lúc phiên bắt đầu.** Upload giữa chừng
 > KHÔNG làm mới phiên đang chạy. Muốn kiểm tra kết quả upload phải **mở
 > phiên mới**.
