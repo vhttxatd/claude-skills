@@ -1,7 +1,7 @@
 # L3 — Lĩnh vực Nguồn nhân lực & Đào tạo nghề
 
-> **META** · cap_nhat: 2026-04-24 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-07-24 · rui_ro: cao
-> Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-12-01 · rui_ro: cao
+> Nguồn chính: KH 1583/KH-UBND (đã đăng ký trong Nexus `van_ban`)
 > Phòng phụ trách: **Phòng Văn hóa – Xã hội** (chủ trì)
 
 ---
@@ -17,10 +17,19 @@
 
 ## [B] ĐỊNH HƯỚNG (Giai đoạn 2026–2030)
 
-### Chỉ tiêu
-- Tỷ lệ lao động qua đào tạo đạt **≥ 87%** ^[KH1583]
-- Có ít nhất **02 nghề du lịch — dịch vụ** mới được đào tạo bài bản ^[KH1583]
-- Thu nhập bình quân đầu người năm 2030 tăng **30%** so với năm 2025 ^[KH1583]
+### Chỉ tiêu → TRA NEXUS
+
+> Đã bóc tách vào Nexus ngày 01/9/2026. **Không chép chỉ tiêu vào file này.**
+
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-nhan-luc.md%' AND t.loai = 'chi_tieu' AND lv.ma_linh_vuc = 'LV-LDVL';
+```
+
 
 ### Định hướng phát triển
 - Nâng cao **chất lượng nguồn nhân lực** trên địa bàn xã, đáp ứng yêu cầu phát triển KT-XH ^[KH1583]
@@ -50,40 +59,28 @@
 
 ---
 
-## [D] NHIỆM VỤ ĐƯỢC GIAO
+## [D] NHIỆM VỤ ĐƯỢC GIAO → TRA NEXUS
 
-### **Giao Phòng Văn hóa – Xã hội chủ trì** — lĩnh vực liên quan đến Hiếu (VH-XH)
+> Đã bóc tách vào Nexus ngày 01/9/2026 (`theo_doi_cd` + `giao_muc`, gắn với
+> văn bản `1583/KH-UBND`). **Không chép nhiệm vụ vào file này.**
+>
+> Lý do: file markdown không có trạng thái, không có hạn, không nối được với
+> `ket_qua` — nên 95 nhiệm vụ nằm đây là 95 nhiệm vụ không ai theo dõi được.
 
-#### Điều tra, khảo sát
-- Tổ chức điều tra, khảo sát **nhu cầu học nghề** của lao động nông thôn ^[KH1583]
-- Khảo sát **nhu cầu tuyển dụng lao động** của doanh nghiệp, HTX, cơ sở sản xuất kinh doanh trên địa bàn ^[KH1583]
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai, dv.ten_don_vi AS chu_tri
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+LEFT JOIN don_vi dv ON dv.id = t.don_vi_chu_tri_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-nhan-luc.md%' AND t.loai = 'nhiem_vu' AND lv.ma_linh_vuc = 'LV-LDVL'
+ORDER BY t.ma_tdcd;
+```
 
-#### Kế hoạch đào tạo hằng năm
-- Hằng năm xây dựng kế hoạch phối hợp với:
-  - Trường Cao đẳng Nông nghiệp Nam Bộ — phân hiệu TP.HCM ^[KH1583]
-  - Trường Trung kỹ thuật cấp nông nghiệp Thành phố ^[KH1583]
-  - Ban Quản lý Khu Nông nghiệp CNC Thành phố ^[KH1583]
-  - Các Trường trung cấp nghề ^[KH1583]
-- Tổ chức mở các lớp đào tạo nghề phù hợp nhu cầu thực tế & định hướng phát triển KT-XH của xã ^[KH1583]
+> Ghi kết quả thực hiện vào `ket_qua` như thường lệ — nay nối được về đúng
+> nhiệm vụ và đúng văn bản căn cứ.
 
-#### Đào tạo nghề ngắn hạn & sơ cấp
-- Phối hợp với các cơ sở đào tạo nghề tổ chức các lớp đào tạo nghề **ngắn hạn và sơ cấp** cho lao động nông thôn ^[KH1583]
-- Ưu tiên các nghề:
-  - Kỹ thuật nuôi trồng thủy sản CNC ^[KH1583]
-  - Chế biến thủy sản — thực phẩm ^[KH1583]
-  - Hướng dẫn viên du lịch ^[KH1583]
-  - Dịch vụ lưu trú, ẩm thực, thương mại — dịch vụ ^[KH1583]
-
-#### Chính sách & danh mục nghề
-- Tổ chức rà soát **danh mục ngành nghề đào tạo đặc thù** của xã ^[KH1583]
-- Đề xuất **Sở Nội vụ Thành phố** bổ sung danh mục nghề của Thành phố để tổ chức đào tạo theo quy định ^[KH1583]
-- Tổ chức triển khai thực hiện đầy đủ các chính sách hỗ trợ đào tạo nghề cho lao động nông thôn theo **Quyết định 46/2015/QĐ-TTg** của Thủ tướng Chính phủ ^[QD46-2015]
-
-#### Việc làm & xuất khẩu lao động
-- Tổ chức triển khai các chính sách **tư vấn, hỗ trợ người lao động đi làm việc có thời hạn ở nước ngoài theo hợp đồng** ^[KH1583]
-- Tổ chức **sàn giao dịch việc làm** kết nối cung — cầu lao động giữa người lao động và doanh nghiệp, HTX trên địa bàn ^[KH1583]
-
----
 
 ## [Z] LỊCH SỬ / GHI CHÚ
 

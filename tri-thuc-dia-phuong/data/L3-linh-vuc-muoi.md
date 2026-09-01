@@ -1,7 +1,7 @@
 # L3 — Lĩnh vực Muối (nghề truyền thống)
 
-> **META** · cap_nhat: 2026-04-24 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-07-24 · rui_ro: cao
-> Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-12-01 · rui_ro: cao
+> Nguồn chính: KH 1583/KH-UBND (đã đăng ký trong Nexus `van_ban`)
 > Phòng phụ trách: Phòng Kinh tế (chủ trì)
 
 ---
@@ -16,10 +16,19 @@
 
 ## [B] ĐỊNH HƯỚNG (Giai đoạn 2026–2030)
 
-### Chỉ tiêu
-- **Duy trì 100%** hộ dân sản xuất muối kết tinh trên ruộng trải bạt ^[KH1583]
-- Phấn đấu **nhân rộng ≥ 20%** mô hình **thu giữ nước chạt** trong sản xuất muối ^[KH1583]
-- Duy trì ổn định vùng sản xuất muối truyền thống ^[KH1583]
+### Chỉ tiêu → TRA NEXUS
+
+> Đã bóc tách vào Nexus ngày 01/9/2026. **Không chép chỉ tiêu vào file này.**
+
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-muoi.md%' AND t.loai = 'chi_tieu' AND lv.ma_linh_vuc = 'LV-TTCN';
+```
+
 
 ### Định hướng phát triển
 - Bảo tồn và phát huy giá trị **Làng nghề muối An Thới Đông** ^[KH1583]
@@ -37,18 +46,28 @@
 
 ---
 
-## [D] NHIỆM VỤ ĐƯỢC GIAO
+## [D] NHIỆM VỤ ĐƯỢC GIAO → TRA NEXUS
 
-### Giao Phòng Kinh tế chủ trì
-- **Tham mưu UBND xã xây dựng Kế hoạch phát triển nghề muối** trên địa bàn xã An Thới Đông ^[KH1583]
-- Chủ trì phối hợp **Sở KHCN Thành phố** nghiên cứu ứng dụng KHCN vào sản xuất, chế biến muối ^[KH1583]
-- Phát triển sản phẩm OCOP chế biến từ muối gắn với du lịch trải nghiệm ^[KH1583]
+> Đã bóc tách vào Nexus ngày 01/9/2026 (`theo_doi_cd` + `giao_muc`, gắn với
+> văn bản `1583/KH-UBND`). **Không chép nhiệm vụ vào file này.**
+>
+> Lý do: file markdown không có trạng thái, không có hạn, không nối được với
+> `ket_qua` — nên 95 nhiệm vụ nằm đây là 95 nhiệm vụ không ai theo dõi được.
 
-### Nhiệm vụ liên lĩnh vực (xem thêm L3-du-lich)
-- Phát triển du lịch đường sông gắn với **trải nghiệm Làng nghề muối Lý Nhơn** ^[KH1583]
-- Nghiên cứu hình thành sản phẩm du lịch đặc trưng: **trải nghiệm nghề muối** ^[KH1583]
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai, dv.ten_don_vi AS chu_tri
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+LEFT JOIN don_vi dv ON dv.id = t.don_vi_chu_tri_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-muoi.md%' AND t.loai = 'nhiem_vu' AND lv.ma_linh_vuc = 'LV-TTCN'
+ORDER BY t.ma_tdcd;
+```
 
----
+> Ghi kết quả thực hiện vào `ket_qua` như thường lệ — nay nối được về đúng
+> nhiệm vụ và đúng văn bản căn cứ.
+
 
 ## [Z] LỊCH SỬ / GHI CHÚ
 

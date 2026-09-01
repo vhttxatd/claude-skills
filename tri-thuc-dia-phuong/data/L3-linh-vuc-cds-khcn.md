@@ -1,7 +1,7 @@
 # L3 — Lĩnh vực Chuyển đổi số & Khoa học Công nghệ
 
-> **META** · cap_nhat: 2026-04-24 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-07-24 · rui_ro: cao
-> Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-12-01 · rui_ro: cao
+> Nguồn chính: KH 1583/KH-UBND (đã đăng ký trong Nexus `van_ban`)
 > Phòng phụ trách: **Phòng Văn hóa – Xã hội** (chủ trì phần CĐS, viễn thông) | Phòng Kinh tế (chủ trì phần KHCN nông nghiệp, giao thông xanh)
 > **Chuyên viên phụ trách trực tiếp: Phan Trung Hiếu**
 
@@ -61,43 +61,28 @@
 
 ---
 
-## [D] NHIỆM VỤ ĐƯỢC GIAO
+## [D] NHIỆM VỤ ĐƯỢC GIAO → TRA NEXUS
 
-### **Giao Phòng Văn hóa – Xã hội chủ trì** — Hiếu phụ trách trực tiếp
+> Đã bóc tách vào Nexus ngày 01/9/2026 (`theo_doi_cd` + `giao_muc`, gắn với
+> văn bản `1583/KH-UBND`). **Không chép nhiệm vụ vào file này.**
+>
+> Lý do: file markdown không có trạng thái, không có hạn, không nối được với
+> `ket_qua` — nên 95 nhiệm vụ nằm đây là 95 nhiệm vụ không ai theo dõi được.
 
-#### Hạ tầng & CĐS quản lý nhà nước
-- Tập trung phát triển hạ tầng thông tin, viễn thông hiện đại ^[KH1583]
-- Bảo đảm kết nối Internet ổn định phục vụ quản lý, sản xuất, đời sống Nhân dân ^[KH1583]
-- Đẩy mạnh ứng dụng CNTT, CĐS trong quản lý quy hoạch, sử dụng đất, xây dựng, kinh tế — xã hội trên địa bàn xã ^[KH1583]
-- Triển khai đồng bộ các hệ thống thông tin dùng chung, dịch vụ công trực tuyến ^[KH1583]
-- Nâng cao chất lượng phục vụ người dân, doanh nghiệp ^[KH1583]
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai, dv.ten_don_vi AS chu_tri
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+LEFT JOIN don_vi dv ON dv.id = t.don_vi_chu_tri_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-cds-khcn.md%' AND t.loai = 'nhiem_vu' AND lv.ma_linh_vuc = 'M-KHCN'
+ORDER BY t.ma_tdcd;
+```
 
-#### Tham mưu chính sách ưu đãi
-- Tham mưu triển khai thực hiện các chính sách ưu đãi, khuyến khích doanh nghiệp đầu tư cho CĐS, ứng dụng khoa học, đổi mới công nghệ ^[KH1583]
-- Nâng cao hiệu quả sản xuất kinh doanh, quản trị doanh nghiệp ^[KH1583]
+> Ghi kết quả thực hiện vào `ket_qua` như thường lệ — nay nối được về đúng
+> nhiệm vụ và đúng văn bản căn cứ.
 
-### Giao Phòng Kinh tế chủ trì (phối hợp với VH-XH)
-
-#### KHCN nông nghiệp
-- Chủ động đề xuất **Sở KHCN Thành phố** nghiên cứu, ứng dụng mô hình sản xuất nông nghiệp CNC, mô hình chế biến sản phẩm nông nghiệp ^[KH1583]
-
-#### Giao thông xanh
-- Chủ động phối hợp đơn vị liên quan nghiên cứu, đề xuất phát triển hệ thống giao thông xanh tại địa phương ^[KH1583]
-- Phấn đấu đến 2030:
-  - 80% xe công tại cơ quan nhà nước trên địa bàn sử dụng nhiên liệu sạch ^[KH1583]
-  - 100% trụ sở cơ quan, đơn vị đủ điều kiện được lắp điện năng lượng mặt trời áp mái ^[KH1583]
-- Thúc đẩy chuyển đổi phương tiện giao thông cá nhân & công vụ sang nhiên liệu sạch ^[KH1583]
-
-#### Chuyển giao KHCN thủy sản
-- Chủ trì phối hợp **Chi cục Thủy sản và Kiểm ngư Thành phố** chuyển giao, ứng dụng mạnh mẽ KHCN trong sản xuất nông nghiệp, nuôi trồng thủy sản và cung ứng dịch vụ:
-  - Quản lý vùng nuôi ^[KH1583]
-  - Giám sát môi trường ^[KH1583]
-  - Truy xuất nguồn gốc sản phẩm ^[KH1583]
-
-#### Hỗ trợ HTX, tổ hợp tác, hộ sản xuất
-- Hỗ trợ HTX, tổ hợp tác và hộ sản xuất tiếp cận tiến bộ kỹ thuật, công nghệ sinh học, chế phẩm sinh học trong sản xuất an toàn, bền vững ^[KH1583]
-
----
 
 ## [Z] LỊCH SỬ / GHI CHÚ
 

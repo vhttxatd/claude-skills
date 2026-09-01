@@ -1,7 +1,7 @@
 # L3 — Lĩnh vực Hạ tầng & Quy hoạch
 
-> **META** · cap_nhat: 2026-04-24 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-07-24 · rui_ro: cao
-> Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-12-01 · rui_ro: cao
+> Nguồn chính: KH 1583/KH-UBND (đã đăng ký trong Nexus `van_ban`)
 > Phòng phụ trách: Phòng Kinh tế (chủ trì)
 
 ---
@@ -57,34 +57,28 @@
 
 ---
 
-## [D] NHIỆM VỤ ĐƯỢC GIAO
+## [D] NHIỆM VỤ ĐƯỢC GIAO → TRA NEXUS
 
-### Giao Phòng Kinh tế chủ trì
+> Đã bóc tách vào Nexus ngày 01/9/2026 (`theo_doi_cd` + `giao_muc`, gắn với
+> văn bản `1583/KH-UBND`). **Không chép nhiệm vụ vào file này.**
+>
+> Lý do: file markdown không có trạng thái, không có hạn, không nối được với
+> `ket_qua` — nên 95 nhiệm vụ nằm đây là 95 nhiệm vụ không ai theo dõi được.
 
-#### Lập và quản lý quy hoạch
-- Tổ chức rà soát hiện trạng phát triển KT-XH, hạ tầng kỹ thuật và sử dụng đất trên địa bàn xã ^[KH1583]
-- Làm cơ sở lập, điều chỉnh Quy hoạch chung xã An Thới Đông giai đoạn 2025–2030, tầm nhìn đến 2045 ^[KH1583]
-- Xây dựng & triển khai Kế hoạch sử dụng đất 5 năm giai đoạn 2026–2030 ^[KH1583]
-- Chủ động phối hợp ban ngành, đoàn thể tổ chức tuyên truyền, công khai, minh bạch quy hoạch và kế hoạch sử dụng đất:
-  - Bằng hình thức **niêm yết** ^[KH1583]
-  - **Tuyên truyền tại các ấp** ^[KH1583]
-  - Trên **hệ thống thông tin của xã** ^[KH1583]
-- Tạo điều kiện để Nhân dân, doanh nghiệp tham gia giám sát việc thực hiện quy hoạch ^[KH1583]
-- Tăng cường công tác quản lý trật tự xây dựng, quản lý đất đai theo quy hoạch được duyệt ^[KH1583]
-- Kịp thời phát hiện, xử lý các trường hợp vi phạm ^[KH1583]
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai, dv.ten_don_vi AS chu_tri
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+LEFT JOIN don_vi dv ON dv.id = t.don_vi_chu_tri_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-ha-tang.md%' AND t.loai = 'nhiem_vu' AND lv.ma_linh_vuc = 'M-HTCS'
+ORDER BY t.ma_tdcd;
+```
 
-#### Triển khai đề án, chương trình
-- Chủ động xây dựng và triển khai các đề án, chương trình, kế hoạch thực hiện **NQ 12-NQ/TU** theo **QĐ 2435/QĐ-UBND** ^[KH1583]
-- Lồng ghép Chương trình MTQG xây dựng nông thôn mới, Chương trình phát triển KT-XH của TP vào kế hoạch hằng năm ^[KH1583]
+> Ghi kết quả thực hiện vào `ket_qua` như thường lệ — nay nối được về đúng
+> nhiệm vụ và đúng văn bản căn cứ.
 
-#### Đề xuất đầu tư hạ tầng
-- Chủ động lập danh mục ưu tiên đầu tư công trình giao thông trọng điểm ^[KH1583]
-- Nghiên cứu, đề xuất các dự án đầu tư hạ tầng giao thông thủy nội địa ^[KH1583]
-- Đề xuất đầu tư xây dựng, nâng cấp chợ xã An Thới Đông ^[KH1583]
-- Đề xuất quy hoạch và kêu gọi đầu tư **khu nông nghiệp ứng dụng CNC quy mô ~300 ha** ^[KH1583]
-- Tham mưu xây dựng kế hoạch phát triển hệ thống giao thông công cộng phù hợp điều kiện địa phương ^[KH1583]
-
----
 
 ## [Z] LỊCH SỬ / GHI CHÚ
 

@@ -24,6 +24,29 @@ schema Supabase (`list_tables`) — nếu nghi ngờ đã đổi, kiểm tra l�
 
 ---
 
+## KHÔNG GHI SỐ LƯỢNG BẢN GHI VÀO FILE NÀY
+
+File này mô tả **cấu trúc** kho dữ liệu — bảng nào chứa gì, ghi mới khi nào.
+Nó **không phải nơi lưu số lượng bản ghi**. Số lượng là dữ liệu do Nexus sở
+hữu, chép vào đây là chắc chắn lệch.
+
+> Bằng chứng: bản trước ghi `don_vi` 34 đơn vị, `linh_vuc` 98, `profiles` 50
+> người, `so_lieu` 189. Thực tế ngày 01/9/2026: **42 · 104 · 137 · 237**.
+> Sai cả 4, không ai phát hiện. Đã bỏ toàn bộ số đếm khỏi file.
+
+Cần số lượng thật thì đếm trực tiếp:
+
+```sql
+SELECT 'don_vi' t, count(*) n FROM don_vi
+UNION ALL SELECT 'linh_vuc', count(*) FROM linh_vuc
+UNION ALL SELECT 'profiles', count(*) FROM profiles
+UNION ALL SELECT 'so_lieu', count(*) FROM so_lieu
+UNION ALL SELECT 'theo_doi_cd', count(*) FROM theo_doi_cd
+UNION ALL SELECT 'van_ban', count(*) FROM van_ban;
+```
+
+---
+
 ## TỔNG QUAN — 3 hệ thống, việc gì đi kho nào
 
 | Hệ thống | Vai trò | Ghi mới khi nào |
@@ -91,13 +114,13 @@ bản đều cần vào Nexus.
 
 | Bảng | Nội dung |
 |---|---|
-| `don_vi` | Danh sách 34 đơn vị/phòng ban (loại: co_quan_nha_nuoc/don_vi_su_nghiep/to_chuc_chinh_tri; cấp: cap_xa/cap_tp) |
-| `khoi_co_quan` | 8 khối cơ quan (nhóm cha của `don_vi`), có phân cấp cha-con |
-| `linh_vuc` | 98 lĩnh vực, phân cấp 3 tầng qua `path` (ltree): mang → linh_vuc → linh_vuc_con |
-| `loai_van_ban` | 7 loại văn bản chuẩn |
-| `cap_ban_hanh` | 3 cấp ban hành chuẩn |
-| `profiles` | 50 người dùng hệ thống — họ tên, chức vụ, vai_tro_he_thong (super_admin/admin/lanh_dao/chuyen_vien/truong_dv/boc_tach_NV/nhap_lieu/tong_hop_bc/van_thu/lanh_dao_chinh_quyen/truyen_thong_so), phạm vi xem/sửa |
-| `vai_tro_chuc_nang`, `vai_tro_pham_vi_mac_dinh` | Ma trận phân quyền theo vai trò (165 dòng chức năng x quyền xem/thêm/sửa/xóa) |
+| `don_vi` | Danh sách Đơn vị/phòng ban (loại: co_quan_nha_nuoc/don_vi_su_nghiep/to_chuc_chinh_tri; cấp: cap_xa/cap_tp) |
+| `khoi_co_quan` | Khối cơ quan (nhóm cha của `don_vi`), có phân cấp cha-con |
+| `linh_vuc` | Lĩnh vực, phân cấp 3 tầng qua `path` (ltree): mang → linh_vuc → linh_vuc_con |
+| `loai_van_ban` | Loại văn bản chuẩn |
+| `cap_ban_hanh` | Cấp ban hành chuẩn |
+| `profiles` | Người dùng hệ thống — họ tên, chức vụ, vai_tro_he_thong (super_admin/admin/lanh_dao/chuyen_vien/truong_dv/boc_tach_NV/nhap_lieu/tong_hop_bc/van_thu/lanh_dao_chinh_quyen/truyen_thong_so), phạm vi xem/sửa |
+| `vai_tro_chuc_nang`, `vai_tro_pham_vi_mac_dinh` | Ma trận phân quyền theo vai trò (dòng chức năng x quyền xem/thêm/sửa/xóa) |
 
 ### 2.2 Nhóm văn bản (kho văn bản Nexus — song song Notion, không thay thế)
 
@@ -130,8 +153,8 @@ bản đều cần vào Nexus.
 
 | Bảng | Nội dung |
 |---|---|
-| `nhom_so_lieu` | 63 nhóm số liệu (gắn 1 lĩnh vực) |
-| **`so_lieu`** | 189 định nghĩa chỉ số/số liệu — `loai` (thanh_phan/cong_thuc/tong_hop), `ky_bao_cao` (thang/quy/nam/ngay_co_dinh/giai_doan/6_thang/thuong_xuyen), `cong_thuc` (nếu là số liệu tính từ số liệu khác), `muc_tieu` |
+| `nhom_so_lieu` | Nhóm số liệu (gắn 1 lĩnh vực) |
+| **`so_lieu`** | Định nghĩa chỉ số/số liệu — `loai` (thanh_phan/cong_thuc/tong_hop), `ky_bao_cao` (thang/quy/nam/ngay_co_dinh/giai_doan/6_thang/thuong_xuyen), `cong_thuc` (nếu là số liệu tính từ số liệu khác), `muc_tieu` |
 | `so_lieu_cong_thuc_bien` | Biến trong công thức của 1 số liệu tổng hợp (trỏ tới các `so_lieu` thành phần) |
 | `so_lieu_don_vi` | Số liệu nào áp dụng cho đơn vị nào (nhiều-nhiều) |
 | **`cap_nhat_so_lieu`** | Giá trị số liệu thực tế theo kỳ/năm — `trang_thai` (cho_duyet/da_duyet/tu_choi/nhap), `gia_tri`, `gia_tri_luy_ke`. **`ghi_chu` LUÔN phải viết đầy đủ, tự-giải-thích** (dùng làm input cho AI soạn thảo sau này — xem quy tắc chi tiết ở `xu-ly-van-ban-den` Bước 6.e) |
@@ -162,7 +185,7 @@ bản đều cần vào Nexus.
 | Bảng | Nội dung |
 |---|---|
 | `dt_cau_hinh` | Cấu hình chung (mã phường/xã, tên đơn vị hành chính) — chỉ 1 dòng |
-| `dt_don_vi` | 18 đơn vị dự toán (hanh_chinh/su_nghiep/luc_luong_vu_trang/giao_duc), trạng thái thu thập dự toán |
+| `dt_don_vi` | Đơn vị dự toán (hanh_chinh/su_nghiep/luc_luong_vu_trang/giao_duc), trạng thái thu thập dự toán |
 | `dt_khoan_muc_pl1` | Chi tiết khoản mục chi thường xuyên theo Phụ lục 1 (nhóm hoạt động I-VII, mã lục ngân sách...) — hiện 0 dòng |
 | `dt_nhiem_vu_pl2` | Nhiệm vụ đầu tư/chi theo Phụ lục 2 (chuyển tiếp/mở mới) — hiện 0 dòng |
 

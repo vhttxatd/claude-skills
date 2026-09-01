@@ -1,7 +1,7 @@
 # L3 — Lĩnh vực Nông nghiệp
 
-> **META** · cap_nhat: 2026-04-24 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-07-24 · rui_ro: cao
-> Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-12-01 · rui_ro: cao
+> Nguồn chính: KH 1583/KH-UBND (đã đăng ký trong Nexus `van_ban`)
 > Phòng phụ trách: Phòng Kinh tế (chủ trì) | Phối hợp: Phòng VH-XH (phần KHCN, CĐS)
 
 ---
@@ -51,22 +51,28 @@
 
 ---
 
-## [D] NHIỆM VỤ ĐƯỢC GIAO
+## [D] NHIỆM VỤ ĐƯỢC GIAO → TRA NEXUS
 
-### Giao Phòng Kinh tế chủ trì
-- Tham mưu xây dựng Đề án phát triển kinh tế bền vững và liên kết vùng ^[KH1583]
-- Chủ trì phối hợp Ban Quản lý Khu Nông nghiệp CNC TP, Trung tâm Khuyến nông TP chuyển giao, ứng dụng KHKT, CNC trong sản xuất nông nghiệp, thủy sản ^[KH1583]
-- Hằng năm triển khai **ít nhất 02 mô hình trình diễn, thí điểm** ^[KH1583]
-- Chủ trì phối hợp Chi cục Thủy sản và Kiểm ngư TP thực hiện truy xuất nguồn gốc 100% sản phẩm nông nghiệp, thủy sản chủ lực ^[KH1583]
-- Chủ trì xây dựng Đề án Trung tâm sản xuất giống nông nghiệp trên địa bàn xã ^[KH1583]
-- Chủ trì phối hợp Sở KHCN TP nghiên cứu ứng dụng KHCN vào sản xuất, chế biến muối; phát triển sản phẩm OCOP chế biến từ muối gắn với du lịch trải nghiệm ^[KH1583]
-- Tham mưu UBND xã xây dựng Kế hoạch phát triển nghề muối trên địa bàn xã ^[KH1583]
+> Đã bóc tách vào Nexus ngày 01/9/2026 (`theo_doi_cd` + `giao_muc`, gắn với
+> văn bản `1583/KH-UBND`). **Không chép nhiệm vụ vào file này.**
+>
+> Lý do: file markdown không có trạng thái, không có hạn, không nối được với
+> `ket_qua` — nên 95 nhiệm vụ nằm đây là 95 nhiệm vụ không ai theo dõi được.
 
-### Phối hợp với Phòng VH-XH (phần KHCN, CĐS)
-- Ứng dụng IoT, tự động hóa trong giám sát môi trường nuôi trồng, quản lý ao nuôi, ghi chép nhật ký điện tử ^[KH1583]
-- Hỗ trợ HTX, tổ hợp tác, hộ sản xuất tiếp cận tiến bộ kỹ thuật, công nghệ sinh học, chế phẩm sinh học ^[KH1583]
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai, dv.ten_don_vi AS chu_tri
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+LEFT JOIN don_vi dv ON dv.id = t.don_vi_chu_tri_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-nong-nghiep.md%' AND t.loai = 'nhiem_vu' AND lv.ma_linh_vuc = 'LV-NONGNG'
+ORDER BY t.ma_tdcd;
+```
 
----
+> Ghi kết quả thực hiện vào `ket_qua` như thường lệ — nay nối được về đúng
+> nhiệm vụ và đúng văn bản căn cứ.
+
 
 ## [Z] LỊCH SỬ / GHI CHÚ
 

@@ -1,7 +1,7 @@
 # L3 — Lĩnh vực Thương mại — Dịch vụ
 
-> **META** · cap_nhat: 2026-04-24 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-07-24 · rui_ro: cao
-> Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-12-01 · rui_ro: cao
+> Nguồn chính: KH 1583/KH-UBND (đã đăng ký trong Nexus `van_ban`)
 > Phòng phụ trách: Phòng Kinh tế (chủ trì)
 
 ---
@@ -15,9 +15,19 @@
 
 ## [B] ĐỊNH HƯỚNG (Giai đoạn 2026–2030)
 
-### Chỉ tiêu
-- Tốc độ tăng trưởng ngành thương mại — dịch vụ **≥ 8,4%/năm** ^[KH1583]
-- Đến 2030: đạt **07 doanh nghiệp hoạt động trên 1.000 dân** ^[KH1583]
+### Chỉ tiêu → TRA NEXUS
+
+> Đã bóc tách vào Nexus ngày 01/9/2026. **Không chép chỉ tiêu vào file này.**
+
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-thuong-mai.md%' AND t.loai = 'chi_tieu' AND lv.ma_linh_vuc = 'LV-TMDVDL';
+```
+
 
 ### Định hướng phát triển
 - Phát triển thương mại, dịch vụ trở thành **ngành kinh tế quan trọng**, từng bước giữ vai trò chủ lực ^[KH1583]
@@ -41,30 +51,28 @@
 
 ---
 
-## [D] NHIỆM VỤ ĐƯỢC GIAO
+## [D] NHIỆM VỤ ĐƯỢC GIAO → TRA NEXUS
 
-### Giao Phòng Kinh tế chủ trì
+> Đã bóc tách vào Nexus ngày 01/9/2026 (`theo_doi_cd` + `giao_muc`, gắn với
+> văn bản `1583/KH-UBND`). **Không chép nhiệm vụ vào file này.**
+>
+> Lý do: file markdown không có trạng thái, không có hạn, không nối được với
+> `ket_qua` — nên 95 nhiệm vụ nằm đây là 95 nhiệm vụ không ai theo dõi được.
 
-#### Hạ tầng thương mại
-- Tổ chức lập quy hoạch, đầu tư xây dựng chợ truyền thống mới xã An Thới Đông ^[KH1583]
-- Giới thiệu địa điểm để kêu gọi đầu tư xây dựng siêu thị — cửa hàng tiện ích ^[KH1583]
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai, dv.ten_don_vi AS chu_tri
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+LEFT JOIN don_vi dv ON dv.id = t.don_vi_chu_tri_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-thuong-mai.md%' AND t.loai = 'nhiem_vu' AND lv.ma_linh_vuc = 'LV-TMDVDL'
+ORDER BY t.ma_tdcd;
+```
 
-#### Kiểm tra thị trường
-- Tổ chức kiểm tra giá cả thị trường; phát hiện, ngăn chặn, xử lý nâng giá hàng hóa, dịch vụ sai quy định ^[KH1583]
-- Xử lý nghiêm sản xuất kinh doanh hàng gian, hàng giả, hàng nhập lậu, không an toàn thực phẩm, gian lận thương mại ^[KH1583]
+> Ghi kết quả thực hiện vào `ket_qua` như thường lệ — nay nối được về đúng
+> nhiệm vụ và đúng văn bản căn cứ.
 
-#### Xúc tiến thương mại
-- Hằng năm tham mưu triển khai Chương trình kết nối Ngân hàng — Doanh nghiệp ^[KH1583]
-- Tổ chức tiếp xúc doanh nghiệp, tháo gỡ khó khăn ^[KH1583]
-- Đẩy mạnh phát triển thương mại điện tử ^[KH1583]
-- Tổ chức, tham gia hội chợ, triển lãm, xúc tiến thương mại tiêu thụ sản phẩm muối, nông nghiệp đặc trưng, OCOP ^[KH1583]
-- Chủ trì phối hợp **Sở Công thương Thành phố** triển khai Chương trình bình ổn thị trường; Chương trình xúc tiến thương mại sản phẩm chủ lực ngành nông nghiệp và sản phẩm OCOP ^[KH1583]
-
-#### Tiêu thụ nông sản
-- Xây dựng phương án tiêu thụ sản phẩm nông nghiệp, thủy sản, đặc biệt sản phẩm đặc trưng, OCOP ^[KH1583]
-- Tạo điều kiện cho người sản xuất, lao động, doanh nghiệp, thương lái, phương tiện và dịch vụ để sản xuất & tiêu thụ nông sản ^[KH1583]
-
----
 
 ## [Z] LỊCH SỬ / GHI CHÚ
 

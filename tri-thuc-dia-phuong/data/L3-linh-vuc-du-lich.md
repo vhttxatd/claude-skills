@@ -1,7 +1,7 @@
 # L3 — Lĩnh vực Du lịch
 
-> **META** · cap_nhat: 2026-04-24 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-07-24 · rui_ro: cao
-> Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-12-01 · rui_ro: cao
+> Nguồn chính: KH 1583/KH-UBND (đã đăng ký trong Nexus `van_ban`)
 > Phòng phụ trách: **Phòng Văn hóa – Xã hội** (chủ trì) | Phối hợp: Phòng Kinh tế (phần thương mại, chợ)
 
 ---
@@ -22,10 +22,19 @@
 
 ## [B] ĐỊNH HƯỚNG (Giai đoạn 2026–2030)
 
-### Chỉ tiêu
-- Thu hút khách du lịch trên địa bàn xã tăng bình quân **10%/năm** ^[KH1583]
-- Có **01–02 doanh nghiệp khởi nghiệp về du lịch** ^[KH1583]
-- Có ít nhất **02 nghề du lịch — dịch vụ** mới được đào tạo bài bản ^[KH1583]
+### Chỉ tiêu → TRA NEXUS
+
+> Đã bóc tách vào Nexus ngày 01/9/2026. **Không chép chỉ tiêu vào file này.**
+
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-du-lich.md%' AND t.loai = 'chi_tieu' AND lv.ma_linh_vuc = 'LV-TMDVDL';
+```
+
 
 ### Định hướng phát triển
 - Phát triển **du lịch trở thành ngành kinh tế quan trọng**, từng bước giữ vai trò chủ lực ^[KH1583]
@@ -51,32 +60,28 @@
 
 ---
 
-## [D] NHIỆM VỤ ĐƯỢC GIAO
+## [D] NHIỆM VỤ ĐƯỢC GIAO → TRA NEXUS
 
-### **Giao Phòng Văn hóa – Xã hội chủ trì** — lĩnh vực chính của Hiếu
+> Đã bóc tách vào Nexus ngày 01/9/2026 (`theo_doi_cd` + `giao_muc`, gắn với
+> văn bản `1583/KH-UBND`). **Không chép nhiệm vụ vào file này.**
+>
+> Lý do: file markdown không có trạng thái, không có hạn, không nối được với
+> `ket_qua` — nên 95 nhiệm vụ nằm đây là 95 nhiệm vụ không ai theo dõi được.
 
-#### Triển khai Kế hoạch phát triển du lịch sinh thái đến 2030
-- Tập trung triển khai Kế hoạch, khai thác hợp lý cảnh quan thiên nhiên, rừng ngập mặn, nghề muối, di tích văn hóa lịch sử ^[KH1583]
-- Phát triển đa dạng loại hình du lịch ^[KH1583]
-- Khuyến khích doanh nghiệp, HTX, người dân phát triển các **sản phẩm du lịch đặc trưng** ^[KH1583]
-- Xây dựng tuyến du lịch sinh thái, du lịch cộng đồng, du lịch trải nghiệm ^[KH1583]
-- Tập trung xây dựng và hình thành các **điểm du lịch** với loại hình tham quan, trải nghiệm hấp dẫn ^[KH1583]
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai, dv.ten_don_vi AS chu_tri
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+LEFT JOIN don_vi dv ON dv.id = t.don_vi_chu_tri_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-du-lich.md%' AND t.loai = 'nhiem_vu' AND lv.ma_linh_vuc = 'LV-TMDVDL'
+ORDER BY t.ma_tdcd;
+```
 
-#### Hạ tầng và hỗ trợ
-- Đề xuất nâng cao chất lượng hạ tầng du lịch ^[KH1583]
-- Kêu gọi, hỗ trợ doanh nghiệp đầu tư **du lịch sinh thái rừng, sinh thái nông nghiệp, du lịch đường sông** ^[KH1583]
-- Hỗ trợ Khu du lịch sinh thái **Dần Xây, Vàm Sát**, các cơ sở kinh doanh phục vụ du lịch ứng dụng CĐS, thương mại điện tử ^[KH1583]
-- Phát triển điểm đến du lịch trên địa bàn về **làm muối** ^[KH1583]
-- Vận động kết nối các điểm du lịch tạo thành **tour du lịch đặc thù** của xã ^[KH1583]
+> Ghi kết quả thực hiện vào `ket_qua` như thường lệ — nay nối được về đúng
+> nhiệm vụ và đúng văn bản căn cứ.
 
-#### Sản phẩm đặc trưng
-- Nghiên cứu, hình thành sản phẩm du lịch đặc trưng:
-  - Du lịch trải nghiệm kết hợp tham quan rừng ngập mặn, trải nghiệm nghề muối, câu cá giải trí ^[KH1583]
-  - Du lịch cộng đồng (homestay, ẩm thực địa phương, làng nghề) ^[KH1583]
-- Khuyến khích phát triển dịch vụ hỗ trợ du lịch: vận chuyển thủy nội địa, nhà hàng sinh thái, dịch vụ lưu trú xanh ^[KH1583]
-- Xây dựng nền tảng quảng bá du lịch số, bản đồ số du lịch xã, hệ thống nhận diện thương hiệu **"An Thới Đông — sắc xanh rừng ngập mặn"** ^[KH1583]
-
----
 
 ## [Z] LỊCH SỬ / GHI CHÚ
 

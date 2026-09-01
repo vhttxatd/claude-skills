@@ -1,6 +1,17 @@
 # HỒ SƠ CÁ NHÂN — PHAN TRUNG HIẾU
 
 > **META** · cap_nhat: 2026-03-30 · nguon_su_that: Sơ yếu lý lịch CBCC Mẫu 2C-BNV/2008 · ra_soat_lai: 2026-06-30 · rui_ro: cao
+
+> **Dữ liệu định danh — quyết định 01/9/2026: GIỮ LẠI.** File này cố ý lưu
+> CCCD, số sổ BHXH, hộ khẩu, nơi ở, chỉ số sức khỏe để điền biểu mẫu đánh
+> giá, kê khai. Đây là **quyết định đã chốt của Hiếu**, không phải sơ suất —
+> phiên sau không nêu lại vấn đề này.
+>
+> Ràng buộc kèm theo: **chỉ dùng để điền biểu mẫu**, không đưa vào email,
+> công văn gửi ra ngoài, hay bất kỳ nội dung nào rời khỏi hệ thống. Lưu ý
+> "không lưu CCCD mặc định" trong `chung-thu-chu-ky-so/data/thong-tin-mac-dinh.md`
+> áp dụng cho **công văn gửi Ban Cơ yếu**, không mâu thuẫn với file này.
+
 > Tạo lần đầu: 30/03/2026
 > Cập nhật lần cuối: 30/03/2026
 > Nguồn: Sơ yếu lý lịch CBCC Mẫu 2C-BNV/2008

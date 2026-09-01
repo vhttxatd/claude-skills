@@ -1,7 +1,7 @@
 # L3 — Lĩnh vực Thủy sản
 
-> **META** · cap_nhat: 2026-04-24 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-07-24 · rui_ro: cao
-> Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-12-01 · rui_ro: cao
+> Nguồn chính: KH 1583/KH-UBND (đã đăng ký trong Nexus `van_ban`)
 > Phòng phụ trách: Phòng Kinh tế (chủ trì) | Phối hợp: Phòng VH-XH (phần KHCN, IoT)
 
 ---
@@ -15,11 +15,19 @@
 
 ## [B] ĐỊNH HƯỚNG (Giai đoạn 2026–2030)
 
-### Chỉ tiêu
-- **35–40%** diện tích nuôi tôm trên địa bàn ứng dụng **công nghệ cao** ^[KH1583]
-- Nâng chất theo tiêu chuẩn **VietGAP/GlobalGAP** ^[KH1583]
-- **100%** sản phẩm thủy sản chủ lực được **truy xuất nguồn gốc** ^[KH1583]
-- Đến năm 2030: phát triển **10 cơ sở chế biến thủy sản, sơ chế tổ yến** ^[KH1583]
+### Chỉ tiêu → TRA NEXUS
+
+> Đã bóc tách vào Nexus ngày 01/9/2026. **Không chép chỉ tiêu vào file này.**
+
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-thuy-san.md%' AND t.loai = 'chi_tieu' AND lv.ma_linh_vuc = 'LV-THUSAN';
+```
+
 
 ### Định hướng phát triển
 - Phát triển nuôi trồng thủy sản theo hướng **công nghệ cao, tuần hoàn**, sử dụng tiết kiệm nước, giảm thiểu ô nhiễm môi trường, thích ứng biến đổi khí hậu ^[KH1583]
@@ -44,19 +52,28 @@
 
 ---
 
-## [D] NHIỆM VỤ ĐƯỢC GIAO
+## [D] NHIỆM VỤ ĐƯỢC GIAO → TRA NEXUS
 
-### Giao Phòng Kinh tế chủ trì
-- Phối hợp Ban Quản lý Khu NN CNC TP, Trung tâm Khuyến nông TP tổ chức chuyển giao KHKT, CNC trong nuôi trồng thủy sản ^[KH1583]
-- Hằng năm phối hợp triển khai **ít nhất 02 mô hình trình diễn, thí điểm** ^[KH1583]
-- Khuyến khích cơ sở, nông dân áp dụng mô hình tuần hoàn, nông nghiệp thông minh, IoT ^[KH1583]
-- Chủ trì phối hợp **Chi cục Thủy sản và Kiểm ngư TP** thực hiện truy xuất nguồn gốc 100% sản phẩm thủy sản chủ lực ^[KH1583]
-- Chủ trì phối hợp **Trung tâm tư vấn và hỗ trợ nông nghiệp TP** xây dựng thương hiệu sản phẩm địa phương ^[KH1583]
-- Xây dựng **Đề án Trung tâm sản xuất giống nông nghiệp** trên địa bàn xã ^[KH1583]
-- Triển khai xây dựng mô hình **chuỗi liên kết sản phẩm nông nghiệp** ^[KH1583]
-- Khuyến khích đầu tư phát triển cơ sở chế biến thủy sản, sơ chế tổ yến — đa dạng hóa sản phẩm, tăng giá trị gia tăng ^[KH1583]
+> Đã bóc tách vào Nexus ngày 01/9/2026 (`theo_doi_cd` + `giao_muc`, gắn với
+> văn bản `1583/KH-UBND`). **Không chép nhiệm vụ vào file này.**
+>
+> Lý do: file markdown không có trạng thái, không có hạn, không nối được với
+> `ket_qua` — nên 95 nhiệm vụ nằm đây là 95 nhiệm vụ không ai theo dõi được.
 
----
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai, dv.ten_don_vi AS chu_tri
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+LEFT JOIN don_vi dv ON dv.id = t.don_vi_chu_tri_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-thuy-san.md%' AND t.loai = 'nhiem_vu' AND lv.ma_linh_vuc = 'LV-THUSAN'
+ORDER BY t.ma_tdcd;
+```
+
+> Ghi kết quả thực hiện vào `ket_qua` như thường lệ — nay nối được về đúng
+> nhiệm vụ và đúng văn bản căn cứ.
+
 
 ## [Z] LỊCH SỬ / GHI CHÚ
 

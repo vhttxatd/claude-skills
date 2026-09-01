@@ -1,7 +1,7 @@
 # L3 — Lĩnh vực Tiểu thủ Công nghiệp & Chế biến
 
-> **META** · cap_nhat: 2026-04-24 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-07-24 · rui_ro: cao
-> Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-12-01 · rui_ro: cao
+> Nguồn chính: KH 1583/KH-UBND (đã đăng ký trong Nexus `van_ban`)
 > Phòng phụ trách: Phòng Kinh tế (chủ trì)
 
 ---
@@ -15,8 +15,19 @@
 
 ## [B] ĐỊNH HƯỚNG (Giai đoạn 2026–2030)
 
-### Chỉ tiêu
-- Tốc độ tăng trưởng **công nghiệp — tiểu thủ công nghiệp ≥ 8,4%/năm** ^[KH1583]
+### Chỉ tiêu → TRA NEXUS
+
+> Đã bóc tách vào Nexus ngày 01/9/2026. **Không chép chỉ tiêu vào file này.**
+
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-tieu-thu-cn.md%' AND t.loai = 'chi_tieu' AND lv.ma_linh_vuc = 'LV-TTCN';
+```
+
 
 ### Định hướng phát triển
 - Phát triển tiểu thủ công nghiệp & chế biến theo hướng **bền vững, hiệu quả, thân thiện môi trường** ^[KH1583]
@@ -42,33 +53,28 @@
 
 ---
 
-## [D] NHIỆM VỤ ĐƯỢC GIAO
+## [D] NHIỆM VỤ ĐƯỢC GIAO → TRA NEXUS
 
-### Giao Phòng Kinh tế chủ trì
+> Đã bóc tách vào Nexus ngày 01/9/2026 (`theo_doi_cd` + `giao_muc`, gắn với
+> văn bản `1583/KH-UBND`). **Không chép nhiệm vụ vào file này.**
+>
+> Lý do: file markdown không có trạng thái, không có hạn, không nối được với
+> `ket_qua` — nên 95 nhiệm vụ nằm đây là 95 nhiệm vụ không ai theo dõi được.
 
-#### Hỗ trợ doanh nghiệp, hộ sản xuất
-- Tạo điều kiện phát huy tối đa năng lực sản xuất, đầu tư nâng cấp, mở rộng quy mô ^[KH1583]
-- Đầu tư đổi mới thiết bị, áp dụng tiến bộ KHKT vào sản xuất ^[KH1583]
-- Nâng cao năng suất, chất lượng, hiệu quả và sức cạnh tranh sản phẩm trên thị trường ^[KH1583]
+```sql
+SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai, dv.ten_don_vi AS chu_tri
+FROM theo_doi_cd t
+JOIN giao_muc g ON g.theo_doi_cd_id = t.id
+JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
+JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
+LEFT JOIN don_vi dv ON dv.id = t.don_vi_chu_tri_id
+WHERE t.ghi_chu LIKE '%L3-linh-vuc-tieu-thu-cn.md%' AND t.loai = 'nhiem_vu' AND lv.ma_linh_vuc = 'LV-TTCN'
+ORDER BY t.ma_tdcd;
+```
 
-#### Phối hợp Sở KHCN Thành phố
-- Nghiên cứu, đề xuất Sở KHCN TP hỗ trợ các cơ sở chế biến:
-  - **Thiết kế logo** ^[KH1583]
-  - **Lập hồ sơ đăng ký nhãn hiệu, sở hữu trí tuệ** cho sản phẩm ^[KH1583]
-  - **Chuyển giao, ứng dụng các mô hình chế biến hiệu quả** ^[KH1583]
-- Hỗ trợ áp dụng thiết bị, công nghệ hiện đại nâng cao giá trị sản phẩm, bảo đảm an toàn thực phẩm & tiêu chuẩn thị trường ^[KH1583]
+> Ghi kết quả thực hiện vào `ket_qua` như thường lệ — nay nối được về đúng
+> nhiệm vụ và đúng văn bản căn cứ.
 
-#### Định hướng công nghiệp xanh
-- Định hướng phát triển **công nghiệp nhỏ gắn với bảo vệ môi trường** ^[KH1583]
-- Khuyến khích áp dụng công nghệ sạch, tiết kiệm năng lượng, giảm phát thải trong sản xuất & chế biến ^[KH1583]
-
-#### Chuỗi liên kết & tham mưu chính sách
-- Triển khai xây dựng chuỗi liên kết **sản xuất — thu mua — chế biến — tiêu thụ** ^[KH1583]
-- Tham mưu triển khai chính sách hỗ trợ cơ sở tiểu thủ công nghiệp đầu tư thiết bị, xây dựng nhãn hiệu, mô hình trình diễn ^[KH1583]
-- Tham mưu giải pháp hỗ trợ doanh nghiệp sản xuất sản phẩm chế biến thực phẩm, sản phẩm nông nghiệp chủ lực của HTX ^[KH1583]
-- Hỗ trợ doanh nghiệp giới thiệu, quảng bá sản phẩm, kết nối kênh phân phối uy tín trên thị trường ^[KH1583]
-
----
 
 ## [Z] LỊCH SỬ / GHI CHÚ
 
