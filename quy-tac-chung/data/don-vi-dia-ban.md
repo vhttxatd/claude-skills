@@ -1,4 +1,6 @@
 # Thông tin đơn vị và địa bàn — Xã An Thới Đông
+
+> **META** · cap_nhat: 2026-01-01 · nguon_su_that: dân số cập nhật 01/01/2026 — CHƯA áp dụng NQ 20/NQ-HĐND (12 ấp → 8 ấp, hiệu lực 01/7/2026) · ra_soat_lai: 2026-04-01 · rui_ro: cao
 *(Dân số cập nhật: 01/01/2026)*
 
 ## Thông tin đơn vị

@@ -1,4 +1,6 @@
 # L3 — Lĩnh vực Chuyển đổi số & Khoa học Công nghệ
+
+> **META** · cap_nhat: 2026-04-24 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-07-24 · rui_ro: cao
 > Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
 > Phòng phụ trách: **Phòng Văn hóa – Xã hội** (chủ trì phần CĐS, viễn thông) | Phòng Kinh tế (chủ trì phần KHCN nông nghiệp, giao thông xanh)
 > **Chuyên viên phụ trách trực tiếp: Phan Trung Hiếu**

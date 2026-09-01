@@ -1,5 +1,7 @@
 # Danh mục căn cứ pháp lý thường dùng trong kế hoạch CĐS cấp xã
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: văn bản chỉ đạo CĐS cấp Quốc gia/Thành phố · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
 ## VĂN BẢN CẤP TRUNG ƯƠNG
 
 - Nghị quyết số 36-NQ/TW ngày 30/01/2023 của Bộ Chính trị về phát triển và ứng dụng công nghệ sinh học phục vụ phát triển bền vững đất nước trong tình hình mới *(lưu ý: thường bị nhầm, kiểm tra lại)*

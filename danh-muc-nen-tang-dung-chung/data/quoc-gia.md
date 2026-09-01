@@ -1,5 +1,7 @@
 # Danh mục nền tảng số dùng chung — Cấp Quốc gia
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: QĐ 1132/QĐ-TTg · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
 > **Căn cứ pháp lý chung của toàn file:** Quyết định số 1132/QĐ-TTg ngày
 > 24/6/2026 của Thủ tướng Chính phủ về việc ban hành tiêu chí, danh mục nền
 > tảng số dùng chung quốc gia trong các cơ quan thuộc hệ thống chính trị.

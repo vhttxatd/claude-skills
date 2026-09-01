@@ -1,5 +1,7 @@
 # Danh mục văn bản căn cứ thường dùng — Xã An Thới Đông
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: danh mục văn bản pháp luật hiện hành · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
 > Khi soạn văn bản, ưu tiên dùng các văn bản trong file này. Số hiệu đã được xác nhận — không cần để `[số hiệu]`.
 > Cập nhật file này mỗi khi có văn bản mới ban hành.
 

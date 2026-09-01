@@ -1,4 +1,6 @@
 # L1 — Tổng quan Xã An Thới Đông
+
+> **META** · cap_nhat: 2026-07-19 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-10-19 · rui_ro: cao
 > Cập nhật gần nhất: 2026-07-19 | Nguồn chính: KH 1583/KH-UBND
 
 Lớp vĩ mô — dùng cho mọi hội thoại cần thông tin chung về xã.

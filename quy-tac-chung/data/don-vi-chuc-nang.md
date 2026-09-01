@@ -1,5 +1,7 @@
 # Chức năng, nhiệm vụ các đơn vị — Xã An Thới Đông
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: cơ cấu tổ chức UBND xã An Thới Đông (mô hình 2 cấp) · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
 > **Nguồn tham chiếu tập trung** — tất cả skill đọc file này khi cần phân công nhiệm vụ.
 > Cập nhật: 27/03/2026
 

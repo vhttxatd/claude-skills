@@ -1,4 +1,6 @@
 # L3 — Lĩnh vực Hạ tầng & Quy hoạch
+
+> **META** · cap_nhat: 2026-04-24 · nguon_su_that: KH 1583/KH-UBND · ra_soat_lai: 2026-07-24 · rui_ro: cao
 > Cập nhật gần nhất: 2026-04-24 | Nguồn chính: KH 1583/KH-UBND
 > Phòng phụ trách: Phòng Kinh tế (chủ trì)
 

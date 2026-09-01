@@ -1,4 +1,6 @@
 # Danh sách cán bộ và phân công — Xã An Thới Đông
+
+> **META** · cap_nhat: 2026-03-25 · nguon_su_that: quyết định phân công của UBND xã (ghi trong file: cập nhật 25/03/2026) · ra_soat_lai: 2026-06-25 · rui_ro: cao
 *(Cập nhật: 25/03/2026)*
 
 > Tên người ký văn bản: không tự điền, hỏi người dùng xác nhận trước khi đưa vào văn bản chính thức.

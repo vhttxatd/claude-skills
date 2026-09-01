@@ -1,5 +1,7 @@
 # Căn cứ pháp lý dùng chung — Mua sắm chi thường xuyên
 
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: Luật Đấu thầu + nghị định/thông tư hướng dẫn mua sắm · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
 > File này là nguồn tham chiếu tập trung cho TẤT CẢ biểu mẫu trong quy trình mua sắm.
 > Khi soạn QĐ, TTr, BB → đọc file này lấy căn cứ đúng và đủ.
 
