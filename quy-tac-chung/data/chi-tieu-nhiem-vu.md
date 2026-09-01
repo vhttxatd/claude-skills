@@ -1,6 +1,11 @@
 # Chỉ tiêu, nhiệm vụ CĐS — Xã An Thới Đông
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: kế hoạch CĐS năm đã được duyệt · ra_soat_lai: 2026-12-01 · rui_ro: cao (bổ sung META 01/9/2026, nội dung CHƯA rà)
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: CHƯA CÓ — khung trống, chờ kế hoạch CĐS năm được duyệt · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
+> **CẢNH BÁO: file này CHƯA CÓ DỮ LIỆU THẬT** — toàn bộ là ô giữ chỗ `[X]%`.
+> **KHÔNG dùng làm căn cứ, không suy ra con số từ trí nhớ.** Hiếu hỏi chỉ tiêu
+> mà file còn ở trạng thái này thì trả lời thẳng là chưa có, rồi hỏi nguồn.
+> Số liệu thực hiện: tra Nexus (`so_lieu` + `cap_nhat_so_lieu`).
 
 > File này lưu các chỉ tiêu phấn đấu và nhiệm vụ trọng tâm theo từng năm.
 > Cập nhật đầu mỗi năm khi có kế hoạch mới được duyệt.

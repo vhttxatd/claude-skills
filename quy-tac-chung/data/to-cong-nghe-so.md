@@ -8,6 +8,8 @@
 
 > **Bảng dưới đây chưa có dữ liệu thật** — toàn ô giữ chỗ. KHÔNG dùng làm căn cứ nghiệp vụ.
 
+> **Hai con số 12 và 43 nằm ở đâu:** Nexus `so_lieu` có "Số ấp có Tổ công nghệ số cộng đồng" = 12 (năm 2026, kỳ Năm) và "Số thành viên Tổ CNSCĐ" = 43 (năm 2025 và 2026, kỳ Năm) — tra Nexus, đừng chép từ file này. Lưu ý: cả hai dòng đó **để trống cột `nguon`**, tức có nơi lưu nhưng chưa ghi nguồn gốc. Đưa vào văn bản gửi cấp trên thì phải xác nhận lại với Hiếu trước.
+
 ---
 
 ## Danh sách Tổ Công nghệ số cộng đồng
