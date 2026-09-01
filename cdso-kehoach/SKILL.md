@@ -211,6 +211,7 @@ Phần I. (La Mã)
 - `references/cautruc-mau.md` — Cấu trúc mẫu chi tiết các loại kế hoạch CĐS cấp xã
 - `references/van-phong.md` — Văn phong hành chính, hệ thống số thứ tự, quy tắc UBND vs Đảng ủy
 - `references/can-cu-phap-ly.md` — Danh mục văn bản pháp lý cấp Trung ương và Thành phố
+- `references/lien-ket-ct-nv-sl.md` — **Đọc trước khi lập hoặc sửa phụ lục chỉ tiêu, phụ lục nhiệm vụ**: liên kết chỉ tiêu ↔ nhiệm vụ ↔ số liệu ↔ minh chứng, cột giải trình, trục số liệu, 7 nhóm nhiệm vụ
 
 ## THAM CHIẾU SKILL KHÁC
 

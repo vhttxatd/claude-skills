@@ -97,6 +97,18 @@ bản đều cần vào Nexus.
   gian, Thời hạn, Văn bản CĐ (link Drive), Ghi chú, Danh mục BC (gắn "Đánh
   giá Quý" nếu tính KPI).
 
+**Khi Hiếu thêm việc mới mà không nói rõ Loại CV / Lĩnh vực:**
+1. Tự phân loại theo nội dung việc, rồi **báo lại** — "Tôi gán Loại CV = X,
+   Lĩnh vực = Y, đổi không?". Hiếu im lặng thì hiểu là đồng ý.
+2. Nếu tên Hiếu gõ **gần giống** một lựa chọn đã có → hỏi lại cho chắc, đừng
+   đoán. Nếu là **ý nghĩa mới hoàn toàn** → hỏi: thêm lựa chọn mới, gán vào
+   "Khác", hay chọn cái khác.
+3. **Không tự thêm lựa chọn mới** vào trường select của Notion. Phải xin phép.
+4. Danh sách lựa chọn của `Loại CV` và `Lĩnh vực` **do Notion sở hữu** — đọc
+   trực tiếp từ trường select, không chép bản sao vào skill. Bản sao cũ trong
+   skill `cong-viec-giao-ban` (nghỉ hưu 01/9/2026) đã mục: còn ghi "Tổ CNSCĐ
+   43 thành viên, 12 ấp" và ấp Cá Cháy đã bỏ.
+
 ---
 
 ## PHẦN 2 — Nexus (Supabase)
