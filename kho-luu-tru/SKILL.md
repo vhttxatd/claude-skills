@@ -93,9 +93,25 @@ bản đều cần vào Nexus.
   Đồng bộ online, dùng được mọi máy/điện thoại.
 - **Nguồn mặc định** khi Hiếu ra lệnh liệt kê/cập nhật/tra cứu việc mà không
   nói rõ nguồn — hiểu là TodoListATĐ, không phải Nexus.
-- Trường chính: Công việc, Loại CV, Lĩnh vực, Tình trạng Xly, Ph. Công, Thời
-  gian, Thời hạn, Văn bản CĐ (link Drive), Ghi chú, Danh mục BC (gắn "Đánh
-  giá Quý" nếu tính KPI).
+- Trường chính: Công việc, Loại CV, Lĩnh vực, Tình trạng Xly, Ph. Công, Chủ
+  trì, Thời gian, Thời hạn, Văn bản CĐ, Ghi chú, KQ Công việc, Định kỳ, Độ
+  khẩn, Địa điểm, Danh mục BC (gắn "Đánh giá Quý" nếu tính KPI).
+- **`Văn bản CĐ` là trường VĂN BẢN THƯỜNG, không phải link Drive** — muốn có
+  link thì dán nguyên URL vào đó. Đừng chờ nó tự nối sang Drive.
+- Mức lấp đầy (đếm 01/9/2026, 276 dòng): `Loại CV` trống 47 dòng · `Lĩnh vực`
+  trống 203 dòng (74%) · `Chủ trì` trống 253 dòng (92%). Nghĩa là **không lọc
+  theo hai trường sau mà tin là đủ** — phần lớn việc sẽ rơi ra ngoài bộ lọc.
+
+**Việc tạo trước 01/7/2025: GIỮ NGUYÊN.** Đó là giai đoạn trước mô hình 2 cấp
+— chức danh, tên phòng, tên đơn vị ghi trong đó là **đúng tại thời điểm ghi**.
+Không sửa ngược, không chuẩn hóa lại, không xóa. Hiện có 6 dòng như vậy
+(18–24/6/2025, đều về công tác chuẩn bị sáp nhập). Cùng nguyên tắc với ánh xạ
+tên ấp cũ: dữ liệu lịch sử là dữ kiện, không phải lỗi.
+
+**Tên phòng họp không phải chức danh.** `Địa điểm` có "Phòng họp VHTT" (21 việc),
+"Phòng họp PKT", "Phòng họp TCKH". Nghe như tên phòng ban cấp huyện cũ, nhưng
+đó là **tên gọi phòng họp đang dùng hằng ngày**. Đừng đổi, đừng xóa — cùng loại
+bẫy với "Vàm Sát" vừa là tên ấp đã bỏ vừa là địa danh còn tồn tại.
 
 **Khi Hiếu thêm việc mới mà không nói rõ Loại CV / Lĩnh vực:**
 1. Tự phân loại theo nội dung việc, rồi **báo lại** — "Tôi gán Loại CV = X,
