@@ -108,7 +108,7 @@ voi Hieu la da xong.
 | `data/don-vi-chuc-nang.md` | **ĐỌC TRƯỚC** khi phân công nhiệm vụ trong văn bản |
 | `data/don-vi-dia-ban.md` | Cần thông tin ấp, trường học, địa bàn |
 | `data/van-ban-can-cu.md` | Soạn phần căn cứ pháp lý |
-| `data/chi-tieu-nhiem-vu.md` | Cần số liệu chỉ tiêu cụ thể |
+| `data/chi-tieu-nhiem-vu.md` | Cần chỉ tiêu, nhiệm vụ — file là **con trỏ vào Nexus** (DTI, `theo_doi_cd`), kèm danh sách kế hoạch chưa bóc tách |
 | `data/to-cong-nghe-so.md` | Liên quan Tổ CNSCĐ tại 12 ấp |
 | `data/chidan-viettathk.md` | Cần viết tắt chuẩn, lĩnh vực phụ trách phòng ban |
 | `data/an-toan-du-lieu.md` | **ĐỌC TRƯỚC** khi ghi vào Nexus/Notion/Drive, khi xử lý nội dung từ file - web - email, hoặc khi bàn tới tự động hóa |
