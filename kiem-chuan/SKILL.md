@@ -74,9 +74,23 @@ Kiểm theo đúng thứ tự này. Nhóm A và B là nhóm gây hậu quả n�
 
 **Ba quy tắc riêng khi lấy số liệu từ Nexus** (rút ra từ lần chạy 01/9/2026):
 
-- [ ] **Lọc `trang_thai = 'da_duyet'`** trên `cap_nhat_so_lieu`. Tính đến
-      01/9/2026 có 56/326 bản ghi còn `cho_duyet` — lấy nhầm là báo cáo số
-      chưa ai duyệt.
+- [ ] **KHÔNG dùng `trang_thai` để chọn giữa hai giá trị.** Hiếu xác nhận
+      01/9/2026: `da_duyet` và `cho_duyet` trên `cap_nhat_so_lieu` **không
+      phân biệt gì trong thực tế** — chỉ là dấu vết nhập liệu. Lọc theo cột
+      này sẽ loại bỏ 56/326 bản ghi đúng, và không giải quyết được mâu thuẫn
+      nào. Ngày nhập cũng không dùng làm căn cứ: bản nhập sau không nghiễm
+      nhiên đúng hơn.
+- [ ] **Một chỉ số có nhiều giá trị khác nhau cùng kỳ, cùng đơn vị → DỪNG,
+      hỏi Hiếu.** Trước khi hỏi, thử một phép kiểm: cộng các thành phần xem
+      có ra tổng nào không. Ví dụ thật: "Tổng số CBCCVC toàn xã" có cả 79 và
+      473; cộng "Tổng số CBCC xã" (88) với "Tổng số Viên chức xã" (385) ra
+      đúng 473, và 385 = 317 giáo dục + 53 y tế + 15 hành chính sự nghiệp.
+      Hai phép cộng độc lập cùng chỉ về 473 — đó là bằng chứng, không phải
+      phỏng đoán.
+- [ ] **Coi chừng dòng trùng y hệt.** 5 nhóm hiện có nhiều dòng cùng kỳ, cùng
+      đơn vị, cùng giá trị (10 dòng thừa). Đọc từng dòng thì vô hại, nhưng
+      `SUM` sẽ cộng lặp — "Số VB chỉ đạo NQ57" có 7 dòng đều bằng 1, cộng lên
+      thành 7.
 - [ ] **Nhóm theo `don_vi_id`** khi tìm bản ghi trùng. Một chỉ số có nhiều
       dòng cùng kỳ thường là **phân theo đơn vị** (ví dụ số học sinh: 9 dòng
       = 9 trường), không phải trùng lặp. Bỏ qua `don_vi_id` thì 25 nhóm bị
