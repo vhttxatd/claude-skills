@@ -17,19 +17,10 @@
 
 ## [B] ĐỊNH HƯỚNG (Giai đoạn 2026–2030)
 
-### Chỉ tiêu → TRA NEXUS
-
-> Đã bóc tách vào Nexus ngày 01/9/2026. **Không chép chỉ tiêu vào file này.**
-
-```sql
-SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai
-FROM theo_doi_cd t
-JOIN giao_muc g ON g.theo_doi_cd_id = t.id
-JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
-JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
-WHERE t.ghi_chu LIKE '%L3-linh-vuc-nhan-luc.md%' AND t.loai = 'chi_tieu' AND lv.ma_linh_vuc = 'LV-LDVL';
-```
-
+### Chỉ tiêu
+- Tỷ lệ lao động qua đào tạo đạt **≥ 87%** ^[KH1583]
+- Có ít nhất **02 nghề du lịch — dịch vụ** mới được đào tạo bài bản ^[KH1583]
+- Thu nhập bình quân đầu người năm 2030 tăng **30%** so với năm 2025 ^[KH1583]
 
 ### Định hướng phát triển
 - Nâng cao **chất lượng nguồn nhân lực** trên địa bàn xã, đáp ứng yêu cầu phát triển KT-XH ^[KH1583]
@@ -59,28 +50,18 @@ WHERE t.ghi_chu LIKE '%L3-linh-vuc-nhan-luc.md%' AND t.loai = 'chi_tieu' AND lv.
 
 ---
 
-## [D] NHIỆM VỤ ĐƯỢC GIAO → TRA NEXUS
+## [D] NHIỆM VỤ ĐƯỢC GIAO
 
-> Đã bóc tách vào Nexus ngày 01/9/2026 (`theo_doi_cd` + `giao_muc`, gắn với
-> văn bản `1583/KH-UBND`). **Không chép nhiệm vụ vào file này.**
+> **KH 1583/KH-UBND là văn bản tra cứu** — không theo dõi tiến độ toàn văn bản
+> (Hiếu quyết định 01/9/2026). Nhiệm vụ giao trong kế hoạch **không** bóc tách
+> vào Nexus và **không** chép lại tại đây; khi cần thì tra trực tiếp văn bản gốc.
 >
-> Lý do: file markdown không có trạng thái, không có hạn, không nối được với
-> `ket_qua` — nên 95 nhiệm vụ nằm đây là 95 nhiệm vụ không ai theo dõi được.
+> Nếu sau này đổi hướng sang theo dõi tiến độ: bóc tách vào `theo_doi_cd` +
+> `giao_muc` (gắn `van_ban.so_hieu = '1583/KH-UBND'`), không chép nhiệm vụ vào
+> file markdown — markdown không có trạng thái, không có hạn, không nối được
+> với `ket_qua`.
 
-```sql
-SELECT t.ma_tdcd, t.ten_noi_dung, t.trang_thai, dv.ten_don_vi AS chu_tri
-FROM theo_doi_cd t
-JOIN giao_muc g ON g.theo_doi_cd_id = t.id
-JOIN van_ban v ON v.id = g.van_ban_id AND v.so_hieu = '1583/KH-UBND'
-JOIN linh_vuc lv ON lv.id = t.linh_vuc_id
-LEFT JOIN don_vi dv ON dv.id = t.don_vi_chu_tri_id
-WHERE t.ghi_chu LIKE '%L3-linh-vuc-nhan-luc.md%' AND t.loai = 'nhiem_vu' AND lv.ma_linh_vuc = 'LV-LDVL'
-ORDER BY t.ma_tdcd;
-```
-
-> Ghi kết quả thực hiện vào `ket_qua` như thường lệ — nay nối được về đúng
-> nhiệm vụ và đúng văn bản căn cứ.
-
+---
 
 ## [Z] LỊCH SỬ / GHI CHÚ
 

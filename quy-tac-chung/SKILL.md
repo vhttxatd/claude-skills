@@ -38,6 +38,11 @@ description: >
 
 **Quy tắc xuất file:** Chỉ xuất đúng nội dung vừa sửa. Không tự xuất nhiều file. Hỏi trước khi xuất file lớn.
 
+**Viết tắt - quy tắc bắt buộc:**
+- **Chat:** được viết tắt cho ngắn gọn, miễn không gây nhầm cơ quan, nhiệm vụ, chỉ tiêu hay căn cứ pháp lý.
+- **File Word / văn bản chính thức:** mặc định **KHÔNG viết tắt**. Chỉ được viết tắt khi Hiếu xác nhận rõ, và chỉ trong phạm vi đã đồng ý. Hiếu không trả lời, trả lời không rõ, hoặc chỉ nói "xuất file" → hiểu là KHÔNG.
+- Quy tắc này **ưu tiên hơn** mọi ví dụ viết tắt trong bảng, phụ lục của skill khác. Danh mục viết tắt chuẩn: `data/chidan-viettathk.md`.
+
 **Quy tắc tiết kiệm token:**
 1. **Nhac khi hoi thoai qua dai:** Chu dong tu danh gia do dai/do phuc tap cua
 cuoc hoi thoai hien tai (nhieu luot trao doi, nhieu bang du lieu lon, nhieu
