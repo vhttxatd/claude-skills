@@ -103,3 +103,18 @@ Skill tồn tại ở ba nơi. Vai trò phải rõ:
 **Quy tắc:** mỗi lần sửa skill, phải cập nhật **cả Settings và GitHub trong
 cùng ngày**. Nếu chỉ kịp một nơi → ghi ngay vào Notion trang bàn giao là nơi
 nào chưa đồng bộ. Claude phải nhắc điều này sau mỗi lần xuất file skill.
+
+---
+
+## Việc đã đóng — đừng đi tìm lại
+
+**Quy tắc TRANG-THAI-HIEN-TAI (fetch file trạng thái từ GitHub trước khi làm
+việc): ĐÃ KHÔNG CÒN TỒN TẠI.** Xác minh ngày 01/9/2026 bằng hai phiên độc
+lập, quét toàn bộ `/mnt/skills/`, thư mục uploads và phần hướng dẫn đang áp
+dụng — không có chuỗi `TRANG-THAI-HIEN-TAI` ở bất kỳ đâu.
+
+Bản giao trước ghi quy tắc này "đang hỏng âm thầm, phải sửa hoặc bỏ" — thông
+tin đó đã cũ. Không mất thời gian tìm lại.
+
+Thay thế: **đầu phiên chạy `tao-skill/scripts/kiem-tra-meta.py`.** Nó làm đúng
+việc mà quy tắc cũ định làm, và chạy được thật.
