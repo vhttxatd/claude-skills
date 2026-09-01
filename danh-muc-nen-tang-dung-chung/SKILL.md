@@ -7,6 +7,9 @@ description: >
   tảng/CSDL dùng chung trong văn bản, kế hoạch, báo cáo.
 ---
 
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: QĐ 1132/QĐ-TTg + văn bản Thành phố · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
 # Danh mục nền tảng/CSDL dùng chung
 
 > **Đọc tối thiểu:** SKILL.md này. Chỉ mở thêm khi cần:

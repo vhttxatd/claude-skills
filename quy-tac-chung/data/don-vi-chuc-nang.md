@@ -194,9 +194,7 @@
 ## IV. CẤP ẤP VÀ TỔ CÔNG NGHỆ SỐ CỘNG ĐỒNG
 
 ### 9. Trưởng các ấp
-**Bao gồm:** Trưởng 8 ấp trên địa bàn xã (từ 01/7/2026 theo NQ 20/NQ-HĐND
-22/6/2026): Quảng Xuyên, An Đông, An Bình, Rạch Lá, Doi Lầu, Lý Hòa Hiệp, Lý
-Thái Bửu, Lý Nhơn. Chi tiết sáp nhập xem `quy-tac-chung/data/don-vi-dia-ban.md`.
+**Bao gồm:** Trưởng 12 ấp trên địa bàn xã (Rạch Lá, Tắc Ráng, An Đông, Quảng Xuyên, An Bình, Doi Lầu, Cá Cháy, Vàm Sát, Lý Hòa Hiệp, Dương Văn Hạnh, Lý Thái Bửu, Lý Nhơn).
 
 **Nhiệm vụ trong CĐS:**
 - Chỉ đạo Tổ Công nghệ số cộng đồng tại ấp triển khai nhiệm vụ được giao

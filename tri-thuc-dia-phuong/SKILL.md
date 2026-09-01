@@ -7,6 +7,9 @@ description: >
   tắt, căn cứ pháp lý).
 ---
 
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: báo cáo/số liệu xã An Thới Đông · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
 # Tri thức địa phương — Xã An Thới Đông
 
 Skill này cung cấp **tri thức nền** về xã: hiện trạng KT-XH, định hướng phát

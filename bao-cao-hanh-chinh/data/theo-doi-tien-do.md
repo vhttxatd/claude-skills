@@ -21,6 +21,7 @@
 | Năm | KHCN-CĐS | 15/1/2027 | | | BCĐ xã + Sở KH&CN | 🔜 |
 | Năm | DTI | 20/1/2027 | | | Sở KH&CN | 🔜 |
 | Q4 | TĐT | Theo CV | | | Sở KH&CN | 🔜 |
+| T8 | KQTH NQ57 | 10/8/2026 | | | Công an TP (Tổ Công tác 57, CV 5722/CQTT) | ⏳ Chưa nộp |
 
 ### Báo cáo đột xuất 2026
 

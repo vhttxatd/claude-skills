@@ -68,7 +68,9 @@ Nơi nhận:                          TRƯỞNG PHÒNG
 - Lưu: VT, Hiếu.                   Nguyễn Văn Chính
 ```
 
-> **Lưu ý Điều 1:** Các khoản 1-5 thụt đầu dòng chuẩn (firstLine 720), KHÔNG dùng indent left.
+> **Lưu ý Điều 1:** Các khoản 1-5 thụt đầu dòng chuẩn, KHÔNG dùng indent left.
+> ⚠️ Thông số thể thức/kỹ thuật trình bày — xem `the-thuc-van-ban` (nguồn duy nhất). KHÔNG ghi lại ở đây.
+
 > **Lưu ý nơi nhận:** KHÔNG có Phòng Kinh tế trong QĐ phê duyệt KHLCNT.
 
 ---
@@ -106,8 +108,8 @@ của Phòng Văn hóa - Xã hội xã An Thới Đông)
 ### Phụ lục 2 — KHLCNT (Section 3 — trang NGANG MỚI)
 
 > **BẮT BUỘC theo mẫu quy định** — Phụ lục 2 Kế hoạch lựa chọn nhà thầu
-> Trang ngang: width=16838, height=11906, margin 1134 DXA 4 phía
-> contentW phụ lục ngang = 14570 DXA
+> ⚠️ Thông số thể thức/kỹ thuật trình bày — xem `the-thuc-van-ban` (nguồn duy nhất). KHÔNG ghi lại ở đây.
+
 
 **Tiêu đề:**
 ```

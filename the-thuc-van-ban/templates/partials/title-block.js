@@ -11,7 +11,7 @@
  */
 
 const { Paragraph, AlignmentType, LineRuleType } = require('docx');
-const { r, emp } = require('./base');
+const { r, emp, divider } = require('./base');
 const { TEN_LOAI, TRANG } = require('../config/config');
 
 /**
@@ -49,9 +49,10 @@ function titleBlock(loai, trichYeu, opts = {}) {
     }),
     new Paragraph({
       alignment: AlignmentType.CENTER,
-      spacing: { before: 0, after: 240, line: 276 },
+      spacing: { before: 0, after: 60, line: 276 },
       children: [r(trichYeuFull, { bold: true, size: TRANG.BODY })],
     }),
+    divider('trichYeu'),   // Thông số lấy từ DIVIDER.trichYeu trong config
   ];
 }
 

@@ -82,7 +82,7 @@ Nơi nhận:                    TRƯỞNG PHÒNG
 
 ## LƯU Ý
 
-- **Điều 1, khoản 1-9:** Tiêu đề khoản in đậm, thụt đầu dòng chuẩn (firstLine 720)
+- **Điều 1, khoản 1-9:** Tiêu đề khoản in đậm, thụt đầu dòng chuẩn
 - **Khoản 9** có gạch đầu dòng chi tiết + câu nghiệm thu in nghiêng ở cuối
 - **Điều 2:** Chỉ ghi hiệu lực — ngắn gọn, 1 câu
 - **Điều 3:** Ghi đầy đủ các đối tượng thi hành: chuyên viên phân công + kế toán + đơn vị trúng thầu + các đơn vị liên quan

@@ -9,6 +9,9 @@ description: >
   skill theo dõi tiến độ, skill phân tích văn bản pháp lý, v.v.
 ---
 
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quyết định của Hiếu · ra_soat_lai: 2027-09-01 · rui_ro: thap
+
 # Skill: Tạo và Cải Tiến Skill
 
 Skill này giúp Hiếu xây dựng các bộ hướng dẫn (skill) để Claude thực hiện

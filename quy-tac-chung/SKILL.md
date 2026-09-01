@@ -4,6 +4,9 @@ description: >
   Dữ liệu nền dùng chung: cán bộ, đơn vị, viết tắt, địa bàn, văn bản căn cứ xã An Thới Đông.
 ---
 
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quyết định của Hiếu + văn bản tổ chức bộ máy · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
 # Quy tắc chung — Xã An Thới Đông
 
 > File này chỉ chứa **cốt lõi luôn-nạp**. Khi cần chi tiết, đọc file dưới đây theo tình huống.

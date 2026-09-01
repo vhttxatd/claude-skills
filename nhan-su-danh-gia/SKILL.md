@@ -3,6 +3,9 @@ name: nhan-su-danh-gia
 description: Hồ sơ và đánh giá quý: Phan Trung Hiếu + Võ Thị Ấm.
 ---
 
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: hồ sơ cán bộ · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
 > **Đọc tối thiểu:** SKILL.md này + `quy-tac-chung/SKILL.md` (phần cốt lõi) + 2 file hồ sơ trong `data/`. Chỉ mở thêm khi cần:
 > - `quy-tac-chung/data/quy-tac-soan-thao.md` — khi xuất file đánh giá ra .docx
 > - `bieu-mau/mau-1A-chuyen-vien.md` — khi điền biểu mẫu

@@ -11,9 +11,10 @@ const {
 } = require('docx');
 
 const { r, emp, noBorders, sp0 } = require('./base');
-const { LANHDAO, TRANG, getDinhDang } = require('../config/config');
+const { LANHDAO, TRANG, getDinhDang , contentWidth} = require('../config/config');
 
-const contentW = TRANG.W - 1800 - 1080;  // 9026
+// Bề rộng thân trang lấy từ nguồn duy nhất (config), không gõ số DXA thủ công.
+const contentW = contentWidth('MAC_DINH');
 const colSL = Math.round(contentW * 0.52); // 4694
 const colSR = contentW - colSL;            // 4332
 
@@ -55,7 +56,7 @@ function signatureBlock({ noiNhan = [], nguoiKy = 'chuTich', loai = 'KH', tenDon
       }),
       ...processedNoiNhan.map(l => new Paragraph({
         alignment: AlignmentType.LEFT,
-        spacing: { ...sp0, after: 40 },
+        spacing: sp0,
         indent: { left: 120 },
         children: [r(l, { size: nnSize })],
       })),

@@ -9,6 +9,9 @@ description: >
   lãnh đạo, số liệu, căn cứ pháp lý, quyết định chi tiêu).
 ---
 
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quyết định của Hiếu · ra_soat_lai: 2027-09-01 · rui_ro: thap
+
 # Fable Mode — Kỷ luật tư duy bàn giao từ model mạnh
 
 > Tuân theo 4 nguyên tắc vận hành trong `tao-skill`.
@@ -137,9 +140,8 @@ ASSUMPTION (mặc định, chưa kiểm), UNKNOWN (biết là không biết). Gi
 ảnh hưởng kết luận → phải nói ra thành lời. UNKNOWN có công cụ kiểm
 (search, đọc file) → kiểm trước, không đoán.
 
-**Ví dụ:** "Xã có bao nhiêu ấp sau sáp nhập?" — FACT: Nghị quyết số 20/NQ-HĐND
-ngày 22/6/2026 sáp nhập 12 ấp còn 8, hiệu lực từ 01/7/2026. ASSUMPTION: chưa
-có điều chỉnh sau đó.
+**Ví dụ:** "Xã có bao nhiêu ấp sau sáp nhập?" — FACT: văn bản sáp nhập 12
+ấp còn 8, hiệu lực 01/8/2026. ASSUMPTION: chưa có điều chỉnh sau đó.
 UNKNOWN: tên chính thức từng ấp mới đã chốt chưa.
 
 **Lỗi tránh được:** Trình bày giả định như sự thật — người nhận ra quyết

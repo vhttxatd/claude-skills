@@ -34,7 +34,7 @@ Kỳ báo cáo  → lọc mã trong [ngày_đầu_kỳ → ngày_cuối_kỳ]
 Lũy kế      → lọc mã trong [01/01/năm → ngày_cuối_kỳ]
 ```
 
-M��c kỳ chuẩn:
+Mốc kỳ chuẩn:
 ```
 Q1: 260101→260331   6T: 260101→260630
 Q2: 260401→260630   9T: 260101→260930
@@ -128,18 +128,16 @@ Câu 3: Kết quả đạt được hoặc tiến độ
 
 ## ĐỊNH DẠNG FILE WORD
 
-Đọc `the-thuc-van-ban` trước khi code. Thông số cốt lõi:
-
-| Thuộc tính | Giá trị |
-|---|---|
-| Khổ giấy | A4: 11906×16838 DXA |
-| Lề | top=1000, bottom=1000, left=1800, right=900 |
-| Font | Times New Roman |
-| Cỡ chữ nội dung | 28 half-points (14pt) |
-| Giãn dòng | 240 DXA (dòng đơn) |
-| Khoảng cách đoạn | before=120, after=120 |
-| Thụt đầu dòng | firstLine=720 |
-| Số trang | Footer từ trang 2, titlePage=true |
+> ⚠️ **KHÔNG có thông số định dạng nào ở file này.**
+> Mọi thông số thể thức và kỹ thuật trình bày (khổ giấy, lề, font, cỡ chữ,
+> giãn dòng, thụt đầu dòng, divider, số trang, phụ lục trang ngang...) chỉ
+> tồn tại DUY NHẤT trong skill `the-thuc-van-ban`:
+> - Code dùng chung: `the-thuc-van-ban/templates/` (config + partials)
+> - Tài liệu quy tắc: `the-thuc-van-ban/references/`
+>
+> Khi xuất .docx: gọi hàm mẫu có sẵn (`mauBaoCao`, `mauCongVan`...) trong
+> `templates/templates/all.js`, KHÔNG tự viết lại thông số định dạng.
+> Nếu cần sửa thể thức → sửa trong `the-thuc-van-ban`, áp dụng cho toàn hệ thống.
 
 ---
 
@@ -207,13 +205,11 @@ và Tổ Giúp việc Ban Chỉ đạo được thực hiện thường xuyên, 
 
 ### 6. Phụ lục trang ngang
 
-Khi báo cáo yêu cầu phụ lục bảng danh mục nhiệm vụ:
-- Đặt phụ lục trong **Section riêng** với `PageOrientation.LANDSCAPE`
-- Kích thước: width=16838, height=11906 (DXA) — đảo ngược so với trang đứng
-- Margin: 1134 DXA (2cm) 4 phía
-- contentW phụ lục = 16838 - 1134×2 = 14570 DXA
-- Phân bổ cột chuẩn 6 cột: `[500, 4200, 2000, 5070, 1500, 1300]` tổng = 14570
-- Cỡ chữ trong bảng phụ lục: 22 half-points (11pt)
+Khi báo cáo yêu cầu phụ lục bảng danh mục nhiệm vụ, đặt phụ lục trong
+**Section riêng** với `PageOrientation.LANDSCAPE`.
+
+> ⚠️ Thông số kỹ thuật (kích thước, margin, contentW, phân bổ cột, cỡ chữ
+> trong bảng) — xem `the-thuc-van-ban`, KHÔNG ghi lại ở đây.
 
 
 ### QUY TẮC DẪN CHIẾU VĂN BẢN — THÔNG TIN ĐẦY ĐỦ

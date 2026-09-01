@@ -11,30 +11,11 @@
 | Điện thoại | [Số điện thoại UBND xã] |
 | Email công vụ | [Email chính thức] |
 
-## Danh mục 8 ấp (từ 01/7/2026, theo Nghị quyết số 20/NQ-HĐND ngày 22/6/2026)
+## Danh mục 12 ấp
 
-Trước 01/7/2026 xã có 12 ấp, sau sáp nhập còn 8 ấp. Bảng dưới lấy đúng số hộ
-tại Điều 1 Nghị quyết 20/NQ-HĐND (22/6/2026); cột "Ấp cũ hợp thành" giữ lại
-để tra cứu lịch sử. Diện tích/nhân khẩu/Trưởng ấp theo đơn vị MỚI **CHƯA XÁC
-NHẬN** (diện tích ấp cũ trước 01/7 xem cột ghi chú, nhưng với ấp mới được
-tách/ghép một phần — Lý Thái Bửu, Lý Nhơn — không cộng gộp máy móc được;
-Nhân khẩu và Trưởng ấp của 8 ấp mới CHƯA CÓ số liệu chính thức, cần cập nhật
-khi có).
+*(Tổng diện tích: ~25.675 ha — Tổng hộ: ~5.977 hộ — Tổng nhân khẩu: ~22.306 người)*
 
-| STT | Tên ấp mới | Số hộ (sau sắp xếp) | Ấp cũ hợp thành | Ghi chú |
-|---|---|---|---|---|
-| 1 | Quảng Xuyên | 729 | Quảng Xuyên (giữ nguyên) | Diện tích cũ: 60,68 ha |
-| 2 | An Đông | 712 | An Đông (giữ nguyên) | Diện tích cũ: 2.480,26 ha |
-| 3 | An Bình | 683 | An Bình (giữ nguyên) | Diện tích cũ: 70,55 ha |
-| 4 | Rạch Lá | 815 | Tắc Ráng (414) + Rạch Lá (401) | Diện tích cũ cộng gộp ước ~801,05 ha |
-| 5 | Doi Lầu | 789 | Doi Lầu (409) + Cá Cháy (380) | Diện tích cũ cộng gộp ước ~6.450,33 ha |
-| 6 | Lý Hòa Hiệp | 779 | Vàm Sát (395) + Lý Hòa Hiệp (384) | Diện tích cũ cộng gộp ước ~2.219,49 ha |
-| 7 | Lý Thái Bửu | 580 | Dương Văn Hạnh (375) + một phần Lý Thái Bửu cũ (205) | Diện tích CHƯA XÁC ĐỊNH (tách một phần ấp cũ) |
-| 8 | Lý Nhơn | 663 | một phần Lý Thái Bửu cũ (207) + Lý Nhơn (456) | Diện tích CHƯA XÁC ĐỊNH (tách một phần ấp cũ) |
-
-### Dữ liệu 12 ấp cũ (trước 01/7/2026 — chỉ tra cứu lịch sử)
-
-| STT | Tên ấp cũ | Diện tích (ha) | Số hộ (cũ) | Nhân khẩu (cũ) | Trưởng ấp (cũ) |
+| STT | Tên ấp | Diện tích (ha) | Số hộ | Nhân khẩu | Trưởng ấp |
 |---|---|---|---|---|---|
 | 1 | Rạch Lá | 701,25 | 422 | 1.521 | Nguyễn Văn Hóa |
 | 2 | Tắc Ráng | 99,80 | 412 | 1.571 | Nguyễn Thanh Long |
@@ -49,19 +30,7 @@ khi có).
 | 11 | Lý Thái Bửu | 386,30 | 416 | 1.482 | Phạm Thành Long |
 | 12 | Lý Nhơn | 11.032,12 | 452 | 1.559 | Nguyễn Văn Gọn |
 
-**Lưu ý:** số hộ cột "Trước khi sắp xếp" trong Nghị quyết 20/NQ-HĐND (Tắc Ráng
-414, Rạch Lá 401, Doi Lầu 409, Cá Cháy 380, Vàm Sát 395, Lý Hòa Hiệp 384,
-Dương Văn Hạnh 375, Lý Thái Bửu 412 = 205+207) lệch nhẹ so với số hộ trong
-bảng 12 ấp cũ ở trên (chốt 01/01/2026) — do khác thời điểm chốt số liệu,
-không phải sai sót. Số hộ dùng cho 8 ấp MỚI (bảng trên) lấy đúng theo Nghị
-quyết (nguồn pháp lý), không dùng số cũ.
-
 ## Danh mục 10 trường học
-
-**⚠ CHƯA CẬP NHẬT theo 8 ấp mới:** bảng dưới vẫn dùng tên 12 ấp cũ (trước
-01/7/2026) cho cột "Địa bàn ấp"/"Ấp lân cận phục vụ" — Claude KHÔNG tự suy
-đoán quy đổi sang tên ấp mới vì có thể sai (ranh giới phục vụ trường không
-chắc theo đúng ranh giới sáp nhập ấp). Cần Hiếu xác nhận lại khi có dịp.
 
 | STT | Tên trường | Cấp | Địa bàn ấp | Ấp lân cận phục vụ |
 |---|---|---|---|---|

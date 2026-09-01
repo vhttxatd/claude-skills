@@ -3,6 +3,9 @@ name: cdso-kehoach
 description: Soạn kế hoạch chuyển đổi số hành chính cấp xã.
 ---
 
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: văn bản chỉ đạo CĐS cấp TP/Quốc gia · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
 > **Đọc tối thiểu:** SKILL.md này + `quy-tac-chung/SKILL.md` (phần cốt lõi). Chỉ mở thêm khi cần:
 > - `quy-tac-chung/data/quy-tac-soan-thao.md` — khi soạn căn cứ, dẫn chiếu, xuất file
 > - `quy-tac-chung/data/van-ban-can-cu.md` — khi soạn phần căn cứ
@@ -218,7 +221,7 @@ Khi cần các thông tin sau, đọc từ skill tương ứng:
 - `data/can-bo-phan-cong.md` — Cán bộ, chức vụ, người ký
 - `data/van-ban-can-cu.md` — Số hiệu văn bản đã xác nhận
 - `data/chi-tieu-nhiem-vu.md` — Chỉ tiêu, nhiệm vụ trọng tâm
-- `data/to-cong-nghe-so.md` — Tổ CNSCĐ 12 ấp
+- `data/to-cong-nghe-so.md` — Tổ CDS 12 ấp
 - `data/chidan-viettathk.md` — Viết tắt, chỉ dẫn, phân công phòng ban
 
 **`the-thuc-van-ban` — Định dạng và thể thức:**

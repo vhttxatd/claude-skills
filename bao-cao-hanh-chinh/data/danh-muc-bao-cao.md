@@ -73,6 +73,26 @@
 
 ---
 
+### 4. Báo cáo tổng hợp Kết quả thực hiện NQ57 (KQTH NQ57)
+
+| Thuộc tính | Giá trị |
+|---|---|
+| Ký hiệu BC | BC-KQTH-NQ57 |
+| Mẫu soạn | `mau/mau-kqth-nq57.md` |
+| Nơi gửi | **Linh hoạt theo từng lần** — hỏi Hiếu mỗi lần (xem mục "XÁC ĐỊNH KÍNH GỬI" trong mẫu). Đã có tiền lệ: Công an Thành phố (Tổ Công tác 57), theo CV 5722/CQTT — xem Notion `TodoListATĐ` |
+| Đơn vị soạn | Phòng Văn hóa - Xã hội (đầu mối) |
+| Nguồn dữ liệu | `data/thu-thap-hang-ngay.md` (kho tổng hợp 13 nhóm — I-XIII, phủ rộng hơn ma trận KHCN-CĐS) |
+| Đặc điểm | Thân văn xuôi NGẮN (4 phần: Chỉ đạo / Kết quả nổi bật / Tồn tại / Phương hướng) + Phụ lục bảng chi tiết đủ mọi nhóm |
+
+**Lịch báo cáo:**
+
+| Kỳ | Ghi chú |
+|---|---|
+| Hàng tháng — gửi Công an TP | Theo CV 5722/CQTT, hạn ước tính 10 hàng tháng — xác nhận lại CV căn cứ mỗi kỳ |
+| Theo yêu cầu đột xuất khác | Xử lý như BC đột xuất nhưng dùng khung nội dung 13 nhóm của mẫu này thay vì tự do |
+
+---
+
 ## II. BÁO CÁO ĐỘT XUẤT
 
 > Xem quy trình xử lý tại `data/quy-trinh-dot-xuat.md`

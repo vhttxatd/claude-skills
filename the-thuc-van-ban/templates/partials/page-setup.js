@@ -11,10 +11,10 @@
  */
 
 const {
-  Header, Footer, Paragraph, TextRun, AlignmentType, PageNumber,
+  Header, Footer, Paragraph, TextRun, AlignmentType, PageNumber, NumberFormat,
 } = require('docx');
 
-const { getDinhDang, TRANG } = require('../config/config');
+const { getDinhDang, TRANG, SO_TRANG } = require('../config/config');
 const { sp0 } = require('./base');
 
 function pageProperties(loai) {
@@ -29,6 +29,9 @@ function pageProperties(loai) {
         right: dd.marginRight,
         left: dd.marginLeft,
       },
+      // BẮT BUỘC — thiếu dòng này khiến số trang không ổn định / không reset
+      // đúng về 1 ở mỗi file mới (xem dau-cau.md mục "Số trang").
+      pageNumbers: { start: 1, formatType: NumberFormat.DECIMAL },
     },
   };
 }
@@ -37,7 +40,7 @@ function pageProperties(loai) {
 function pageNumRun() {
   return new TextRun({
     children: [PageNumber.CURRENT],
-    size: TRANG.SMALL,
+    size: SO_TRANG.size,
     font: "Times New Roman",
   });
 }
@@ -45,7 +48,8 @@ function pageNumRun() {
 function pageNumParagraph() {
   return new Paragraph({
     alignment: AlignmentType.CENTER,
-    spacing: sp0,
+    // Giãn cách phía dưới để số trang không dính vào dòng đầu thân văn bản.
+    spacing: { before: 0, after: SO_TRANG.after, line: 240 },
     children: [pageNumRun()],
   });
 }

@@ -22,115 +22,43 @@
 
 ## Dấu gạch ngang divider (đường kẻ ngang)
 
-> **NGUYÊN TẮC:** Dùng ký tự `-` lặp lại, font Times New Roman, **size 8pt (16 half-points)**,
-> căn giữa. KHÔNG dùng `BorderStyle` hay `border bottom` của paragraph.
-
-```javascript
-const divider = (width = 28, align = AlignmentType.CENTER) =>
-  new Paragraph({
-    children: [new TextRun({ text: '-'.repeat(width), size: 16, font: 'Times New Roman' })],
-    alignment: align,
-    spacing: { line: 240, before: 0, after: 0 },
-  });
-
-// Các độ rộng thường dùng:
-// Cột trái (dưới tên đơn vị): width ≈ 26
-// Cột phải (dưới "Độc lập - Tự do - Hạnh phúc"): width ≈ 34
-// Dưới dòng cuối tiêu đề BÁO CÁO / KẾ HOẠCH: width ≈ 40
-```
+> **KHÔNG có thông số ở đây.** Độ rộng và giãn cách của cả 3 divider được khai
+> báo tại **`templates/config/config.js` → khối `DIVIDER`** (nguồn duy nhất).
+> Code gọi bằng tên vị trí, không truyền số:
+>
+> ```javascript
+> divider('coQuan')     // dưới tên cơ quan ban hành
+> divider('quocHieu')   // dưới "Độc lập - Tự do - Hạnh phúc"
+> divider('trichYeu')   // dưới trích yếu văn bản
+> ```
+>
+> Muốn đổi độ dài hay giãn cách sau → sửa `DIVIDER` trong `config.js`, mọi loại
+> văn bản tự cập nhật. Nguyên tắc bất biến: ký tự `-` lặp lại, đậm, căn giữa,
+> KHÔNG dùng `BorderStyle` / `border bottom`.
 
 ---
 
 ## Số trang
 
-### Quy tắc chung — áp dụng MỌI loại văn bản (CV, BC, KH, TTr, QĐ, BB, GM...)
+> **Quy tắc thống nhất cho MỌI loại văn bản (không ngoại lệ):**
 
 | Quy tắc | Giá trị |
 |---|---|
-| Bắt đầu đếm từ | **Trang 1** (trang đầu tiên của văn bản) |
-| Hiển thị từ | **Trang 2** trở đi (trang 1 KHÔNG hiển thị số trang) |
-| Vị trí | Header (KH/QĐ/CV/TTr/BB) hoặc Footer (BC) — xem bảng bên dưới |
-| Căn | Căn giữa |
+| Vị trí | **HEADER — đầu trang**, căn giữa (kể cả Báo cáo) |
+| Trang 1 | **KHÔNG hiển thị** số trang |
+| Hiển thị từ | Trang 2 trở đi |
+| Bắt đầu đếm | Trang 1 — mỗi file mới reset về 1 |
 | Cỡ chữ | 12pt (24 half-points) |
-| Reset | Mỗi session (file văn bản mới) bắt đầu lại từ 1 |
 
-**Kỹ thuật BẮT BUỘC:** `titlePage: true` trong section properties để trang 1 dùng header/footer riêng (rỗng).
+Thực thi tại `templates/partials/page-setup.js`; bật/tắt theo loại đọc từ
+`DINH_DANG[...].pageNumberPosition` trong `config.js`. Hai điều kiện kỹ thuật
+bắt buộc (đã có sẵn trong partial, không cần viết lại):
+`titlePage: true` để trang 1 dùng header rỗng, và
+`pageNumbers: { start: 1 }` để số trang reset đúng ở mỗi file.
 
-> **ÁP DỤNG KHÔNG NGOẠI LỆ:** Mọi loại văn bản bao gồm cả Biên bản họp, Giấy mời, và bất kỳ văn bản nội bộ nào đều phải có `titlePage: true` — ngay cả khi văn bản chỉ 1 trang. Quy tắc này đảm bảo khi văn bản sang trang 2, số trang hiện đúng.
-
-### Vị trí số trang theo loại văn bản
-
-| Loại | Vị trí | Ghi chú |
-|---|---|---|
-| Báo cáo (BC) | **FOOTER** | |
-| Kế hoạch (KH) | **HEADER** | |
-| Quyết định (QĐ) | **HEADER** | |
-| Công văn (CV) | **HEADER** | Chỉ khi >1 trang |
-| Tờ trình (TTr) | **HEADER** | Chỉ khi >1 trang |
-| Biên bản (BB) | **HEADER** | Chỉ khi >1 trang |
-| Giấy mời (GM) | **HEADER** | Chỉ khi >1 trang |
-| Phiếu trình (PTr) | Không có | Thường 1 trang |
-
-### Code mẫu — Báo cáo (BC) — số trang ở FOOTER
-```javascript
-const pageFooter = new Footer({
-  children: [new Paragraph({
-    alignment: AlignmentType.CENTER,
-    spacing: { line: 240, before: 0, after: 0 },
-    children: [new TextRun({ children: [PageNumber.CURRENT], size: 24, font: 'Times New Roman' })],
-  })]
-});
-const emptyFooter = new Footer({ children: [] });
-
-// Trong section — BẮT BUỘC titlePage: true
-properties: {
-  titlePage: true,   // ← trang 1 dùng footer riêng (rỗng)
-  page: { pageNumbers: { start: 1, formatType: NumberFormat.DECIMAL } }
-}
-footers: { first: emptyFooter, default: pageFooter }
-headers: { first: new Header({ children: [] }), default: new Header({ children: [] }) }
-```
-
-### Code mẫu — Kế hoạch/QĐ/CV/TTr — số trang ở HEADER
-```javascript
-const pageHeader = new Header({
-  children: [new Paragraph({
-    alignment: AlignmentType.CENTER,
-    spacing: { line: 240, before: 0, after: 0 },
-    children: [new TextRun({ children: [PageNumber.CURRENT], size: 24, font: 'Times New Roman' })],
-  })]
-});
-const emptyHeader = new Header({ children: [new Paragraph({ children: [] })] });
-
-// Trong section — BẮT BUỘC titlePage: true
-properties: {
-  titlePage: true,   // ← trang 1 dùng header riêng (rỗng)
-  page: { pageNumbers: { start: 1, formatType: NumberFormat.DECIMAL } }
-}
-headers: { first: emptyHeader, default: pageHeader }
-footers: { first: new Footer({ children: [] }), default: new Footer({ children: [] }) }
-```
-
-### Văn bản có nhiều section (công văn kèm phụ lục, biểu mẫu...)
-
-Khi văn bản chính + phụ lục nằm trong **cùng 1 file docx**, có 2 cách xử lý số trang:
-
-**Cách A — Đánh số liên tục toàn file** (dùng khi phụ lục là phần không thể tách):
-```javascript
-// Tất cả section dùng chung header/footer, không reset số trang
-// Section 1: titlePage:true, pageNumbers.start:1
-// Section 2+: titlePage:true, KHÔNG set pageNumbers.start (tiếp nối)
-```
-
-**Cách B — Reset số trang ở mỗi section** (dùng khi phụ lục là tài liệu riêng):
-```javascript
-// Mỗi section khai báo pageNumbers: { start: 1, formatType: NumberFormat.DECIMAL }
-// → Trang đầu mỗi section = trang 1 (nhưng không hiện do titlePage:true)
-// → Trang 2 mỗi section = hiện số "2"
-```
-
-> **Thực tế xã An Thới Đông:** Hầu hết văn bản dùng Cách A (phụ lục liền mạch).
-> Chỉ dùng Cách B khi phụ lục cần đánh số trang độc lập.
+> Khi văn bản có nhiều section (kèm phụ lục): mặc định đánh số liên tục toàn
+> file — chỉ section đầu khai `pageNumbers.start`. Nếu phụ lục cần đánh số độc
+> lập thì mỗi section khai lại `start: 1`.
 
 ---
 

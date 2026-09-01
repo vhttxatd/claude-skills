@@ -21,6 +21,16 @@
 | Email công vụ | pthieu.atdong@tphcm.gov.vn |
 | Ký tắt hồ sơ lưu | VHXH-Hiếu |
 
+### Nguyễn Văn Chính
+
+| Trường | Giá trị |
+|---|---|
+| Họ và tên | Nguyễn Văn Chính |
+| Chức vụ chính thức | Trưởng phòng Văn hóa - Xã hội |
+| Đơn vị | Phòng Văn hóa - Xã hội, UBND xã An Thới Đông |
+| Số điện thoại | 0907 543 890 |
+| Email công vụ | nvchinh.atdong@tphcm.gov.vn |
+
 ---
 
 ## Đảng ủy xã

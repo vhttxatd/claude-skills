@@ -16,13 +16,6 @@
 
 ## KẾ HOẠCH (KH)
 
-**Định dạng phần nội dung kế hoạch:**
-- Font Times New Roman, cỡ 14pt.
-- Line spacing: **Single** (`line: 240`).
-- Spacing Before = **6pt** (`before: 120`).
-- Spacing After = **6pt** (`after: 120`).
-- Heading trong phần nội dung: thụt đầu dòng, căn đều, dùng đúng Heading Level.
-
 **Cấu trúc chuẩn:**
 ```
 [Tiêu đề + Trích yếu]
@@ -94,7 +87,7 @@ Kính gửi: [Tên cơ quan nhận]
 - Không có căn cứ pháp lý dài
 - Có "Kính gửi:" thay cho trích yếu phía dưới
 - Ngắn gọn, trực tiếp vào vấn đề
-- Ký hiệu: `/CV-UBND`
+- Ký hiệu: KHÔNG có chữ "CV" — chỉ số thứ tự + "/" + đơn vị/cơ quan ban hành (VD `15/VHXH`, `3085/UBND`). Đây là quy định thể thức, không phải lựa chọn — ĐỪNG đề xuất thêm biến thể khác.
 
 ---
 
@@ -175,12 +168,12 @@ QUYẾT ĐỊNH:
 
 | Thuộc tính | Kế hoạch (KH) | Báo cáo (BC) |
 |---|---|---|
-| Line spacing phần nội dung | **240 (Single)** | **240 (Single)** |
+| Line spacing | 276 (~1.15) | **240 (dòng đơn)** |
 | Lề phải | 1080 DXA | **900 DXA** |
 | Lề trên/dưới | 1134 DXA | **1000 DXA** |
-| Spacing before/after phần nội dung | **120/120 (6pt/6pt)** | **120/120 (6pt/6pt)** |
+| Spacing before/after | 0/100 | **120/120** |
 | Số trang | Header | **Footer** |
-| Heading spacing | **120/120 đều** | **120/120 đều** |
+| Heading spacing | Bất đối xứng (160/80...) | **Đều 120/120** |
 | Nơi nhận — dòng đơn vị | 12pt | **11pt (22hp)** |
 | Heading 3 | Bold + Italic | **Bold (không italic)** |
 | Heading 4 | — | **Bold + Italic** |
@@ -209,7 +202,7 @@ const bul = (text) => new Paragraph({
   children: [new TextRun({ text: '- ' + text, size: 28, font: 'Times New Roman' })],
   alignment: AlignmentType.BOTH,
   spacing: { line: 240, before: 120, after: 120 },
-  indent: { left: 360, hanging: 360 },
+  indent: { firstLine: 720 },   // KHÔNG dùng hanging - phải thẳng hàng đoạn văn
 });
 ```
 
@@ -222,9 +215,10 @@ const bul = (text) => new Paragraph({
 ### Nguyên tắc kích thước bảng
 
 ```javascript
-// contentW = W - marginL - marginR = 11906 - 1800 - 1080 = 9026 DXA
+// Bề rộng thân trang: LUÔN lấy bằng contentWidth(loai) từ config —
+// KHÔNG gõ số cứng, vì mỗi loại văn bản có lề khác nhau (BC hẹp hơn KH/CV).
 // Bảng PHẢI bằng đúng contentW — không indent, không thu nhỏ
-const tW = 9026; // = contentW, KHÔNG dùng giá trị khác
+const tW = contentWidth('KH'); // theo đúng loại VB đang soạn
 ```
 
 **KHÔNG** thêm `indent` cho bảng trong thân QĐ. Bảng chiếm toàn bộ chiều rộng nội dung.
@@ -232,13 +226,13 @@ const tW = 9026; // = contentW, KHÔNG dùng giá trị khác
 ### Phân bổ cột chuẩn — Bảng danh mục thiết bị/dịch vụ (5 cột)
 
 ```javascript
-// Tổng = 9026 DXA
+// Tổng các cột phải bằng đúng tW ở trên
 const w1 = 500;   // STT
 const w2 = 4526;  // Tên thiết bị/danh mục (rộng nhất)
 const w3 = 1200;  // ĐVT
 const w4 = 900;   // Số lượng
 const w5 = 1900;  // Ghi chú / Thành tiền
-// Tổng: 500+4526+1200+900+1900 = 9026 ✓
+// Tổng các cột phải bằng đúng tW ở trên
 ```
 
 ### Phân bổ cột chuẩn — Bảng 6 cột (có đơn giá)
@@ -250,7 +244,7 @@ const w3 = 1000;  // ĐVT
 const w4 = 800;   // Số lượng
 const w5 = 1500;  // Đơn giá
 const w6 = 1726;  // Thành tiền
-// Tổng: 500+3500+1000+800+1500+1726 = 9026 ✓
+// Tổng các cột phải bằng đúng tW ở trên
 ```
 
 ### Định dạng ô trong bảng QĐ
@@ -406,65 +400,34 @@ Kính trình Thường trực Ủy ban nhân dân xã xem xét, ban hành.
                     Nguyễn Văn Chính
 ```
 
-### Code mẫu — Bảng 2 hàng
+### Xuất file — dùng template có sẵn, KHÔNG viết code khung
+
+Thể thức khung (bảng 1 cột 2 hàng, viền, lề ô, vị trí chữ ký) đã đóng gói tại
+`templates/partials/khung-noi-dung.js`. Gọi qua mẫu:
 
 ```javascript
-const noiDungTable = new Table({
-  width: { size: contentW, type: WidthType.DXA },
-  columnWidths: [contentW],
-  rows: [
-    // Hàng 1 — Nội dung chính
-    new TableRow({ children: [
-      new TableCell({
-        borders: allB,
-        margins: { top: 120, bottom: 120, left: 160, right: 160 },
-        children: [
-          bp([r('1. Tóm tắt nội dung:', { bold: true })], { noIndent: true, after: 80 }),
-          bp('[Căn cứ + mục đích]', { after: 80 }),
-          bp('[Đoạn bổ sung nếu có]', { after: 120 }),
-          bp([r('2. Ý kiến đề xuất của người trình:', { bold: true })], { noIndent: true, after: 80 }),
-          bp('[Phòng VH-XH đã tham mưu...]', { after: 60 }),
-          bp('(Đính kèm dự thảo...)', { italic: true, noIndent: true, indent: { left: 360 }, after: 60 }),
-          bp('Kính trình Thường trực Ủy ban nhân dân xã xem xét, ban hành.', { after: 160 }),
-          // Chữ ký chuyên viên
-          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:0, after:0, line:240 },
-            children: [r('An Thới Đông, ngày ... tháng ... năm 2026', { italic: true })] }),
-          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:60, after:0, line:240 },
-            children: [r('CHUYÊN VIÊN', { bold: true })] }),
-          ...emp(3),
-          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:0, after:0, line:240 },
-            children: [r('Phan Trung Hiếu', { bold: true })] }),
-        ]
-      })
-    ]}),
-    // Hàng 2 — Ý kiến Trưởng Phòng
-    new TableRow({ children: [
-      new TableCell({
-        borders: allB,
-        margins: { top: 100, bottom: 100, left: 160, right: 160 },
-        children: [
-          bp([r('Ý kiến của Trưởng Phòng', { bold: true })], { noIndent: true, after: 60 }),
-          bp('Thống nhất', { noIndent: true, after: 120 }),
-          new Paragraph({ alignment: AlignmentType.RIGHT, spacing: { before:0, after:0, line:240 },
-            children: [r('Nguyễn Văn Chính', { bold: true })] }),
-        ]
-      })
-    ]}),
-  ]
+const { mauPhieuTrinh } = require('./templates/templates/all');
+
+mauPhieuTrinh({
+  trichYeu: "trình ban hành Báo cáo ...",
+  thang: "8", nam: "2026",
+  kinhGui: ["Thường trực Ủy ban nhân dân xã"],
+  tomTat: ["Căn cứ ...", "Phòng Văn hóa - Xã hội đã ..."],
+  deXuat: [
+    "Phòng Văn hóa - Xã hội đã tham mưu dự thảo [tên văn bản] của [cơ quan ban hành].",
+    "(Đính kèm dự thảo [loại văn bản]).",
+    "Kính trình Thường trực Ủy ban nhân dân xã xem xét, ban hành.",
+  ],
+  donViBanHanh: 'VHXH',
 });
 ```
 
+Người trình mặc định là Phan Trung Hiếu (CHUYÊN VIÊN), Trưởng Phòng mặc định
+lấy từ `LANHDAO.truongPhongVHXH` — đổi người thì sửa `config.js`, không sửa
+trong file văn bản.
 
-### SPACING TIÊU ĐỀ QUYẾT ĐỊNH
+### Spacing tiêu đề Quyết định
 
-Phần trích yếu trong QĐ (tên văn bản, tên người ký) phải có **spacing = 0** (before=0, after=0):
-
-```javascript
-// ĐÚNG — toàn bộ dòng trong khối tieuDe (trừ dòng chữ QUYẾT ĐỊNH đầu)
-new Paragraph({alignment:AlignmentType.CENTER, spacing:sp0, children:[...]})
-
-// Dòng chữ QUYẾT ĐỊNH đầu — giữ before=240 để tách khỏi header
-new Paragraph({alignment:AlignmentType.CENTER, spacing:sp(240,0), children:[r('QUYẾT ĐỊNH',...)]})
-```
-
-Áp dụng cho: dòng tên QĐ (trích yếu), dòng gạch ngang phân cách, dòng người ký trong tiêu đề.
+Đã áp sẵn trong `mauQuyetDinh` (`templates/all.js`) và `partials/title-block.js`:
+khối trích yếu dùng `sp0`, riêng dòng "QUYẾT ĐỊNH:" giữ khoảng cách trên để
+tách khỏi phần căn cứ. Không tự đặt lại spacing khi soạn từng Quyết định.

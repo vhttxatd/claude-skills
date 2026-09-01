@@ -1,7 +1,14 @@
 ---
 name: bao-cao-hanh-chinh
-description: Soạn báo cáo hành chính: định kỳ, đột xuất, KHCN-CĐS, DTI, thư điện tử.
+description: >
+  Soạn báo cáo hành chính: định kỳ, đột xuất, KHCN-CĐS, DTI, thư điện tử.
+  Kích hoạt cả khi Hiếu gõ "thêm vào báo cáo" ở BẤT KỲ đâu trong hội thoại
+  (project nào cũng được) — không cần đang bàn về báo cáo trước đó — xem
+  mục "LỆNH NHANH" bên dưới.
 ---
+
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy trình nghiệp vụ của Hiếu · ra_soat_lai: 2027-03-01 · rui_ro: trung
 
 > **Đọc tối thiểu:** SKILL.md này + `quy-tac-chung/SKILL.md` (phần cốt lõi). Chỉ mở thêm khi cần:
 > - `quy-tac-chung/data/quy-tac-soan-thao.md` — khi xuất file hoặc dẫn chiếu văn bản
@@ -18,22 +25,58 @@ bao-cao-hanh-chinh/
     danh-muc-bao-cao.md      ← Danh mục + lịch tất cả loại BC
     quy-trinh-dot-xuat.md    ← Quy trình xử lý BC đột xuất
     theo-doi-tien-do.md      ← Trạng thái nộp BC các kỳ (cập nhật thủ công)
+    thu-thap-hang-ngay.md    ← Bước 0: ghi nhận hàng ngày + tổng hợp theo kỳ
   mau/
     mau-khcn-cds.md          ← Mẫu + logic lọc BC KHCN-CĐS
     mau-dti.md               ← Mẫu BC DTI
     mau-thu-dien-tu.md       ← Mẫu BC tình hình thư điện tử
+    mau-kqth-nq57.md         ← Mẫu BC tổng hợp KQTH NQ57 (Kính gửi linh hoạt)
 ```
+
+---
+
+## LỆNH NHANH: "THÊM VÀO BÁO CÁO"
+
+Kích hoạt ngay khi Hiếu gõ cụm này, ở BẤT KỲ phiên chat/Project nào, bất kể
+đang thảo luận việc gì. Không cần chờ tới lúc soạn báo cáo. Cách xử lý đầy
+đủ (kể cả 2 mốc hoàn thành "phiếu trình PVHXH" và "số phát hành UBND") ở
+`data/thu-thap-hang-ngay.md` — Phần C. Đọc phần đó, KHÔNG tự suy diễn.
+
+Tóm tắt luồng: đọc lại nội dung đang trao đổi gần nhất → xác định việc gì,
+mốc thời gian nào, trạng thái đến đâu → đề xuất tóm tắt cho Hiếu xác nhận
+→ ghi vào đúng kho theo Bước 0.
 
 ---
 
 ## QUY TRÌNH KHI NHẬN YÊU CẦU BÁO CÁO
 
-### Bước 1 — Xác định loại báo cáo
+### Bước 0 — Ghi nhận hàng ngày (chạy LIÊN TỤC, không chỉ khi có yêu cầu BC)
+
+Đây là bước nền chạy mỗi ngày, độc lập với việc có ai yêu cầu báo cáo hay
+không — mục đích để khi tới kỳ báo cáo, dữ liệu đã sẵn có thay vì phải nhớ
+lại. Chi tiết đầy đủ (cách ghi, gắn nhãn, cách tổng hợp theo kỳ) ở
+`data/thu-thap-hang-ngay.md` — đọc file đó khi:
+- Hiếu nhắn việc đã làm trong ngày (qua chat, không qua Notion/Nexus trực tiếp)
+- Bắt đầu soạn 1 báo cáo định kỳ (Bước 1 dưới đây) và cần TỔNG HỢP dữ liệu
+  thay vì chỉ nhận dữ liệu Hiếu dán sẵn
+
+### Bước 1 — Xác định loại báo cáo VÀ đặt tên báo cáo cụ thể
 Đọc `data/danh-muc-bao-cao.md` → xác định:
 - Loại báo cáo (KHCN-CĐS / DTI / Thư điện tử / Đột xuất / Khác)
 - Kỳ báo cáo (Quý I/II/III/IV / 6 tháng / 9 tháng / Năm)
 - Nơi gửi (BCĐ xã + UBND TP / Sở KH&CN / ...)
 - Hạn nộp
+
+Từ đó GHÉP thành **tên báo cáo cụ thể** (không chỉ dừng ở "loại"), ví dụ:
+*"BC-KHCN-CĐS Quý III/2026 gửi UBND Thành phố (qua Sở KH&CN)"*. Mỗi báo
+cáo cụ thể như vậy có **cấu trúc/định dạng riêng** (xác định ở Bước 5) —
+2 báo cáo cùng loại nhưng khác kỳ (VD: Quý III vs Quý IV) coi là 2 báo cáo
+độc lập, có thể khác định dạng nếu Hiếu muốn.
+
+> Lưu ý quan trọng: tên báo cáo + cấu trúc là riêng cho từng báo cáo, NHƯNG
+> nội dung/việc con bên trong (xem `data/thu-thap-hang-ngay.md` Phần B) là
+> **kho dùng chung, tái sử dụng được** — không cần nhập lại việc con cho
+> từng báo cáo, chỉ cần lọc lại từ kho chung theo tiêu chí của báo cáo đó.
 
 Nếu không rõ → hỏi: *"Báo cáo này thuộc loại nào và gửi cho ai?"*
 
@@ -51,15 +94,28 @@ Hỏi nếu chưa rõ:
 - BC DTI → `mau/mau-dti.md`
 - BC Thư điện tử → `mau/mau-thu-dien-tu.md`
 - BC Đột xuất → `data/quy-trinh-dot-xuat.md`
+- BC KQTH NQ57 (tổng hợp toàn diện, Kính gửi linh hoạt — Công an TP, Sở
+  KH&CN, BCĐ TP...) → `mau/mau-kqth-nq57.md`
 
 ### Bước 4 — Thu thập dữ liệu
-Người dùng cung cấp dữ liệu qua:
-- File Excel (ma trận theo dõi `2026_NoiDungBC_KHCN3.xlsx`)
-- Dữ liệu nhập tay trong chat
-- File đính kèm khác
+Hỏi Hiếu: *"Anh cung cấp sẵn dữ liệu, hay để tôi tự tổng hợp từ Notion +
+Nexus theo kỳ này?"*
+
+- **Hiếu cung cấp sẵn** → nhận qua File Excel (ma trận theo dõi
+  `2026_NoiDungBC_KHCN3.xlsx`), dữ liệu nhập tay trong chat, hoặc file
+  đính kèm khác
+- **Tự tổng hợp** → làm theo phần "TỔNG HỢP THEO KỲ" trong
+  `data/thu-thap-hang-ngay.md` (query Nexus `ket_qua` đã duyệt + Notion
+  TodoListATĐ theo khoảng ngày của kỳ, gộp, loại trùng) — sau đó **luôn cho
+  Hiếu xem lại danh sách đã gộp trước khi đưa vào nội dung báo cáo**, không
+  tự ý đưa thẳng vào bản soạn
 
 
 ### Bước 5 — Xác nhận định dạng báo cáo (BẮT BUỘC) → Soạn nội dung → Xác nhận chỉnh sửa
+
+Cấu trúc chọn ở bước này gắn riêng với **tên báo cáo cụ thể** đã xác định ở
+Bước 1 — không mặc định áp cấu trúc của báo cáo khác cùng loại (kỳ trước)
+trừ khi Hiếu nói rõ "giữ như kỳ trước".
 
 Trước khi bắt đầu soạn nội dung, hỏi người dùng:
 

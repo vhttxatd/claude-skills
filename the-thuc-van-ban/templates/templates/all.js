@@ -19,9 +19,10 @@ const { canCuBlock } = require('../partials/can-cu');
 const { kinhGuiBlock } = require('../partials/kinh-gui');
 const { signatureBlock } = require('../partials/signature');
 const { buildDocument } = require('../partials/document-builder');
-const { bp, emp, h1, h2, h3, dieu, r } = require('../partials/base');
+const { khungNoiDungPhieuTrinh } = require('../partials/khung-noi-dung');
+const { bp, emp, h1, h2, h3, h4, lietKe, dieu, r } = require('../partials/base');
 const { Paragraph, AlignmentType } = require('docx');
-const { TRANG } = require('../config/config');
+const { TRANG, getDinhDang } = require('../config/config');
 
 // ============================================================================
 // 1. CÔNG VĂN (CV)
@@ -34,6 +35,7 @@ function mauCongVan({
   nguoiKy = 'chuTich',
   noiNhan = [],
   tenDonViSoan = 'VHXH',
+  donViBanHanh, soLink,
 } = {}) {
   const body = noiDung.length > 0
     ? noiDung.map(p => typeof p === 'string' ? bp(p) : p)
@@ -43,7 +45,7 @@ function mauCongVan({
        bp("Trân trọng./.", { bold: false, align: AlignmentType.JUSTIFIED })];
 
   const children = [
-    headerTable({ loai: 'CV', so, nam, ngay, thang, trichYeu }),
+    headerTable({ loai: 'CV', so, nam, ngay, thang, trichYeu, donViBanHanh, soLink }),
     ...emp(1),
     ...kinhGuiBlock(kinhGui),
     ...body,
@@ -64,6 +66,7 @@ function mauBaoCao({
   nguoiKy = 'chuTich',
   noiNhan = [],
   tenDonViSoan = 'VHXH',
+  donViBanHanh, coQuanDong1, coQuanDong2, kyHieuDonVi, soLink,
 } = {}) {
   const body = noiDung.length > 0
     ? noiDung.map(p => typeof p === 'string' ? bp(p) : p)
@@ -82,7 +85,7 @@ function mauBaoCao({
       ];
 
   const children = [
-    headerTable({ loai: 'BC', so, nam, ngay, thang }),
+    headerTable({ loai: 'BC', so, nam, ngay, thang, donViBanHanh, coQuanDong1, coQuanDong2, kyHieuDonVi, soLink }),
     ...titleBlock('BC', trichYeu),
     ...body,
     ...emp(1),
@@ -103,6 +106,7 @@ function mauKeHoach({
   nguoiKy = 'chuTich',
   noiNhan = [],
   tenDonViSoan = 'VHXH',
+  donViBanHanh, soLink,
 } = {}) {
   const defaultCanCu = canCu.length > 0 ? canCu : [
     "Căn cứ [văn bản pháp lý cấp trên ngày tháng năm về...]",
@@ -131,7 +135,7 @@ function mauKeHoach({
       ];
 
   const children = [
-    headerTable({ loai: 'KH', so, nam, ngay, thang }),
+    headerTable({ loai: 'KH', so, nam, ngay, thang, donViBanHanh, soLink }),
     ...titleBlock('KH', trichYeu),
     ...canCuBlock(defaultCanCu, { batBuoc: false }),
     ...emp(1),
@@ -155,6 +159,7 @@ function mauToTrinh({
   nguoiKy = 'truongPhongVHXH',
   noiNhan = [],
   tenDonViSoan = 'VHXH',
+  donViBanHanh, soLink,
 } = {}) {
   const body = noiDung.length > 0
     ? noiDung.map(p => typeof p === 'string' ? bp(p) : p)
@@ -170,7 +175,7 @@ function mauToTrinh({
       ];
 
   const children = [
-    headerTable({ loai: 'TTr', so, nam, ngay, thang }),
+    headerTable({ loai: 'TTr', so, nam, ngay, thang, donViBanHanh, soLink }),
     ...titleBlock('TTr', trichYeu),
     ...kinhGuiBlock(kinhGui),
     ...(canCu.length > 0 ? canCuBlock(canCu) : []),
@@ -193,6 +198,7 @@ function mauQuyetDinh({
   nguoiKy = 'chuTich',
   noiNhan = [],
   tenDonViSoan = 'VHXH',
+  donViBanHanh, soLink,
 } = {}) {
   const defaultDieu = dsDieu.length > 0 ? dsDieu : [
     { so: 1, noiDung: "[Nội dung điều 1 - quyết định chính.]" },
@@ -208,7 +214,7 @@ function mauQuyetDinh({
   });
 
   const children = [
-    headerTable({ loai: 'QD', so, nam, ngay, thang }),
+    headerTable({ loai: 'QD', so, nam, ngay, thang, donViBanHanh, soLink }),
     ...titleBlock('QD', trichYeu),
     ...canCuBlock(canCu, { batBuoc: true }),
     quyetDinhLine,
@@ -230,6 +236,7 @@ function mauThongBao({
   nguoiKy = 'chuTich',
   noiNhan = [],
   tenDonViSoan = 'VHXH',
+  donViBanHanh, soLink,
 } = {}) {
   const body = noiDung.length > 0
     ? noiDung.map(p => typeof p === 'string' ? bp(p) : p)
@@ -240,7 +247,7 @@ function mauThongBao({
       ];
 
   const children = [
-    headerTable({ loai: 'TB', so, nam, ngay, thang }),
+    headerTable({ loai: 'TB', so, nam, ngay, thang, donViBanHanh, soLink }),
     ...titleBlock('TB', trichYeu),
     ...body,
     ...emp(1),
@@ -263,6 +270,7 @@ function mauGiayMoi({
   nguoiKy = 'chuTich',
   noiNhan = [],
   tenDonViSoan = 'VHXH',
+  donViBanHanh, soLink,
 } = {}) {
   const body = [
     bp("Ủy ban nhân dân xã An Thới Đông trân trọng kính mời:"),
@@ -299,7 +307,7 @@ function mauGiayMoi({
   ];
 
   const children = [
-    headerTable({ loai: 'GM', so, nam, ngay, thang }),
+    headerTable({ loai: 'GM', so, nam, ngay, thang, donViBanHanh, soLink }),
     ...titleBlock('GM', trichYeu),
     ...body,
     ...emp(1),
@@ -309,7 +317,45 @@ function mauGiayMoi({
   return buildDocument('GM', children);
 }
 
+
+// ============================================================================
+// 8. PHIẾU TRÌNH (PTr) - nội bộ: Kính gửi + khối nội dung đóng khung
+// ============================================================================
+function mauPhieuTrinh({
+  so = "", nam = "2026", ngay = "", thang = "",
+  trichYeu = "[Trích yếu phiếu trình]",
+  kinhGui = ["Thường trực Ủy ban nhân dân xã"],
+  tomTat = [],
+  deXuat = [],
+  nguoiTrinh = "Phan Trung Hiếu",
+  chucDanhNguoiTrinh = "CHUYÊN VIÊN",
+  yKienTruongPhong = "Thống nhất",
+  donViBanHanh = 'VHXH',
+  soLink,
+} = {}) {
+  const dd = getDinhDang('PTr');
+  const contentW = TRANG.W - dd.marginLeft - dd.marginRight;
+
+  const children = [
+    headerTable({ loai: 'PTr', so, nam, ngay, thang, donViBanHanh, soLink }),
+    ...titleBlock('PTr', trichYeu),
+    ...kinhGuiBlock(kinhGui),
+    khungNoiDungPhieuTrinh({
+      tomTat: tomTat.length ? tomTat : ["[Căn cứ + mục đích của văn bản trình]"],
+      deXuat: deXuat.length ? deXuat : [
+        "Phòng Văn hóa - Xã hội đã tham mưu dự thảo [tên văn bản] của [cơ quan ban hành].",
+        "(Đính kèm dự thảo [loại văn bản]).",
+        "Kính trình Thường trực Ủy ban nhân dân xã xem xét, ban hành.",
+      ],
+      nguoiTrinh, chucDanhNguoiTrinh, yKienTruongPhong,
+      ngay, thang, nam, contentW,
+    }),
+  ];
+
+  return buildDocument('PTr', children);
+}
+
 module.exports = {
   mauCongVan, mauBaoCao, mauKeHoach, mauToTrinh,
-  mauQuyetDinh, mauThongBao, mauGiayMoi,
+  mauQuyetDinh, mauThongBao, mauGiayMoi, mauPhieuTrinh,
 };

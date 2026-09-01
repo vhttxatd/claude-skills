@@ -266,8 +266,6 @@ Dùng trong cột "Cơ quan chủ trì" và "Cơ quan phối hợp" của bảng
 
 ## SIZE CHỮ PHỤ LỤC
 
-- Header bảng: 13pt (26 half-points), màu trắng, nền xanh #1F4E79
-- Hàng nhóm (group row): 13pt (26 half-points), nền xám #D9D9D9
-- Hàng dữ liệu: 13pt (26 half-points)
-- Tiêu đề PHỤ LỤC: 14pt (28), đậm, căn giữa
-- Ghi chú ban hành: 12pt (24), nghiêng, căn giữa
+> ⚠️ Thông số thể thức/kỹ thuật trình bày — xem `the-thuc-van-ban` (nguồn duy nhất). KHÔNG ghi lại ở đây.
+
+Xem `the-thuc-van-ban/references/phu-luc-bang.md`.

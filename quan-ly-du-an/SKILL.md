@@ -5,6 +5,9 @@ description: >
 
 ---
 
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: Luật Đấu thầu + văn bản hướng dẫn mua sắm · ra_soat_lai: 2026-12-01 · rui_ro: cao
+
 > **Đọc tối thiểu:** SKILL.md này + `quy-tac-chung/SKILL.md` (phần cốt lõi). Chỉ mở thêm khi cần:
 > - `data/can-cu-phap-ly.md` — khi soạn căn cứ pháp lý mua sắm
 > - `quy-tac-chung/data/quy-tac-soan-thao.md` — khi xuất file, dẫn chiếu

@@ -11,7 +11,8 @@ const {
 
 // Hằng số trang A4
 const W = 11906, marginL = 1800, marginR = 1080;
-const contentW = W - marginL - marginR; // 9026 DXA
+const { contentWidth } = require('./config/config');
+const contentW = contentWidth(loai);   // tự đúng theo lề của từng loại VB
 const BODY = 28;   // 14pt
 const SMALL = 24;  // 12pt
 const INDENT = 720; // Thụt đầu dòng
@@ -105,34 +106,21 @@ function h3(text) {
 
 ---
 
-## Template bảng tiêu đề
+## Bảng tiêu đề đầu văn bản
+
+> **KHÔNG viết lại code bảng tiêu đề ở đây.** Dùng
+> `headerTable()` trong `templates/partials/header-table.js`.
+>
+> Bảng này được nới rộng ra ngoài lề 2 bên (thụt âm) để dòng
+> "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM" nằm trọn 1 dòng ở cỡ chữ 14pt.
+> Bề rộng nới thêm và tỷ lệ 2 cột lấy từ khối `BANG_TIEU_DE` trong
+> `config/config.js` (`moRongMoiBen`, `tyLeCotTrai`) — muốn chỉnh thì sửa
+> đúng 1 chỗ đó, mọi loại văn bản tự cập nhật.
 
 ```javascript
-const colL = Math.round(contentW * 0.44); // 3971
-const colR = contentW - colL;              // 5055
-
-const headerTable = new Table({
-  width: { size: contentW, type: WidthType.DXA },
-  columnWidths: [colL, colR],
-  borders: noBorders,
-  rows: [new TableRow({ children: [
-    new TableCell({ borders: noBorders, children: [
-      cellP("ỦY BAN NHÂN DÂN", { bold: true }),
-      cellP("XÃ AN THỚI ĐÔNG", { bold: true }),
-      cellP("Số:      /KH-UBND"),           // Thay ký hiệu theo loại văn bản
-      cellP("———————————————", { bold: true, size: 12 }),
-    ]}),
-    new TableCell({ borders: noBorders, children: [
-      cellP("CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM", { bold: true }),
-      cellP("Độc lập - Tự do - Hạnh phúc", { bold: true }),
-      cellP("———————————————", { bold: true, size: 12 }),
-      cellP("An Thới Đông, ngày     tháng     năm 20..", { italic: true }),
-    ]}),
-  ]})]
-});
+headerTable({ loai: 'BC', so, nam, ngay, thang })                 // UBND xã ban hành
+headerTable({ loai: 'BC', so, nam, ngay, thang, donViBanHanh: 'VHXH' })  // Phòng ban hành
 ```
-
----
 
 ## Template nơi nhận + chữ ký
 
@@ -262,7 +250,7 @@ Packer.toBuffer(doc).then(buf => {
 > Dùng cho tất cả QĐ có bảng danh mục (Phòng VH-XH hoặc UBND xã).
 
 ```javascript
-// contentW = 9026 DXA — bảng QĐ luôn bằng đúng contentW
+// Bảng QĐ luôn rộng bằng đúng contentWidth('QD')
 const thinB = { style: BorderStyle.SINGLE, size: 4, color: '000000' };
 const allB = { top: thinB, bottom: thinB, left: thinB, right: thinB, insideH: thinB, insideV: thinB };
 
@@ -294,9 +282,9 @@ const qd_item = (text, w) => new TableCell({
     indent: { left: 60 }, children: [r(text)] })]
 });
 
-// Phân bổ cột chuẩn 5 cột (STT, Danh mục, ĐVT, SL, Ghi chú) — tổng 9026
+// Phân bổ cột chuẩn 5 cột (STT, Danh mục, ĐVT, SL, Ghi chú) — tổng = contentW
 const QD_COL5 = { w1: 500, w2: 4526, w3: 1200, w4: 900, w5: 1900 };
 
-// Phân bổ cột chuẩn 6 cột (STT, Danh mục, ĐVT, SL, Đơn giá, Thành tiền) — tổng 9026
+// Phân bổ cột chuẩn 6 cột (STT, Danh mục, ĐVT, SL, Đơn giá, Thành tiền) — tổng = contentW
 const QD_COL6 = { w1: 500, w2: 3500, w3: 1000, w4: 800, w5: 1500, w6: 1726 };
 ```

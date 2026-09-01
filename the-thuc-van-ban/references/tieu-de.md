@@ -2,15 +2,9 @@
 
 ## Cấu trúc bảng tiêu đề 2 cột không viền
 
-Tỉ lệ: **48% (trái) / 52% (phải)**
-Toàn bộ dùng `sp0 = { before: 0, after: 0, line: 240, lineRule: LineRuleType.EXACT }`
-
-```
-colL = Math.round(9026 * 0.48) = 4332 DXA  (~7.64cm)
-colR = 9026 - 4332             = 4694 DXA  (~8.28cm)
-```
-
-> **Lý do:** Cột trái phải đủ rộng để "ỦY BAN NHÂN DÂN / XÃ AN THỚI ĐÔNG" không bị rớt chữ xuống dòng thêm. Tỉ lệ 48/52 đảm bảo cả 2 cột vừa đẹp.
+Tỉ lệ cột và spacing được cài đặt sẵn trong `templates/partials/header-table.js`
+— không cấu hình lại ở nơi khác. Toàn bộ ô dùng
+`sp0 = { before: 0, after: 0, line: 240, lineRule: LineRuleType.EXACT }`.
 
 ### Cột trái (căn giữa)
 
@@ -19,16 +13,25 @@ colR = 9026 - 4332             = 4694 DXA  (~8.28cm)
 | 1 | ỦY BAN NHÂN DÂN | Đậm, 14pt, sp0 |
 | 2 | XÃ AN THỚI ĐÔNG | Đậm, 14pt, sp0 |
 | 3 | Số:      /KH-UBND | 14pt, sp0 |
-| 4 | ——————————————— | Đậm, 6pt, sp0 |
+| 4 | divider('coQuan') | Thông số lấy từ `DIVIDER` trong config |
 
 ⚠️ KHÔNG gộp dòng 1+2 thành 1 dòng. KHÔNG dùng `\n`.
+
+**Khi đơn vị trực thuộc tự ban hành văn bản** (Phòng VH-XH, Phòng Kinh tế...):
+dòng 1 là tên chủ quản dạng **VIẾT TẮT** `UBND XÃ AN THỚI ĐÔNG`, dòng 2 là tên
+đơn vị. KHÔNG viết đầy đủ "ỦY BAN NHÂN DÂN XÃ AN THỚI ĐÔNG" (vỡ dòng ở 14pt).
+Cách gọi đúng — truyền mã đơn vị, không gõ tay tên cơ quan:
+
+```javascript
+mauBaoCao({ donViBanHanh: 'VHXH', ... })   // tự lấy tên + ký hiệu từ config
+```
 
 **Ký hiệu số theo loại văn bản:**
 | Loại | Ký hiệu |
 |---|---|
 | Kế hoạch UBND | /KH-UBND |
 | Báo cáo UBND | /BC-UBND |
-| Công văn UBND | /CV-UBND |
+| Công văn (mọi cấp) | /[Đơn vị] — **KHÔNG có chữ CV**, VD: `15/VHXH`, `3085/UBND`, `5722/CQTT` |
 | Tờ trình UBND | /TTr-UBND |
 | Quyết định UBND | /QĐ-UBND |
 | Thông báo UBND | /TB-UBND |
@@ -41,21 +44,15 @@ colR = 9026 - 4332             = 4694 DXA  (~8.28cm)
 |---|---|---|
 | 1 | CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM | Đậm, 14pt, sp0 |
 | 2 | Độc lập - Tự do - Hạnh phúc | Đậm, 14pt, sp0 |
-| 3 | ——————————————— | Đậm, 6pt, sp0 |
+| 3 | divider('quocHieu') | Thông số lấy từ `DIVIDER` trong config |
 | 4 | An Thới Đông, ngày     tháng     năm 20.. | Nghiêng, 14pt, sp0 |
 
 ---
 
 ## Tên loại văn bản (căn giữa, sau bảng tiêu đề)
 
-```
-"KẾ HOẠCH"    — đậm, 16pt (32 half-points), căn giữa
-"BÁO CÁO"     — đậm, 16pt
-"CÔNG VĂN"    — đậm, 16pt
-"TỜ TRÌNH"    — đậm, 16pt
-"QUYẾT ĐỊNH"  — đậm, 16pt
-"THÔNG BÁO"   — đậm, 16pt
-```
+Đậm, **14pt (TRANG.BODY)**, in hoa, căn giữa — do `partials/title-block.js`
+dựng tự động từ `TEN_LOAI` trong config. KHÔNG đặt cỡ chữ khác cho tên loại.
 
 ## Trích yếu (tên văn bản đầy đủ)
 
@@ -63,13 +60,7 @@ colR = 9026 - 4332             = 4694 DXA  (~8.28cm)
 - Có thể xuống nhiều dòng
 - Kết thúc bằng dấu chấm (.) — **chỉ với Kế hoạch**; không dấu với các loại khác
 
-## Dấu gạch ngang "———"
+## Dấu gạch ngang divider
 
-Dùng ký tự `———————————————` (15 dấu), font Times New Roman, **6pt**, **đậm**, căn giữa.
-
-Xuất hiện tại 3 vị trí:
-1. Dưới "Số: /KH-UBND" (cột trái)
-2. Dưới "Độc lập - Tự do - Hạnh phúc" (cột phải)
-3. Dưới trích yếu — dùng `—————————————` (13 dấu, ngắn hơn ~2 ký tự)
-
-Spacing dấu gạch dưới trích yếu: `after: 160` (khoảng cách trước phần căn cứ)
+> Nguồn duy nhất: khối `DIVIDER` trong `templates/config/config.js`.
+> Xem `references/dau-cau.md` mục "Dấu gạch ngang divider" để biết cách gọi.

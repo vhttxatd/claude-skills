@@ -8,6 +8,9 @@ description: >
   (Tbl_PhanCongCBo).
 ---
 
+
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: Notion Tbl_PhanCongCBo + Điều lệ Đảng · ra_soat_lai: 2027-03-01 · rui_ro: trung
+
 # Sinh hoạt Chi bộ Phòng VHXH — lên lịch & xuất thông báo
 
 Tuân theo 4 nguyên tắc vận hành trong `tao-skill`. Đặc biệt nguyên tắc 1

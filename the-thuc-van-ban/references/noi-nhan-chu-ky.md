@@ -4,8 +4,9 @@
 
 ```
 Tỉ lệ: 52% (trái — Nơi nhận) / 48% (phải — Chữ ký)
-colSL = Math.round(9026 * 0.52) = 4694 DXA
-colSR = 9026 - 4694 = 4332 DXA
+colSL = Math.round(contentW * 0.52)
+colSR = contentW - colSL
+(contentW = contentWidth(loai) — đã áp sẵn trong partials/signature.js)
 Toàn bộ dùng sp0 = { before: 0, after: 0, line: 240, lineRule: LineRuleType.EXACT }
 ```
 
