@@ -5,6 +5,10 @@
 > File này lưu thông tin cụ thể của từng gói thầu đang thực hiện.
 > Cập nhật khi bắt đầu quy trình mới.
 > Tất cả biểu mẫu đều lấy dữ liệu từ file này.
+>
+> **Đây là PHIẾU ĐIỀN, không phải kho dữ liệu.** Ô `[...]` là chỗ chờ Hiếu
+> nhập cho từng gói thầu. Còn `[...]` nghĩa là **chưa có gói thầu nào đang
+> chạy** — không suy ra giá trị từ gói cũ, không lấy số từ trí nhớ, hỏi Hiếu.
 
 ---
 
