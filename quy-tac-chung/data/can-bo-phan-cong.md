@@ -1,37 +1,53 @@
 # Danh sách cán bộ và phân công — Xã An Thới Đông
 
-> **META** · cap_nhat: 2026-03-25 · nguon_su_that: quyết định phân công của UBND xã (ghi trong file: cập nhật 25/03/2026) · ra_soat_lai: 2026-06-25 · rui_ro: cao
-*(Cập nhật: 25/03/2026)*
+> **META** · cap_nhat: 2026-09-01 · nguon_su_that: khối Đảng/đoàn thể — quyết định phân công của Đảng ủy xã; khối UBND — Nexus `profiles` · ra_soat_lai: 2026-12-01 · rui_ro: cao
 
 > Tên người ký văn bản: không tự điền, hỏi người dùng xác nhận trước khi đưa vào văn bản chính thức.
 
+## CHỦ SỞ HỮU DỮ LIỆU TRONG FILE NÀY
+
+Nexus `profiles` **chỉ phủ khối UBND và đơn vị trực thuộc** (137 người). Khối
+Đảng, đoàn thể, công an **không có trong Nexus** — nên file này là chủ sở hữu
+cho phần đó. Chia vai như sau:
+
+| Nội dung | Chủ sở hữu | Khi mâu thuẫn |
+|---|---|---|
+| Số điện thoại, email công vụ (mọi khối) | **Nexus `profiles`** | Nexus thắng |
+| Họ tên, chức vụ — khối UBND | **Nexus `profiles`** | Nexus thắng |
+| Họ tên, chức vụ — khối Đảng, đoàn thể, công an | **File này** | File này thắng |
+| Lĩnh vực phụ trách, ký tắt hồ sơ | **File này** | Nexus không có cột |
+| Cơ cấu BCĐ, Tổ giúp việc, nguyên tắc phân công | **File này** | Nexus không có bảng |
+
+> Sửa tên hoặc chức vụ người khối UBND ở file này là **sai quy trình** — sửa
+> trong Nexus, file này chỉ chép lại.
+
 ---
 
-## THÔNG TIN CÁ NHÂN NGƯỜI DÙNG HỆ THỐNG NÀY
+## THÔNG TIN LIÊN LẠC CÁN BỘ — TRA NEXUS
 
-> Lớp này lưu thông tin liên lạc chi tiết của từng cán bộ để tự động điền vào biểu mẫu, công văn, phiếu trình.
-> Khi cần thêm người khác, bổ sung theo cùng cấu trúc bên dưới.
+> **KHÔNG lưu số điện thoại, email công vụ trong file này.** Đã chuyển toàn bộ
+> sang Nexus `profiles` ngày 01/9/2026 để chỉ còn một nơi giữ dữ liệu.
 
-### Phan Trung Hiếu
+Khi cần điền số điện thoại hoặc email vào biểu mẫu, công văn, phiếu trình:
 
-| Trường | Giá trị |
-|---|---|
-| Họ và tên | Phan Trung Hiếu |
-| Chức vụ chính thức | Chuyên viên phụ trách KH&CN - CĐS |
-| Đơn vị | Phòng Văn hóa - Xã hội, UBND xã An Thới Đông |
-| Số điện thoại | 0978 184 475 |
-| Email công vụ | pthieu.atdong@tphcm.gov.vn |
-| Ký tắt hồ sơ lưu | VHXH-Hiếu |
+```sql
+select p.ho_ten, p.chuc_vu, p.dien_thoai, p.mail_cv, d.ten_don_vi
+from profiles p left join don_vi d on d.id = p.don_vi_id
+where p.ho_ten = '<họ tên đầy đủ>';
+```
 
-### Nguyễn Văn Chính
+Nếu Nexus chưa có người cần tra: **hỏi Hiếu, rồi ghi vào Nexus** — không chép
+ngược trở lại file này.
 
-| Trường | Giá trị |
-|---|---|
-| Họ và tên | Nguyễn Văn Chính |
-| Chức vụ chính thức | Trưởng phòng Văn hóa - Xã hội |
-| Đơn vị | Phòng Văn hóa - Xã hội, UBND xã An Thới Đông |
-| Số điện thoại | 0907 543 890 |
-| Email công vụ | nvchinh.atdong@tphcm.gov.vn |
+### Trường Nexus không có — file này giữ
+
+| Người | Chức vụ diễn giải đầy đủ | Ký tắt hồ sơ lưu |
+|---|---|---|
+| Phan Trung Hiếu | Chuyên viên phụ trách KH&CN - CĐS | VHXH-Hiếu |
+| Nguyễn Văn Chính | Trưởng phòng Văn hóa - Xã hội | — |
+
+> Nexus lưu `chuc_vu` ở dạng rút gọn ("Chuyên viên", "Trưởng phòng") để phục vụ
+> phân quyền. Cột trên là **diễn giải để đưa vào văn bản**, không mâu thuẫn.
 
 ---
 
@@ -60,7 +76,7 @@
 | Thường trực UBND | Phan Kim Anh | Phó Chủ tịch UBND | Kinh tế, Hành chính công |
 | Thường trực UBND | Nguyễn Minh Kha | Phó Chủ tịch UBND | Văn hóa – Xã hội, KH&CN – ĐMST và CĐS |
 | Văn phòng HĐND và UBND | Nguyễn Thành Phương | Chánh Văn phòng | Tư pháp và đối ngoại |
-| Phòng Kinh tế | Nguyễn Linh Phương | Trưởng phòng | Tài chính – Kế hoạch; Đầu tư công; Thống kê; Kinh doanh |
+| Phòng Kinh tế | Nguyễn Thị Linh Phương | Trưởng phòng | Tài chính – Kế hoạch; Đầu tư công; Thống kê; Kinh doanh |
 | Phòng Văn hóa – Xã hội | Nguyễn Văn Chính | Trưởng phòng | Nội vụ; Giáo dục và đào tạo; Văn hóa, KH&CN; Thông tin truyền thông; CĐS |
 | Trung tâm PVHCC | Phan Kim Anh | Giám đốc (kiêm Phó CT UBND) | Kinh tế, Hành chính công |
 | Trung tâm PVHCC | Văn Công Quan | Phó Giám đốc | |
@@ -83,7 +99,7 @@
 
 | Đơn vị | Người phụ trách |
 |---|---|
-| Phòng Kinh tế | Nguyễn Linh Phương |
+| Phòng Kinh tế | Nguyễn Thị Linh Phương |
 | Phòng Văn hóa – Xã hội | Nguyễn Văn Chính |
 | Trung tâm PVHCC | Phan Kim Anh |
 

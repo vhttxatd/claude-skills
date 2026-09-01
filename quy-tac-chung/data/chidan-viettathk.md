@@ -107,7 +107,7 @@ Khi thông tin chi tiết (thông tin đầu mối, thông tin tài khoản, dan
 > Ủy ban nhân dân xã An Thới Đông cử đầu mối tiếp nhận tài khoản và đề nghị Sở cấp 01 tài khoản dùng chung. Thông tin đầu mối tiếp nhận tài khoản và thông tin tài khoản dùng chung của đơn vị chi tiết theo Phụ lục đính kèm.
 
 **Ví dụ sai — KHÔNG làm:**
-> Ủy ban nhân dân xã cử ông Phan Trung Hiếu, Chuyên viên phụ trách KH&CN - CĐS, SĐT: 0978 184 475, email: pthieu.atdong@tphcm.gov.vn... Tên tài khoản: anthoiddong@trolyso-hcmc.vn...
+> Ủy ban nhân dân xã cử ông Phan Trung Hiếu, Chuyên viên phụ trách KH&CN - CĐS, SĐT: <số điện thoại>, email: <email công vụ>... Tên tài khoản: <tên tài khoản>...
 
 > **Nguyên tắc:** Phụ lục là nơi chứa dữ liệu chi tiết — thân văn bản chỉ nêu mục đích và dẫn về phụ lục.
 
@@ -120,9 +120,12 @@ Khi thông tin chi tiết (thông tin đầu mối, thông tin tài khoản, dan
 Họ và tên: Phan Trung Hiếu
 Chức vụ: Chuyên viên phụ trách KH&CN - CĐS
 Đơn vị công tác: Phòng Văn hóa - Xã hội, UBND xã An Thới Đông
-Số điện thoại: 0978 184 475
-Email công vụ: pthieu.atdong@tphcm.gov.vn
+Số điện thoại: <tra Nexus profiles.dien_thoai>
+Email công vụ: <tra Nexus profiles.mail_cv>
 ```
+
+> Hai dòng cuối là **chỗ giữ chỗ**. Trước khi xuất văn bản phải tra Nexus và
+> điền giá trị thật — KHÔNG chép số điện thoại/email cố định vào file skill.
 
 **Trường hợp từ 2 người trở lên — KHÔNG liệt kê trong thân văn bản, thay bằng:**
 - Ghi trong thân: `(Đính kèm danh sách)`

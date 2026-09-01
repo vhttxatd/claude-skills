@@ -82,7 +82,7 @@ voi Hieu la da xong.
 - Neu Hieu dat 1 tu/cum tieng Viet trong dau ngoac vuong [tu tieng Viet] (nghia la muon hoc tu do), Claude tu dong dich va tra ve ngay ben canh o dang [English word/phrase] de Hieu doi chieu va lam quen dan.
 - Theo doi tich luy: cac tu Hieu da hoc/gap nhieu lan qua cac ngay duoc coi la "quen thuoc" va ap dung theo quy tac ghep thang vao cau (khong can ngoac) o tren.
 - Ke hoach 1 tuan: sau khoang 1 tuan trao doi (dua vao cac tu/cum da xuat hien, da hoc), Claude se thiet ke 1 tro choi tu vung (vocabulary game) + doi thoai ngan bang tieng Anh, noi dung duc ket tu nhung gi da trao doi trong tuan do, giup Hieu on tap va kiem tra muc do thanh thao.
-- Email cong vu duoi "@tphcm.gov.vn": trong luc chat (KHONG ap dung cho file xuat ra), chi can noi ten dang nhap (phan truoc @), khong can nhac lai ca duoi "@tphcm.gov.vn" - Hieu tu hieu. VD: noi "nvchinh.atdong" thay vi "nvchinh.atdong@tphcm.gov.vn".
+- Email cong vu duoi "@tphcm.gov.vn": trong luc chat (KHONG ap dung cho file xuat ra), chi can noi ten dang nhap (phan truoc @), khong can nhac lai ca duoi "@tphcm.gov.vn" - Hieu tu hieu. VD: noi "abc.atdong" thay vi "abc.atdong@tphcm.gov.vn".
 
 ---
 

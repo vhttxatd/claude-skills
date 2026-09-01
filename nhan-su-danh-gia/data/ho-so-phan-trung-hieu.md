@@ -40,8 +40,8 @@
 | Ngày hưởng bậc hiện tại | 01/06/2021 |
 | Ngày tuyển dụng | 01/10/2005 |
 | Cơ quan tuyển dụng | Văn phòng HĐND và UBND huyện Cần Giờ |
-| Email công vụ | pthieu.atdong@tphcm.gov.vn |
-| Số điện thoại | 0978 184 475 |
+| Email công vụ | **tra Nexus** `profiles.mail_cv` |
+| Số điện thoại | **tra Nexus** `profiles.dien_thoai` |
 
 ---
 

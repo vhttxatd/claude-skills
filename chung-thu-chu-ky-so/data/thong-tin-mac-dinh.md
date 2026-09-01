@@ -25,8 +25,8 @@ Nếu yêu cầu chỉ định người khác, hỏi Hiếu trước khi thay.
 |---|---|
 | Họ và tên | Phan Trung Hiếu |
 | Chức vụ | Chuyên viên phụ trách KH&CN - CĐS, Phòng Văn hóa - Xã hội |
-| Số điện thoại di động | 0978 184 475 |
-| Địa chỉ thư điện tử công vụ | pthieu.atdong@tphcm.gov.vn |
+| Số điện thoại di động | **tra Nexus** `profiles.dien_thoai` — không lưu ở đây |
+| Địa chỉ thư điện tử công vụ | **tra Nexus** `profiles.mail_cv` — không lưu ở đây |
 | Số định danh cá nhân (CCCD) | [cần bổ sung — hỏi Hiếu mỗi lần, không lưu mặc định vì dữ liệu nhạy cảm] |
 | Ngày cấp / Nơi cấp CCCD | [cần bổ sung] |
 | Địa chỉ tiếp nhận | Trụ sở UBND xã An Thới Đông — [cần bổ sung địa chỉ cụ thể] |
