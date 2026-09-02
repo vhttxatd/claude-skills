@@ -1,3 +1,4 @@
+> ĐÃ NGHỈ HƯU 01/9/2026 — giữ làm bản lưu trữ. KHÔNG upload lên Settings.
 ---
 name: cong-viec-giao-ban
 description: >
