@@ -1,5 +1,5 @@
 # NEXUS Gov — Bộ quy tắc AI cho hệ thống quản lý thông tin số
-
+> ĐÃ NGHỈ HƯU 01/9/2026 — giữ làm bản lưu trữ. KHÔNG upload lên Settings.
 > ⚠️ **ĐÃ CHUYỂN SANG SUPABASE (19/07/2026)** — Đọc [`MIGRATION-NOTICE.md`](./MIGRATION-NOTICE.md) TRƯỚC. Nội dung Airtable trong README này chỉ còn giá trị lịch sử.
 
 
