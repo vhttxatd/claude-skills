@@ -2,10 +2,15 @@
 name: quy-tac-chung
 description: >
   Dữ liệu nền dùng chung: cán bộ, đơn vị, viết tắt, địa bàn, văn bản căn cứ xã An Thới Đông.
+  QUAN TRỌNG: file này còn chứa kỷ luật vận hành BẮT BUỘC áp dụng trong MỌI
+  cuộc trò chuyện với Hiếu, mọi chủ đề, mọi project — tiết kiệm token, không
+  tự ý đọc/xuất file, bàn giao trước khi đổi chat. Đọc phần CỐT LÕI của file
+  này khi bắt đầu bất kỳ phiên làm việc nào với Hiếu, kể cả khi chủ đề chat
+  không liên quan cán bộ/đơn vị/viết tắt/địa bàn.
 ---
 
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quyết định của Hiếu + văn bản tổ chức bộ máy · ra_soat_lai: 2026-12-01 · rui_ro: cao
+> **META** · cap_nhat: 2026-09-03 · nguon_su_that: quyết định của Hiếu + văn bản tổ chức bộ máy · ra_soat_lai: 2026-12-01 · rui_ro: cao
 
 # Quy tắc chung — Xã An Thới Đông
 
@@ -50,40 +55,15 @@ Chi tiết: `data/an-toan-du-lieu.md`.
 - **File Word / văn bản chính thức:** mặc định **KHÔNG viết tắt**. Chỉ được viết tắt khi Hiếu xác nhận rõ, và chỉ trong phạm vi đã đồng ý. Hiếu không trả lời, trả lời không rõ, hoặc chỉ nói "xuất file" → hiểu là KHÔNG.
 - Quy tắc này **ưu tiên hơn** mọi ví dụ viết tắt trong bảng, phụ lục của skill khác. Danh mục viết tắt chuẩn: `data/chidan-viettathk.md`.
 
-**Quy tắc tiết kiệm token:**
-1. **Nhac khi hoi thoai qua dai:** Chu dong tu danh gia do dai/do phuc tap cua
-cuoc hoi thoai hien tai (nhieu luot trao doi, nhieu bang du lieu lon, nhieu
-ket qua truy van SQL/Notion/Drive da doc vao ngu canh...). Khi thay ngu canh
-dang phinh to co kha nang hao ton token, CHU DONG nhac Hieu ngay trong cau
-tra loi (khong cho Hieu hoi truoc) - vi du goi y: "cuoc chat nay da kha dai,
-Hieu co the mo chat moi cho viec tiep theo de tiet kiem token" hoac "phan boc
-tach nay da xong, nen bat dau phien moi cho nhiem vu ke tiep". Ap dung thuong
-xuyen, khong chi nhac 1 lan roi thoi - moi khi thay dau hieu ngu canh qua tai
-(vd sau nhieu buoc truy van/sua du lieu lien tiep, sau khi hoan tat 1 tac vu
-lon) deu nen nhac lai.
-2. **Khong tu y doc noi dung van ban khi truy cap link/nguon van ban:** Khi
-Hieu dua 1 duong link hoac nhac den 1 nguon van ban (web, Drive, Notion...),
-KHONG tu dong fetch/doc toan bo noi dung vao ngu canh neu chua ro Hieu can
-gi. Hoi ro Hieu can doc phan nao/muc dich gi truoc, tranh nap nguyen van ban
-lon vao context mot cach khong can thiet.
-3. **Khong tu y xuat file khi chua thong nhat:** Chi xuat file (docx/xlsx/
-pptx/pdf...) khi Hieu da ro rang yeu cau hoac da thong nhat truoc do. Truoc
-khi xuat, PHAI hoi va cho Hieu xac nhan - khong tu quyet dinh xuat file.
-4. **Chi hien tren man hinh chat khi dang lam tung muc:** Khi dang lam viec/
-chinh sua o 1 muc cu the (vd 1 doan trong bao cao, 1 phan trong van ban),
-chi xuat/hien THI NGUYEN DOAN dang de xuat hoac chinh sua ngay trong khung
-chat - khong xuat ca file/toan bo noi dung, tru khi da qua buoc xac nhan o
-muc 3.
-
-**Quy tac ban giao truoc khi doi chat:** Ngay truoc khi Hieu dong y/xac nhan
-chuyen sang phien chat moi (sau khi Claude da nhac o tren, hoac khi Hieu tu
-noi "mo chat moi"), Claude PHAI chu dong luu/dong goi noi dung ban giao (viec
-dang lam do, quyet dinh moi, thay doi he thong dang nho...) vao dung trang
-Notion "Bàn giao công việc (dùng chung mọi phiên chat)" (id
-`3a64aaf2-6213-814b-94dd-f33ce68da093`, GHI DE khong cong don nhat ky) TRUOC
-khi ket thuc luot tra loi - khong doi Hieu nhac rieng buoc nay. Neu Hieu tu
-dong y ma Claude chua kip luu, phai luu ngay lap tuc truoc khi xac nhan lai
-voi Hieu la da xong.
+**Kỷ luật vận hành - tiết kiệm token & bàn giao (BẮT BUỘC, ÁP DỤNG MỌI CHAT):**
+5 quy tắc — (1) chủ động nhắc mở chat mới khi ngữ cảnh phình to, (2) không tự
+ý đọc toàn bộ nội dung khi được đưa link/nguồn văn bản, (3) không tự ý xuất
+file khi chưa thống nhất, (4) chỉ hiện đúng đoạn đang sửa trong chat, (5) bàn
+giao vào Noton "Bàn giao công việc" trước khi đổi chat — **có hiệu lực trong
+MỌI cuộc trò chuyện, không chỉ khi skill này được trigger bởi chủ đề cán bộ/
+đơn vị/viết tắt/địa bàn.** Toàn văn chi tiết: `data/ky-luat-van-hanh.md` —
+đọc file đó ngay khi bắt đầu bất kỳ phiên nào, kể cả phiên không liên quan
+chủ đề chính của skill này.
 
 **Quy tắc trao đổi trong chat (tiet kiem token + luyen tieng Anh):**
 - Noi dung tra loi trong luc chat: dung tieng Viet KHONG DAU (khong ap dung cho file xuat ra - file van dung tieng Viet co dau chuan).
@@ -102,6 +82,7 @@ voi Hieu la da xong.
 
 | File | Đọc khi |
 |---|---|
+| `data/ky-luat-van-hanh.md` | **LUÔN đọc ở đầu MỌI phiên** — 5 quy tắc tiết kiệm token + bàn giao, không giới hạn chủ đề |
 | `data/quy-tac-soan-thao.md` | Soạn văn bản hành chính (dẫn chiếu VB, căn cứ Luật 72/2025, chi tiết quy tắc xuất file) |
 | `data/quy-trinh-cap-nhat-skill.md` | Người dùng yêu cầu sửa/cập nhật bất kỳ skill nào |
 | `data/can-bo-phan-cong.md` | Cần tên người ký, người phụ trách, ký tắt hồ sơ |
