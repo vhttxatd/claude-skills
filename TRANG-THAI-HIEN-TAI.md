@@ -5,7 +5,7 @@
 > **Mục đích:** File này là NGUỒN SỰ THẬT DUY NHẤT về trạng thái công việc hiện tại — ghi đè mỗi khi có cập nhật đáng kể. Lịch sử thay đổi xem qua `git log TRANG-THAI-HIEN-TAI.md`, không cần giữ nhiều bản snapshot.
 >
 > **Quy ước đồng bộ (áp dụng cho mọi AI, mọi máy):**
-> - **Đầu phiên làm việc** liên quan đến xử lý văn bản đến / theo dõi công việc / NEXUS Gov: đọc file này trước (qua raw URL hoặc git pull) để nắm trạng thái mới nhất, tránh làm trùng/sai lệch giữa các máy (Hiếu dùng 3 máy: PC cơ quan, PC nhà, laptop).
+> - **Đầu MỌI phiên làm việc, không phân biệt chủ đề** (kể cả phiên không liên quan xử lý văn bản đến / theo dõi công việc / NEXUS Gov): đọc file này trước (qua raw URL hoặc git pull) để nắm trạng thái mới nhất, tránh làm trùng/sai lệch giữa các máy (Hiếu dùng 3 máy: PC cơ quan, PC nhà, laptop). Đồng thời đọc `quy-tac-chung/data/ky-luat-van-hanh.md` — 5 quy tắc tiết kiệm token & bàn giao có hiệu lực trong mọi phiên, không chỉ phiên liên quan văn bản/NEXUS.
 > - **Cuối phiên** khi có cập nhật đáng kể (văn bản mới xử lý xong, việc mới hoàn thành, quy tắc mới chốt): cập nhật lại file này và push lên repo `vhttxatd/claude-skills`. Đây là cơ chế đồng bộ thay thế cho scheduled task cục bộ (vốn KHÔNG đồng bộ được giữa các máy).
 
 ---
@@ -17,6 +17,7 @@
 - Khi đề xuất nhiều mục đánh số (1, 2, 3...) trong 1 tin nhắn: mục nào Hiếu KHÔNG nhắc đến trong phản hồi = KHÔNG thực hiện; mục nào được nhắc (kể cả "ok" ngắn gọn) = thực hiện đúng như đề xuất ban đầu.
 - Luôn kiểm tra trùng lặp trong Notion/Supabase trước khi đề xuất tạo bản ghi mới (Hiếu dùng 3 máy độc lập, dễ tạo trùng).
 - Không thiết kế/suy luận từ trí nhớ hội thoại khi có công cụ để kiểm tra trực tiếp (đọc file thật, truy vấn SQL thật, tra Notion thật).
+- **Kỷ luật tiết kiệm token & bàn giao** (chi tiết đầy đủ: `quy-tac-chung/data/ky-luat-van-hanh.md`) — có hiệu lực MỌI phiên, không riêng phiên liên quan văn bản/NEXUS: chủ động nhắc mở chat mới khi ngữ cảnh phình to; không tự ý đọc toàn văn khi chỉ được đưa link/nguồn; không tự ý xuất file khi chưa thống nhất; chỉ hiện đúng đoạn đang sửa trong chat; bàn giao vào Notion trước khi đổi chat.
 
 ## 1. Kiến trúc hệ thống hiện tại
 
