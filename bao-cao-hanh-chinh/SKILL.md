@@ -10,6 +10,8 @@ description: >
 
 > **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy trình nghiệp vụ của Hiếu · ra_soat_lai: 2027-03-01 · rui_ro: trung
 
+> **Nhắc kỷ luật vận hành:** Nếu phiên chat này CHƯA đọc `quy-tac-chung/data/ky-luat-van-hanh.md` (5 quy tắc tiết kiệm token & bàn giao), đọc trước khi tiếp tục — quy tắc đó áp dụng bất kể skill nào đang chạy.
+
 > **Đọc tối thiểu:** SKILL.md này + `quy-tac-chung/SKILL.md` (phần cốt lõi). Chỉ mở thêm khi cần:
 > - `quy-tac-chung/data/quy-tac-soan-thao.md` — khi xuất file hoặc dẫn chiếu văn bản
 > - `quy-tac-chung/data/can-bo-phan-cong.md` — khi cần tên người ký
