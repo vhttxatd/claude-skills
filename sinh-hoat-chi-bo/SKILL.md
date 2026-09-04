@@ -11,6 +11,8 @@ description: >
 
 > **META** · cap_nhat: 2026-09-01 · nguon_su_that: Notion Tbl_PhanCongCBo + Điều lệ Đảng · ra_soat_lai: 2027-03-01 · rui_ro: trung
 
+> **Nhắc kỷ luật vận hành:** Nếu phiên chat này CHƯA đọc `quy-tac-chung/data/ky-luat-van-hanh.md` (5 quy tắc tiết kiệm token & bàn giao), đọc trước khi tiếp tục — quy tắc đó áp dụng bất kể skill nào đang chạy.
+
 # Sinh hoạt Chi bộ Phòng VHXH — lên lịch & xuất thông báo
 
 Tuân theo 4 nguyên tắc vận hành trong `tao-skill`. Đặc biệt nguyên tắc 1
