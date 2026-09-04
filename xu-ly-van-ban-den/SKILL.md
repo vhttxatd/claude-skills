@@ -13,6 +13,8 @@ description: >
 
 > **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy trình nghiệp vụ của Hiếu · ra_soat_lai: 2026-12-01 · rui_ro: cao
 
+> **Nhắc kỷ luật vận hành:** Nếu phiên chat này CHƯA đọc `quy-tac-chung/data/ky-luat-van-hanh.md` (5 quy tắc tiết kiệm token & bàn giao), đọc trước khi tiếp tục — quy tắc đó áp dụng bất kể skill nào đang chạy.
+
 # Xử lý văn bản đến — QLVB_ATĐ
 
 Tuân theo 4 nguyên tắc vận hành trong tao-skill (nghĩ trước khi làm, đơn giản là ưu
