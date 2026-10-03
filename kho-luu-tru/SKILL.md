@@ -176,8 +176,8 @@ bẫy với "Vàm Sát" vừa là tên ấp đã bỏ vừa là địa danh còn
 
 | Bảng | Nội dung |
 |---|---|
-| **`van_ban`** | Văn bản đưa vào theo dõi Nexus. Cột quan trọng: `ma_van_ban` (unique), `so_hieu`, `loai` (ke_hoach/quyet_dinh/cong_van/nghi_quyet/chi_thi/thong_bao), `cap_ban_hanh` (xa/tp/tinh/trung_uong), `trang_thai` (dang_hieu_luc/het_hieu_luc/cho_hieu_luc), **`phan_loai`** (`theo_doi` = đang chỉ đạo/theo dõi tích cực, `tra_cuu` = chỉ lưu tham khảo), `nien_han` (hang_nam/giai_doan/dot_xuat), `van_ban_cha_id` (văn bản gốc nếu là VB phái sinh) |
-| `van_ban_file` | File đính kèm 1 văn bản (loai: chinh/file_mem/phu_luc/khac) |
+| **`van_ban`** | Văn bản đưa vào theo dõi Nexus. Cột quan trọng: `ma_van_ban` (unique), `so_hieu`, `loai` (ke_hoach/quyet_dinh/cong_van/nghi_quyet/chi_thi/thong_bao), `cap_ban_hanh` (xa/tp/tinh/trung_uong), `trang_thai` (dang_hieu_luc/het_hieu_luc/cho_hieu_luc), `trich_yeu` (nguyên văn), `tom_tat` (tóm gọn), `trang_thai_phat_hanh` (da_cap_so/da_ban_hanh), **`phan_loai`** (`theo_doi` = KH/NQ/CT/VB chỉ đạo cần bóc tách, `tra_cuu` = xem/minh chứng, `ket_qua_thuc_hien` = chỉ báo cáo, bắt buộc `danh_muc_vb_id`), `nien_han` (hang_nam/giai_doan/dot_xuat), `van_ban_cha_id` (văn bản gốc nếu là VB phái sinh) |
+| `van_ban_file` | File đính kèm 1 văn bản (loai: chinh/file_mem/phu_luc/khac; thu_tu 0 = file gốc PDF (trùng `link_goc`), 1 = file mềm, 2+ = phụ lục; ten_file nhãn ngắn) |
 | `van_ban_lien_quan` | Quan hệ nhiều-nhiều giữa các văn bản liên quan nhau |
 | `van_ban_theo_doi` | Người dùng đang "theo dõi" 1 văn bản (thông báo cá nhân, không phải phan_loai) |
 | **`giao_muc`** | Từng mục/chỉ tiêu cụ thể được **giao trong 1 văn bản** — cầu nối `van_ban` → `theo_doi_cd`, có mục tiêu số (`gia_tri_muc_tieu`), thời hạn riêng, sản phẩm KQ (`san_pham_kq`) |
