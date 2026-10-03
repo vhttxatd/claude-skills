@@ -11,7 +11,7 @@ description: >
 ---
 
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy trình nghiệp vụ của Hiếu · ra_soat_lai: 2026-12-01 · rui_ro: cao
+> **META** · cap_nhat: 2026-10-03 · nguon_su_that: quy trình nghiệp vụ của Hiếu · ra_soat_lai: 2026-12-01 · rui_ro: cao
 
 > **Nhắc kỷ luật vận hành:** Nếu phiên chat này CHƯA đọc `quy-tac-chung/data/ky-luat-van-hanh.md` (5 quy tắc tiết kiệm token & bàn giao), đọc trước khi tiếp tục — quy tắc đó áp dụng bất kể skill nào đang chạy.
 
@@ -82,16 +82,22 @@ Hiếu dán: Trích yếu, Số ký hiệu, Đơn vị ban hành, Ngày đến (
 địa điểm...) hoặc phân công xử lý ("trưởng phòng phân công Hiếu dự") — ghi nhận đưa
 vào Ghi chú.
 
-### Bước 1.5 — Luôn kiểm tra trùng lặp trước khi đề xuất
+### Bước 1.5 — Kiểm tra trùng CHỈ trong Notion Tbl_QLVB_ATĐ (chốt 03/10/2026)
 
-Trước khi đề xuất tên file hay thông tin Notion, luôn dùng `notion-search` (query =
-số ký hiệu, data_source_url = `collection://2134aaf2-6213-81cd-ba93-000bbb6fe99e`)
-để kiểm tra văn bản đã có trong Tbl_QLVB_ATĐ chưa.
-- Nếu ĐÃ TỒN TẠI: báo ngay cho Hiếu, không đề xuất tạo mới, hỏi Hiếu muốn xem lại
-  trang cũ, cập nhật bổ sung, hay đây thực sự là văn bản khác trùng số hiệu (hiếm
-  nhưng đã từng gặp — xem "Trùng lặp 3270/QĐ-UBND" ở mục Việc tồn đọng).
-- Nếu chưa có: tiếp tục quy trình bình thường từ Bước 2.
-Áp dụng bước này cho MỌI văn bản, không chỉ khi nghi ngờ trùng.
+- Chỉ kiểm tra trong Notion `Tbl_QLVB_ATĐ` — kho chính chứa mọi văn bản, link Drive
+  cũng lấy từ đây. KHÔNG tra kho khác (Nexus...) ở bước này để tiết kiệm token.
+- Ưu tiên SQL `WHERE "Nội dung VB" LIKE '%<phần số>%'`. Kết nối Notion hiện không nạp
+  được SQL (truy vấn 1 bảng không load; truy vấn nhiều bảng cần gói Business) → dùng
+  `notion-ai-search` với `data_source_url = collection://2134aaf2-6213-81cd-ba93-000bbb6fe99e`:
+  tìm ký hiệu đầy đủ → rỗng thì tìm phần số → vẫn rỗng thì coi là mới, ghi rõ "kiểm
+  bằng từ khóa".
+- Nếu ĐÃ TỒN TẠI: báo ngay, không đề xuất tạo mới; hỏi Hiếu xem lại, cập nhật bổ sung,
+  hay là văn bản khác trùng số hiệu.
+- Nếu tình cờ thấy văn bản có ở kho khác (vd Nexus) mà Notion chưa lưu → đề xuất bổ
+  sung vào Notion.
+- Nếu là văn bản MỚI: trong CÙNG lượt trả lời, xuất luôn tên file (Bước 2, ô copy) +
+  đề xuất bản ghi Notion (Bước 3) với Link = "chưa có link". Hiếu "ok" thì lưu; trong
+  lúc đó Hiếu tải file lên Drive để Claude tìm ở Bước 5.
 
 ### Bước 2 — Đề xuất tên lưu trữ file
 
@@ -174,19 +180,19 @@ tạo nhóm mới?
 Hỏi: "Xác nhận lưu không?" Chỉ gọi `notion-create-pages` vào data source
 `Tbl_QLVB_ATĐ` sau khi Hiếu đồng ý hoặc nói "lưu đi"/"ok".
 
-### Bước 5 — Gắn link Drive
+### Bước 5 — Gắn link Drive (file gốc / file mềm / phụ lục)
 
-**Mặc định LUÔN tự động thực hiện bước này ngay sau khi lưu Notion (Bước 4) — không
-chờ Hiếu gõ "gắn link".** Nếu tìm trên Drive không thấy file khớp, báo ngay cho Hiếu
-biết (không lưu link ẩu, không bỏ qua im lặng) — Hiếu sẽ tự tải file lên Drive sau
-rồi báo lại.
-1. `search_files` trên Google Drive, tìm theo **số hiệu riêng lẻ** (VD `'6643'` hoặc
-   `'KH336'`) — KHÔNG dùng nguyên ký hiệu có dấu "/" đầy đủ khi search.
-2. Lấy `viewUrl` của file mới nhất khớp.
-3. Cập nhật trang Notion:
-   - **Link** = URL Drive đầy đủ.
-   - **Nội dung VB** = gắn markdown link CHỈ vào phần số của ký hiệu, ví dụ:
-     `[6643](driveLink)/SKHCN-CĐS` (giữ nguyên phần CQBH phía sau, không link).
+**Mặc định LUÔN tự động thực hiện ngay sau khi lưu Notion — không chờ Hiếu gõ "gắn
+link".** Không thấy file khớp → ghi "chưa có link", báo Hiếu (không hỏi dồn, không lưu
+link ẩu); Hiếu tự tải lên rồi báo lại.
+1. `search_files` với `title contains '<số>'` và `excludeContentSnippets: true` — KHÔNG
+   dùng nguyên ký hiệu có "/", KHÔNG đọc nội dung file ở bước này.
+2. Cập nhật trang Notion:
+   - **Link** = URL Drive của **file gốc PDF đã ký** (chỉ PDF chính thức).
+   - **Nội dung VB** = gắn link PDF vào phần số: `[6643](pdfLink)/SKHCN-CĐS`.
+   - **File mềm** (Google Doc sửa được) = cụm `([File mềm](link))` đặt ở **ĐẦU** Trích
+     yếu. Không đặt link file mềm vào Link hay Ghi chú.
+   - Văn bản chưa có bản ký chính thức: chưa có PDF → Link để "chưa có link".
 
 ### Bước 6 — Hai câu hỏi bắt buộc sau khi lưu Notion (gắn link xong)
 
@@ -200,10 +206,25 @@ Hiếu — không đảo lại nữa).
 2. "Có lưu song song vào Nexus không (phan_loai = theo_dõi)?" — chỉ áp dụng cho văn
    bản có tính chỉ đạo/theo dõi tích cực. Mặc định KHÔNG (chỉ Notion) trừ khi Hiếu
    đồng ý. Nexus gồm 3 việc, làm tuần tự:
-   (a) Ghi vào bảng `van_ban` (kho văn bản) — đề xuất đầy đủ giá trị từng cột dự
-   kiến ghi (ma_van_ban, so_hieu, ten_van_ban, tom_tat, loai, cap_ban_hanh,
-   co_quan_ban_hanh, ngay_ban_hanh, trang_thai, link_goc, phan_loai,
-   thoi_gian_thuc_hien) và CHỜ XÁC NHẬN trước khi `execute_sql`/`apply_migration`.
+   (a) Ghi vào bảng `van_ban` (kho văn bản) — đề xuất đầy đủ giá trị từng cột và CHỜ
+   XÁC NHẬN trước khi `execute_sql`. Quy tắc cột (chốt 03/10/2026):
+   - `ma_van_ban` = `{yymmdd Ng BH}_{LoạiVB}{Số}{Viết tắt CQ}` (vd `260814_KH3942UBX`).
+   - `so_hieu` = ký hiệu gốc nguyên văn (vd `3942/KH-UBND`).
+   - `ten_van_ban` = tên gọi tắt, gọn (làm gọn nội dung trích yếu).
+   - `trich_yeu` = trích yếu nguyên văn, chính xác tuyệt đối theo văn bản phát hành.
+   - `tom_tat` = CHỈ tóm gọn nội dung văn bản (không ghi trích yếu vào đây).
+   - `trang_thai_phat_hanh` = `da_cap_so` (đã có số, ngày BH, chờ phát hành chính
+     thức) → chuyển `da_ban_hanh` khi có file PDF.
+   - `phan_loai`: `theo_doi` = KH, NQ, CT, VB chỉ đạo có nội dung cần bóc tách;
+     `tra_cuu` = chỉ để xem, minh chứng; `ket_qua_thuc_hien` = chỉ chứa báo cáo, BẮT
+     BUỘC có `danh_muc_vb_id`.
+   - Hồ sơ công việc: gắn qua `ho_so_cong_viec_van_ban` (tab HSCV group by HSCV) —
+     tùy chọn, áp dụng cho mọi `phan_loai`.
+   - File: PDF gốc ghi cả `link_goc` lẫn `van_ban_file` loai `chinh` (thu_tu 0); file
+     mềm loai `file_mem` (thu_tu 1); phụ lục loai `phu_luc` (thu_tu 2+). `ten_file`
+     dùng nhãn ngắn "File gốc" / "File mềm" / "Phụ lục I - <tên>".
+   - Còn lại: `loai`, `cap_ban_hanh`, `co_quan_ban_hanh` (luôn `SELECT DISTINCT`
+     trước), `ngay_ban_hanh`, `trang_thai`, `nien_han`, `thoi_gian_thuc_hien`.
    (b) Sau khi đã lưu văn bản vào `van_ban`, LUÔN hỏi thêm: "Văn bản này có nên cập
    nhật thành 1 kết quả thực hiện nhiệm vụ (bảng `ket_qua`/`theo_doi_cd`) hoặc số
    liệu (bảng `so_lieu`/`cap_nhat_so_lieu`) nào không?" — không tự suy đoán có hay
