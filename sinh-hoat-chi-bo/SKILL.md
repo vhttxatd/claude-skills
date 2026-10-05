@@ -9,7 +9,7 @@ description: >
 ---
 
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: Notion Tbl_PhanCongCBo + Điều lệ Đảng · ra_soat_lai: 2027-03-01 · rui_ro: trung
+> **META** · cap_nhat: 2026-10-05 · nguon_su_that: Notion Tbl_PhanCongCBo + Điều lệ Đảng · ra_soat_lai: 2027-03-01 · rui_ro: trung
 
 > **Nhắc kỷ luật vận hành:** Nếu phiên chat này CHƯA đọc `quy-tac-chung/data/ky-luat-van-hanh.md` (5 quy tắc tiết kiệm token & bàn giao), đọc trước khi tiếp tục — quy tắc đó áp dụng bất kể skill nào đang chạy.
 
@@ -46,7 +46,8 @@ Danh sách quay vòng cố định gồm **7 người**, xoay theo đúng thứ 
 tháng cho vai trò "Thời Sự" (mục 1):
 
 ```
-K. Anh → Hiếu → K. Liên → Thúy → Bích → Như → Chính → (quay lại K. Anh)
+K. Anh → Hiếu → K. Liên → Thúy → Bích → Như → Yến → (quay lại K. Anh)
+(Từ 01/10/2026 Yến thay Chính trong vòng quay vì đ/c Chính chuyển phòng khác)
 ```
 
 Quy luật liên hệ giữa 3 cột (đã kiểm chứng khớp 100% với 10 kỳ họp gần nhất):
@@ -80,7 +81,8 @@ luận — nhưng KHÔNG cần hỏi lại nếu chỉ dùng để xuất file t
 | Thúy | Thúy |
 | Bích | Bích |
 | Như | Như |
-| Chính / A. Chính | Chính |
+| Yến | Yến |
+| Chính / A. Chính (cũ, lịch sử đến 09/2026) | Chính — nếu dòng Notion mới ghi "Chính" ở kỳ từ 10/2026, hỏi lại Hiếu |
 
 ---
 
@@ -88,17 +90,24 @@ luận — nhưng KHÔNG cần hỏi lại nếu chỉ dùng để xuất file t
 
 | Mục | Nội dung | Người |
 |---|---|---|
-| 2 | Phổ biến, quán triệt các văn bản | Chính |
-| 3 | Đánh giá tình hình tư tưởng đảng viên, quần chúng | Chính |
+| 2 | Phổ biến, quán triệt các văn bản | Yến |
+| 3 | Đánh giá tình hình tư tưởng đảng viên, quần chúng | Yến |
 | 4 | Đánh giá học tập và làm theo tư tưởng HCM (KL 21-KL/TW) | Kim Anh |
-| 6 | Đánh giá kết quả nhiệm vụ chính trị + xây dựng chi bộ 6 tháng | Chính |
+| 6 | Đánh giá kết quả nhiệm vụ chính trị + xây dựng chi bộ, phương hướng kỳ sau (xem quy tắc mục 6 bên dưới) | Yến |
 | 8 | Công tác quản lý đảng viên | Như |
-| 9 | Giải quyết ý kiến, kiến nghị đảng viên | Chính |
+| 9 | Giải quyết ý kiến, kiến nghị đảng viên | Yến |
 | 10 | Các nội dung khác | Như |
-| 11 | Kết thúc sinh hoạt (chủ trì kết luận) | Chính (Bí thư) |
-| — | Người chủ trì cuộc họp | Nguyễn Văn Chính - Bí thư chi bộ |
+| 11 | Kết thúc sinh hoạt (chủ trì kết luận) | Yến |
+| — | Người chủ trì cuộc họp | Đồng chí Võ Thị Hoàng Yến - Thay Bí thư chi bộ |
 | — | Địa điểm | Phòng họp - Phòng Văn hóa - Xã hội |
-| — | Chữ ký (T/M CHI BỘ - BÍ THƯ) | Nguyễn Văn Chính |
+| — | Chữ ký | T/M CHI BỘ / THAY BÍ THƯ / Võ Thị Hoàng Yến |
+
+### Quy tắc mục 6 (hàm `muc6Text` trong generate.js, theo tháng họp)
+- Tháng 3: quý I năm Y → phương hướng, nhiệm vụ quý II năm Y.
+- Tháng 6: 06 tháng đầu năm Y → 06 tháng cuối năm Y.
+- Tháng 9: 09 tháng đầu năm Y → 03 tháng cuối năm Y.
+- Tháng 12: năm Y → năm Y+1 (CHƯA được Hiếu xác nhận — hỏi lại khi tạo thông báo tháng 12).
+- Các tháng còn lại: tháng N năm Y → phương hướng, nhiệm vụ tháng N+1.
 
 Nếu tương lai các mục cố định này đổi người (đổi bí thư, đổi phân công),
 cập nhật trực tiếp bảng trên — không cần tạo skill mới.
@@ -143,6 +152,11 @@ biThu`. `thoiSu/shtp/pheBinh` dùng **tên hiển thị** theo bảng ánh xạ 
 `previewNguoi` (mục 11 - dự kiến kỳ họp SAU) = người kế tiếp sau `shtp`
 trong vòng quay 7 người.
 
+Từ 10/2026 thêm 2 tham số: `thayBiThu: true` (chủ trì ghi "Thay Bí thư chi bộ",
+chữ ký "THAY BÍ THƯ") và `ketThucNguoi: "Yến"` (người ở mục 11). `biThu` = tên
+người ký, vd `{"ho":"Võ Thị","ten":"Hoàng Yến"}`. Giờ họp: dùng giờ Hiếu nêu
+trong yêu cầu (vd 15 giờ 30), không có thì mặc định như Bước 3.
+
 **Bước 5 — Đặt tên file:** `{YYMMDD}_TB{so}CBO_Thang_{MM}-{YYYY}.docx`
 (vd: `260803_TB16CBO_Thang_08-2026.docx`), theo đúng quy ước file gốc Hiếu
 đã dùng.
@@ -163,12 +177,13 @@ Ngày Họp, Ký hiệu VB, Trích yếu, Thời Sự, SHTP, Phê bình`.
 
 Thông báo sinh hoạt chi bộ dùng **thể thức văn bản Đảng**, KHÁC với thể
 thức UBND trong skill `the-thuc-van-ban`:
-- Font **Arial** toàn văn bản (không phải Times New Roman).
+- Font **Times New Roman** toàn văn bản (từ 01/10/2026; trước đó dùng Arial).
+- Chỉ **in đậm số thứ tự mục 1–12**; nội dung mục và "(Đ/c ...)" để chữ thường.
 - Tiêu đề 2 cột: trái = "ĐẢNG BỘ UỶ BAN NHÂN DÂN XÃ / CHI BỘ PHÒNG VĂN HÓA -
-  XÃ HỘI"; phải = "ĐẢNG CỘNG SẢN VIỆT NAM" (có gạch chân) + ngày tháng in
+  XÃ HỘI"; phải = "ĐẢNG CỘNG SẢN VIỆT NAM" (chữ gạch chân underline, KHÔNG dùng đường kẻ border bên dưới) + ngày tháng in
   nghiêng.
 - Ký hiệu: `Số-TB/CB` (không phải `/TB-UBND`).
-- Chữ ký: "T/M CHI BỘ - BÍ THƯ" (không phải lãnh đạo UBND).
+- Chữ ký: "T/M CHI BỘ / THAY BÍ THƯ" (không phải lãnh đạo UBND).
 
 → **KHÔNG dùng `mauThongBao` trong `the-thuc-van-ban/templates`** cho loại
 văn bản này — luôn dùng script riêng `generate.js` của skill này.
