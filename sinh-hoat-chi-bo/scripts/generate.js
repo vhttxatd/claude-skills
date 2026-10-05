@@ -3,7 +3,8 @@
  * Chi bộ Phòng Văn hóa - Xã hội, xã An Thới Đông.
  *
  * Nhân bản đúng thể thức từ file gốc 260703_TB15CBO_Thang_07-2026.docx
- * (văn bản Đảng — khác thể thức UBND: font Arial, không phải Times New Roman).
+ * (văn bản Đảng — khác thể thức UBND). Từ 10/2026: font Times New Roman, chỉ in đậm số mục 1-12,
+ * "ĐẢNG CỘNG SẢN VIỆT NAM" gạch chân underline, Yến thay Chính, mục 6 theo tháng họp (muc6Text).
  *
  * Dùng: node generate.js '<JSON params>'
  * Hoặc require('./generate').taoThongBaoChiBo(params)
@@ -14,7 +15,7 @@ const {
 } = require("docx");
 const fs = require("fs");
 
-const FONT = "Arial";
+const FONT = "Times New Roman";
 
 function r(text, opts = {}) {
   return new TextRun({ text, font: FONT, size: 28, ...opts });
@@ -46,7 +47,9 @@ function cell(children, widthDxa, opts = {}) {
  *  nguoiChuTri: "Nguyễn Văn Chính - Bí thư chi bộ"
  *  thoiSu, shtp, pheBinh: tên hiển thị đầy đủ (vd "Liên", "Kim Anh", "Thúy"...)
  *  previewNguoi: tên người dự kiến phụ trách SHTP + Phê bình kỳ họp SAU (hiển thị ở mục 11)
- *  biThu: {ho: "Nguyễn", ten: "Văn Chính"}   // người ký - mặc định Bí thư chi bộ
+ *  biThu: {ho: "Võ Thị", ten: "Hoàng Yến"}  // người chủ trì + ký
+ *  thayBiThu: true                 // chủ trì "Thay Bí thư chi bộ", ký "THAY BÍ THƯ"
+ *  ketThucNguoi: "Yến"             // người ở mục 11 (mặc định Yến)
  */
 function taoThongBaoChiBo(p) {
   const so = p.so;
@@ -62,6 +65,9 @@ function taoThongBaoChiBo(p) {
   const previewNguoi = p.previewNguoi;
   const biThuHo = (p.biThu && p.biThu.ho) || "Nguyễn";
   const biThuTen = (p.biThu && p.biThu.ten) || "Văn Chính";
+  const chucDanh = p.thayBiThu ? "Thay Bí thư chi bộ" : "Bí thư chi bộ";
+  const kyDong1 = p.thayBiThu ? "THAY BÍ THƯ" : "BÍ THƯ";
+  const ketThucNguoi = p.ketThucNguoi || "Yến";
 
   // ---- Bảng tiêu đề (quốc hiệu / cơ quan) ----
   const headerTable = new Table({
@@ -88,8 +94,7 @@ function taoThongBaoChiBo(p) {
           cell([
             new Paragraph({
               alignment: AlignmentType.CENTER,
-              children: [r("ĐẢNG CỘNG SẢN VIỆT NAM", { bold: true, size: 28 })],
-              border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "000000", space: 2 } },
+              children: [r("ĐẢNG CỘNG SẢN VIỆT NAM", { bold: true, size: 28, underline: {} })],
             }),
             new Paragraph({
               alignment: AlignmentType.CENTER,
@@ -140,7 +145,7 @@ function taoThongBaoChiBo(p) {
 
   function numbered(n, label, rest) {
     const children = [r(`${n}. `, { bold: true })];
-    if (label) children.push(r(label, { bold: true }));
+    if (label) children.push(r(label, {}));
     if (rest) children.push(r(rest, {}));
     return new Paragraph({
       spacing: { before: 120, after: 120 },
@@ -164,7 +169,7 @@ function taoThongBaoChiBo(p) {
       spacing: { before: 60, after: 60 },
       indent: { firstLine: 567 },
       alignment: AlignmentType.JUSTIFIED,
-      children: [r(`+ ${text} `, {}), r(`(Đ/c ${nguoi}).`, { bold: true })],
+      children: [r(`+ ${text} `, {}), r(`(Đ/c ${nguoi}).`, {})],
     });
   }
 
@@ -175,7 +180,7 @@ function taoThongBaoChiBo(p) {
       spacing: { before: 160, after: 160 },
       indent: { firstLine: 567 },
       alignment: AlignmentType.JUSTIFIED,
-      children: [r("- Người chủ trì: Đồng chí ", {}), r(`${biThuHo} ${biThuTen} - Bí thư chi bộ.`, {})],
+      children: [r("- Người chủ trì: Đồng chí ", {}), r(`${biThuHo} ${biThuTen} - ${chucDanh}.`, {})],
     }),
     new Paragraph({
       spacing: { before: 160, after: 160 },
@@ -187,16 +192,16 @@ function taoThongBaoChiBo(p) {
 
     numbered("1", "Thông tin tình hình thời sự: ", ""),
     subLine(`(Đ/c ${thoiSu}).`),
-    numbered("2", "Phổ biến, quán triệt các văn bản ", "(Đ/c Chính)."),
-    numbered("3", "Đánh giá tình hình tư tưởng của đảng viên, quần chúng thuộc phạm vi lãnh đạo của chi bộ ", "(Đ/c Chính)."),
+    numbered("2", "Phổ biến, quán triệt các văn bản ", "(Đ/c Yến)."),
+    numbered("3", "Đánh giá tình hình tư tưởng của đảng viên, quần chúng thuộc phạm vi lãnh đạo của chi bộ ", "(Đ/c Yến)."),
     numbered("4", "Đánh giá kết quả thực hiện việc học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh gắn với thực hiện Kết luận số 21-KL/TW của Ban Chấp hành Trung ương Đảng khóa XIII ", "(Đ/c Kim Anh)."),
     numbered("5", "Sinh hoạt tác phẩm của Chủ tịch Hồ Chí Minh ", `(Đ/c ${shtp}).`),
-    numbered("6", "Đánh giá kết quả thực hiện nhiệm vụ chính trị, công tác xây dựng chi bộ 06 tháng đầu năm " + namHop + " và phương hướng, nhiệm vụ 06 tháng cuối năm " + namHop + " ", "(Đ/c Chính)."),
+    numbered("6", muc6Text(thangHop, namHop), "(Đ/c Yến)."),
     numbered("7", "Thực hiện tự phê bình và phê bình ", `(Đ/c ${pheBinh}).`),
     numbered("8", "Công tác quản lý đảng viên; ", "(Đ/c Như)."),
-    numbered("9", "Giải quyết ý kiến, kiến nghị của đảng viên (nếu có) ", "(Đ/c Chính)."),
+    numbered("9", "Giải quyết ý kiến, kiến nghị của đảng viên (nếu có) ", "(Đ/c Yến)."),
     numbered("10", "Các nội dung khác ", "(Đ/c Như)."),
-    numbered("11", "Kết thúc sinh hoạt ", "(Đ/c Chính):"),
+    numbered("11", "Kết thúc sinh hoạt ", `(Đ/c ${ketThucNguoi}):`),
     ketQuaBullet("Đánh giá kết quả thực hiện kết luận của chi bộ tháng trước."),
     ketQuaBullet("Kết luận những nội dung trọng tâm của cuộc họp"),
     ketQuaBullet("Biểu dương, nhắc nhở, phê bình đảng viên"),
@@ -213,7 +218,7 @@ function taoThongBaoChiBo(p) {
       spacing: { before: 0, after: 60 },
       indent: { firstLine: 567 },
       alignment: AlignmentType.JUSTIFIED,
-      children: [r(text, { bold: true })],
+      children: [r(text, {})],
     });
   }
 
@@ -232,7 +237,7 @@ function taoThongBaoChiBo(p) {
           ], 4077),
           cell([
             new Paragraph({ alignment: AlignmentType.CENTER, children: [r("T/M CHI BỘ", { bold: true, size: 28 })] }),
-            new Paragraph({ alignment: AlignmentType.CENTER, children: [r("BÍ THƯ", { size: 28 })] }),
+            new Paragraph({ alignment: AlignmentType.CENTER, children: [r(kyDong1, { size: 28 })] }),
             new Paragraph({ children: [r("")] }),
             new Paragraph({ alignment: AlignmentType.CENTER, children: [r("(Đã ký)", { size: 28 })] }),
             new Paragraph({ children: [r("")] }),
@@ -261,13 +266,26 @@ function taoThongBaoChiBo(p) {
   return doc;
 }
 
+// Muc 6: ky bao cao + phuong huong ky ke tiep (theo thang hop)
+function muc6Text(thang, nam) {
+  const t = Number(thang), y = Number(nam);
+  const dau = "Đánh giá kết quả thực hiện nhiệm vụ chính trị, công tác xây dựng chi bộ ";
+  let ky, ph;
+  if (t === 3) { ky = `quý I năm ${y}`; ph = `quý II năm ${y}`; }
+  else if (t === 6) { ky = `06 tháng đầu năm ${y}`; ph = `06 tháng cuối năm ${y}`; }
+  else if (t === 9) { ky = `09 tháng đầu năm ${y}`; ph = `03 tháng cuối năm ${y}`; }
+  else if (t === 12) { ky = `năm ${y}`; ph = `năm ${y + 1}`; }
+  else { ky = `tháng ${t} năm ${y}`; ph = `tháng ${t + 1} năm ${y}`; }
+  return `${dau}${ky} và phương hướng, nhiệm vụ ${ph} `;
+}
+
 function thuTrongTuan(nam, thang, ngay) {
   const d = new Date(Number(nam), Number(thang) - 1, Number(ngay));
   const ten = ["chủ nhật", "thứ hai", "thứ ba", "thứ tư", "thứ năm", "thứ sáu", "thứ bảy"];
   return ten[d.getDay()];
 }
 
-module.exports = { taoThongBaoChiBo };
+module.exports = { taoThongBaoChiBo, muc6Text };
 
 // Chạy trực tiếp: node generate.js params.json out.docx
 if (require.main === module) {
