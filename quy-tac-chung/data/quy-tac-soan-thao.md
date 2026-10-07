@@ -7,7 +7,7 @@
 ---
 
 ## 1. DẪN CHIẾU VĂN BẢN — THÔNG TIN ĐẦY ĐỦ
-
+**Link van ban:** Lần nhắc đầu tiên của một văn bản trong cùng văn bản đang soạn thì gắn hyperlink vào số ký hiệu (màu 1F3864, không gạch chân); các lần nhắc sau chỉ ghi chữ, không gắn link.
 **Lần nhắc đầu tiên** trong văn bản: ghi ĐỦ loại + số/ký hiệu + ngày + cơ quan ban hành + trích yếu (Hiếu chốt 07/10/2026).
 **Từ lần nhắc thứ 2 trở đi**: chỉ cần số/ký hiệu, ngày, cơ quan ban hành (bỏ trích yếu).
 Khi cần dẫn chiếu một văn bản mà thiếu bất kỳ thông tin nào trong 4 yếu tố:
