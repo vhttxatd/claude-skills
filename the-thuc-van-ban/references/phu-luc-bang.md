@@ -1,6 +1,19 @@
 # Phụ lục và bảng phân công
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-09-01 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+> **META** · cap_nhat: 2026-10-06 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-10-06 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+
+> **Code:** biên bản và phụ lục dùng `bangDuLieu()` (`templates/partials/bang-du-lieu.js`), thông số ở `BANG_DU_LIEU` trong `config/config.js`, không tự viết code bảng.
+
+## Khổ giấy phụ lục — tự chọn NGANG / DỌC (chốt 06/10/2026)
+
+`partials/phu-luc.js` → `phuLuc({...})` tự chuyển **khổ NGANG** (section riêng, số trang RESET về 1, trang đầu phụ lục ẩn số) khi:
+số cột > 4, HOẶC (số dòng dữ liệu > 4 VÀ có ô dài hơn 120 ký tự). Ngưỡng ở `PHU_LUC` trong config; ép tay bằng `huong:'ngang'|'doc'`.
+Bề rộng bảng ngang = 16838 − lề trái − lề phải (lề vẫn theo NĐ 30, không để lề dưới ≈ 0).
+
+**Dòng nhóm (nhóm theo đơn vị chủ trì):** phần tử của `hang` dạng `{ nhom: 'Tên đơn vị' }` → 1 dòng gộp hết cột, nền #D9D9D9, chữ đậm, căn trái. STT đánh liên tục toàn bảng.
+**Tiêu đề cột của PHỤ LỤC công văn: KHÔNG tô màu** (`coMau:false`, chữ đen đậm). Cột STT cần tỉ lệ ≥ 900/15500 để "STT" không vỡ dòng.
+
+**Dòng cuối bảng (chốt 06/10/2026):** MỌI phụ lục bảng luôn có dòng chữ đậm "ỦY BAN NHÂN DÂN XÃ AN THỚI ĐÔNG" ngay dưới bảng, căn phải (`PHU_LUC.dongCuoi`; `phuLuc()` tự thêm, không cần truyền).
 
 ## Tiêu đề phụ lục
 

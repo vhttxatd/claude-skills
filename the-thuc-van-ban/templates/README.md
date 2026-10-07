@@ -1,6 +1,6 @@
 # Bộ mẫu văn bản docx-js — 7 loại văn bản hành chính
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-09-01 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+> **META** · cap_nhat: 2026-10-06 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-10-06 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
 
 ## Cách dùng nhanh
 
@@ -46,6 +46,37 @@ const doc2 = mauCongVan({
 | `mauQuyetDinh(opts)` | Quyết định | Số: .../QĐ-UBND |
 | `mauThongBao(opts)` | Thông báo | Số: .../TB-UBND |
 | `mauGiayMoi(opts)` | Giấy mời | Số: .../GM-UBND |
+| `mauBienBan(opts)` | Biên bản (chữ ký nhiều bên) | Số: .../BB-VHXH |
+
+## Biên bản - `mauBienBan`
+
+Chữ ký nhiều bên: **cơ quan phát hành luôn ở cột phải cuối**, hàm không cho đảo cột.
+
+```javascript
+const { mauBienBan } = require('./templates/all');
+const { bangDuLieu } = require('./partials/bang-du-lieu');
+const { h1 } = require('./partials/base');
+
+mauBienBan({
+  ngay: '26', thang: '05', nam: '2026',
+  trichYeu: 'Bàn giao thiết bị công nghệ thông tin',
+  canCu: ['Căn cứ ...'],
+  noiDung: ['Đoạn mở đầu...', h1('I. BÊN GIAO'), 'Phòng Văn hóa - Xã hội.',
+            bangDuLieu({ tieuDe: [...], tiLeCot: [...], hang: [[...]] })],
+  nguoiLap: { chucDanh: 'CHUYÊN VIÊN', hoTen: 'Phan Trung Hiếu' },      // cột đầu (trái)
+  cacBenKy: [{ dong: ['ĐẠI DIỆN BÊN NHẬN', 'TRƯỞNG PHÒNG'], hoTen: '...' }], // cột giữa
+  nguoiKy: 'truongPhongVHXH',                                           // cột cuối (phải) = cơ quan phát hành
+});
+```
+
+Đoạn kết cuối thân bài dùng `bp(text, { keepNext: true, before: 120, after: 200 })` để khối chữ ký không tách khỏi đoạn kết; thêm `pageBreak: true` nếu muốn đoạn kết và chữ ký nằm riêng một trang.
+
+Tham số bổ sung của `mauBienBan`:
+- `tieuDeDayDu`: tiêu đề 1 dòng in hoa (vd Mẫu 02/TSC-BBGN: "BIÊN BẢN BÀN GIAO, TIẾP NHẬN TÀI SẢN CÔNG"), thay cho "BIÊN BẢN" + trích yếu.
+- `dongPhuKy`: dòng nghiêng dưới chức danh cơ quan phát hành, vd "(Ký, ghi rõ họ tên, đóng dấu)". Trong `cacBenKy[].dong` mỗi dòng là chuỗi (in đậm) hoặc `{ text, bold, italic }`.
+- `phuLuc`: các phần tử đặt sau khối chữ ký (phần tử đầu dùng `pageBreak` để sang trang mới).
+- `h1/h2/h3/h4(text, { pageBreak: true })`: đề mục bắt đầu ở trang mới.
+- `bangDuLieu({ ..., coMau: false, hangCuoiDam: true, noiRong: 500 })`: bỏ tô màu tiêu đề, in đậm hàng Tổng cộng, nới bảng ra ngoài lề mỗi bên (DXA) khi nhiều cột số.
 
 ## Tham số chung (áp dụng mọi hàm)
 
@@ -99,3 +130,16 @@ partials/
   document-builder.js     ← factory Document
 templates/all.js          ← 7 mẫu tổ hợp từ partials
 ```
+
+
+---
+
+## Cập nhật 06/10/2026 (chốt cùng Hiếu theo bản công văn KH 63 hoàn thiện)
+
+- `sp0` và `divider()` dùng dòng đơn AUTO (bỏ EXACT) — hết chữ chồng dòng/cụt dấu.
+- `DIVIDER`: ký tự `—` liền nét, độ dài 19 (cơ quan) / 43 (quốc hiệu) / 40 (trích yếu).
+- `headerTable`: dòng 1 cơ quan ĐẬM khi UBND xã ban hành; trích yếu CV kiểu chữ đứng + tự thêm dấu chấm.
+- `kinhGuiBlock`: bố cục theo `KINH_GUI` (căn trái, thụt 4,5cm / 6,5cm, `;` và `.`).
+- `partials/phu-luc.js` → `phuLuc({ tenPhuLuc, kemTheo, tieuDe, tiLeCot, canCot, hang, huong })`: tự chọn khổ NGANG/DỌC theo `PHU_LUC`, số trang phụ lục RESET về 1 (`resetSoTrang`); `hang` hỗ trợ dòng nhóm `{ nhom: '...' }`. Dùng: `mauCongVan({ ..., phuLuc: phuLuc({...}) })`.
+- `bangDuLieu`: thêm `rongTong`, dòng nhóm; `BANG_DU_LIEU.fillNhom`.
+- `NGHI_DINH_30` (config): khoảng lề/giãn dòng cho phép — `scripts/kiem-tra-dinh-dang.py` dùng để kiểm tra.

@@ -1,8 +1,8 @@
 /**
- * index.js - XUẤT 7 MẪU VĂN BẢN
+ * index.js - XUẤT 8 MẪU VĂN BẢN
  * =================================
  * Chạy: node index.js
- * Output: output/01-cong-van.docx, 02-bao-cao.docx, ... 07-giay-moi.docx
+ * Output: output/01-cong-van.docx, 02-bao-cao.docx, ... 08-mau-bien-ban.docx
  */
 
 const fs = require('fs');
@@ -11,7 +11,7 @@ const { Packer } = require('docx');
 
 const {
   mauCongVan, mauBaoCao, mauKeHoach, mauToTrinh,
-  mauQuyetDinh, mauThongBao, mauGiayMoi,
+  mauQuyetDinh, mauThongBao, mauGiayMoi, mauBienBan,
 } = require('./templates/all');
 
 const OUT_DIR = path.join(__dirname, 'output');
@@ -33,7 +33,8 @@ async function save(doc, filename) {
     await save(mauQuyetDinh(), '05-mau-quyet-dinh.docx');
     await save(mauThongBao(), '06-mau-thong-bao.docx');
     await save(mauGiayMoi(), '07-mau-giay-moi.docx');
-    console.log('\nXuất 7 mẫu thành công.');
+    await save(mauBienBan(), '08-mau-bien-ban.docx');
+    console.log('\nXuất 8 mẫu thành công.');
   } catch (err) {
     console.error('LỖI:', err.message);
     console.error(err.stack);

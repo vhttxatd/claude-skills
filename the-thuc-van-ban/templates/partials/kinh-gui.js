@@ -2,52 +2,58 @@
  * partials/kinh-gui.js - KHỐI KÍNH GỬI
  * =======================================
  * Dùng cho Công văn và Tờ trình.
- * Căn giữa, in đậm.
+ * Bố cục chốt 06/10/2026 (bản Hiếu hoàn thiện), thông số ở KINH_GUI trong config:
+ *   - "Kính gửi:" đậm, căn TRÁI, thụt 4,5cm
+ *   - Danh sách thụt 6,5cm, mỗi dòng "- ...;" — dòng cuối kết thúc bằng "."
+ *   - Giãn dòng đơn (240 AUTO)
  */
 
-const { Paragraph, AlignmentType } = require('docx');
-const { r, emp } = require('./base');
-const { TRANG } = require('../config/config');
+const { Paragraph, AlignmentType, LineRuleType } = require('docx');
+const { r, runsCoLink } = require('./base');
+const { TRANG, KINH_GUI } = require('../config/config');
+
+const K = KINH_GUI;
+const dongDon = (before, after) => ({ before, after, line: K.lineSpacing, lineRule: LineRuleType.AUTO });
+const boDauCuoi = (s) => s.trim().replace(/[;.,]+$/, '');
 
 /**
- * @param {string|string[]} guiDen - Nơi nhận (1 hoặc nhiều dòng)
+ * @param {string|string[]} guiDen - Nơi nhận (1 hoặc nhiều dòng; không cần gõ dấu `;`/`.` cuối dòng)
  */
 function kinhGuiBlock(guiDen) {
-  const list = Array.isArray(guiDen) ? guiDen : [guiDen];
-
+  const list = (Array.isArray(guiDen) ? guiDen : [guiDen]).map(boDauCuoi);
   const paras = [];
 
-  // Dòng "Kính gửi:" đứng đầu
   if (list.length === 1) {
-    // 1 dòng: "Kính gửi: ..." trên cùng 1 dòng
+    // 1 nơi nhận: "Kính gửi: ..." trên cùng 1 dòng
     paras.push(new Paragraph({
-      alignment: AlignmentType.CENTER,
-      spacing: { before: 120, after: 240, line: 276 },
-      indent: { firstLine: TRANG.INDENT },
+      alignment: AlignmentType.LEFT,
+      spacing: dongDon(K.beforeKinhGui, K.afterCuoi),
+      indent: { left: K.thutKinhGui },
       children: [
-        r("Kính gửi: ", { bold: true, size: TRANG.BODY }),
-        r(list[0], { size: TRANG.BODY }),
+        r('Kính gửi: ', { bold: true, size: TRANG.BODY }),
+        ...runsCoLink(`${list[0]}.`, { size: TRANG.BODY }),
       ],
     }));
-  } else {
-    // Nhiều dòng: "Kính gửi:" đứng riêng, sau đó mỗi dòng "- ..."
-    paras.push(new Paragraph({
-      alignment: AlignmentType.CENTER,
-      spacing: { before: 120, after: 60, line: 276 },
-      children: [r("Kính gửi:", { bold: true, size: TRANG.BODY })],
-    }));
-    list.forEach((gd, i) => {
-      const isLast = i === list.length - 1;
-      const content = gd.startsWith("-") ? gd : `- ${gd}`;
-      paras.push(new Paragraph({
-        alignment: AlignmentType.LEFT,
-        spacing: { before: 0, after: isLast ? 240 : 60, line: 276 },
-        indent: { left: 2880 },   // Thụt trái khoảng 5cm
-        children: [r(content, { size: TRANG.BODY })],
-      }));
-    });
+    return paras;
   }
 
+  // Nhiều nơi nhận: "Kính gửi:" đứng riêng, mỗi dòng "- ...;"
+  paras.push(new Paragraph({
+    alignment: AlignmentType.LEFT,
+    spacing: dongDon(K.beforeKinhGui, K.afterKinhGui),
+    indent: { left: K.thutKinhGui },
+    children: [r('Kính gửi:', { bold: true, size: TRANG.BODY })],
+  }));
+  list.forEach((gd, i) => {
+    const isLast = i === list.length - 1;
+    const content = `${gd.startsWith('-') ? gd : `- ${gd}`}${isLast ? '.' : ';'}`;
+    paras.push(new Paragraph({
+      alignment: AlignmentType.LEFT,
+      spacing: dongDon(0, isLast ? K.afterCuoi : 0),
+      indent: { left: K.thutDanhSach },
+      children: runsCoLink(content, { size: TRANG.BODY }),
+    }));
+  });
   return paras;
 }
 

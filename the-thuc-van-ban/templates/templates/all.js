@@ -17,12 +17,12 @@ const { headerTable } = require('../partials/header-table');
 const { titleBlock } = require('../partials/title-block');
 const { canCuBlock } = require('../partials/can-cu');
 const { kinhGuiBlock } = require('../partials/kinh-gui');
-const { signatureBlock } = require('../partials/signature');
+const { signatureBlock, chuKyNhieuBen } = require('../partials/signature');
 const { buildDocument } = require('../partials/document-builder');
 const { khungNoiDungPhieuTrinh } = require('../partials/khung-noi-dung');
-const { bp, emp, h1, h2, h3, h4, lietKe, dieu, r } = require('../partials/base');
+const { bp, emp, h1, h2, h3, h4, lietKe, dieu, r, divider } = require('../partials/base');
 const { Paragraph, AlignmentType } = require('docx');
-const { TRANG, getDinhDang } = require('../config/config');
+const { TRANG, getDinhDang, LANHDAO } = require('../config/config');
 
 // ============================================================================
 // 1. CÔNG VĂN (CV)
@@ -36,6 +36,7 @@ function mauCongVan({
   noiNhan = [],
   tenDonViSoan = 'VHXH',
   donViBanHanh, soLink,
+  phuLuc,                       // kết quả partials/phu-luc.js → phuLuc({...}); tự chọn khổ ngang/dọc
 } = {}) {
   const body = noiDung.length > 0
     ? noiDung.map(p => typeof p === 'string' ? bp(p) : p)
@@ -50,10 +51,10 @@ function mauCongVan({
     ...kinhGuiBlock(kinhGui),
     ...body,
     ...emp(1),
-    signatureBlock({ noiNhan, nguoiKy, loai: 'CV', tenDonViSoan }),
+    signatureBlock({ noiNhan, nguoiKy, loai: 'CV', tenDonViSoan, ubnd: !donViBanHanh, coKinhGui: true }),
   ];
 
-  return buildDocument('CV', children);
+  return buildDocument('CV', children, phuLuc);
 }
 
 // ============================================================================
@@ -89,7 +90,7 @@ function mauBaoCao({
     ...titleBlock('BC', trichYeu),
     ...body,
     ...emp(1),
-    signatureBlock({ noiNhan, nguoiKy, loai: 'BC', tenDonViSoan }),
+    signatureBlock({ noiNhan, nguoiKy, loai: 'BC', tenDonViSoan, ubnd: !donViBanHanh }),
   ];
 
   return buildDocument('BC', children);
@@ -141,7 +142,7 @@ function mauKeHoach({
     ...emp(1),
     ...body,
     ...emp(1),
-    signatureBlock({ noiNhan, nguoiKy, loai: 'KH', tenDonViSoan }),
+    signatureBlock({ noiNhan, nguoiKy, loai: 'KH', tenDonViSoan, ubnd: !donViBanHanh }),
   ];
 
   return buildDocument('KH', children);
@@ -181,7 +182,7 @@ function mauToTrinh({
     ...(canCu.length > 0 ? canCuBlock(canCu) : []),
     ...body,
     ...emp(1),
-    signatureBlock({ noiNhan, nguoiKy, loai: 'TTr', tenDonViSoan }),
+    signatureBlock({ noiNhan, nguoiKy, loai: 'TTr', tenDonViSoan, ubnd: !donViBanHanh, coKinhGui: true }),
   ];
 
   return buildDocument('TTr', children);
@@ -220,7 +221,7 @@ function mauQuyetDinh({
     quyetDinhLine,
     ...defaultDieu.map(d => dieu(d.so, d.noiDung)),
     ...emp(1),
-    signatureBlock({ noiNhan, nguoiKy, loai: 'QD', tenDonViSoan }),
+    signatureBlock({ noiNhan, nguoiKy, loai: 'QD', tenDonViSoan, ubnd: !donViBanHanh }),
   ];
 
   return buildDocument('QD', children);
@@ -251,7 +252,7 @@ function mauThongBao({
     ...titleBlock('TB', trichYeu),
     ...body,
     ...emp(1),
-    signatureBlock({ noiNhan, nguoiKy, loai: 'TB', tenDonViSoan }),
+    signatureBlock({ noiNhan, nguoiKy, loai: 'TB', tenDonViSoan, ubnd: !donViBanHanh }),
   ];
 
   return buildDocument('TB', children);
@@ -311,7 +312,7 @@ function mauGiayMoi({
     ...titleBlock('GM', trichYeu),
     ...body,
     ...emp(1),
-    signatureBlock({ noiNhan, nguoiKy, loai: 'GM', tenDonViSoan }),
+    signatureBlock({ noiNhan, nguoiKy, loai: 'GM', tenDonViSoan, ubnd: !donViBanHanh }),
   ];
 
   return buildDocument('GM', children);
@@ -323,7 +324,8 @@ function mauGiayMoi({
 // ============================================================================
 function mauPhieuTrinh({
   so = "", nam = "2026", ngay = "", thang = "",
-  trichYeu = "[Trích yếu phiếu trình]",
+  loaiVanBan = "[Loại văn bản]",          // loại VB được trình: Công văn, Kế hoạch, Báo cáo...
+  trichYeu = "[nội dung văn bản được trình]", // phần sau "Về việc ban hành [Loại VB]"
   kinhGui = ["Thường trực Ủy ban nhân dân xã"],
   tomTat = [],
   deXuat = [],
@@ -336,9 +338,18 @@ function mauPhieuTrinh({
   const dd = getDinhDang('PTr');
   const contentW = TRANG.W - dd.marginLeft - dd.marginRight;
 
+  // Phiếu trình luôn để trình một văn bản của cấp trên ban hành, nên trích yếu
+  // LUÔN có dạng: "Về việc ban hành [Loại văn bản] [nội dung]."
+  // (nếu người gọi đã tự viết đủ "Về việc ..." thì giữ nguyên, tránh lặp)
+  const tyTho = String(trichYeu).trim();
+  const trichYeuDay = /^về việc/i.test(tyTho)
+    ? tyTho
+    : `Về việc ban hành ${loaiVanBan} ${tyTho}`;
+  const trichYeuChuan = trichYeuDay.endsWith('.') ? trichYeuDay : `${trichYeuDay}.`;
+
   const children = [
     headerTable({ loai: 'PTr', so, nam, ngay, thang, donViBanHanh, soLink }),
-    ...titleBlock('PTr', trichYeu),
+    ...titleBlock('PTr', trichYeuChuan),
     ...kinhGuiBlock(kinhGui),
     khungNoiDungPhieuTrinh({
       tomTat: tomTat.length ? tomTat : ["[Căn cứ + mục đích của văn bản trình]"],
@@ -355,7 +366,67 @@ function mauPhieuTrinh({
   return buildDocument('PTr', children);
 }
 
+// ============================================================================
+// 8. BIÊN BẢN (BB) - chữ ký nhiều bên
+// ============================================================================
+/**
+ * Biên bản có chữ ký nhiều bên. Cơ quan phát hành LUÔN ở cột phải cuối (xem
+ * chuKyNhieuBen trong partials/signature.js) - hàm này không cho đảo cột.
+ *
+ * @param {(string|Paragraph|Table)[]} noiDung - thân biên bản. Chuỗi → bp(); dùng
+ *        h1() cho đề mục, bangDuLieu() cho bảng, bp(text,{keepNext:true}) cho đoạn kết.
+ * @param {{chucDanh:string,hoTen:string}} [nguoiLap] - cột đầu bên trái
+ * @param {{dong:string[],hoTen:string}[]} [cacBenKy] - các bên ký nhận (giữa)
+ * @param {string} nguoiKy - key LANHDAO của người ký thay mặt cơ quan phát hành
+ * @param {string[]} nhanCoQuanPhatHanh - dòng nhãn phía trên chức danh (mặc định ĐẠI DIỆN BÊN GIAO)
+ */
+function mauBienBan({
+  so = "", nam = "2026", ngay = "", thang = "",
+  trichYeu = "[Trích yếu biên bản]",
+  tieuDeDayDu = "",        // nếu có: tiêu đề 1 dòng in hoa (vd Mẫu 02/TSC-BBGN), thay cho "BIÊN BẢN" + trích yếu
+  canCu = [],
+  noiDung = [],
+  nguoiLap = null,
+  cacBenKy = [],
+  nguoiKy = 'truongPhongVHXH',
+  nhanCoQuanPhatHanh = ['ĐẠI DIỆN BÊN GIAO'],
+  dongPhuKy = "",          // dòng nghiêng dưới chức danh cơ quan phát hành, vd "(Ký, ghi rõ họ tên, đóng dấu)"
+  phuLuc = [],             // các phần tử đặt SAU khối chữ ký (phần tử đầu tự đặt pageBreak nếu cần)
+  donViBanHanh = 'VHXH', soLink,
+} = {}) {
+  const ld = LANHDAO[nguoiKy];
+  if (!ld) throw new Error(`mauBienBan: nguoiKy "${nguoiKy}" không tồn tại trong LANHDAO`);
+  const body = noiDung.map(p => typeof p === 'string' ? bp(p) : p);
+  const tieuDe = tieuDeDayDu
+    ? [
+        ...emp(1),
+        new Paragraph({
+          alignment: AlignmentType.CENTER,
+          spacing: { before: 120, after: 60, line: 276 },
+          children: [r(tieuDeDayDu, { bold: true, size: TRANG.BODY })],
+        }),
+        divider('trichYeu'),
+      ]
+    : titleBlock('BB', trichYeu);
+  const children = [
+    headerTable({ loai: 'BB', so, nam, ngay, thang, donViBanHanh, soLink }),
+    ...tieuDe,
+    ...canCuBlock(canCu),
+    ...body,
+    chuKyNhieuBen({
+      nguoiLap: nguoiLap && { dong: ['NGƯỜI LẬP BIÊN BẢN', nguoiLap.chucDanh], hoTen: nguoiLap.hoTen },
+      cacBenKy,
+      coQuanPhatHanh: {
+        dong: [...nhanCoQuanPhatHanh, ld.chucDanh, ...(dongPhuKy ? [{ text: dongPhuKy, bold: false, italic: true }] : [])],
+        hoTen: ld.hoTen,
+      },
+    }),
+    ...phuLuc,
+  ];
+  return buildDocument('BB', children);
+}
+
 module.exports = {
   mauCongVan, mauBaoCao, mauKeHoach, mauToTrinh,
-  mauQuyetDinh, mauThongBao, mauGiayMoi, mauPhieuTrinh,
+  mauQuyetDinh, mauThongBao, mauGiayMoi, mauPhieuTrinh, mauBienBan,
 };

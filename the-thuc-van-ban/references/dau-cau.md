@@ -1,6 +1,6 @@
 # Dấu câu và quy tắc trình bày
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-09-01 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+> **META** · cap_nhat: 2026-10-06 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-10-06 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
 
 ## Dấu câu chuẩn
 
@@ -35,8 +35,11 @@
 > ```
 >
 > Muốn đổi độ dài hay giãn cách sau → sửa `DIVIDER` trong `config.js`, mọi loại
-> văn bản tự cập nhật. Nguyên tắc bất biến: ký tự `-` lặp lại, đậm, căn giữa,
-> KHÔNG dùng `BorderStyle` / `border bottom`.
+> văn bản tự cập nhật. Nguyên tắc bất biến: ký tự **`—` (em dash, `DIVIDER.char`)** lặp lại, đậm,
+> căn giữa, cỡ 4pt → ra đường kẻ LIỀN NÉT (dấu `-` ở 4pt hiện thành chấm đứt, trước đây lần nào cũng phải
+> sửa tay). KHÔNG dùng `BorderStyle` / `border bottom`. Độ dài chốt 06/10/2026: dưới cơ quan 19 ký tự,
+> dưới quốc hiệu 43 ký tự. **Đây là NGOẠI LỆ DUY NHẤT** của quy tắc cấm em dash bên dưới —
+> chỉ do code (`divider()`) sinh ra, KHÔNG gõ tay `—` vào nội dung văn bản.
 
 ---
 
@@ -58,9 +61,9 @@ bắt buộc (đã có sẵn trong partial, không cần viết lại):
 `titlePage: true` để trang 1 dùng header rỗng, và
 `pageNumbers: { start: 1 }` để số trang reset đúng ở mỗi file.
 
-> Khi văn bản có nhiều section (kèm phụ lục): mặc định đánh số liên tục toàn
-> file — chỉ section đầu khai `pageNumbers.start`. Nếu phụ lục cần đánh số độc
-> lập thì mỗi section khai lại `start: 1`.
+> **Phụ lục khổ ngang (chốt 06/10/2026): số trang RESET về 1.** Section phụ lục khai lại
+> `pageNumbers.start: 1` + `titlePage: true` → trang đầu của phụ lục ẩn số, hiện từ trang 2 của phụ lục
+> (cùng quy tắc với văn bản chính). Công tắc: `PHU_LUC.resetSoTrang` trong config (false = đánh số liên tục).
 
 ---
 
@@ -95,7 +98,7 @@ Trong toàn bộ văn bản hành chính, CHỈ dùng một loại dấu gạch 
 - Ví dụ: "Nhóm VI - Nhóm VIII"
 - Ví dụ: "Độc lập - Tự do - Hạnh phúc"
 
-**SAI — TUYỆT ĐỐI KHÔNG dùng:**
+**SAI — TUYỆT ĐỐI KHÔNG dùng** (trong NỘI DUNG văn bản; riêng đường kẻ divider xem mục trên):
 - Dấu gạch ngang dài (em dash): — (U+2014)
 - Dấu gạch ngang trung (en dash): – (U+2013)
 - Dấu gạch liền không cách: từ-đến, nhóm—nhóm

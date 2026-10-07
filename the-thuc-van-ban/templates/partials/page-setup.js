@@ -11,18 +11,28 @@
  */
 
 const {
-  Header, Footer, Paragraph, TextRun, AlignmentType, PageNumber, NumberFormat,
+  Header, Footer, Paragraph, TextRun, AlignmentType, PageNumber, NumberFormat, PageOrientation,
 } = require('docx');
 
-const { getDinhDang, TRANG, SO_TRANG } = require('../config/config');
+const { getDinhDang, TRANG, SO_TRANG, PHU_LUC } = require('../config/config');
 const { sp0 } = require('./base');
 
-function pageProperties(loai) {
+/**
+ * @param {string} loai
+ * @param {object} [opts]
+ * @param {boolean} [opts.ngang=false] - khổ NGANG (phụ lục nhiều cột). Theo PHU_LUC.resetSoTrang (mặc định true):
+ *        số trang RESET về 1 và trang đầu của phụ lục ẩn số (đúng quy tắc số trang như văn bản chính).
+ *        Đặt resetSoTrang=false nếu muốn đánh số liên tục toàn file.
+ */
+function pageProperties(loai, { ngang = false } = {}) {
   const dd = getDinhDang(loai);
   return {
-    titlePage: true,          // Cho phép trang 1 ẩn số trang
+    titlePage: ngang ? PHU_LUC.resetSoTrang : true,   // trang đầu của section ẩn số trang (phụ lục: theo resetSoTrang)
     page: {
-      size: { width: TRANG.W, height: TRANG.H },
+      // docx-js: truyền width/height DỌC rồi đặt orientation LANDSCAPE → thư viện tự hoán đổi
+      size: ngang
+        ? { width: TRANG.W, height: TRANG.H, orientation: PageOrientation.LANDSCAPE }
+        : { width: TRANG.W, height: TRANG.H },
       margin: {
         top: dd.marginTop,
         bottom: dd.marginBottom,
@@ -31,7 +41,9 @@ function pageProperties(loai) {
       },
       // BẮT BUỘC — thiếu dòng này khiến số trang không ổn định / không reset
       // đúng về 1 ở mỗi file mới (xem dau-cau.md mục "Số trang").
-      pageNumbers: { start: 1, formatType: NumberFormat.DECIMAL },
+      pageNumbers: (!ngang || PHU_LUC.resetSoTrang)
+        ? { start: 1, formatType: NumberFormat.DECIMAL }
+        : { formatType: NumberFormat.DECIMAL },
     },
   };
 }

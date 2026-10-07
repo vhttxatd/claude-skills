@@ -1,12 +1,10 @@
 ---
-name: the-thuc-van-ban
-description: >
-  Định dạng, thể thức, code docx-js cho văn bản hành chính xã An Thới Đông.
-
+name: "the-thuc-van-ban"
+description: "Định dạng, thể thức, code docx-js cho văn bản hành chính xã An Thới Đông.\n"
 ---
 
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: Nghị định 30/2020/NĐ-CP về công tác văn thư · ra_soat_lai: 2027-03-01 · rui_ro: trung
+> **META** · cap_nhat: 2026-10-06 · nguon_su_that: Nghị định 30/2020/NĐ-CP về công tác văn thư · ra_soat_lai: 2027-04-06 · rui_ro: trung
 
 > **Đọc tối thiểu:** SKILL.md này + `quy-tac-chung/SKILL.md` (phần cốt lõi). Skill này tự đủ — chỉ mở các file `references/...` khi đến bước cụ thể (xem mục lục bên dưới).
 
@@ -26,9 +24,17 @@ description: >
 | `references/dau-cau.md` | Dấu câu, ngoặc kép, gạch ngang, **số trang (footer vs header)** | Mọi loại văn bản |
 | `references/loai-van-ban.md` | Đặc thù từng loại: KH, BC, CV, TTr, QĐ, TB | Khi soạn loại cụ thể |
 | `references/code-docxjs.md` | Code mẫu docx-js hoàn chỉnh | Khi xuất file Word |
+| `scripts/` | `kiem-tra-the-thuc.js` (đánh số), `kiem-tra-dinh-dang.py` (định dạng), `so-sanh-voi-ban-chot.py` (so với bản Hiếu hoàn thiện) | Trước khi giao file |
 | `templates/` | **Bộ template 7 loại VB** (CV/BC/KH/TTr/QĐ/TB/GM) — modular, sửa 1 chỗ cập nhật mọi mẫu | **Ưu tiên dùng** khi xuất văn bản |
 
 ---
+
+## QUY TẮC MỚI 07/10/2026 (đã vào code — tra đúng chỗ, không tự nhớ)
+1. **Nơi nhận VB do UBND**: 6 dòng cố định (Như trên / đơn vị yêu cầu → CT, các PCT UBND xã → cơ quan khác → Phòng VHXH → VP → Lưu: VT, VHXH-Hiếu) — `references/noi-nhan-chu-ky.md`.
+2. **Dẫn chiếu văn bản = gắn link vào SỐ ký hiệu**: `[63](url)/KHPH-MTTQ-UBND` — `references/noi-dung.md`; thiếu link → code và script cảnh báo.
+3. **Văn bản chỉ 1 cấp mục**: dùng `mucSo()` (số in đậm, chữ thường), không dùng Heading — `references/noi-dung.md`.
+4. **Mở đầu báo cáo**: "Thực hiện <VB>;/." rồi đoạn riêng "UBND xã [An Thới Đông] báo cáo ..., cụ thể như sau:" — `moDauBaoCao()`.
+5. **Dẫn chiếu VB**: lần đầu đủ (số, ngày, cơ quan, trích yếu), từ lần 2 chỉ số, ngày, cơ quan. **Tên xã**: gửi ngoài xã → "xã An Thới Đông", nội bộ → "xã" (chỉ trong thân VB) — `quy-tac-soan-thao.md` mục 1, 1b.
 
 ## ⚠️ SKILL NÀY LÀ NGUỒN DUY NHẤT VỀ THỂ THỨC — QUY TẮC BẮT BUỘC
 
@@ -69,6 +75,15 @@ tiêu đề, chữ ký, nơi nhận...) CHỈ tồn tại ở skill này.
   KHÔNG gõ tay tên cơ quan.
 **Số trang:** luôn ở **HEADER (đầu trang)**, căn giữa, trang 1 ẩn, reset về 1
   mỗi file. Áp dụng cho mọi loại văn bản, không ngoại lệ.
+
+**Chữ ký nhiều bên:** cơ quan phát hành văn bản **LUÔN Ở CỘT PHẢI CUỐI, mọi
+  tình huống** (1 người ký, 2 bên hay nhiều bên). Thứ tự cột từ trái sang phải:
+  người lập (nếu có) → các bên ký nhận → cơ quan phát hành. Gọi
+  `chuKyNhieuBen()` trong `partials/signature.js`, KHÔNG tự dựng bảng ký.
+  Chi tiết: `references/noi-nhan-chu-ky.md`.
+**Bảng dữ liệu (biên bản, phụ lục):** gọi `bangDuLieu()` trong
+  `partials/bang-du-lieu.js`, thông số ở `BANG_DU_LIEU` (config) - khớp
+  `references/phu-luc-bang.md`. KHÔNG tự viết code bảng.
 
 ### Phân cấp đề mục — QUY TẮC CỨNG
 
@@ -161,7 +176,9 @@ Thư mục `templates/` chứa bộ template docx-js đã xây sẵn cho 7 loạ
 - **Quyết định** (`mauQuyetDinh`) — tự thêm căn cứ Luật 72/2025, dùng `Điều X.`
 - **Thông báo** (`mauThongBao`), **Giấy mời** (`mauGiayMoi`)
 - **Phiếu trình** (`mauPhieuTrinh`) — Kính gửi + khối nội dung **đóng khung**
-  (bảng 2 hàng: nội dung + chữ ký người trình / ý kiến Trưởng Phòng)
+  (bảng 1 hàng: nội dung + bảng ký lồng 2 cột: Chuyên viên / Ý kiến Trưởng Phòng)
+
+- **Biên bản** (`mauBienBan`) — chữ ký nhiều bên (cơ quan phát hành luôn cột phải), thân bài nhận bảng từ `bangDuLieu()`
 
 **Cơ chế "sửa 1 chỗ → cập nhật tất cả" — BẢNG TRA NHANH:**
 
@@ -176,6 +193,8 @@ Thư mục `templates/` chứa bộ template docx-js đã xây sẵn cho 7 loạ
 | Lề, line spacing, vị trí số trang | `config/config.js` → `DINH_DANG` |
 | Bề rộng bảng, phụ lục | `config/config.js` → `contentWidth(loai)` |
 | Bảng tiêu đề, nơi nhận, chữ ký, khung Phiếu trình | `templates/partials/` |
+| Nới bảng chữ ký nhiều bên, số dòng ký | `config/config.js` → `CHU_KY_NHIEU_BEN` |
+| Màu, cỡ chữ, spacing, lề ô của bảng dữ liệu | `config/config.js` → `BANG_DU_LIEU` |
 
 > Nếu phải sửa cùng một thông số ở **hơn một file** thì thiết kế đang sai —
 > gom về `config.js` trước, rồi mới sửa.
@@ -212,10 +231,17 @@ mọi tình huống sau:
 1. Xuất `.docx` bằng hàm mẫu.
 2. Chạy `node scripts/kiem-tra-the-thuc.js <file.docx>` — soi cấu trúc thật
    bên trong file, bắt lỗi đoạn văn tự đánh số / gạch đầu dòng sai chỗ.
-3. Chuyển PDF → render ảnh → **xem bằng mắt** (`soffice.py` + `pdftoppm`).
+2b. Chạy `python3 scripts/kiem-tra-dinh-dang.py <file.docx>` — bắt lỗi ĐỊNH DẠNG hay lặp lại:
+   giãn dòng EXACT gây chồng dòng/cụt dấu, lề ngoài khoảng NĐ 30, divider `-` thay vì `—`,
+   trích yếu CV in nghiêng/thiếu dấu chấm, "Kính gửi:" căn giữa. Có LỖI → sửa trong config/partials, xuất lại.
+3. Chuyển PDF → render ảnh **≥150 dpi** (`pdftoppm -r 150`; 60-70 dpi KHÔNG đủ để thấy chồng dòng) →
+   **xem bằng mắt**, tối thiểu: crop 30% đầu trang 1 (bảng tiêu đề + Kính gửi), trang có chữ ký, 1 trang phụ lục.
 4. Đối chiếu: tên chủ quản, độ dài 3 divider, phân cấp đề mục, số trang ở đầu
    trang và trang 1 không có số.
-5. Chỉ khi cả bước 2 và 4 đều sạch mới gửi file.
+5. Chỉ khi cả bước 2, 2b và 4 đều sạch mới gửi file.
+6. Khi Hiếu gửi lại BẢN ĐÃ SỬA TAY: chạy `python3 scripts/so-sanh-voi-ban-chot.py <ban_xuat> <ban_chot>`;
+   mỗi khác biệt có chủ đích phải được đưa vào `config/partials` + tài liệu `references/` NGAY trong phiên đó
+   (file của Hiếu sửa qua Google Docs: bỏ qua nhiễu exact→auto, rsid). Không để lỗi lặp lại ở lần xuất sau.
 
 > Ngoại lệ đã biết: `sinh-hoat-chi-bo` dùng font **Arial** theo thể thức văn bản
 > Đảng — khác biệt này ghi tại chính skill đó, không áp dụng ngược lại vào đây.

@@ -4,7 +4,8 @@
  * Chứa P01 (Quốc hiệu), P02 (Cơ quan), P03 (Số ký hiệu),
  * P04 (Địa danh ngày), P05 (Trích yếu công văn).
  *
- * Loại CV: trích yếu nằm DƯỚI số ký hiệu (cột trái, không đậm).
+ * Loại CV: trích yếu nằm DƯỚI số ký hiệu (cột trái, không đậm, KIỂU CHỮ ĐỨNG theo NĐ 30, kết thúc bằng dấu chấm).
+ * Dòng 1 cơ quan: ĐẬM khi UBND xã trực tiếp ban hành; KHÔNG đậm khi đơn vị trực thuộc ban hành (dòng 1 là cơ quan chủ quản).
  * Loại khác: trích yếu nằm DƯỚI tên loại VB (căn giữa, đậm).
  */
 
@@ -13,6 +14,7 @@ const {
 } = require('docx');
 
 const { COQUAN, QUOCHIEU, KY_HIEU, TRANG, DON_VI_TRUC_THUOC, BANG_TIEU_DE, contentWidth } = require('../config/config');
+const { LINK_VB } = require('../config/config');
 const { cellP, noBorders, divider, r, sp0 } = require('./base');
 const { Paragraph } = require('docx');
 
@@ -80,23 +82,25 @@ function headerTable({
   const soParagraph = soLink
     ? cellP([new ExternalHyperlink({
         link: soLink,
-        children: [r(soDisplay, { color: '0563C1' })],
+        children: [r(soDisplay, { color: LINK_VB.color })],
       })])
     : cellP(soDisplay);
   const leftChildren = [
-    cellP(dong1),
+    cellP(dong1, { bold: !dv }),                  // UBND xã ban hành: đậm cả 2 dòng; trực thuộc: dòng 1 (chủ quản) không đậm
     cellP(dong2, { bold: true }),
     divider('coQuan'),                            // Thông số lấy từ DIVIDER.coQuan trong config
     soParagraph,                                  // Số ký hiệu (có thể là hyperlink)
   ];
 
-  // Nếu là Công văn: thêm trích yếu vào cột trái (dưới ký hiệu, không đậm, in nghiêng)
+  // Nếu là Công văn: thêm trích yếu vào cột trái (dưới ký hiệu, không đậm, KIỂU CHỮ ĐỨNG,
+  // 13pt, kết thúc bằng dấu chấm). Hiếu chốt 06/10/2026 theo NĐ 30 (trích yếu công văn: chữ đứng).
   if (loai === 'CV' && trichYeu) {
+    const ty = /[.!?]$/.test(trichYeu.trim()) ? trichYeu.trim() : `${trichYeu.trim()}.`;
     leftChildren.push(
       new Paragraph({
         alignment: AlignmentType.CENTER,
         spacing: sp0,
-        children: [r(`V/v ${trichYeu}`, { italic: true, size: 26 })],  // 13pt
+        children: [r(`V/v ${ty}`, { size: 26 })],  // 13pt, đứng
       })
     );
   }

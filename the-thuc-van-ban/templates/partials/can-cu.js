@@ -12,7 +12,7 @@
  */
 
 const { Paragraph, AlignmentType } = require('docx');
-const { r } = require('./base');
+const { runsCoLink, canhBaoThieuLink } = require('./base');
 const { CANCU_BAT_BUOC_QD, TRANG } = require('../config/config');
 
 /**
@@ -36,6 +36,7 @@ function canCuBlock(dsCanCu = [], opts = {}) {
   return list.map((text, idx) => {
     const isLast = idx === list.length - 1;
     // Đảm bảo kết thúc đúng dấu
+    canhBaoThieuLink(text);
     let content = text.trim();
     if (content.endsWith(",") || content.endsWith(".") || content.endsWith(";")) {
       content = content.slice(0, -1);
@@ -46,7 +47,7 @@ function canCuBlock(dsCanCu = [], opts = {}) {
       alignment: AlignmentType.JUSTIFIED,
       spacing: { before: 0, after: 80, line: 276 },
       indent: { firstLine: TRANG.INDENT },
-      children: [r(content, { italic: true, size: TRANG.BODY })],
+      children: runsCoLink(content, { italic: true, size: TRANG.BODY }),
     });
   });
 }

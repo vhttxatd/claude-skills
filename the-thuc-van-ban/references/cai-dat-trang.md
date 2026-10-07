@@ -1,6 +1,6 @@
 # Cài đặt trang và định dạng cơ bản
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-09-01 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+> **META** · cap_nhat: 2026-10-06 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-10-06 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
 
 ## Trang A4
 
@@ -18,6 +18,18 @@ contentW : lấy bằng contentWidth(loai) trong config — KHÔNG gõ số cứ
 | **Kế hoạch (KH), QĐ, CV, TTr** | 1800 DXA (3.17cm) | 1080 DXA (1.9cm) | 1134 DXA (~2cm) | 1134 DXA |
 
 > Báo cáo dùng lề phải hẹp hơn và lề trên/dưới nhỏ hơn để vừa trang.
+
+### Khoảng cho phép theo NĐ 30/2020/NĐ-CP (Phụ lục I) — `NGHI_DINH_30` trong config
+
+| Thông số | Khoảng cho phép |
+|---|---|
+| Lề trên / lề dưới | 20 - 25mm (1134 - 1417 DXA) |
+| Lề trái | 30 - 35mm (1701 - 1985 DXA) |
+| Lề phải | 15 - 20mm (850 - 1134 DXA) |
+| Giãn dòng | từ dòng đơn (240) đến 1,5 lines (360); mặc định thân văn bản 276 |
+| Giãn đoạn | tối thiểu 6pt |
+
+> Chốt 06/10/2026: lề CV/KH/QĐ/TTr (2cm, 3,17cm, 1,9cm) và giãn dòng 276 ĐÃ ĐÚNG NĐ 30 — không giảm lề trên xuống 1,25cm. `scripts/kiem-tra-dinh-dang.py` tự bắt lề ngoài khoảng. ⚠ Báo cáo (BC) đang lề trên/dưới 1000 DXA (~1,76cm) và phải 900 — lề trên/dưới thấp hơn 20mm của NĐ 30, CHƯA xử lý (chờ Hiếu quyết).
 
 ## Font và cỡ chữ
 
@@ -53,7 +65,7 @@ spacing: { line: 240, before: 120, after: 120 }
 spacing: { before: 0, after: 100, line: 276 }  // ~1.15 lines
 
 // Tiêu đề, chữ ký — sp0
-const sp0 = { before: 0, after: 0, line: 240, lineRule: LineRuleType.EXACT }
+const sp0 = { before: 0, after: 0, line: 240, lineRule: LineRuleType.AUTO }  // AUTO, KHÔNG dùng EXACT (chồng dòng/cụt dấu)
 
 // Heading 1
 spacing: { before: 160, after: 80, line: 276 }

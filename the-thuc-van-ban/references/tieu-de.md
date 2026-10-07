@@ -1,12 +1,16 @@
 # Phần tiêu đề văn bản
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-09-01 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+> **META** · cap_nhat: 2026-10-06 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-10-06 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
 
 ## Cấu trúc bảng tiêu đề 2 cột không viền
 
 Tỉ lệ cột và spacing được cài đặt sẵn trong `templates/partials/header-table.js`
 — không cấu hình lại ở nơi khác. Toàn bộ ô dùng
-`sp0 = { before: 0, after: 0, line: 240, lineRule: LineRuleType.EXACT }`.
+`sp0 = { before: 0, after: 0, line: 240, lineRule: LineRuleType.AUTO }` (dòng đơn tự động; **KHÔNG dùng EXACT** — EXACT 12pt làm chữ 13-14pt chồng dòng/cụt dấu, lỗi lặp lại đã sửa 06/10/2026).
+
+**Dòng 1 cơ quan (chốt 06/10/2026):** UBND xã trực tiếp ban hành → ĐẬM cả 2 dòng ("ỦY BAN NHÂN DÂN / XÃ AN THỚI ĐÔNG"); đơn vị trực thuộc ban hành (`donViBanHanh`) → dòng 1 (cơ quan chủ quản) KHÔNG đậm. Code: `header-table.js` (`bold: !dv`).
+
+**Trích yếu công văn (chốt 06/10/2026, theo NĐ 30):** nằm dưới số ký hiệu, 13pt, **kiểu chữ ĐỨNG** (không nghiêng, không đậm), căn giữa, **kết thúc bằng dấu chấm** (code tự thêm nếu thiếu).
 
 ### Cột trái (căn giữa)
 
@@ -60,7 +64,7 @@ dựng tự động từ `TEN_LOAI` trong config. KHÔNG đặt cỡ chữ khác
 
 - Căn giữa, đậm, 14pt
 - Có thể xuống nhiều dòng
-- Kết thúc bằng dấu chấm (.) — **chỉ với Kế hoạch**; không dấu với các loại khác
+- Kết thúc bằng dấu chấm (.) — **với Kế hoạch và Công văn**; không dấu với các loại khác
 
 ## Dấu gạch ngang divider
 

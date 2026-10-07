@@ -1,6 +1,6 @@
 # Đặc thù từng loại văn bản hành chính
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-09-01 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+> **META** · cap_nhat: 2026-10-07 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-10-06 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
 
 ## So sánh tổng quan
 
@@ -48,6 +48,8 @@ PHỤ LỤC: Bảng phân công chi tiết
 
 ## BÁO CÁO (BC)
 
+> Mở đầu: `moDauBaoCao()` (xem `noi-dung.md`). Báo cáo gửi cơ quan ngoài xã: thân văn bản dùng "xã An Thới Đông".
+
 **Cấu trúc chuẩn:**
 ```
 [Tiêu đề + Trích yếu]
@@ -74,6 +76,8 @@ IV. KIẾN NGHỊ, ĐỀ XUẤT (nếu có)
 
 ## CÔNG VĂN (CV)
 
+> Nơi nhận VB do UBND: xem quy tắc 6 dòng ở `noi-nhan-chu-ky.md`. Công văn chỉ đạo giao nhiều đơn vị: mục đánh số kiểu đơn giản (`mucSo`) và link vào số ký hiệu văn bản dẫn chiếu — xem `noi-dung.md`.
+
 **Cấu trúc chuẩn:**
 ```
 [Tiêu đề — KHÔNG có trích yếu dài]
@@ -88,6 +92,9 @@ Kính gửi: [Tên cơ quan nhận]
 **Đặc điểm:**
 - Không có căn cứ pháp lý dài
 - Có "Kính gửi:" thay cho trích yếu phía dưới
+- **Bố cục Kính gửi (chốt 06/10/2026):** "Kính gửi:" đậm, căn TRÁI, thụt 4,5cm; danh sách thụt 6,5cm, mỗi dòng "- ...;", dòng cuối "." (code `kinh-gui.js`, thông số `KINH_GUI`). Mỗi đơn vị MỘT dòng riêng.
+- **Trích yếu "V/v ...":** kiểu chữ đứng, kết thúc bằng dấu chấm (xem `tieu-de.md`).
+- **Phân công nhiều nhiệm vụ:** thân văn bản viết VĂN XUÔI theo từng đơn vị chủ trì ("Giao ... chủ trì ...; phối hợp ..."), chi tiết (nhiệm vụ, phối hợp, công việc, thời hạn, ghi chú) đưa vào PHỤ LỤC bảng nhóm theo đơn vị chủ trì: `mauCongVan({ phuLuc: phuLuc({...}) })`. Thân văn bản PHẢI khớp bảng phụ lục (bảng là nguồn chuẩn).
 - Ngắn gọn, trực tiếp vào vấn đề
 - Ký hiệu: KHÔNG có chữ "CV" — chỉ số thứ tự + "/" + đơn vị/cơ quan ban hành (VD `15/VHXH`, `3085/UBND`). Đây là quy định thể thức, không phải lựa chọn — ĐỪNG đề xuất thêm biến thể khác.
 
@@ -328,12 +335,13 @@ bp([
 
 ### Đặc điểm quan trọng
 
+- **Trích yếu LUÔN có dạng** "Về việc ban hành [Loại văn bản] [nội dung]." - vì Phiếu trình dùng để trình các văn bản do cấp trên ban hành (hàm `mauPhieuTrinh` tự ghép từ `loaiVanBan` + `trichYeu`)
 - **KHÔNG** dùng cấu trúc căn cứ riêng ở đầu văn bản — căn cứ nằm trong **khoản 1** (Tóm tắt nội dung)
-- Toàn bộ nội dung đặt trong **1 bảng có viền** (allBorders), gồm 2 hàng:
-  - Hàng 1: nội dung chính (khoản 1 + khoản 2 + chữ ký chuyên viên)
-  - Hàng 2: ý kiến Trưởng Phòng
-- Chữ ký **chuyên viên** nằm trong hàng 1, căn phải, cuối phần khoản 2
-- Chữ ký **Trưởng Phòng** nằm trong hàng 2 riêng biệt
+- Toàn bộ nội dung đặt trong **1 bảng có viền** (allBorders), 1 hàng: khoản 1 + khoản 2 + dòng địa danh ngày tháng (căn phải)
+- Ngay dưới dòng địa danh là **bảng lồng 2 cột, không viền**:
+  - Cột 1: **CHUYÊN VIÊN** + họ tên người trình
+  - Cột 2: **Ý kiến của Trưởng Phòng** + nội dung ý kiến (mặc định "Thống nhất") + họ tên Trưởng Phòng
+- Hai họ tên ký nằm cùng một dòng ở cuối khung (bảng ký có 4 hàng cố định: chức danh / ý kiến / khoảng ký 3 dòng trống / họ tên, nên luôn ngang hàng)
 
 ### Cấu trúc chuẩn
 
@@ -341,7 +349,7 @@ bp([
 [Header 2 cột]
 
 PHIẾU TRÌNH
-Về việc [trích yếu].
+Về việc ban hành [Loại văn bản] [nội dung].
 ___________________
 
 Kính gửi: Thường trực Ủy ban nhân dân xã.
@@ -357,14 +365,12 @@ Kính gửi: Thường trực Ủy ban nhân dân xã.
 │    Kính trình ... xem xét, ban hành.         │
 │                                              │
 │         An Thới Đông, ngày ... tháng ... năm │
-│                        CHUYÊN VIÊN           │
+│   CHUYÊN VIÊN     Ý kiến của Trưởng Phòng    │
+│                        Thống nhất            │
 │                                              │
-│                        Phan Trung Hiếu       │
-├─────────────────────────────────────────────┤
-│ Ý kiến của Trưởng Phòng                     │
-│ Thống nhất                                   │
-│                        Nguyễn Văn Chính      │
+│ Phan Trung Hiếu       Nguyễn Văn Chính       │
 └─────────────────────────────────────────────┘
+(2 cột dưới dòng địa danh là bảng lồng không viền)
 ```
 
 ### Quy tắc soạn nội dung
@@ -395,7 +401,7 @@ Phòng Văn hóa - Xã hội đã tham mưu dự thảo [tên văn bản] của 
 Kính trình Thường trực Ủy ban nhân dân xã xem xét, ban hành.
 ```
 
-**Hàng Trưởng Phòng:**
+**Cột Trưởng Phòng (cột 2 của bảng ký):**
 ```
 Ý kiến của Trưởng Phòng
 [Thống nhất / Ý kiến khác nếu có]
@@ -404,14 +410,15 @@ Kính trình Thường trực Ủy ban nhân dân xã xem xét, ban hành.
 
 ### Xuất file — dùng template có sẵn, KHÔNG viết code khung
 
-Thể thức khung (bảng 1 cột 2 hàng, viền, lề ô, vị trí chữ ký) đã đóng gói tại
+Thể thức khung (bảng 1 cột 1 hàng có viền + bảng ký lồng 2 cột không viền, lề ô, vị trí chữ ký) đã đóng gói tại
 `templates/partials/khung-noi-dung.js`. Gọi qua mẫu:
 
 ```javascript
 const { mauPhieuTrinh } = require('./templates/templates/all');
 
 mauPhieuTrinh({
-  trichYeu: "trình ban hành Báo cáo ...",
+  loaiVanBan: "Báo cáo",              // loại VB được trình
+  trichYeu: "kết quả thực hiện ...",  // hàm tự ghép: "Về việc ban hành Báo cáo kết quả thực hiện ..."
   thang: "8", nam: "2026",
   kinhGui: ["Thường trực Ủy ban nhân dân xã"],
   tomTat: ["Căn cứ ...", "Phòng Văn hóa - Xã hội đã ..."],

@@ -1,6 +1,6 @@
 # Code docx-js mẫu hoàn chỉnh
 
-> **META** · cap_nhat: 2026-09-01 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-09-01 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
+> **META** · cap_nhat: 2026-10-06 · nguon_su_that: quy ước thể thức văn bản hành chính của xã An Thới Đông · ra_soat_lai: 2027-10-06 · rui_ro: thap (bổ sung META 01/9/2026, nội dung CHƯA rà)
 
 ## Setup chuẩn
 
@@ -20,7 +20,7 @@ const SMALL = 24;  // 12pt
 const INDENT = 720; // Thụt đầu dòng
 
 // Spacing = 0 tuyệt đối (tiêu đề, chữ ký)
-const sp0 = { before: 0, after: 0, line: 240, lineRule: LineRuleType.EXACT };
+const sp0 = { before: 0, after: 0, line: 240, lineRule: LineRuleType.AUTO }; // AUTO, KHÔNG EXACT
 
 // Border
 const noBorder = { style: BorderStyle.NONE, size: 0, color: "FFFFFF" };

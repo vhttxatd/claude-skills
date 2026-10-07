@@ -36,7 +36,9 @@ function titleBlock(loai, trichYeu, opts = {}) {
     GM:  "",
   };
   const prefix = opts.prefix ?? prefixMap[loai];
-  const trichYeuFull = prefix ? `${prefix} ${trichYeu}` : trichYeu;
+  let trichYeuFull = prefix ? `${prefix} ${trichYeu}` : trichYeu;
+  // Trích yếu LUÔN kết thúc bằng dấu chấm (Hiếu chốt 07/10/2026)
+  if (!/[.!?]$/.test(trichYeuFull.trim())) trichYeuFull = `${trichYeuFull.trim()}.`;
 
   const spTitle = { before: 0, after: 0, line: 276, lineRule: LineRuleType.AUTO };
 

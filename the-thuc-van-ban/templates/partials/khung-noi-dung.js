@@ -1,10 +1,13 @@
 /**
  * partials/khung-noi-dung.js - KHỐI NỘI DUNG ĐÓNG KHUNG (Phiếu trình)
  * ====================================================================
- * Bảng 1 cột, 2 hàng có viền, theo thể thức Phiếu trình nội bộ:
- *   Hàng 1: khoản 1 (Tóm tắt nội dung) + khoản 2 (Ý kiến đề xuất)
- *           + địa danh ngày tháng + chữ ký người trình (căn phải)
- *   Hàng 2: Ý kiến của Trưởng Phòng + chữ ký
+ * Bảng 1 cột, 1 hàng có viền, theo thể thức Phiếu trình nội bộ:
+ *   Khoản 1 (Tóm tắt nội dung) + khoản 2 (Ý kiến đề xuất)
+ *   + dòng địa danh ngày tháng (căn phải)
+ *   + BẢNG LỒNG 2 CỘT không viền, đặt ngay dưới dòng địa danh:
+ *       Cột 1: CHUYÊN VIÊN + họ tên người trình
+ *       Cột 2: Ý kiến của Trưởng Phòng + nội dung ý kiến + họ tên Trưởng Phòng
+ *     (4 hàng cố định: họ tên 2 cột luôn ngang hàng)
  *
  * ⚠️ Đây là NGUỒN DUY NHẤT của thể thức khung Phiếu trình.
  *    Không chép lại code khung này ở references/ hay skill khác.
@@ -14,7 +17,7 @@ const {
   Table, TableRow, TableCell, WidthType, AlignmentType, Paragraph,
 } = require('docx');
 
-const { r, bp, emp, solidBorders } = require('./base');
+const { r, bp, emp, solidBorders, noBorders } = require('./base');
 const { COQUAN, LANHDAO, TRANG, getDinhDang } = require('../config/config');
 
 const KHUNG_MARGIN = { top: 120, bottom: 120, left: 160, right: 160 };
@@ -52,6 +55,45 @@ function khungNoiDungPhieuTrinh({
     children: [r(text, { bold: opts.bold, italic: opts.italic, size: TRANG.BODY })],
   });
 
+  // ---- Bảng ký lồng 2 cột, không viền ----
+  const innerW = contentW - KHUNG_MARGIN.left - KHUNG_MARGIN.right;
+  const colW = Math.floor(innerW / 2);
+  const giua = (text, opts = {}) => new Paragraph({
+    alignment: AlignmentType.CENTER,
+    spacing: { before: opts.before ?? 0, after: opts.after ?? 0, line },
+    children: [r(text, { bold: opts.bold, italic: opts.italic, size: TRANG.BODY })],
+  });
+  const oKy = (children, w) => new TableCell({
+    borders: noBorders,
+    width: { size: w, type: WidthType.DXA },
+    children,
+  });
+  // 4 hàng cố định để họ tên 2 cột LUÔN cùng một dòng (không phụ thuộc số dòng từng cột):
+  //   1) chức danh  2) ý kiến (cột 1 để trống)  3) khoảng ký  4) họ tên
+  const hangKy = (c1, c2) => new TableRow({
+    children: [oKy(c1, colW), oKy(c2, colW)],
+  });
+  const bangKy = new Table({
+    width: { size: colW * 2, type: WidthType.DXA },
+    columnWidths: [colW, colW],
+    borders: noBorders,
+    rows: [
+      hangKy(
+        [giua(chucDanhNguoiTrinh, { bold: true })],
+        [giua("Ý kiến của Trưởng Phòng", { bold: true })],
+      ),
+      hangKy(
+        [giua("")],
+        [giua(yKienTruongPhong)],
+      ),
+      hangKy([...emp(3)], [...emp(3)]),          // khoảng ký (đã thêm 1 dòng trống)
+      hangKy(
+        [giua(nguoiTrinh, { bold: true })],
+        [giua(truongPhong, { bold: true })],
+      ),
+    ],
+  });
+
   const hang1 = [
     bp([r("1. Tóm tắt nội dung:", { bold: true, size: TRANG.BODY })],
        { noIndent: true, before: 0, after: 80, line }),
@@ -59,25 +101,17 @@ function khungNoiDungPhieuTrinh({
     bp([r("2. Ý kiến đề xuất của người trình:", { bold: true, size: TRANG.BODY })],
        { noIndent: true, before: 0, after: 80, line }),
     ...deXuat.map((t, i) => bp(t, { after: i === deXuat.length - 1 ? 160 : 60, line })),
-    canPhai(diaDanhNgay, { italic: true }),
-    canPhai(chucDanhNguoiTrinh, { bold: true, before: 60 }),
-    ...emp(3),
-    canPhai(nguoiTrinh, { bold: true }),
-  ];
-
-  const hang2 = [
-    bp([r("Ý kiến của Trưởng Phòng", { bold: true, size: TRANG.BODY })],
-       { noIndent: true, before: 0, after: 60, line }),
-    bp(yKienTruongPhong, { noIndent: true, after: 120, line }),
-    ...emp(2),
-    canPhai(truongPhong, { bold: true }),
+    canPhai(diaDanhNgay, { italic: true, after: 60 }),
+    bangKy,
+    // Ô bảng phải kết thúc bằng 1 đoạn (yêu cầu của Word khi có bảng lồng)
+    new Paragraph({ spacing: { before: 0, after: 0, line: 200 }, children: [r("", { size: TRANG.BODY })] }),
   ];
 
   return new Table({
     width: { size: contentW, type: WidthType.DXA },
     columnWidths: [contentW],
     borders: solidBorders,
-    rows: [hang1, hang2].map(children => new TableRow({
+    rows: [hang1].map(children => new TableRow({
       children: [new TableCell({
         borders: solidBorders,
         margins: KHUNG_MARGIN,

@@ -7,13 +7,21 @@
 const { Document } = require('docx');
 const { pageProperties, pageNumbering } = require('./page-setup');
 const { getDinhDang, TRANG, HEADING } = require('../config/config');
+const { layChuThich } = require('./base');
 const { AlignmentType } = require('docx');
 
-function buildDocument(loai, children) {
+/**
+ * @param {string} loai
+ * @param {Array}  children
+ * @param {object} [phuLuc] - kết quả của partials/phu-luc.js: { ngang:boolean, children:Array }.
+ *        ngang=true → section KHỔ NGANG riêng; ngang=false → nối tiếp trong cùng section (đã có page break).
+ */
+function buildDocument(loai, children, phuLuc) {
   const dd = getDinhDang(loai);
   const pageNum = pageNumbering(loai);
 
   return new Document({
+    footnotes: layChuThich(),     // chú thích cuối trang đăng ký bằng chuThich(n, text)
     styles: {
       default: {
         document: {
@@ -43,12 +51,17 @@ function buildDocument(loai, children) {
         };
       }),
     },
-    sections: [{
-      properties: pageProperties(loai),
-      headers: pageNum.headers,
-      footers: pageNum.footers,
-      children,
-    }],
+    sections: (phuLuc && phuLuc.ngang)
+      ? [
+          { properties: pageProperties(loai), headers: pageNum.headers, footers: pageNum.footers, children },
+          { properties: pageProperties(loai, { ngang: true }), headers: pageNum.headers, footers: pageNum.footers, children: phuLuc.children },
+        ]
+      : [{
+          properties: pageProperties(loai),
+          headers: pageNum.headers,
+          footers: pageNum.footers,
+          children: phuLuc ? [...children, ...phuLuc.children] : children,
+        }],
   });
 }
 
