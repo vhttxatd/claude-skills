@@ -1,12 +1,6 @@
 ---
 name: quy-tac-chung
-description: >
-  Dữ liệu nền dùng chung: cán bộ, đơn vị, viết tắt, địa bàn, văn bản căn cứ xã An Thới Đông.
-  QUAN TRỌNG: file này còn chứa kỷ luật vận hành BẮT BUỘC áp dụng trong MỌI
-  cuộc trò chuyện với Hiếu, mọi chủ đề, mọi project — tiết kiệm token, không
-  tự ý đọc/xuất file, bàn giao trước khi đổi chat. Đọc phần CỐT LÕI của file
-  này khi bắt đầu bất kỳ phiên làm việc nào với Hiếu, kể cả khi chủ đề chat
-  không liên quan cán bộ/đơn vị/viết tắt/địa bàn.
+description: "Dữ liệu nền dùng chung: cán bộ, đơn vị, viết tắt, địa bàn, văn bản căn cứ xã An Thới Đông. QUAN TRỌNG: file này còn chứa kỷ luật vận hành BẮT BUỘC áp dụng trong MỌI cuộc trò chuyện với Hiếu, mọi chủ đề, mọi project — tiết kiệm token, không tự ý đọc/xuất file, bàn giao trước khi đổi chat. Đọc phần CỐT LÕI của file này khi bắt đầu bất kỳ phiên làm việc nào với Hiếu, kể cả khi chủ đề chat không liên quan cán bộ/đơn vị/viết tắt/địa bàn.\n"
 ---
 
 
