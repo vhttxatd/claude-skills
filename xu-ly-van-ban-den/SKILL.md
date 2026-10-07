@@ -1,13 +1,6 @@
 ---
-name: xu-ly-van-ban-den
-description: >
-  Xử lý văn bản đến hàng ngày cho Hiếu (KHCN-CĐS, UBND xã An Thới Đông): từ nội dung
-  Hiếu dán vào chat (trích yếu, số ký hiệu, đơn vị ban hành, ngày đến từ hệ thống
-  QLVBĐH TP.HCM) → đề xuất tên lưu trữ file → đề xuất đầy đủ thông tin lưu vào Notion
-  "Tbl_QLVB_ATĐ" → sau khi Hiếu xác nhận thì lưu → tự tìm file trên Google Drive và
-  gắn link → hỏi có tạo việc theo dõi trong "TodoListATĐ" và có lưu song song vào
-  Nexus không. Kích hoạt khi Hiếu dán thông tin văn bản (Trích yếu/Số ký hiệu/Đơn vị
-  ban hành/Ngày đến), hoặc gõ "gắn link", "lưu đi", "tạo việc".
+name: "xu-ly-van-ban-den"
+description: "Xử lý văn bản đến hàng ngày cho Hiếu (KHCN-CĐS, UBND xã An Thới Đông): từ nội dung Hiếu dán vào chat (trích yếu, số ký hiệu, đơn vị ban hành, ngày đến từ hệ thống QLVBĐH TP.HCM) → đề xuất tên lưu trữ file → đề xuất đầy đủ thông tin lưu vào Notion \"Tbl_QLVB_ATĐ\" → sau khi Hiếu xác nhận thì lưu → tự tìm file trên Google Drive và gắn link → hỏi có tạo việc theo dõi trong \"TodoListATĐ\" và có lưu song song vào Nexus không. Kích hoạt khi Hiếu dán thông tin văn bản (Trích yếu/Số ký hiệu/Đơn vị ban hành/Ngày đến), hoặc gõ \"gắn link\", \"lưu đi\", \"tạo việc\".\n"
 ---
 
 
@@ -193,6 +186,9 @@ link ẩu); Hiếu tự tải lên rồi báo lại.
    - **File mềm** (Google Doc sửa được) = cụm `([File mềm](link))` đặt ở **ĐẦU** Trích
      yếu. Không đặt link file mềm vào Link hay Ghi chú.
    - Văn bản chưa có bản ký chính thức: chưa có PDF → Link để "chưa có link".
+
+> **Link này cũng là nguồn cho văn bản SOẠN RA:** khi soạn công văn/kế hoạch dẫn chiếu văn bản đã lưu, lấy `Link` ở đây để gắn
+> vào số ký hiệu trong thân văn bản (xem `the-thuc-van-ban/references/noi-dung.md`, mục "Dẫn chiếu văn bản"). Chưa có link ở đây = chưa gắn được.
 
 ### Bước 6 — Hai câu hỏi bắt buộc sau khi lưu Notion (gắn link xong)
 
