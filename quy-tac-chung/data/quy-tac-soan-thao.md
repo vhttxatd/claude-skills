@@ -1,15 +1,13 @@
 # Quy tắc soạn thảo — chi tiết
 
-> **META** · cap_nhat: 2026-10-07 · nguon_su_that: quy ước soạn thảo của Hiếu + thể thức trong skill `the-thuc-van-ban` + trang Wikipedia "Signs of AI writing" (đối chiếu 06/10/2026, cho mục 4) · ra_soat_lai: 2027-04-06 · rui_ro: trung (mục 4 thêm 06/10/2026; mục 1-3 bổ sung META 01/9/2026, nội dung CHƯA rà)
+> **META** · cap_nhat: 2026-10-07 · nguon_su_that: quy ước soạn thảo của Hiếu + thể thức trong skill `the-thuc-van-ban` + trang Wikipedia "Signs of AI writing" (đối chiếu 06/10/2026, cho mục 4) · ra_soat_lai: 2027-04-07 · rui_ro: trung (mục 4 thêm 06/10/2026; mục 1.1 thêm 07/10/2026; mục 1-3 bổ sung META 01/9/2026, nội dung CHƯA rà)
 
 > Đọc khi: soạn văn bản hành chính (kế hoạch, công văn, báo cáo, quyết định…).
 
 ---
 
 ## 1. DẪN CHIẾU VĂN BẢN — THÔNG TIN ĐẦY ĐỦ
-**Link van ban:** Lần nhắc đầu tiên của một văn bản trong cùng văn bản đang soạn thì gắn hyperlink vào số ký hiệu (màu 1F3864, không gạch chân); các lần nhắc sau chỉ ghi chữ, không gắn link.
-**Lần nhắc đầu tiên** trong văn bản: ghi ĐỦ loại + số/ký hiệu + ngày + cơ quan ban hành + trích yếu (Hiếu chốt 07/10/2026).
-**Từ lần nhắc thứ 2 trở đi**: chỉ cần số/ký hiệu, ngày, cơ quan ban hành (bỏ trích yếu).
+
 Khi cần dẫn chiếu một văn bản mà thiếu bất kỳ thông tin nào trong 4 yếu tố:
 **(1) Số/ký hiệu — (2) Ngày ban hành — (3) Cơ quan ban hành — (4) Trích yếu**
 
@@ -20,22 +18,13 @@ Dừng lại, hỏi người dùng ngay:
 KHÔNG được tự bịa hoặc để trống mà không báo.
 Nếu người dùng chọn để sau: dùng ký hiệu `[...]` thay cho phần thiếu.
 
-**Gắn link (bắt buộc từ 07/10/2026):** mỗi văn bản dẫn chiếu trong thân văn bản phải gắn hyperlink Drive vào SỐ ký hiệu.
-Trước khi soạn: tra link trong Notion `Tbl_QLVB_ATĐ` (chỉ lấy đường dẫn). Không có link → báo Hiếu, không tự bỏ qua.
-Cách viết và code: skill `the-thuc-van-ban`, `references/noi-dung.md` mục "Dẫn chiếu văn bản".
-
 **Ví dụ đúng:**
 - Đầy đủ: Công văn số 4800/SKHCN-KTSXHS ngày 15 tháng 10 năm 2025 của Sở Khoa học và Công nghệ về kiện toàn Tổ Công nghệ số cộng đồng.
 - Thiếu ngày: Công văn số 4800/SKHCN-KTSXHS ngày [...] của Sở Khoa học và Công nghệ về kiện toàn Tổ Công nghệ số cộng đồng.
 
----
+### 1.1 Link văn bản
 
-## 1b. TÊN "XÃ" TRONG THÂN VĂN BẢN (Hiếu chốt 07/10/2026)
-
-- VB do UBND xã ban hành và gửi đơn vị NGOÀI xã (sở, ngành, Thành phố, xã/phường khác — cần phân biệt rõ tên xã): viết "Ủy ban nhân dân **xã An Thới Đông**", "Công an **xã An Thới Đông**"...
-- VB chỉ gửi trong hệ thống chính trị của xã: "Ủy ban nhân dân **xã**" là đủ.
-- Chỉ áp dụng cho nội dung, phần thân VB; KHÔNG áp cho Nơi nhận, bảng tiêu đề. "xã" làm địa danh chung ("trên địa bàn xã") giữ nguyên.
-- Code: `tenUBND(guiNgoai)` (config); kiểm tra file đã xuất: `node scripts/kiem-tra-the-thuc.js file.docx --ngoai`.
+Lần nhắc đầu tiên của một văn bản trong cùng văn bản đang soạn thì gắn hyperlink vào số ký hiệu (màu 1F3864, không gạch chân); các lần nhắc sau chỉ ghi chữ, không gắn link.
 
 ---
 
