@@ -127,6 +127,21 @@ if (canhBao.length) {
   canhBao.forEach((c) => console.log(`    - ${c}`));
 }
 
+// Dòng kẻ ngăn cách vùng chú thích: file xuất từ Google Docs sang Word có thể để 2 mục separator RỖNG → Word không vẽ đường kẻ.
+const loiNgan = [];
+try {
+  const fx = execSync(`unzip -p ${JSON.stringify(file)} word/footnotes.xml`, { maxBuffer: 64 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'] }).toString('utf8');
+  [['separator', '<w:separator/>'], ['continuationSeparator', '<w:continuationSeparator/>']].forEach(([kieu, the]) => {
+    const m = fx.match(new RegExp(`<w:footnote [^>]*w:type="${kieu}"[^>]*>[\\s\\S]*?</w:footnote>`));
+    if (m && !m[0].includes(the)) loiNgan.push(`Footnote "${kieu}" rỗng (thiếu ${the}) — Word sẽ MẤT dòng kẻ ngăn cách phía trên chú thích`);
+  });
+} catch (e) { /* không có footnotes.xml → văn bản không có chú thích */ }
+if (loiNgan.length) {
+  console.log(`\n  ✗ DÒNG KẺ NGĂN CÁCH FOOTNOTE (separator rỗng): ${loiNgan.length} lỗi`);
+  loiNgan.forEach((l) => console.log(`    - ${l}`));
+  console.log('  → Vá word/footnotes.xml: thêm <w:separator/> / <w:continuationSeparator/> vào đúng 2 mục đó.\n');
+}
+
 if (loi.length) {
   console.log(`\n  ✗ PHÁT HIỆN ${loi.length} LỖI THỂ THỨC:`);
   loi.forEach((l) => console.log(`    - ${l}`));
@@ -137,3 +152,4 @@ if (loi.length) {
 }
 
 console.log('\n  ✓ Không phát hiện lỗi đánh số / gạch đầu dòng sai chỗ.\n');
+if (loiNgan.length) process.exit(1);

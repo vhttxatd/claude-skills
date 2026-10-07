@@ -4,7 +4,7 @@ description: "Định dạng, thể thức, code docx-js cho văn bản hành ch
 ---
 
 
-> **META** · cap_nhat: 2026-10-06 · nguon_su_that: Nghị định 30/2020/NĐ-CP về công tác văn thư · ra_soat_lai: 2027-04-06 · rui_ro: trung
+> **META** · cap_nhat: 2026-10-07 · nguon_su_that: Nghị định 30/2020/NĐ-CP về công tác văn thư · ra_soat_lai: 2027-04-07 · rui_ro: trung
 
 > **Đọc tối thiểu:** SKILL.md này + `quy-tac-chung/SKILL.md` (phần cốt lõi). Skill này tự đủ — chỉ mở các file `references/...` khi đến bước cụ thể (xem mục lục bên dưới).
 
@@ -24,7 +24,7 @@ description: "Định dạng, thể thức, code docx-js cho văn bản hành ch
 | `references/dau-cau.md` | Dấu câu, ngoặc kép, gạch ngang, **số trang (footer vs header)** | Mọi loại văn bản |
 | `references/loai-van-ban.md` | Đặc thù từng loại: KH, BC, CV, TTr, QĐ, TB | Khi soạn loại cụ thể |
 | `references/code-docxjs.md` | Code mẫu docx-js hoàn chỉnh | Khi xuất file Word |
-| `scripts/` | `kiem-tra-the-thuc.js` (đánh số), `kiem-tra-dinh-dang.py` (định dạng), `so-sanh-voi-ban-chot.py` (so với bản Hiếu hoàn thiện) | Trước khi giao file |
+| `scripts/` | `kiem-tra-the-thuc.js` (đánh số), `kiem-tra-dinh-dang.py` (định dạng), `so-sanh-voi-ban-chot.py` (so với bản Hiếu hoàn thiện), `kiem-tra-ap-dung.js` (kiểm tra skill đã áp dụng đủ — chỉ chạy, không đọc) | Trước khi giao file |
 | `templates/` | **Bộ template 7 loại VB** (CV/BC/KH/TTr/QĐ/TB/GM) — modular, sửa 1 chỗ cập nhật mọi mẫu | **Ưu tiên dùng** khi xuất văn bản |
 
 ---
@@ -234,6 +234,7 @@ mọi tình huống sau:
 2b. Chạy `python3 scripts/kiem-tra-dinh-dang.py <file.docx>` — bắt lỗi ĐỊNH DẠNG hay lặp lại:
    giãn dòng EXACT gây chồng dòng/cụt dấu, lề ngoài khoảng NĐ 30, divider `-` thay vì `—`,
    trích yếu CV in nghiêng/thiếu dấu chấm, "Kính gửi:" căn giữa. Có LỖI → sửa trong config/partials, xuất lại.
+2c. `kiem-tra-the-thuc.js` tự soi cả **dòng kẻ ngăn cách footnote**: file nhận lại từ Google Docs có thể để mục `separator` / `continuationSeparator` trong `word/footnotes.xml` RỖNG → Word mất đường kẻ phía trên chú thích. Script báo LỖI; cách vá: thêm `<w:separator/>` vào mục `separator` và `<w:continuationSeparator/>` vào mục `continuationSeparator`, không đụng phần khác.
 3. Chuyển PDF → render ảnh **≥150 dpi** (`pdftoppm -r 150`; 60-70 dpi KHÔNG đủ để thấy chồng dòng) →
    **xem bằng mắt**, tối thiểu: crop 30% đầu trang 1 (bảng tiêu đề + Kính gửi), trang có chữ ký, 1 trang phụ lục.
 4. Đối chiếu: tên chủ quản, độ dài 3 divider, phân cấp đề mục, số trang ở đầu
@@ -242,6 +243,8 @@ mọi tình huống sau:
 6. Khi Hiếu gửi lại BẢN ĐÃ SỬA TAY: chạy `python3 scripts/so-sanh-voi-ban-chot.py <ban_xuat> <ban_chot>`;
    mỗi khác biệt có chủ đích phải được đưa vào `config/partials` + tài liệu `references/` NGAY trong phiên đó
    (file của Hiếu sửa qua Google Docs: bỏ qua nhiễu exact→auto, rsid). Không để lỗi lặp lại ở lần xuất sau.
+7. Sau mỗi lần sửa skill này, chạy kiểm tra áp dụng từ thư mục tạm (KHÔNG chạy trong thư mục skill, KHÔNG đọc nội dung script):
+   `mkdir -p /home/claude/kt && cd /home/claude/kt && NODE_PATH=/home/claude/.npm-global/lib/node_modules node /mnt/skills/plugins/the-thuc-van-ban/scripts/kiem-tra-ap-dung.js` — ra dòng "TẤT CẢ PASS" là đạt.
 
 > Ngoại lệ đã biết: `sinh-hoat-chi-bo` dùng font **Arial** theo thể thức văn bản
 > Đảng — khác biệt này ghi tại chính skill đó, không áp dụng ngược lại vào đây.
